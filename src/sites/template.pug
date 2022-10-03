@@ -1,0 +1,50 @@
+include /image_mixin.pug
+include /space_mixin.pug
+
+doctype html
+html(class="")
+    head
+        title Jérôme Stephan - #{title}
+
+        meta(name="theme-color" content="orangered")
+
+        script.
+            function color_toggle() {
+                const event = new Event('color_change');
+                if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)){
+                    localStorage.theme = 'light';
+                    document.documentElement.classList.remove('dark');
+                    event.value='light';
+                }
+                else  {
+                    localStorage.theme = 'dark';
+                    document.documentElement.classList.add('dark');
+                    event.value='dark';
+                }
+                event.key = "color"; // Optional..
+                document.dispatchEvent(event);
+            }
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark')
+            } else {
+                document.documentElement.classList.remove('dark')
+            }
+
+
+        link(rel='stylesheet', type='text/css', href='/css/style.css')
+    body(class=" \
+        pt-[10vh] \
+        selection:bg-darkslateblue \
+        selection:text-orangered \
+        bg-orange-50 dark:bg-dark-orange \
+        dark:text-white \
+        font-freizeit \
+        md:cursor-custom md:dark:cursor-custom-dark")
+
+        //header+footer
+        include /navbar.pug
+
+        div(class="p-2 max-w-screen-3xl m-auto")
+            block content
+        
+        script(type="module" src="/js/main.js")

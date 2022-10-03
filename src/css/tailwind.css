@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "Freizeit-Regular";
+    src: url("/fonts/Freizeit-Regular.otf");
+}
+@font-face {
+    font-family: "Pluto-Regular";
+    src: url("/fonts/Pluto.ttf");
+}
+@font-face{
+    font-family: "Icons";
+    src:url("/fonts/Icons.woff2");
+    unicode-range:U+E000-E15C,U+F0000,U+FE0E
+}
+
+@layer utilities {
+    .rotated-nav {
+        max-width: 100vh;
+        transform-origin: top right;
+        transform: translate(-100%, 0%) rotate(-90deg);
+    }
+
+    .rotated-footer {
+        max-width: 100vh;
+        transform-origin: bottom left;
+        transform: translate(100vw, 0%) rotate(-90deg);
+    }
+
+    a{
+        @apply cursor-custom-clk;
+    }
+  }

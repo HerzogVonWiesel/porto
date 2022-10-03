@@ -1,0 +1,32 @@
+- var screen_3xl = "1920px" //REFER TO TAILWIND CONFIG
+- var screen_md = "768px" //REFER TO TAILWIND CONFIG
+
+include mixin_responsive_image.pug 
+
+mixin a_ref(ref)
+    if ref 
+        a(ref=ref)
+            block 
+    else 
+        block
+
+mixin pf_img({name, source, ref, width="1/2", aspect_ratio="1/1", description, is_video=false} = {})
+    - var aspect_ratio = "aspect-["+aspect_ratio+"]"
+    - var to_eval = width
+    if width == "full"
+        - to_eval = "1"
+    - var image_mul = eval(to_eval).toString()
+    - var sizes = "(max-width: "+screen_md+") 100vw, (min-width: "+screen_3xl+") calc("+screen_3xl+" * "+image_mul+"), calc(100vw * "+image_mul+")"
+    
+    div(class="w-full md:w-"+width+" p-2")
+        +a_ref(ref)
+            if is_video
+                video(class=aspect_ratio+" w-full object-cover" loop autoplay playsinline muted src=source) 
+            else
+                +responsive_image(source, sizes)(alt="" class=aspect_ratio+" w-full object-cover")
+            div(class="w-full items-start")
+                if name
+                    if description
+                        - name = name+" • "
+                    span(class="")= name
+                    span(class="text-xs align-middle")= description

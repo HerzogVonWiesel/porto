@@ -1,0 +1,15 @@
+<svg width="30" height="30" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>Layer 1</title>
+  <rect fill="#ffffff" opacity="NaN" x="0" y="0" width="4" height="25" id="svg_1"/>
+ </g>
+
+ <g>
+  <title>Layer 1</title>
+  <rect fill="#ffffff" opacity="NaN" x="0" y="0" width="25" height="4" id="svg_1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <rect fill="#ffffff" opacity="NaN" x="0" y="0" width="4" height="35" transform="translate(-3 0) rotate(-45 0 0)" id="svg_1"/>
+ </g>
+</svg>
