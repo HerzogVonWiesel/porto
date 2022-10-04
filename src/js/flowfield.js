@@ -8,9 +8,9 @@ let columns;
 let rows;
 let noiseZ;
 //noisewaves
-let tick;
-let mouseX;
-let mouseY;
+let unit = 100;
+let xAxis = 0;
+let yAxis;
 //flowparticles
 let particles;
 class Particle {
@@ -78,9 +78,17 @@ let bright_stroke = "white";
 let bg = bright_bg;
 let stroke=dark_stroke;
 
+let timer;
+let cases = -1;
+canvas = document.querySelector("#canvas");
+ctx = canvas.getContext("2d");
+window.addEventListener("resize", resetCanvas);
+
+size=30;
+resetCanvas();
+
 if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)')).matches) {
-    bg=dark_bg;
-    stroke=bright_stroke;
+    change_color();
 }
 
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) { 
@@ -96,6 +104,7 @@ function change_color() {
         bg=bright_bg;
         stroke=dark_stroke;
     }
+    resetDrawing();
 }
   
 document.addEventListener("color_change", change_color, false);
@@ -104,13 +113,12 @@ document.addEventListener("color_change", change_color, false);
 
 //setup for particles(size=12) and flowfield(size=30)
 function setup(sizer=30) { //fp
-  size = sizer;
-  noiseZ = 0;
-  noise.seed(Math.random());
-  canvas = document.querySelector("#canvas");
-  ctx = canvas.getContext("2d");
-  reset();
-  window.addEventListener("resize", reset);
+    size = sizer;
+    noiseZ = 0;
+    noise.seed(Math.random());
+    ctx.strokeStyle = stroke;
+    ctx.lineWidth = 1.0;
+    initDatafields();
 }
 
 function initField() { //f
@@ -150,27 +158,30 @@ function pcalculateField() { //p
     for(let y = 0; y < rows; y++) {
         let angle = noise.simplex3(x/20, y/20, noiseZ) * Math.PI * 2;
         let length = noise.simplex3(x/50 + 40000, y/50 + 40000, noiseZ) * 0.3;
-        let v = new Vector(0, length*10.0);
+        let v = new Vector(0, length*5.0);
         v.setAngle(angle);
         field[x][y] = v;
     }
     }
 }
 
-function drawBackground(alpha) {
-    ctx.fillStyle = convertHexToRGBA(bg, alpha);
+function drawBackground() {
     ctx.fillRect(0, 0, w, h);
 }
 
-function reset() {
+function resetCanvas() {
     canvas.style.width = "100%";
     canvas.style.height = "100%";
     w = canvas.width = canvas.offsetWidth;//window.innerWidth;
     h = canvas.height = canvas.offsetHeight;//window.innerHeight;
+    yAxis = Math.floor(h/2);
+    resetDrawing();
+}
+
+function initDatafields(){
     noise.seed(Math.random());
     columns = Math.floor(w / size) + 1;
     rows = Math.floor(h / size) + 1;
-    drawBackground(1);
     initParticles();
     initField();
 }
@@ -179,7 +190,7 @@ function fdraw() {
   requestAnimationFrame(draw);
   fcalculateField();
   noiseZ += 0.003;
-  drawBackground(0.3);
+  drawBackground();
   drawField();
 }
 
@@ -187,27 +198,46 @@ function pdraw() {
     requestAnimationFrame(draw);
     pcalculateField();
     noiseZ += 0.002;
-    drawBackground(0.01);
+    ctx.fillStyle = convertHexToRGBA(bg, 0.02);
+    drawBackground();
     drawParticles();
 }
 
-let timer;
-let cases = 0;
+function wdraw() {
+    requestAnimationFrame(draw);
+    drawBackground();
+    noiseZ += 0.002;
+    for(let i = -10; i < 10; i++){
+        drawSine(noiseZ, i);
+    }
+}
+
+function resetDrawing() {
+    if(cases == 0){
+        setup(30);
+        clear();
+        ctx.fillStyle = convertHexToRGBA(bg, 0.25);
+    }
+    if(cases == 1){
+        setup(8);
+        clear();
+    }
+    if(cases == 2){
+        clear();
+        ctx.fillStyle = convertHexToRGBA(bg, 0.25);
+        ctx.strokeStyle = stroke;
+        ctx.lineWidth = 1;
+        ctx.lineJoin = 'round';
+    }
+}
 function draw() {
-    if(!timer)
+    if(!timer){
         timer = Date.now();
-    else if (Date.now() - timer > 3000){
+    }
+    if (Date.now() - timer > 3000 || cases == -1){
         timer = null;
-        cases = (cases+1) % 2;
-        if(cases == 0){
-            clear();
-            setup(30);
-        }
-        if(cases == 1){
-            clear();
-            setup(8);
-        }
-        
+        cases = (cases+1) % 3;
+        resetDrawing();
     }
     switch (cases){
         case 0:
@@ -215,6 +245,9 @@ function draw() {
             break;
         case 1:
             pdraw();
+            break;
+        case 2:
+            wdraw();
             break;
     }   
     
@@ -233,8 +266,6 @@ function drawField() {
       ctx.save();
       ctx.translate(x * size, y * size);
       ctx.rotate(angle);
-      ctx.strokeStyle = stroke;
-      ctx.lineWidth = 1.0;
       ctx.beginPath();
       ctx.moveTo(0, 0);
       ctx.lineTo(0, size * length + 10);
@@ -248,7 +279,6 @@ function drawField() {
 }
 
 function drawParticles() {
-    let hue = Math.sin(noiseZ) * 30;
     ctx.fillStyle = stroke;
     particles.forEach(p => {
     p.draw();
@@ -262,5 +292,19 @@ function drawParticles() {
     });
 }
 
-setup(30);
+function drawSine(t, offset_y) {
+    var x = t;
+    var y = Math.sin(x)
+    ctx.moveTo(yAxis, unit*y+xAxis);
+    ctx.beginPath();
+    // Loop to draw segments
+    for (i = xAxis-1; i <= w; i += 2) {
+        x = t+(-xAxis+i)/unit;
+        y = Math.sin(x+10*noise.simplex3(0, offset_y/30, noiseZ))+offset_y/3;
+        ctx.lineTo(i, unit*y+yAxis+(30*noise.simplex3(i, 0, noiseZ)*noise.simplex3(x/3, 10, noiseZ)));
+    }
+  ctx.stroke();  
+}
+
+clear();
 draw();
