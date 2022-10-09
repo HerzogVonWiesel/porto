@@ -12,28 +12,19 @@ block content
     h2(class="text-4xl text-center text-orangered tracking-wide z-10") Technical Artist + 3D Artist + Programmer
 
     //flowfield
-    
     div(class="px-2 md:max-3xl:px-[10vw] -mt-20 relative h-[65vh] -z-10")
-        //-iframe(src="https://herzogvonwiesel.github.io/flowfield/" class="w-full h-[55vh]")
         canvas(id="canvas")
         script(src="/js/ps_noises.js ")
         script(src="/js/vector_utils.js")
         script(src="/js/flowfield.js")
-        //-div(class="absolute inset-0")
         
     //gallery
     div(class="relative pt-28 invisible") Divider
     h2(class="text-5xl px-2 max-md:hidden") SELECTED <br> !{space(11)} PROJECTS ︎︎︎
     h2(class="text-5xl px-2 md:hidden") SELECTED <br> PROJECTS ︎︎︎
     div(class="flex flex-wrap m-auto")
-        +pf_img({name:"aerock", source:"/images/assemble-1.mp4", width:"full", aspect_ratio:"3/1", is_video:true, ref:"xxx", description:"An aerodynamics Houdini experiment, 2021"})
-        +pf_img({name:"2018 project", source:"/images/unsplash1.jpeg", ref:"xxx", description:"2018"})
-        +pf_img({name:"2019 exploration", source:"/images/unsplash2.jpeg"})
-        +pf_img({name:"fun times", source:"/images/unsplash3.jpeg", width:"full", aspect_ratio:"2/1"})
-
-
-    div(class="flex flex-wrap m-auto")
-        div(class="w-full md:w-full p-2 py-8")
-            h2(class="text-8xl text-left") Federal Bureau of Control
-        p(class="text-xl w-full md:w-1/4 p-2") ↝ !{space(4)} Description
-        p(class="text-xl w-full md:w-3/4 p-2") aerock - a wind tunnel experiment that came from a post-it idea I wrote half-drunk at 2 AM. Originally planned to finish in one (1) weekend. Didn't pan out at all, but I learned a ton about Houdini, all kinds of smoke simulation (definitely check out Axiom!) and well, that 24 gigs of RAM is not enough for hungry, hungry Houdini.
+        -console.log("projects:")
+        each project, key in projects
+            - var proj_ref = `/sites/projects/${key}/index.html`
+            - console.log(project.name)
+            +pf_img({name:project.name, source:project.cover_img, width:project.width, aspect_ratio:project.aspect_ratio, is_video:project.is_cover_video, ref:proj_ref, description:project.subtitle+", "+project.year})

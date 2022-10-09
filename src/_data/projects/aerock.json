@@ -1,0 +1,19 @@
+{
+    "order": 1,
+    "name": "aerock",
+    "subtitle": "An aerodynamics Houdini experiment",
+    "year": "2021",
+    "description": "yadda yadda yadda",
+    "tools": "Houdini, Axiom, Redshift, After Effects",
+    "cover_img": "/images/assemble-1.mp4",
+    "is_cover_video": true,
+    "aspect_ratio": "3/1",
+    "width": "full",
+    "media": [{
+        "title": "Final Render",
+        "src": "/images/assemble-1.mp4",
+        "is_video": true,
+        "aspect_ratio": "2/1",
+        "width": "full"
+    }]
+}

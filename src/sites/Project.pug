@@ -1,0 +1,17 @@
+---
+pagination:
+    data: projects 
+    size: 1
+    alias: project
+permalink: "= `sites/projects/${project}/index.html`"
+---
+extends template
+
+block content
+    - var cur_project = projects[project]
+    - console.log("Creating project "+cur_project.name)
+    div(class="relative pt-14 invisible") Divider
+    +pf_description({title: cur_project.name, description: cur_project.description, tools: cur_project.tools})
+    div(class="relative pt-14 invisible") Divider
+    each media in cur_project.media
+        +pf_img({name:media.title, source:media.src, width:media.width, aspect_ratio:media.aspect_ratio, is_video:media.is_video})

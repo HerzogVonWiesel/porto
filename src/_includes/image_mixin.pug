@@ -5,10 +5,19 @@ include mixin_responsive_image.pug
 
 mixin a_ref(ref)
     if ref 
-        a(ref=ref)
+        a(href=ref)
             block 
     else 
         block
+
+mixin pf_description({title, description, tools} = {})
+     div(class="flex flex-wrap m-auto")
+        div(class="w-full md:w-full p-2 py-8")
+            h2(class="text-8xl text-left")= title
+        p(class="text-xl w-full md:w-1/4 p-2") ↝ !{space(4)} Description
+        p(class="text-xl w-full md:w-3/4 p-2")= description
+        p(class="text-xl w-full md:w-1/4 p-2") ↝ !{space(4)} Tools used
+        p(class="text-xl w-full md:w-3/4 p-2")= tools
 
 mixin pf_img({name, source, ref, width="1/2", aspect_ratio="1/1", description, is_video=false} = {})
     - var aspect_ratio = "aspect-["+aspect_ratio+"]"
