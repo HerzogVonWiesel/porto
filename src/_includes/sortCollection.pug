@@ -1,0 +1,11 @@
+-
+    let sortedPortfolio = [];
+    function getSortedPortfolio(){
+        if (sortedPortfolio.length == 0){
+            console.log("Sorting projects...")
+            entries = (Object.entries(projects));
+            sortedPortfolio = entries.sort((a, b) => b[1].order - a[1].order);
+        }
+
+        return sortedPortfolio;
+    }

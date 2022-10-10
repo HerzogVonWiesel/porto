@@ -23,8 +23,9 @@ block content
     h2(class="text-5xl px-2 max-md:hidden") SELECTED <br> !{space(11)} PROJECTS ︎︎︎
     h2(class="text-5xl px-2 md:hidden") SELECTED <br> PROJECTS ︎︎︎
     div(class="flex flex-wrap m-auto")
-        -console.log("projects:")
-        each project, key in projects
-            - var proj_ref = `/sites/projects/${key}/index.html`
-            - console.log(project.name)
-            +pf_img({name:project.name, source:project.cover_img, width:project.width, aspect_ratio:project.aspect_ratio, is_video:project.is_cover_video, ref:proj_ref, description:project.subtitle+", "+project.year})
+        - let sortedProjects = getSortedPortfolio();
+        each project in sortedProjects
+            - var proj_ref = `/sites/projects/${project[0]}/index.html`;
+            - var project_details = project[1];
+            - console.log(project_details.name);
+            +pf_img({name:project_details.name, source:project_details.cover_img, width:project_details.width, aspect_ratio:project_details.aspect_ratio, is_video:project_details.is_cover_video, ref:proj_ref, description:project_details.subtitle+", "+project_details.year})
