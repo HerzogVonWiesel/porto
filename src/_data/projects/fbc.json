@@ -1,0 +1,30 @@
+{
+    "order": 3,
+    "name": "FEDERAL BUREAU OF CONTROL",
+    "subtitle": "Brutalism",
+    "year": "2021",
+    "description": "Render finished for a weekly challenge with the theme of Brutalism. Strongly inspired by Remedy's CONTROL game. \nTried out a very procedural setup for the scene geometry, which made Cinema4D very very sluggish. Might want to stick to Houdini for that one.",
+    "tools": "Cinema 4D, Redshift, Photoshop",
+    "cover_img": "/images/projects/fbc/final.jpg",
+    "aspect_ratio": "4/3",
+    "width": "1/2",
+    "media": [{
+        "title": "Final Render",
+        "src": "/images/projects/fbc/final.jpg",
+        "is_video": false,
+        "aspect_ratio": "auto",
+        "width": "full"
+    },
+    {
+        "title": "Raw render",
+        "src": "/images/projects/fbc/raw.jpg",
+        "aspect_ratio": "auto",
+        "width": "1/2"
+    },
+    {
+        "title": "Irradiance Point Cloud (denoised)",
+        "src": "/images/projects/fbc/ipc.jpg",
+        "aspect_ratio": "auto",
+        "width": "1/2"
+    }]
+}

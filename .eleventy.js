@@ -8,12 +8,15 @@ let img_collection = async () => {
     console.log("Rendering images...")
     const img_dir = "src/images/";
     const img_config = {
+        //useCache: false,
         widths: [null, 600, 1000, 2000],
         formats: ['webp', 'jpeg'],
         outputDir: "./_site/img/",
         filenameFormat: function (id, src, width, format, options) {
             const extension = path.extname(src)
-            const name = path.basename(src, extension)
+            var name = path.basename(src, extension)
+            if(path.dirname(src).split(path.sep).length > 3)
+                name = path.dirname(src).split(path.sep).pop()+"_"+name;
             return `${name}-${width}w.${format}`
         },
         sharpWebpOptions: {
@@ -32,7 +35,13 @@ let img_collection = async () => {
     // `Object.freeze` isn’t necessary, I just prefer it.
     console.log("Rendered images!");
     return Object.freeze(mapping);
-  }
+}
+
+const video_types = [".mp4", ".ogg", ".avi", ".mkv"];
+function is_video(src){
+    const extension = path.extname(src);
+    return video_types.includes(extension);
+}
 
 module.exports = (function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/js")
@@ -44,6 +53,7 @@ module.exports = (function(eleventyConfig) {
     eleventyConfig.addFilter("toUppercase", function(string) {
         return string.toUpperCase();
     });
+    eleventyConfig.addFilter("is_video", is_video);
 
     eleventyConfig.addCollection("img_collection", img_collection);
 

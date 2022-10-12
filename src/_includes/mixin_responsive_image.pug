@@ -9,6 +9,7 @@ mixin responsive_image(path, sizes)
       - let srcset_collection = [];
       - let srcType = value[0].sourceType;
       each source in value
+        //- console.log(source)
         - srcset_collection.push(source.srcset)
       source(type=srcType srcset=srcset_collection.toString() sizes=sizes)
     img(src=fallback.url)&attributes(attributes)

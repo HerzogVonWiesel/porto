@@ -1,6 +1,12 @@
 - var screen_3xl = "1920px" //REFER TO TAILWIND CONFIG
 - var screen_md = "768px" //REFER TO TAILWIND CONFIG
 
+-
+    const video_types = [".mp4", ".ogg", ".avi", ".mkv"];
+    function is_video(src){
+
+    }
+
 include mixin_responsive_image.pug 
 
 mixin a_ref(ref)
@@ -29,7 +35,7 @@ mixin pf_img({name, source, ref, width="1/2", aspect_ratio="1/1", description, i
     
     div(class="w-full md:w-"+width+" p-2")
         +a_ref(ref)
-            if is_video
+            if filters.is_video(source)
                 video(class=aspect_ratio+" w-full object-cover" loop autoplay playsinline muted src=source) 
             else
                 +responsive_image(source, sizes)(alt="" class=aspect_ratio+" w-full object-cover")

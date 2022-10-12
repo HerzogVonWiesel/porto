@@ -13,5 +13,6 @@ block content
     div(class="relative pt-14 invisible") Divider
     +pf_description({title: cur_project.name, description: cur_project.description, tools: cur_project.tools})
     div(class="relative pt-14 invisible") Divider
-    each media in cur_project.media
-        +pf_img({name:media.title, source:media.src, width:media.width, aspect_ratio:media.aspect_ratio, is_video:media.is_video})
+    div(class="flex flex-wrap m-auto")
+        each media in cur_project.media
+            +pf_img({name:media.title, source:media.src, width:media.width, aspect_ratio:media.aspect_ratio})

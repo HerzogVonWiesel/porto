@@ -7,8 +7,30 @@ eleventyNavigation:
 extends template
 
 block content
-    p(class="text-xl w-full md:w-1/4 p-2") ↝ !{space(4)} About
-    p(class="text-xl w-full md:w-3/4 p-2") Jérôme Stephan is a programmer and artist based in and around Berlin, Germany. Working with game studios, musicians and other clients all over the world. Loving to stroll the fine line between programming and art, leaning into either side depending on the kind of project and keen on using every opportunity to learn more.
-    p Further reading in my CV
-    h1(class="text-8xl text-center z-10") 
-        a(href="mailto:hello@jeromestephan.de") hello@jeromestephan.de
+    //flowfield
+    div(class="px-2 relative h-[20vh] -mt-16 -z-10")
+        canvas(id="canvas")
+        script(src="/js/ps_noises.js ")
+        script(src="/js/vector_utils.js")
+        script(src="/js/flowfield.js")
+
+    div(class="flex flex-wrap m-auto")
+        div(class="relative w-full pt-4 invisible") Divider
+        p(class="text-xl w-full md:w-1/4 p-2") ↝ !{space(4)} About
+        p(class="text-xl w-full md:w-3/4 p-2")
+            |Jérôme Stephan is a programmer and artist based in and around Berlin, Germany. Working with game studios, musicians and other clients all over the world. Loving to stroll the fine line between programming and art, leaning into either side depending on the kind of project and keen on using every opportunity to learn more.
+            |<br>
+            a(href="https://jeromestephan.de/CV" target="_blank" rel="noopener noreferrer") Further reading in my CV →
+
+        div(class="relative pt-12 w-full invisible") Divider
+        p(class="text-xl w-full md:w-1/4 p-2") ↝ !{space(4)} Meta
+        p(class="text-xl w-full md:w-3/4 p-2")
+            |This page was created by me using 11ty, 11ty-image, Pug and TailwindCSS. For a deep dive, feel free to head to 
+            a(href="https://github.com/HerzogVonWiesel/porto" target="_blank" rel="noopener noreferrer" ) its GitHub repository. →
+
+    div(class="relative pt-12 w-full invisible") Divider
+    //- h2(class="text-5xl px-2 max-md:hidden") CONTACT <br> !{space(11)} ME ︎︎︎
+    //- h2(class="text-5xl px-2 md:hidden") CONTACT <br> ME ︎︎︎
+    h2(class="text-5xl px-2 py-2") CONTACT ME ︎︎︎
+    h1(class="text-8xl text-center z-10 p-2") 
+        a(href="mailto:hello@jeromestephan.de") hello@!{word_brk}jerome!{word_brk}stephan!{word_brk}.de
