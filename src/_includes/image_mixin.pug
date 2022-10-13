@@ -45,3 +45,6 @@ mixin pf_img({name, source, ref, width="1/2", aspect_ratio="1/1", description, i
                         - name = name+" • "
                     span(class="")= name
                     span(class="text-xs align-middle")= description
+    //-empty image for whitespace
+    if width == "1/4"
+        div(class="w-full md:w-"+width+" p-2 invisible")

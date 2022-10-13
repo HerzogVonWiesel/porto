@@ -1,0 +1,59 @@
+{
+    "order": 10,
+    "name": "Scouts",
+    "subtitle": "Infinite Journeys Challenge",
+    "year": "2022",
+    "description": "Had a ton of fun working on this 80s retro sci-fi project strongly inspired by the amazing Simon Stalenhag. \nLearned a lot about hair, rigging, constraints and compositing in Nuke and realized that character animation without mocap is quite a hassle.",
+    "tools": "Cinema 4D, Redshift, Substance Painter, Nuke, Ornatrix",
+    "cover_img": "/images/projects/scouts/final_still.jpg",
+    "aspect_ratio": "2/1",
+    "width": "1/2",
+    "media": [{
+        "title": "Still frame of final render",
+        "src": "/images/projects/scouts/final_still.jpg",
+        "aspect_ratio": "auto",
+        "width": "full"
+    },
+    {
+        "title": "Final render (video)",
+        "src": "/images/projects/scouts/final_video.mp4",
+        "aspect_ratio": "auto",
+        "width": "full"
+    },
+    {
+        "title": "Mech modeled, textured and animated",
+        "src": "/images/projects/scouts/mech.mp4",
+        "aspect_ratio": "1/1",
+        "width": "1/2"
+    },
+    {
+        "title": "Closeup of character Simon",
+        "src": "/images/projects/scouts/sam.jpg",
+        "aspect_ratio": "1/1",
+        "width": "1/2"
+    },
+    {
+        "title": "Raw render",
+        "src": "/images/projects/scouts/raw.jpg",
+        "aspect_ratio": "auto",
+        "width": "1/2"
+    },
+    {
+        "title": "Viewport render",
+        "src": "/images/projects/scouts/viewport.jpg",
+        "aspect_ratio": "auto",
+        "width": "1/2"
+    },
+    {
+        "title": "Procedural dust shader",
+        "src": "/images/projects/scouts/dust.jpg",
+        "aspect_ratio": "1/1",
+        "width": "1/2"
+    },
+    {
+        "title": "Procedural glass halftone shader",
+        "src": "/images/projects/scouts/glass.jpg",
+        "aspect_ratio": "1/1",
+        "width": "1/2"
+    }]
+}

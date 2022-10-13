@@ -1,0 +1,35 @@
+{
+    "order": 4,
+    "name": "Stranded",
+    "subtitle": "Alternate Realities Challenge",
+    "year": "2021",
+    "description": "Death has stranded. \nHad a ton of fun and learned so incredibly much in the month that I worked on this project! Inspired by the great video game Death Stranding by Hideo Kojima. (and yes, that is totally delicious procedural mud.)",
+    "tools": "Cinema 4D, Redshift, Substance Painter, After Effects",
+    "cover_img": "/images/projects/stranded/final.jpg",
+    "aspect_ratio": "2.5/1",
+    "width": "full",
+    "media": [{
+        "title": "Final Render",
+        "src": "/images/projects/stranded/final.jpg",
+        "aspect_ratio": "auto",
+        "width": "full"
+    },
+    {
+        "title": "Raw render",
+        "src": "/images/projects/stranded/raw.jpg",
+        "aspect_ratio": "auto",
+        "width": "full"
+    },
+    {
+        "title": "Procedural Mud (1)",
+        "src": "/images/projects/stranded/mud1.jpg",
+        "aspect_ratio": "auto",
+        "width": "1/2"
+    },
+    {
+        "title": "Procedural Mud (2)",
+        "src": "/images/projects/stranded/mud2.jpg",
+        "aspect_ratio": "auto",
+        "width": "1/2"
+    }]
+}
