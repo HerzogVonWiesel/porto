@@ -3,9 +3,41 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: "Freizeit-Regular";
-    src: url("/fonts/Freizeit-Regular.otf");
+    font-family: 'Freizeit';
+    src: url('/fonts/Freizeit-ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
 }
+@font-face {
+    font-family: 'Freizeit';
+    src: url('/fonts/Freizeit-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Freizeit';
+    src: url('/fonts/Freizeit-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Freizeit';
+    src: url('/fonts/Freizeit-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Freizeit';
+    src: url('/fonts/Freizeit-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
 @font-face {
     font-family: "Pluto-Regular";
     src: url("/fonts/Pluto.ttf");

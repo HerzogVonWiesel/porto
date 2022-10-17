@@ -21,12 +21,14 @@ module.exports = {
       },
 
       fontFamily: {
-        freizeit: ["Freizeit-Regular", "Icons", "sans-serif"],
+        freizeit: ["Freizeit", "Icons", "sans-serif"],
         pluto: ["Pluto-Regular", "sans-serif"],
       },
     },
 
     colors: {
+      'bg': '#fff7ed',
+      'dark-bg': '#200F00',
       'orangered': 'orangered',
       'darkslateblue': 'darkslateblue',
       'black': 'black',
