@@ -1,15 +1,20 @@
+-
+  function get_fallback(path){
+    const data = collections.img_collection["src"+path];
+    const fb_sources = Object.values(data);
+    //- First source under first format.
+    const fallback = fb_sources[fb_sources.length -1][fb_sources[0].length-1];
+    return fallback;
+  }
+
 mixin responsive_image(path, sizes)
-  - path = "src"+path;
-  - const data = collections.img_collection[path];
-  
-  //- First source under first format.
-  - const fallback = Object.values(data)[0][0];
+  - const data = collections.img_collection["src"+path];
+  - const fallback = get_fallback(path);
   picture
     each value, format in data
       - let srcset_collection = [];
       - let srcType = value[0].sourceType;
       each source in value
-        //- console.log(source)
         - srcset_collection.push(source.srcset)
       source(type=srcType srcset=srcset_collection.toString() sizes=sizes)
     img(src=fallback.url)&attributes(attributes)

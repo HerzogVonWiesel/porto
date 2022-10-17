@@ -1,12 +1,6 @@
 - var screen_3xl = "1920px" //REFER TO TAILWIND CONFIG
 - var screen_md = "768px" //REFER TO TAILWIND CONFIG
 
--
-    const video_types = [".mp4", ".ogg", ".avi", ".mkv"];
-    function is_video(src){
-
-    }
-
 include mixin_responsive_image.pug 
 
 mixin a_ref(ref)
@@ -18,27 +12,35 @@ mixin a_ref(ref)
 
 mixin pf_description({title, description, tools} = {})
      div(class="flex flex-wrap m-auto")
-        div(class="w-full md:w-full p-2 py-8")
+        div(class="w-full md:w-full p-3 py-8")
             h2(class="text-8xl text-left")= title
-        p(class="text-xl w-full md:w-1/4 p-2") ↝ !{space(4)} Description
-        p(class="text-xl w-full md:w-3/4 p-2")= description
-        p(class="text-xl w-full md:w-1/4 p-2") ↝ !{space(4)} Tools used
-        p(class="text-xl w-full md:w-3/4 p-2")= tools
+        p(class="text-xl w-full md:w-1/4 p-3") ↝ !{space(4)} Description
+        p(class="text-xl w-full md:w-3/4 p-3")= description
+        p(class="text-xl w-full md:w-1/4 p-3") ↝ !{space(4)} Tools used
+        p(class="text-xl w-full md:w-3/4 p-3")= tools
 
 mixin pf_img({name, source, ref, width="1/2", aspect_ratio="1/1", description, is_video=false} = {})
-    - var aspect_ratio = "aspect-["+aspect_ratio+"]"
-    - var to_eval = width
-    if width == "full"
-        - to_eval = "1"
-    - var image_mul = eval(to_eval).toString()
+    - 
+        var eval_aspect_ratio = "aspect-["+aspect_ratio+"]"
+        var ar_modifier = 1;
+    if (aspect_ratio != "auto" && !filters.is_video(source))
+        - var aspect_ratio = eval(aspect_ratio);
+        - const fallback = get_fallback(source);
+        - var og_img_ar = fallback.width / fallback.height;
+        - ar_modifier = og_img_ar / aspect_ratio;
+    
+    - var w_modifier = 1;
+    if (width != "full")
+        - w_modifier = eval(width);
+    - var image_mul = eval(w_modifier+"*"+ar_modifier).toString()
     - var sizes = "(max-width: "+screen_md+") 100vw, (min-width: "+screen_3xl+") calc("+screen_3xl+" * "+image_mul+"), calc(100vw * "+image_mul+")"
     
-    div(class="w-full md:w-"+width+" p-2")
+    div(class="w-full md:w-"+width+" p-3")
         +a_ref(ref)
             if filters.is_video(source)
-                video(class=aspect_ratio+" w-full object-cover" loop autoplay playsinline muted src=source) 
+                video(class=eval_aspect_ratio+" w-full object-cover" loop autoplay playsinline muted src=source) 
             else
-                +responsive_image(source, sizes)(alt="" class=aspect_ratio+" w-full object-cover")
+                +responsive_image(source, sizes)(alt="" class=eval_aspect_ratio+" w-full object-cover")
             div(class="w-full items-start")
                 if name
                     if description
@@ -48,3 +50,5 @@ mixin pf_img({name, source, ref, width="1/2", aspect_ratio="1/1", description, i
     //-empty image for whitespace
     if width == "1/4"
         div(class="w-full md:w-"+width+" p-2 invisible")
+    if width == "1/3"
+        div(class="w-full md:w-1/6 p-2 invisible")
