@@ -63,5 +63,6 @@
 
     a{
         @apply cursor-custom-clk;
+        @apply hover:text-orangered;
     }
   }

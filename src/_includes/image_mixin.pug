@@ -15,7 +15,8 @@ mixin pf_description({title, description, tools} = {})
         div(class="w-full md:w-full p-3 py-8")
             h2(class="text-8xl text-left")= title
         p(class="text-xl w-full md:w-1/4 p-3") ↝ !{space(4)} Description
-        p(class="text-xl w-full md:w-3/4 p-3")= description
+        p(class="text-xl w-full md:w-3/4 p-3").
+            !{description}
         p(class="text-xl w-full md:w-1/4 p-3") ↝ !{space(4)} Tools used
         p(class="text-xl w-full md:w-3/4 p-3")= tools
 
@@ -27,7 +28,8 @@ mixin pf_img({name, source, ref, width="1/2", aspect_ratio="1/1", description, i
         - var aspect_ratio = eval(aspect_ratio);
         - const fallback = get_fallback(source);
         - var og_img_ar = fallback.width / fallback.height;
-        - ar_modifier = og_img_ar / aspect_ratio;
+        if (og_img_ar > aspect_ratio)
+            - ar_modifier = og_img_ar / aspect_ratio;
     
     - var w_modifier = 1;
     if (width != "full")

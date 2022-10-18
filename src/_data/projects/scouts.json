@@ -3,7 +3,7 @@
     "name": "Scouts",
     "subtitle": "Infinite Journeys Challenge",
     "year": "2022",
-    "description": "Had a ton of fun working on this 80s retro sci-fi project strongly inspired by the amazing Simon Stalenhag. \nLearned a lot about hair, rigging, constraints and compositing in Nuke and realized that character animation without mocap is quite a hassle.",
+    "description": "Had a ton of fun working on this 80s retro sci-fi project strongly inspired by the amazing Simon Stalenhag. <br>Learned a lot about hair, rigging, constraints and compositing in Nuke and realized that character animation without mocap is quite a hassle.",
     "tools": "Cinema 4D, Redshift, Substance Painter, Nuke, Ornatrix",
     "cover_img": "/images/projects/scouts/final_still.jpg",
     "aspect_ratio": "2/1",

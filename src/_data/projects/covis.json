@@ -1,0 +1,46 @@
+{
+    "name": "CoVIS-19",
+    "subtitle": "Scientific research work for BSc thesis",
+    "year": "2022",
+    "description": "Thesis Abstract: <br>While many models have simulated viral infections and their effects, especially concerning the SARS-CoV-2 pandemic which has changed the way of life all around the world, visualizations of the spread and its effects on the mobility of a population are often unintuitive and behind a layer of abstraction. Using real mobility data from the co-author NET CHECK as well as official freely available infection data, this work puts forward a simultaneous individual-based simulation and visualization of the effect of SARS-CoV-2 on the German population. Each particle decides, based on daily information of the county it is in, which county to travel to, whether it is infected and if so, how long that is the case. Applying probabilities calculated from the decisions of the particles on the day before brings forth predictions of travels and infections. <br>Utilizing the node- and Python-based programming environment of the visual effects software Houdini, it is possible to create a procedural setup workflow to show the processing of this project’s data both in a visual way by displaying particles representing the population on the map of - in this case - Germany besides evaluating it on a spreadsheet at the same time. <br>This not only helps to intuitively present the effects of the pandemic and improve the simulation more efficiently by the ability of visual debugging but also to easily adjust it if more detailed data, for example more accurate location data, is available or to up the resolution, i.e. the number of simulated particles, in an instant. <br>In the examples below I have simulated every 80th person in Germany. <br><a href='https://jeromestephan.de/Bachelor_Thesis_M_Jerome_Stephan.pdf'>Read the whole thesis here →</a>",
+    "tools": "Houdini, Python, Python Pandas, Redshift",
+    "cover_img": "/images/projects/covis/angled.jpg",
+    "aspect_ratio": "3/4",
+    "width": "1/3",
+    "media": [{
+        "title": "Stylised cover image",
+        "src": "/images/projects/covis/angled.jpg",
+        "aspect_ratio": "auto",
+        "width": "full"
+    },
+    {
+        "title": "Visualisation from Jan 20th to Feb 10th",
+        "src": "/images/projects/covis/sim.mp4",
+        "aspect_ratio": "3/4",
+        "width": "1/2"
+    },
+    {
+        "title": "Still image of Jan. 27th",
+        "src": "/images/projects/covis/overview.jpg",
+        "aspect_ratio": "3/4",
+        "width": "1/2"
+    },
+    {
+        "title": "Closeup of Bavaria and Saxony on Jan. 27th",
+        "src": "/images/projects/covis/closeup.jpg",
+        "aspect_ratio": "2/1",
+        "width": "full"
+    },
+    {
+        "title": "Network of initial map and point creation",
+        "src": "/images/projects/covis/prepnet.jpg",
+        "aspect_ratio": "auto",
+        "width": "1/3"
+    },
+    {
+        "title": "Network of daily infection and travel calculation",
+        "src": "/images/projects/covis/dailynet.jpg",
+        "aspect_ratio": "auto",
+        "width": "1/3"
+    }]
+}

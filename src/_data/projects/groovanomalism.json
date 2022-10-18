@@ -1,0 +1,45 @@
+{
+    "name": "Groovanomalism",
+    "subtitle": "Trippy OSL experiments",
+    "year": "2021",
+    "description": "Inspired by @anomalitkate's trippy work, I delved into Cinema4D and played around a ton. The very colory material is OSL code I've written and can be found in Redshifts OSL shader library!",
+    "cover_img": "/images/projects/groovanomalism/en_final.mp4",
+    "aspect_ratio": "1/1",
+    "width": "1/2",
+    "media": [{
+        "title": "Stylised cover image",
+        "src": "/images/projects/covis/angled.jpg",
+        "aspect_ratio": "auto",
+        "width": "full"
+    },
+    {
+        "title": "Visualisation from Jan 20th to Feb 10th",
+        "src": "/images/projects/covis/sim.mp4",
+        "aspect_ratio": "3/4",
+        "width": "1/2"
+    },
+    {
+        "title": "Still image of Jan. 27th",
+        "src": "/images/projects/covis/overview.jpg",
+        "aspect_ratio": "3/4",
+        "width": "1/2"
+    },
+    {
+        "title": "Closeup of Bavaria and Saxony on Jan. 27th",
+        "src": "/images/projects/covis/closeup.jpg",
+        "aspect_ratio": "2/1",
+        "width": "full"
+    },
+    {
+        "title": "Network of initial map and point creation",
+        "src": "/images/projects/covis/prepnet.jpg",
+        "aspect_ratio": "auto",
+        "width": "1/3"
+    },
+    {
+        "title": "Network of daily infection and travel calculation",
+        "src": "/images/projects/covis/dailynet.jpg",
+        "aspect_ratio": "auto",
+        "width": "1/3"
+    }]
+}
