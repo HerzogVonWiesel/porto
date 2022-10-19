@@ -72,7 +72,7 @@ const convertHexToRGBA = (hexCode, opacity = 1) => {
 
 /////GLOBALS
 let bright_bg = "#fff7ed";
-let dark_bg = "#200F00";
+let dark_bg = "#000000";
 let dark_stroke = "black";
 let bright_stroke = "white";
 let bg = bright_bg;

@@ -28,9 +28,9 @@ module.exports = {
 
     colors: {
       'bg': '#fff7ed',
-      'dark-bg': '#200F00',
+      'dark-bg': '#000000',
       'orangered': 'orangered',
-      'darkslateblue': 'darkslateblue',
+      'darkslateblue': '#340B6B',
       'black': 'black',
       'white': 'white',
       'orange-50': '#fff7ed',
