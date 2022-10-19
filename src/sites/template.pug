@@ -8,6 +8,10 @@ html(class="")
         title Jérôme Stephan - #{title}
 
         meta(name="theme-color" content="orangered")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no")
+        meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+        meta(name="robots" content="index, follow")
+        meta(name="description" content="Jérôme Stephan is a programmer and artist based in and around Berlin, Germany. Keen on using every opportunity to learn more.")
 
         script.
             function color_toggle() {
@@ -33,6 +37,10 @@ html(class="")
 
 
         link(rel='stylesheet', type='text/css', href='/css/style.css')
+        //- make fonts have priority over images
+        link(rel='preload', as="font", type="font/woff2", href="/fonts/subset-IconFont-Regular.woff2", crossorigin)
+        link(rel='preload', as="font", type="font/woff2", href="/fonts/subset-Freizeit-Regular.woff2", crossorigin)
+        link(rel='preload', as="font", type="font/woff2", href="/fonts/subset-Freizeit-Bold.woff2", crossorigin)
     body(class=" \
         pt-[10vh] \
         selection:bg-darkslateblue \
