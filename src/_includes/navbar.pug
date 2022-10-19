@@ -1,7 +1,9 @@
-header.fixed.w-full.top-0(class="z-40 landscape:rotated-nav")
+include space_mixin.pug
+
+header(class="fixed w-full top-0 z-40 landscape:rotated-nav")
     nav(class="flex flex-wrap items-center justify-between \
     w-full landscape:px-16 landscape:py-6 \
-    text-sm md:text-sm text-black dark:text-white")
+    text-3xl md:text-sm text-black dark:text-white")
         //- div 
             //- a(href="#" class="") Jérôme Stephan 
         svg(xmlns="http://www.w3.org/2000/svg"
@@ -24,7 +26,7 @@ header.fixed.w-full.top-0(class="z-40 landscape:rotated-nav")
               md:pt-0")
                 each entry in filters.eleventyNavigation(collections.all)
                     li 
-                        a(href=entry.url class="text-3xl md:text-base px-2 block hover:text-purple-400") #{entry.key}
+                        a(href=entry.url class="px-3 block") #{entry.key}
 
         div(class="hidden md:flex px-2")
             input(type="checkbox" id="dark-mode-toggle" class="hidden" onchange="color_toggle()")
@@ -32,9 +34,11 @@ header.fixed.w-full.top-0(class="z-40 landscape:rotated-nav")
                 a(class="inline dark:hidden") Dark Mode
                 a(class="hidden dark:inline") Light Mode
 
-footer(class="z-40 fixed bottom-0 landscape:px-16 landscape:py-6 w-full flex flex-wrap items-center justify-between text-sm landscape:rotated-footer")
-    div(class="")
-        a(href="https://instagram.com/jerostephan" target="_blank" rel="noopener noreferrer" class="px-2") Instagram
-        a(href="https://artstation.com/jerostephan" target="_blank" rel="noopener noreferrer" class="px-2") ArtStation
-        a(href="https://behance.net/jeromestephan" target="_blank" rel="noopener noreferrer" class="px-2") Behance
-    span(class="px-2") © Jérôme Stephan 2022
+footer(class="fixed w-full bottom-0 z-40 landscape:rotated-footer")
+    div(class="landscape:px-16 landscape:py-6 flex flex-wrap items-center justify-between text-sm")
+        div(class="")
+            a(href="https://instagram.com/jerostephan" target="_blank" rel="noopener noreferrer" class="px-3") Instagram
+            a(href="https://artstation.com/jerostephan" target="_blank" rel="noopener noreferrer" class="px-3") ArtStation
+            a(href="https://behance.net/jeromestephan" target="_blank" rel="noopener noreferrer" class="px-3") Behance
+        +spacer("1.5rem")
+        span(class="px-2") © Jérôme Stephan 2022

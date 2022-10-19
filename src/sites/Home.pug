@@ -8,25 +8,28 @@ extends template
 
 block content
     //title; think about md:scale-x-110
-    div(class="relative pt-[19vh] invisible") Divider
-    h1(class="text-[5rem] leading-none md:text-8xl font-bold text-orangered text-center z-10") Jérôme Stephan
-    h2(class="text-4xl text-center text-orangered tracking-wider md:tracking-widest z-10") Technical Artist + 3D Artist + Programmer
+    //-Divider
+    //-div(class="relative pt-[25vh] invisible")
+    div(class="px-6 inset-x-0 inset-y-0 absolute w-full max-w-screen-3xl h-[65vh] grid grid-cols-1 grid-rows-2 m-auto mt-[17vh]")
+        h1(class="text-[4rem] leading-none md:text-8xl font-bold text-orangered text-center self-end z-10") Jérôme Stephan
+        h2(class="text-4xl text-center text-orangered tracking-wider md:tracking-widest self-start z-10") Technical Artist + 3D Artist + Programmer
 
     //flowfield
-    div(class="px-6 inset-x-0 inset-y-0 absolute w-full h-[65vh] mt-[17vh] -z-10")
+    div(class="px-6 inset-x-0 inset-y-0 absolute w-full max-w-screen-3xl h-[65vh] m-auto mt-[17vh] -z-10")
         canvas(id="canvas")
         script(src="/js/ps_noises.js ")
         script(src="/js/vector_utils.js")
         script(src="/js/flowfield.js")
         
     //gallery
-    div(class="relative pt-80 invisible") Divider
+    //-Divider
+    div(class="relative pt-[90vh] invisible")
     h2(class="text-5xl px-3 max-md:hidden") SELECTED <br> !{space(11)} PROJECTS ︎︎︎
     h2(class="text-5xl px-3 md:hidden") SELECTED <br> PROJECTS ︎︎︎
     div(class="flex flex-wrap m-auto")
         - let sortedProjects = getSortedPortfolio();
         each project in sortedProjects
-            - var proj_ref = `/sites/projects/${project[0]}/index.html`;
+            - var proj_ref = `/sites/projects/${project[0]}/`;
             - var project_details = project[1];
             - console.log(project_details.name);
             +pf_img({name:project_details.name, source:project_details.cover_img, width:project_details.width, aspect_ratio:project_details.aspect_ratio, ref:proj_ref, description:project_details.subtitle+", "+project_details.year})

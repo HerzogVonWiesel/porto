@@ -2,7 +2,6 @@ const button = document.querySelector('#menu-button');
 const menu = document.querySelector('#menu');
 const color_toggle_elem = document.querySelector('#color_toggle')
 
-
 button.addEventListener('click', () => {
     menu.classList.toggle('hidden');
 });
@@ -22,3 +21,13 @@ function color_toggle() {
     event.key = key; // Optional..
     document.dispatchEvent(event);
 }
+
+function _calculateScrollbarWidth() {
+    document.documentElement.style.setProperty('--scrollbar-width', (window.innerWidth - document.documentElement.clientWidth) + "px");
+  }
+  // recalculate on resize
+  window.addEventListener('resize', _calculateScrollbarWidth, false);
+  // recalculate on dom load
+  document.addEventListener('DOMContentLoaded', _calculateScrollbarWidth, false); 
+  // recalculate on load (assets loaded as well)
+  window.addEventListener('load', _calculateScrollbarWidth);
