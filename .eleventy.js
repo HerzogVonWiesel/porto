@@ -28,7 +28,7 @@ let img_collection = async () => {
             effort: 6,
         }
     }
-    const rawImages = fg.sync(img_dir+"**/*.{jpg,jpeg,png,gif,tiff,webp}");
+    const rawImages = fg.sync(img_dir+"**/*.{jpg,jpeg,png,gif,tiff,webp,svg}");
     console.log(rawImages)
     const mapping = {};
   
@@ -50,6 +50,8 @@ module.exports = (function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/js")
     eleventyConfig.addPassthroughCopy("src/fonts")
     eleventyConfig.addPassthroughCopy("src/images")
+    eleventyConfig.addPassthroughCopy("src/favicon")
+    eleventyConfig.addPassthroughCopy("src/site.webmanifest")
 
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
 

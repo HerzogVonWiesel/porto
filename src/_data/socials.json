@@ -1,0 +1,15 @@
+[
+    {
+        "site": "Instagram",
+        "link": "https://instagram.com/jerostephan"
+    },
+    {
+        "site": "ArtStation",
+        "link": "https://artstation.com/jerostephan"
+    },
+    {
+        "site": "Behance",
+        "link": "https://behance.net/jeromestephan",
+        "hidden": true
+    }
+]
