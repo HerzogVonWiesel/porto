@@ -18,7 +18,7 @@ class Particle {
         this.pos = new Vector(x, y);
         this.vel = new Vector(Math.random() - 5.5, Math.random() - 5.5);
         this.acc = new Vector(0, 0);
-        this.size = 1;
+        this.size = 1.5;
     }
     
     move(acc) {
@@ -81,7 +81,7 @@ let stroke=dark_stroke;
 let timer;
 let cases = -1;
 canvas = document.querySelector("#canvas");
-ctx = canvas.getContext("2d");
+ctx = canvas.getContext("2d", { alpha: false });
 window.addEventListener("resize", resetCanvas);
 
 size=30;
@@ -133,7 +133,7 @@ function initField() { //f
 
 function initParticles() { //p
     particles = [];
-    let numberOfParticles = w * h / 100;
+    let numberOfParticles = w * h / 1000;
     for(let i = 0; i < numberOfParticles; i++) {
     let particle = new Particle(Math.random() * w, Math.random() * h);
     particles.push(particle);
@@ -224,7 +224,7 @@ function resetDrawing() {
     }
     if(cases == 2){
         clear();
-        ctx.fillStyle = convertHexToRGBA(bg, 0.25);
+        ctx.fillStyle = convertHexToRGBA(bg, 0.5);
         ctx.strokeStyle = stroke;
         ctx.lineWidth = 1;
         ctx.lineJoin = 'round';
