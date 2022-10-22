@@ -52,6 +52,7 @@ module.exports = (function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/images")
     eleventyConfig.addPassthroughCopy("src/favicon")
     eleventyConfig.addPassthroughCopy("src/site.webmanifest")
+    eleventyConfig.addPassthroughCopy("src/files")
 
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
