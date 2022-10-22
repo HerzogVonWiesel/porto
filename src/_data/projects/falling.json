@@ -1,0 +1,46 @@
+{
+    "name": "Falling",
+    "subtitle": "Missing Gravity",
+    "year": "2021",
+    "description": "Looping animation created for a music video of electronic music producer LVLS music.<br>To spice things up, I added the passing space station to extend the 7 second loop into a 21 second one.",
+    "tools": "Cinema 4D, Redshift, After Effects",
+    "cover_img": "/images/projects/falling/final.jpg",
+    "aspect_ratio": "2/1",
+    "width": "1/2",
+    "media": [{
+        "title": "Final image",
+        "src": "/images/projects/falling/final.jpg",
+        "aspect_ratio": "2/1",
+        "width": "full"
+    },
+    {
+        "title": "Final looping video",
+        "src": "/images/projects/falling/final.mp4",
+        "aspect_ratio": "2/1",
+        "width": "full"
+    },
+    {
+        "title": "",
+        "src": "",
+        "aspect_ratio": "auto",
+        "width": "1/4"
+    },
+    {
+        "title": "Reframed scene",
+        "src": "/images/projects/falling/reframed.jpg",
+        "aspect_ratio": "auto",
+        "width": "1/2"
+    },
+    {
+        "title": "Broken render (looking pretty neat though)",
+        "src": "/images/projects/falling/broken.png",
+        "aspect_ratio": "2/1",
+        "width": "1/2"
+    },
+    {
+        "title": "Clay render",
+        "src": "/images/projects/falling/clay.png",
+        "aspect_ratio": "2/1",
+        "width": "1/2"
+    }]
+}

@@ -1,0 +1,41 @@
+{
+    "name": "Neroli Portofino",
+    "subtitle": "Product lighting practice",
+    "year": "2021",
+    "description": "Concept work based on perfume and luxury brand Tom Ford. One of my first attempts at product shots. Not an official project, just trying to get some product lighting practice in.",
+    "tools": "Cinema 4D, Redshift, Photoshop",
+    "cover_img": "/images/projects/neroli/beachnu.png",
+    "aspect_ratio": "3/2",
+    "width": "2/3",
+    "media": [
+    {
+        "title": "Beach shot (revisited 2022)",
+        "src": "/images/projects/neroli/beachnu.png",
+        "aspect_ratio": "auto",
+        "width": "full"
+    },
+    {
+        "title": "Beach shot (full color, revisited 2022)",
+        "src": "/images/projects/neroli/beachnucol.png",
+        "aspect_ratio": "auto",
+        "width": "full"
+    },
+    {
+        "title": "Studio product shot",
+        "src": "/images/projects/neroli/studio.jpg",
+        "aspect_ratio": "auto",
+        "width": "full"
+    },
+    {
+        "title": "Beach shot (original)",
+        "src": "/images/projects/neroli/beachcolored.jpg",
+        "aspect_ratio": "auto",
+        "width": "1/2"
+    },
+    {
+        "title": "Beach shot (full color, original)",
+        "src": "/images/projects/neroli/beach.jpg",
+        "aspect_ratio": "auto",
+        "width": "1/2"
+    }]
+}

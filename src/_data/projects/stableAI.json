@@ -1,0 +1,38 @@
+{
+    "name": "Stable AI",
+    "subtitle": "AI art exploration",
+    "year": "2022",
+    "description": "Exploring and experimenting with StabilityAI's diffusion models, namely Stable Diffusion. Huge shoutout to @entmike who created a web wrapper to use Runpod GPUs and easily create Stable Diffusion artworks. <br>Just as it was when experimenting with Disco Diffusion, it was incredibly interesting to learn more and more of how the AI interprets the input, both the prompt as well as all the other parameters, and getting better at formulating of what I want the AI to do. Instead of ~20 minutes per generated image on an A100 gpu, it now takes about 10 seconds on a RTX 3090; incredible work by StabilityAI.<br><br>You may notice the number of iterations for each image; to get the results I had in mind, I had to fiddle around a lot with the parameters of the generation as well as the prompt formulation. <em>N</em>th iteration means that this was the <em>n</em>th image generated from the same conceptual idea.",
+    "tools": "Stable Diffusion, Photoshop",
+    "cover_img": "/images/projects/stableAI/robowoman.png",
+    "aspect_ratio": "1/1",
+    "width": "1/2",
+    "media": [{
+        "title": "aurora ice cave",
+        "subtitle": "3rd iteration",
+        "src": "/images/projects/stableAI/auroracave.png",
+        "aspect_ratio": "2/1",
+        "width": "1/2"
+    },
+    {
+        "title": "robo battle of colors",
+        "subtitle": "4th iteration",
+        "src": "/images/projects/stableAI/robots.png",
+        "aspect_ratio": "2/1",
+        "width": "1/2"
+    },
+    {
+        "title": "dystopian future",
+        "subtitle": "2nd iteration",
+        "src": "/images/projects/stableAI/robowoman.png",
+        "aspect_ratio": "3/4",
+        "width": "1/2"
+    },
+    {
+        "title": "anime princess",
+        "subtitle": "11th iteration",
+        "src": "/images/projects/stableAI/animeprincess.png",
+        "aspect_ratio": "3/4",
+        "width": "1/2"
+    }]
+}

@@ -6,8 +6,8 @@
     "description": "Started this piece back in May 2021 when I finished watching Re:Zero. <br>Did a lot of tinkering around with Hair in Cinema4D, extracting as many passes as possible from a single texture, and of course Key, Rim, Booster Lights and Blockers.",
     "tools": "Cinema 4D, Redshift, OSL, After Effects",
     "cover_img": "/images/projects/styxhelix/final.jpg",
-    "aspect_ratio": "3/4",
-    "width": "1/3",
+    "aspect_ratio": "5/2",
+    "width": "1/2",
     "media": [{
         "title": "Final Render",
         "src": "/images/projects/styxhelix/final.jpg",
