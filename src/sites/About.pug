@@ -14,17 +14,20 @@ block content
         script(src="/js/vector_utils.js")
         script(src="/js/flowfield.js")
 
-    div(class="flex flex-wrap m-auto")
-        div(class="relative w-full pt-4 invisible") Divider
-        p(class="text-xl w-full md:w-1/4 p-2") ↝ !{space(4)} About
-        p(class="text-xl w-full md:w-3/4 p-2")
+    div(class="flex flex-wrap md:grid md:grid-cols-4 m-auto")
+        div(class="relative w-full md:col-span-4 pt-4 invisible") Divider
+        p(class="text-xl w-full md:col-span-1 p-2") ↝ !{space(4)} About
+        p(class="text-xl w-full md:col-span-2 p-2")
             |Jérôme Stephan is a programmer and artist based in and around Berlin, Germany. Working with game studios, musicians and other clients all over the world. Loving to stroll the fine line between programming and art, leaning into either side depending on the kind of project and keen on using every opportunity to learn more.
             |<br>
             a(href="https://jeromestephan.de/CV" target="_blank" rel="noopener noreferrer") Further reading in my CV →
 
-        div(class="relative pt-12 w-full invisible") Divider
-        p(class="text-xl w-full md:w-1/4 p-2") ↝ !{space(4)} Meta
-        p(class="text-xl w-full md:w-3/4 p-2")
+        div(class="w-full md:col-span-1 md:row-span-3")
+            +pf_img({source:"/images/jstephan.png", width:"full", aspect_ratio:"1/1"})
+
+        div(class="relative pt-12 w-full md:col-span-3 invisible") Divider
+        p(class="text-xl w-full md:col-span-1 p-2") ↝ !{space(4)} Meta
+        p(class="text-xl w-full md:col-span-2 p-2")
             |This page was created by me using 11ty, 11ty-image, Pug and TailwindCSS. For a deep dive, feel free to head to 
             a(href="https://github.com/HerzogVonWiesel/porto" target="_blank" rel="noopener noreferrer" ) its GitHub repository. →
 
