@@ -16,6 +16,7 @@
     {
         "title": "Final render (looping video)",
         "src": "/images/projects/stalling/final.mp4",
+        "has_sound": true,
         "aspect_ratio": "auto",
         "width": "full"
     },

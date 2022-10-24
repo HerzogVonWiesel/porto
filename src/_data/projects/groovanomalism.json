@@ -16,6 +16,7 @@
         },{
         "title": "Final looping video",
         "src": "/images/projects/groovanomalism/final.mp4",
+        "has_sound": true,
         "aspect_ratio": "auto",
         "width": "1/2"
     },

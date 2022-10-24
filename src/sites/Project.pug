@@ -18,4 +18,4 @@ block content
     div(class="relative pt-14 invisible") Divider
     div(class="flex flex-wrap m-auto")
         each media in cur_project.media
-            +pf_img({name:media.title, source:media.src, width:media.width, aspect_ratio:media.aspect_ratio, description:media.subtitle})
+            +pf_img({name:media.title, source:media.src, width:media.width, aspect_ratio:media.aspect_ratio, description:media.subtitle, has_sound:media.has_sound})

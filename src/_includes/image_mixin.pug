@@ -20,7 +20,7 @@ mixin pf_description({title, description, tools} = {})
         p(class="text-xl w-full md:w-1/4 p-3") ↝ !{space(4)} Tools used
         p(class="text-xl w-full md:w-3/4 p-3")= tools
 
-mixin pf_img({name, source, ref, width="1/2", aspect_ratio="1/1", description, is_video=false} = {})
+mixin pf_img({name, source, ref, width="1/2", aspect_ratio="1/1", description, has_sound=false} = {})
     - 
         var eval_aspect_ratio = "aspect-["+aspect_ratio+"]"
         var ar_modifier = 1;
@@ -40,7 +40,7 @@ mixin pf_img({name, source, ref, width="1/2", aspect_ratio="1/1", description, i
     div(class="w-full md:w-"+width+" p-3")
         +a_ref(ref)
             if filters.is_video(source)
-                video(class=eval_aspect_ratio+" w-full object-cover" loop autoplay playsinline muted src=source) 
+                video(class=eval_aspect_ratio+" w-full object-cover" loop controls=has_sound autoplay=!has_sound muted=!has_sound playsinline src=source) 
             else if source != ""
                 +responsive_image(source, sizes)(alt="" class=eval_aspect_ratio+" w-full object-cover")
             div(class="w-full items-start")

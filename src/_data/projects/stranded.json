@@ -9,8 +9,21 @@
     "aspect_ratio": "2.5/1",
     "width": "full",
     "media": [{
-        "title": "Final Render",
+        "title": "Final Render (Still frame)",
         "src": "/images/projects/stranded/final.jpg",
+        "aspect_ratio": "auto",
+        "width": "full"
+    },
+    {
+        "title": "Final render (Video)",
+        "src": "/images/projects/stranded/1920.mp4",
+        "aspect_ratio": "auto",
+        "width": "full"
+    },
+    {
+        "title": "Render breakdown",
+        "src": "/images/projects/stranded/breakdown.mp4",
+        "has_sound": true,
         "aspect_ratio": "auto",
         "width": "full"
     },
