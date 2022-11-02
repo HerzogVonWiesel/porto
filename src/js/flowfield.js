@@ -207,19 +207,19 @@ function wdraw() {
     requestAnimationFrame(draw);
     drawBackground();
     noiseZ += 0.002;
-    for(let i = -10; i < 10; i++){
+    for(let i = -8; i < 8; i++){
         drawSine(noiseZ, i);
     }
 }
 
 function resetDrawing() {
     if(cases == 0){
-        setup(30);
+        setup(40);
         clear();
         ctx.fillStyle = convertHexToRGBA(bg, 0.25);
     }
     if(cases == 1){
-        setup(8);
+        setup(13);
         clear();
     }
     if(cases == 2){
@@ -300,7 +300,7 @@ function drawSine(t, offset_y) {
     // Loop to draw segments
     for (i = xAxis-1; i <= w; i += 2) {
         x = t+(-xAxis+i)/unit;
-        y = Math.sin(x+10*noise.simplex3(0, offset_y/30, noiseZ))+offset_y/3;
+        y = Math.sin(x+10*noise.simplex3(0, offset_y/30, noiseZ))+offset_y/1.6;
         ctx.lineTo(i, unit*y+yAxis+(30*noise.simplex3(i, 0, noiseZ)*noise.simplex3(x/3, 10, noiseZ)));
     }
   ctx.stroke();  
