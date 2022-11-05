@@ -12,6 +12,20 @@
         "subtitle": "3rd iteration",
         "src": "/images/projects/stableAI/auroracave.png",
         "aspect_ratio": "2/1",
+        "width": "full"
+    },
+    {
+        "title": "peacock fractal lace",
+        "subtitle": "4th iteration",
+        "src": "/images/projects/stableAI/peacock.png",
+        "aspect_ratio": "1/1",
+        "width": "1/2"
+    },
+    {
+        "title": "s.t.a.l.k.e.r.",
+        "subtitle": "7th iteration",
+        "src": "/images/projects/stableAI/chernobyl.png",
+        "aspect_ratio": "1/1",
         "width": "1/2"
     },
     {
@@ -22,17 +36,38 @@
         "width": "1/2"
     },
     {
+        "title": "helheim lighthouse",
+        "subtitle": "6th iteration",
+        "src": "/images/projects/stableAI/lighthouse.png",
+        "aspect_ratio": "2/1",
+        "width": "1/2"
+    },
+    {
         "title": "dystopian future",
         "subtitle": "2nd iteration",
         "src": "/images/projects/stableAI/robowoman.png",
         "aspect_ratio": "3/4",
-        "width": "1/2"
+        "width": "1/3"
     },
     {
         "title": "anime princess",
         "subtitle": "11th iteration",
         "src": "/images/projects/stableAI/animeprincess.png",
         "aspect_ratio": "3/4",
+        "width": "1/3"
+    },
+    {
+        "title": "feverdreams logo design",
+        "subtitle": "3rd iteration",
+        "src": "/images/projects/stableAI/corp_logo.png",
+        "aspect_ratio": "1/1",
+        "width": "1/2"
+    },
+    {
+        "title": "dreamery",
+        "subtitle": "6th iteration",
+        "src": "/images/projects/stableAI/dream_girl.png",
+        "aspect_ratio": "1/1",
         "width": "1/2"
     }]
 }
