@@ -34,7 +34,7 @@ class Particle {
     }
     
     draw() {
-        ctx.fillRect(this.pos.x, this.pos.y, this.size, this.size);
+        rendering_ctx.fillRect(this.pos.x, this.pos.y, this.size, this.size);
     }
     
     wrap() {
@@ -70,27 +70,6 @@ const convertHexToRGBA = (hexCode, opacity = 1) => {
     return `rgba(${r},${g},${b},${opacity})`;
 };
 
-function scaleCanvas(canvas, context, width, height) {
-    // Handle window for SSR
-    if (typeof window === 'undefined')
-        return null;
-    // determine the actual ratio we want to draw at
-    var ratio = window.devicePixelRatio || 1;
-    if (devicePixelRatio !== 1) {
-        ratio = ratio / 2;
-        // set the 'real' canvas size to the higher width/height
-        canvas.width = width * ratio;
-        canvas.height = height * ratio;
-        // ...then scale it back down with CSS
-        //canvas.style.width = width + 'px';
-        //canvas.style.height = height + 'px';
-        // scale the drawing context so everything will work at the higher ratio
-        console.log("Rescaled Canvas for DPR");
-        context.scale(ratio, ratio);
-    }
-}
-
-
 /////GLOBALS
 let bright_bg = "#fff7ed";
 let dark_bg = "#000000";
@@ -103,6 +82,17 @@ let timer;
 let cases = -1;
 canvas = document.querySelector("#canvas");
 ctx = canvas.getContext("2d", { alpha: false });
+let offscreen_c = document.createElement('canvas');
+let offscreen_ctx = offscreen_c.getContext('2d')
+if(!window.chrome){
+    rendering_c = canvas;
+    rendering_ctx = ctx;
+}
+else{
+    rendering_c = offscreen_c;
+    rendering_ctx = offscreen_ctx;
+}
+
 window.addEventListener("resize", resetCanvas);
 
 size=30;
@@ -137,13 +127,15 @@ function setup(sizer=30) { //fp
     size = sizer;
     noiseZ = 0;
     noise.seed(Math.random());
-    ctx.strokeStyle = stroke;
-    ctx.lineWidth = 1.0;
+    rendering_ctx.strokeStyle = stroke;
+    rendering_ctx.lineWidth = 1.0;
     initDatafields();
 }
 
 function initField() { //f
   field = new Array(columns);
+  console.log("field:");
+  console.log(columns*rows);
   for (let x = 0; x < columns; x++) {
     field[x] = new Array(columns);
     for (let y = 0; y < rows; y++) {
@@ -155,9 +147,11 @@ function initField() { //f
 function initParticles() { //p
     particles = [];
     let numberOfParticles = w * h / 1000;
+    console.log("particles:");
+    console.log(numberOfParticles);
     for(let i = 0; i < numberOfParticles; i++) {
-    let particle = new Particle(Math.random() * w, Math.random() * h);
-    particles.push(particle);
+        let particle = new Particle(Math.random() * w, Math.random() * h);
+        particles.push(particle);
     }
 }
 
@@ -175,27 +169,26 @@ function fcalculateField() { //f
 function pcalculateField() { //p
     field = new Array(columns);
     for(let x = 0; x < columns; x++) {
-    field[x] = new Array(columns);
-    for(let y = 0; y < rows; y++) {
-        let angle = noise.simplex3(x/20, y/20, noiseZ) * Math.PI * 2;
-        let length = noise.simplex3(x/50 + 40000, y/50 + 40000, noiseZ) * 0.3;
-        let v = new Vector(0, length*5.0);
-        v.setAngle(angle);
-        field[x][y] = v;
-    }
+        field[x] = new Array(columns);
+        for(let y = 0; y < rows; y++) {
+            let angle = noise.simplex3(x/20, y/20, noiseZ) * Math.PI * 2;
+            let length = noise.simplex3(x/50 + 40000, y/50 + 40000, noiseZ) * 0.3;
+            let v = new Vector(0, length*5.0);
+            v.setAngle(angle);
+            field[x][y] = v;
+        }
     }
 }
 
 function drawBackground() {
-    ctx.fillRect(0, 0, w, h);
+    rendering_ctx.fillRect(0, 0, w, h);
 }
 
 function resetCanvas() {
     canvas.style.width = "100%";
     canvas.style.height = "100%";
-    w = canvas.width = canvas.offsetWidth;//window.innerWidth;
-    h = canvas.height = canvas.offsetHeight;//window.innerHeight;
-    scaleCanvas(canvas, ctx, w, h);
+    w = rendering_c.width = canvas.offsetWidth;//window.innerWidth;
+    h = rendering_c.height = canvas.offsetHeight;//window.innerHeight;
     yAxis = Math.floor(h/2);
     resetDrawing();
 }
@@ -220,7 +213,7 @@ function pdraw() {
     requestAnimationFrame(draw);
     pcalculateField();
     noiseZ += 0.002;
-    ctx.fillStyle = convertHexToRGBA(bg, 0.02);
+    rendering_ctx.fillStyle = convertHexToRGBA(bg, 0.02);
     drawBackground();
     drawParticles();
 }
@@ -238,7 +231,7 @@ function resetDrawing() {
     if(cases == 0){
         setup(40);
         clear();
-        ctx.fillStyle = convertHexToRGBA(bg, 0.25);
+        rendering_ctx.fillStyle = convertHexToRGBA(bg, 0.25);
     }
     if(cases == 1){
         setup(13);
@@ -246,10 +239,10 @@ function resetDrawing() {
     }
     if(cases == 2){
         clear();
-        ctx.fillStyle = convertHexToRGBA(bg, 0.5);
-        ctx.strokeStyle = stroke;
-        ctx.lineWidth = 1;
-        ctx.lineJoin = 'round';
+        rendering_ctx.fillStyle = convertHexToRGBA(bg, 0.5);
+        rendering_ctx.strokeStyle = stroke;
+        rendering_ctx.lineWidth = 1;
+        rendering_ctx.lineJoin = 'round';
     }
 }
 function draw() {
@@ -276,58 +269,37 @@ function draw() {
 }
 
 function clear() {
-  ctx.fillStyle = bg;
-  ctx.fillRect(0, 0, w, h);
+  rendering_ctx.fillStyle = bg;
+  rendering_ctx.fillRect(0, 0, w, h);
 }
 
 function drawField() {
-    if(!window.chrome){
-        for (let x = 0; x < columns; x++) {
-            for (let y = 0; y < rows; y++) {
+    for (let x = 0; x < columns; x++) {
+        for (let y = 0; y < rows; y++) {
             let angle = field[x][y][0];
             let length = field[x][y][1];
-            ctx.save();
-            ctx.translate(x * size, y * size);
-            ctx.rotate(angle);
-            ctx.beginPath();
-            ctx.moveTo(0, 0);
-            ctx.lineTo(0, size * length + 10);
-            ctx.lineTo(-9, (size * length + 10)-9);
-            ctx.moveTo(0, size * length + 10);
-            ctx.lineTo(9, (size * length + 10)-9);
-            ctx.stroke();
-            ctx.restore();
-            }
-        }
-    }
-    else{
-        for (let x = 0; x < columns; x++) {
-            for (let y = 0; y < rows; y++) {
-            let angle = field[x][y][0];
-            let length = field[x][y][1];
-            ctx.save();
-            ctx.translate(x * size, y * size);
-            ctx.rotate(angle);
-            ctx.beginPath();
-            ctx.moveTo(0, 0);
-            ctx.lineTo(0, size * length + 10);
-            ctx.stroke();
-            ctx.beginPath();
-            ctx.moveTo(0, size * length + 10);
-            ctx.lineTo(-9, (size * length + 10)-9);
-            ctx.stroke();
-            ctx.beginPath();
-            ctx.moveTo(0, size * length + 10);
-            ctx.lineTo(9, (size * length + 10)-9);
-            ctx.stroke();
-            ctx.restore();
-            }
+            rendering_ctx.save();
+            rendering_ctx.translate(x * size, y * size);
+            rendering_ctx.rotate(angle);
+            rendering_ctx.beginPath();
+            rendering_ctx.moveTo(0, 0);
+            rendering_ctx.lineTo(0, size * length + 10);
+            rendering_ctx.stroke();
+            rendering_ctx.beginPath();
+            rendering_ctx.moveTo(0, size * length + 10);
+            rendering_ctx.lineTo(-9, (size * length + 10)-9);
+            rendering_ctx.stroke();
+            rendering_ctx.beginPath();
+            rendering_ctx.moveTo(0, size * length + 10);
+            rendering_ctx.lineTo(9, (size * length + 10)-9);
+            rendering_ctx.stroke();
+            rendering_ctx.restore();
         }
     }
 }
 
 function drawParticles() {
-    ctx.fillStyle = stroke;
+    rendering_ctx.fillStyle = stroke;
     particles.forEach(p => {
     p.draw();
     let pos = p.pos.div(size);
@@ -343,15 +315,15 @@ function drawParticles() {
 function drawSine(t, offset_y) {
     var x = t;
     var y = Math.sin(x)
-    ctx.moveTo(yAxis, unit*y+xAxis);
-    ctx.beginPath();
+    rendering_ctx.moveTo(yAxis, unit*y+xAxis);
+    rendering_ctx.beginPath();
     // Loop to draw segments
     for (i = xAxis-1; i <= w; i += 2) {
         x = t+(-xAxis+i)/unit;
         y = Math.sin(x+10*noise.simplex3(0, offset_y/30, noiseZ))+offset_y/1.6;
-        ctx.lineTo(i, unit*y+yAxis+(30*noise.simplex3(i, 0, noiseZ)*noise.simplex3(x/3, 10, noiseZ)));
+        rendering_ctx.lineTo(i, unit*y+yAxis+(30*noise.simplex3(i, 0, noiseZ)*noise.simplex3(x/3, 10, noiseZ)));
     }
-  ctx.stroke();  
+  rendering_ctx.stroke();  
 }
 
 clear();
