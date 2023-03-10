@@ -19,3 +19,6 @@ block content
     div(class="flex flex-wrap m-auto")
         each media in cur_project.media
             +pf_img({name:media.title, source:media.src, width:media.width, aspect_ratio:media.aspect_ratio, description:media.subtitle, has_sound:media.has_sound})
+    div(class="relative pt-12 invisible") Divider
+    a(class="text-5xl md:text-8xl px-3" href="javascript:history.back()") ← !{space(4)} Go Back
+    div(class="relative pt-12 invisible") Divider

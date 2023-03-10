@@ -152,6 +152,17 @@ function initField() { //f
   }
 }
 
+var mouseX = 0.0;
+var mouseY = 0.0;
+
+document.addEventListener('mousemove', (event) => {
+    var rect = canvas.getBoundingClientRect();
+
+    mouseX = (mouseX*0.9) + 0.1*(event.clientX - rect.left);
+    mouseY = (mouseY*0.9) + 0.1*(event.clientY - rect.top);
+
+});
+
 function initParticles() { //p
     particles = [];
     let numberOfParticles = w * h / 1000;
@@ -164,25 +175,38 @@ function initParticles() { //p
 function fcalculateField() { //f
   for (let x = 0; x < columns; x++) {
     for (let y = 0; y < rows; y++) {
-      let angle = noise.simplex3(x / 50, y / 50, noiseZ) * Math.PI * 2;
+      var dx = mouseX - (canvas.width/columns) * x;
+      var dy = mouseY - (canvas.height/rows) * y;
+      let angle1 = noise.simplex3(x / 50, y / 50, noiseZ) * Math.PI * 2;
+      let angle2 = Math.atan2(dy*10, dx*10) - 1.57;
       let length = noise.simplex3(x / 50 + 40000, y / 50 + 40000, noiseZ);
+      let angle = angle1 + angle2;
       field[x][y][0] = angle;
-      field[x][y][1] = Math.abs(length);
+      field[x][y][1] = length * 0.5 + 0.5;
     }
   }
 }
 
 function pcalculateField() { //p
     field = new Array(columns);
+    let partID = 0;
     for(let x = 0; x < columns; x++) {
-    field[x] = new Array(columns);
-    for(let y = 0; y < rows; y++) {
-        let angle = noise.simplex3(x/20, y/20, noiseZ) * Math.PI * 2;
-        let length = noise.simplex3(x/50 + 40000, y/50 + 40000, noiseZ) * 0.3;
-        let v = new Vector(0, length*5.0);
-        v.setAngle(angle);
-        field[x][y] = v;
-    }
+        field[x] = new Array(columns);
+        for(let y = 0; y < rows; y++) {
+            
+            var dx = mouseX - (canvas.width/columns) * x;
+            var dy = mouseY - (canvas.height/rows) * y;
+            let angle1 = noise.simplex3(x/20, y/20, noiseZ) * Math.PI * 2;
+            
+            let angle2 = Math.atan2(dy*10, dx*10) - 0;
+            
+            let angle = angle1 + angle2;
+            let length = noise.simplex3(x/50 + 40000, y/50 + 40000, noiseZ) * 0.3;
+            let v = new Vector(0, length*5.0);
+            v.setAngle(angle);
+            field[x][y] = v;
+            partID++;
+        }
     }
 }
 
@@ -220,9 +244,9 @@ function pdraw() {
     requestAnimationFrame(draw);
     pcalculateField();
     noiseZ += 0.002;
-    ctx.fillStyle = convertHexToRGBA(bg, 0.02);
+    ctx.fillStyle = convertHexToRGBA(bg, 0.001);
     drawBackground();
-    drawParticles();
+    drawParticles(noiseZ);
 }
 
 function wdraw() {
@@ -256,7 +280,7 @@ function draw() {
     if(!timer){
         timer = Date.now();
     }
-    if (Date.now() - timer > 3000 || cases == -1){
+    if (Date.now() - timer > 4500 || cases == -1){
         timer = null;
         cases = (cases+1) % 3;
         resetDrawing();
@@ -326,17 +350,23 @@ function drawField() {
     }
 }
 
-function drawParticles() {
-    ctx.fillStyle = stroke;
+function drawParticles(t) {
+    let partID = 0;
     particles.forEach(p => {
+        
+    ctx.fillStyle = partID%3 ? stroke : bg;
     p.draw();
     let pos = p.pos.div(size);
     let v;
     if(pos.x >= 0 && pos.x < columns && pos.y >= 0 && pos.y < rows) {
+        let partRand = (noise.simplex3(0, t, partID)-0.5)*0.1;
         v = field[Math.floor(pos.x)][Math.floor(pos.y)];
+        v.x += partRand;
+        v.y += partRand;
     }
     p.move(v);
     p.wrap();
+    partID++;
     });
 }
 
@@ -349,7 +379,9 @@ function drawSine(t, offset_y) {
     for (i = xAxis-1; i <= w; i += 2) {
         x = t+(-xAxis+i)/unit;
         y = Math.sin(x+10*noise.simplex3(0, offset_y/30, noiseZ))+offset_y/1.6;
-        ctx.lineTo(i, unit*y+yAxis+(30*noise.simplex3(i, 0, noiseZ)*noise.simplex3(x/3, 10, noiseZ)));
+        var dx = Math.abs(mouseX - unit*x)/15.0;
+        var dy = Math.abs(mouseY - unit*y - yAxis)/15.0;
+        ctx.lineTo(i, unit*y+yAxis+((dx+dy)*noise.simplex3(i, 0, noiseZ)*noise.simplex3(x/3, 10, noiseZ)));
     }
   ctx.stroke();  
 }

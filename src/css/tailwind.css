@@ -44,12 +44,21 @@
     unicode-range:U+E000-E15C,U+F0000,U+FE0E
 }*/
 
+/*←↝•@→©↩↑↓§№™*/
 @font-face {
     font-family: 'Icons';
     src: url('/fonts/subset-IconFont-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
     unicode-range:U+E000-E15C,U+F0000,U+FE0E;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Freizeit';
+    src: url('/fonts/subset-Freizeit-ExtraBold.woff2') format('woff2');
+    font-weight: bolder;
+    font-style: normal;
     font-display: swap;
 }
 
