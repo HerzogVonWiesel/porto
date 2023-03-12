@@ -1,0 +1,53 @@
+{
+    "name": "The Stalling",
+    "subtitle": "Atmospheric cinematography",
+    "year": "2022",
+    "description": "'Do not even think about getting near the fog. For what emerges from it will keep you.' That is what they said, what everybody heard on their radio. Still, whether it was due to disbelief or simply a lack of a car radio, some disregarded the warning to leave only their '93 compact cars behind.<br><br>An atmospheric scene strongly inspired by the amazing Simon Stålenhag, trying to combine all knowledge distributed over different programs into one project.",
+    "tools": "Cinema 4D, Houdini, Redshift, Nuke, Davinci Resolve",
+    "cover_img": "/images/projects/stalling/stalling.png",
+    "aspect_ratio": "5/2",
+    "width": "full",
+    "media": [{
+        "title": "Still frame of final render",
+        "src": "/images/projects/stalling/stalling.png",
+        "aspect_ratio": "auto",
+        "width": "full"
+    },
+    {
+        "title": "Final render (looping video)",
+        "src": "/images/projects/stalling/final.mp4",
+        "has_sound": true,
+        "aspect_ratio": "auto",
+        "width": "full"
+    },
+    {
+        "title": "Night Color correction",
+        "src": "/images/projects/stalling/night.png",
+        "aspect_ratio": "auto",
+        "width": "full"
+    },
+    {
+        "title": "3D reprojection of the scene using the depth matte for realistic camera shake",
+        "src": "/images/projects/stalling/projection.png",
+        "aspect_ratio": "2/1",
+        "width": "1/2"
+    },
+    {
+        "title": "Raw render",
+        "src": "/images/projects/stalling/raw.jpg",
+        "aspect_ratio": "2/1",
+        "width": "1/2"
+    },
+    {
+        "title": "First WIP",
+        "src": "/images/projects/stalling/wip1.png",
+        "aspect_ratio": "2/1",
+        "width": "1/2"
+    },
+    {
+        "title": "Second WIP",
+        "src": "/images/projects/stalling/wip2.png",
+        "aspect_ratio": "2/1",
+        "width": "1/2"
+    }]
+}

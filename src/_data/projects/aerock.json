@@ -11,6 +11,7 @@
     "media": [{
         "title": "Final Render",
         "src": "/images/projects/aerock/assemble-1.mp4",
+        "has_sound": true,
         "aspect_ratio": "2/1",
         "width": "full"
     },

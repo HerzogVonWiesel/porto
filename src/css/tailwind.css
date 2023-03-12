@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
+/*@font-face {
     font-family: 'Freizeit';
     src: url('/fonts/Freizeit-ExtraBold.woff2') format('woff2');
     font-weight: 800;
@@ -38,27 +38,59 @@
     font-display: swap;
 }
 
-@font-face {
-    font-family: "Pluto-Regular";
-    src: url("/fonts/Pluto.ttf");
-}
 @font-face{
     font-family: "Icons";
     src:url("/fonts/Icons.woff2");
     unicode-range:U+E000-E15C,U+F0000,U+FE0E
+}*/
+
+/*←↝•@→©↩↑↓§№™*/
+@font-face {
+    font-family: 'Icons';
+    src: url('/fonts/subset-IconFont-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    unicode-range:U+E000-E15C,U+F0000,U+FE0E;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Freizeit';
+    src: url('/fonts/subset-Freizeit-ExtraBold.woff2') format('woff2');
+    font-weight: bolder;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Freizeit';
+    src: url('/fonts/subset-Freizeit-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Freizeit';
+    src: url('/fonts/subset-Freizeit-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
 @layer utilities {
     .rotated-nav {
         max-width: 100vh;
+        will-change: transform;
         transform-origin: top right;
         transform: translate(-100%, 0%) rotate(-90deg);
     }
 
     .rotated-footer {
         max-width: 100vh;
+        will-change: transform;
         transform-origin: bottom left;
-        transform: translate(100vw, 0%) rotate(-90deg);
+        transform: translate(calc(100vw - var(--scrollbar-width)), 0%) rotate(-90deg);
     }
 
     a{

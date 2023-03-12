@@ -4,15 +4,21 @@ pagination:
     size: 1
     alias: project
 permalink: "= `sites/projects/${project}/index.html`"
+eleventyComputed: 
+    title: "= `${projects[project].name}`"
 ---
 extends template
 
 block content
     - var cur_project = projects[project]
+    - title = project
     - console.log("Creating project "+cur_project.name)
     div(class="relative pt-14 invisible") Divider
     +pf_description({title: cur_project.name, description: cur_project.description, tools: cur_project.tools})
     div(class="relative pt-14 invisible") Divider
     div(class="flex flex-wrap m-auto")
         each media in cur_project.media
-            +pf_img({name:media.title, source:media.src, width:media.width, aspect_ratio:media.aspect_ratio})
+            +pf_img({name:media.title, source:media.src, width:media.width, aspect_ratio:media.aspect_ratio, description:media.subtitle, has_sound:media.has_sound})
+    div(class="relative pt-12 invisible") Divider
+    a(class="text-5xl md:text-8xl px-3" href="javascript:history.back()") ← !{space(4)} Go Back
+    div(class="relative pt-12 invisible") Divider

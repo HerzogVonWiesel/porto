@@ -1,0 +1,23 @@
+---
+title: Portfolio
+---
+extends template
+
+block content
+    //title; think about md:scale-x-110
+    //-Divider
+    //-div(class="relative pt-[25vh] invisible")
+    //gallery
+    //-Divider
+    //-div(class="relative pt-[10vh] invisible")
+    div(class="w-full md:w-full p-3 py-8")
+            h2(class="text-5xl md:text-8xl text-left break-words") Portfolio (WIP)
+    h2(class="text-5xl px-3 max-md:hidden") SELECTED <br> !{space(11)} PROJECTS ︎︎︎
+    h2(class="text-5xl px-3 md:hidden") SELECTED <br> PROJECTS ︎︎︎
+    div(class="flex flex-wrap m-auto")
+        - let sortedProjects = getSortedPortfolio();
+        each project in sortedProjects
+            - var proj_ref = `/sites/projects/${project[0]}/`;
+            - var project_details = project[1];
+            - console.log(project_details.name);
+            +pf_img({name:project_details.name, source:project_details.cover_img, width:project_details.width, aspect_ratio:project_details.aspect_ratio, ref:proj_ref, description:project_details.subtitle+", "+project_details.year})

@@ -7,6 +7,7 @@ const path = require('path')
 let img_collection = async () => {
     console.log("Rendering images...")
     const img_dir = "src/images/";
+    const seperator = "/"; //NOT path.sep, breaks on windows
     const img_config = {
         //useCache: false,
         widths: [null, 600, 1000, 2000],
@@ -15,8 +16,10 @@ let img_collection = async () => {
         filenameFormat: function (id, src, width, format, options) {
             const extension = path.extname(src)
             var name = path.basename(src, extension)
-            if(path.dirname(src).split(path.sep).length > 3)
-                name = path.dirname(src).split(path.sep).pop()+"_"+name;
+            const seperator = "/";
+            if(path.dirname(src).split(seperator).length > 3){
+                name = path.dirname(src).split(seperator).pop()+"_"+name;
+            }
             return `${name}-${width}w.${format}`
         },
         sharpWebpOptions: {
@@ -25,7 +28,7 @@ let img_collection = async () => {
             effort: 6,
         }
     }
-    const rawImages = fg.sync(img_dir+"**/*.{jpg,jpeg,png,gif,tiff,webp}");
+    const rawImages = fg.sync(img_dir+"**/*.{jpg,jpeg,png,gif,tiff,webp,svg}");
     console.log(rawImages)
     const mapping = {};
   
@@ -47,6 +50,9 @@ module.exports = (function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/js")
     eleventyConfig.addPassthroughCopy("src/fonts")
     eleventyConfig.addPassthroughCopy("src/images")
+    eleventyConfig.addPassthroughCopy("src/favicon")
+    eleventyConfig.addPassthroughCopy("src/site.webmanifest")
+    eleventyConfig.addPassthroughCopy("src/files")
 
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
