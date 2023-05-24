@@ -37,7 +37,7 @@ mixin pf_img({name, source, ref, width="1/2", aspect_ratio="1/1", description, h
     - var image_mul = eval(w_modifier+"*"+ar_modifier).toString()
     - var sizes = "(max-width: "+screen_md+") 100vw, (min-width: "+screen_3xl+") calc("+screen_3xl+" * "+image_mul+"), calc(100vw * "+image_mul+")"
     
-    div(class="w-full md:w-"+width+" p-3")
+    div(class="w-full md:w-"+width+" p-6 py-3")
         +a_ref(ref)
             if filters.is_video(source)
                 video(class=eval_aspect_ratio+" w-full object-cover" loop controls=has_sound autoplay=!has_sound muted=!has_sound playsinline src=source) 

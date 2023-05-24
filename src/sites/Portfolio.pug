@@ -20,4 +20,5 @@ block content
             - var proj_ref = `/sites/projects/${project[0]}/`;
             - var project_details = project[1];
             - console.log(project_details.name);
-            +pf_img({name:project_details.name, source:project_details.cover_img, width:project_details.width, aspect_ratio:project_details.aspect_ratio, ref:proj_ref, description:project_details.subtitle+", "+project_details.year})
+            if (project_details.hidden)
+                +pf_img({name:project_details.name, source:project_details.cover_img, width:project_details.width, aspect_ratio:project_details.aspect_ratio, ref:proj_ref, description:project_details.subtitle+", "+project_details.year})

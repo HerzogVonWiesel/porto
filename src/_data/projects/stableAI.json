@@ -15,6 +15,20 @@
         "width": "full"
     },
     {
+        "title": "AI travels the world: Part 1",
+        "subtitle": "14th iteration",
+        "src": "/images/projects/stableAI/AITravel_1.mp4",
+        "aspect_ratio": "3/4",
+        "width": "1/2"
+    },
+    {
+        "title": "AI travels the world: Part 2",
+        "subtitle": "9th iteration",
+        "src": "/images/projects/stableAI/AITravel_2.mp4",
+        "aspect_ratio": "3/4",
+        "width": "1/2"
+    },
+    {
         "title": "peacock fractal lace",
         "subtitle": "4th iteration",
         "src": "/images/projects/stableAI/peacock.png",
@@ -67,6 +81,34 @@
         "title": "dreamery",
         "subtitle": "6th iteration",
         "src": "/images/projects/stableAI/dream_girl.png",
+        "aspect_ratio": "1/1",
+        "width": "1/2"
+    },
+    {
+        "title": "Cyberpunk anime",
+        "subtitle": "3rd iteration",
+        "src": "/images/projects/stableAI/anime_cyber.png",
+        "aspect_ratio": "4/5",
+        "width": "1/2"
+    },
+    {
+        "title": "Battle of Waterloo",
+        "subtitle": "5th iteration",
+        "src": "/images/projects/stableAI/waterloo.png",
+        "aspect_ratio": "4/5",
+        "width": "1/2"
+    },
+    {
+        "title": "Stylized Brandenburg gate 1",
+        "subtitle": "2nd iteration",
+        "src": "/images/projects/stableAI/bbgate_1.png",
+        "aspect_ratio": "1/1",
+        "width": "1/2"
+    },
+    {
+        "title": "Stylized Brandenburg gate 2",
+        "subtitle": "2nd iteration",
+        "src": "/images/projects/stableAI/bbgate_2.png",
         "aspect_ratio": "1/1",
         "width": "1/2"
     }]

@@ -1,0 +1,53 @@
+{
+    "name": "mediterran",
+    "subtitle": "Celebrating the end of the cold months",
+    "year": "2023",
+    "description": "mediterran - celebrating the end of the cold months <br>Strongly inspired by my trip to the portuguese Algarve last year. The song in the background is Canarios by Gaspar Sainz, played by me on my trusty classical guitar! <br>I played around using Stable Diffusion to animate the texture on the car which was a lot of fun as well.",
+    "tools": "Cinema 4D, Stable Diffusion, Redshift, After Effects, Alhambra classical guitar",
+    "cover_img": "/images/projects/mediterran/TOP264_C.mp4",
+    "aspect_ratio": "1/1",
+    "width": "1/2",
+    "media": [
+    {
+        "title": "Cover image",
+        "src": "/images/projects/mediterran/Cover.jpg",
+        "aspect_ratio": "auto",
+        "width": "1/2"
+    },{
+        "title": "Final Render",
+        "src": "/images/projects/mediterran/TOP264.mp4",
+        "has_sound": true,
+        "aspect_ratio": "auto",
+        "width": "1/2"
+    },
+    {
+        "title": "Shot n°1",
+        "src": "/images/projects/mediterran/Shot_Back.jpg",
+        "aspect_ratio": "1/1",
+        "width": "1/2"
+    },
+    {
+        "title": "Shot n°2",
+        "src": "/images/projects/mediterran/Shot_Side.jpg",
+        "aspect_ratio": "1/1",
+        "width": "1/2"
+    },
+    {
+        "title": "Turnaround of Ferrari 288 GTO 1984",
+        "src": "/images/projects/mediterran/Turnaround.mp4",
+        "aspect_ratio": "auto",
+        "width": "full"
+    },
+    {
+        "title": "Clay render",
+        "src": "/images/projects/mediterran/CLAY.png",
+        "aspect_ratio": "1/1",
+        "width": "1/2"
+    },
+    {
+        "title": "Raw render (without Color correction)",
+        "src": "/images/projects/mediterran/Raw_Render.jpg",
+        "aspect_ratio": "1/1",
+        "width": "1/2"
+    }]
+}

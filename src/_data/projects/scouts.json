@@ -7,7 +7,7 @@
     "tools": "Cinema 4D, Redshift, Substance Painter, Nuke, Ornatrix",
     "cover_img": "/images/projects/scouts/final_still.jpg",
     "aspect_ratio": "2/1",
-    "width": "1/2",
+    "width": "full",
     "media": [{
         "title": "Still frame of final render",
         "src": "/images/projects/scouts/final_still.jpg",
