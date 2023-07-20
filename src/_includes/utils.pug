@@ -1,0 +1,28 @@
+-
+    function space(num=1){
+        let str = "";
+        while (num > 0){
+            str = str + "&nbsp;";
+            num--;
+        }
+        return str;
+    }
+
+    var word_brk = "&#8203;"
+
+mixin spacer(height)
+    div(class="h-["+height+"]")
+        p  
+
+mixin back_button()
+    h1
+        a(href="javascript:history.back()") ← !{space(4)} Go Back
+
+mixin divider(size, classes)
+    if !classes
+        - classes = ""
+    div(class="relative pt-"+size+" "+classes+" invisible") Divider
+
+mixin a_new_tab(ref)
+    a(href=ref target="_blank" rel="noopener noreferrer")
+        block

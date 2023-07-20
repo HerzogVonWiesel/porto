@@ -78,6 +78,21 @@
     font-display: swap;
 }
 
+@layer base {
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-freizeit;
+    }
+    h1 {
+        @apply text-5xl md:text-8xl px-3;
+    }
+}
+
+@layer components {
+    .container {
+        @apply flex flex-wrap m-auto;
+    }
+}
+
 @layer utilities {
     .rotated-nav {
         max-width: 100vh;
