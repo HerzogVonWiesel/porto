@@ -1,0 +1,11 @@
+extends ../sites/template
+
+block content 
+    +pf_description({title: title, description: subtitle, tools: tags, date: date})
+
+    block blog_post
+        p there is nothing of interest here.
+
+    +divider(14)
+    +back_button()
+    +divider(14)

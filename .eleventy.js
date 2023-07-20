@@ -62,7 +62,19 @@ module.exports = (function(eleventyConfig) {
     eleventyConfig.addFilter("is_video", is_video);
 
     eleventyConfig.addCollection("img_collection", img_collection);
+    eleventyConfig.addCollection("blog", function (collection) {
+        return collection.getFilteredByGlob("src/blog_posts/*.pug");
+      });
 
+
+    // Add support for markdown
+    let markdownIt = require("markdown-it");
+    let markdownItOptions = {
+        html: true,
+        breaks: true,
+        linkify: true,
+    };
+    eleventyConfig.setLibrary("md", markdownIt(markdownItOptions));
 
     global.filters = eleventyConfig.javascriptFunctions; // magic happens here
     eleventyConfig.setPugOptions({ // and here
