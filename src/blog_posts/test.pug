@@ -1,0 +1,31 @@
+---
+title: Teeeeeeest Post
+subtitle: This is a test post
+date: 2023-07-20
+cover_img: /images/jstephan.png
+tags:
+    - debug
+---
+extends /Blog_Post
+
+block blog_post
+    h1 Hi
+    p Hello from under the header.
+
+    :markdown-it(linkify langPrefix='highlight-')
+        # Markdown
+
+        Markdown document with http://links.com
+
+    - 
+        var code = `
+        import js
+        import hahah
+        print("hey")
+        
+        def test():
+            print("test")
+            return
+        `
+    - var code = filters.render_code("python", code);
+    != code

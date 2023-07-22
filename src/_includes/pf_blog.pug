@@ -11,7 +11,7 @@ mixin a_ref(ref)
         block
 
 mixin pf_description({title, description, tools} = {})
-     div(class="flex flex-wrap m-auto")
+     div.container
         div(class="w-full md:w-full p-3 py-8")
             h2(class="text-5xl md:text-8xl text-left break-words")= title
         p(class="text-xl w-full md:w-1/4 p-3") ↝ !{space(4)} Description

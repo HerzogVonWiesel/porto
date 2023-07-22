@@ -2,6 +2,7 @@ const fs = require("fs");
 const fg = require("fast-glob");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const Image = require("@11ty/eleventy-img")
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const path = require('path')
 
 let img_collection = async () => {
@@ -46,6 +47,10 @@ function is_video(src){
     return video_types.includes(extension);
 }
 
+function render_code(lang, code){
+    return this.highlight(lang, code);
+}
+
 module.exports = (function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/js")
     eleventyConfig.addPassthroughCopy("src/fonts")
@@ -53,16 +58,32 @@ module.exports = (function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/favicon")
     eleventyConfig.addPassthroughCopy("src/site.webmanifest")
     eleventyConfig.addPassthroughCopy("src/files")
+    eleventyConfig.addPassthroughCopy("src/css/prism-one-dark.css")
+    eleventyConfig.addPassthroughCopy("src/css/prism-min.css")
 
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
+    eleventyConfig.addPlugin(syntaxHighlight);
 
     eleventyConfig.addFilter("toUppercase", function(string) {
         return string.toUpperCase();
     });
     eleventyConfig.addFilter("is_video", is_video);
+    eleventyConfig.addFilter("render_code", render_code);
 
     eleventyConfig.addCollection("img_collection", img_collection);
+    eleventyConfig.addCollection("blog", function (collection) {
+        return collection.getFilteredByGlob("src/blog_posts/*.{pug,md}");
+      });
 
+
+    // Add support for markdown
+    let markdownIt = require("markdown-it");
+    let markdownItOptions = {
+        html: true,
+        breaks: true,
+        linkify: true,
+    };
+    eleventyConfig.setLibrary("md", markdownIt(markdownItOptions));
 
     global.filters = eleventyConfig.javascriptFunctions; // magic happens here
     eleventyConfig.setPugOptions({ // and here
