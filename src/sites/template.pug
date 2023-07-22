@@ -1,63 +1,63 @@
-include /image_mixin.pug
-include /space_mixin.pug
+include /pf_blog.pug
 include /sortCollection.pug
 include /utils.pug
 
 doctype html
 html(class="" lang="en")
     head
-        title Jérôme Stephan - #{title}
+        block head
+            title Jérôme Stephan - #{title}
 
-        - var meta_description = "Jérôme Stephan is a programmer and artist based in and around Berlin, Germany. Keen on using every opportunity to learn more."
-        meta(name="theme-color" content="orangered")
-        meta(name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes")
-        meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
-        meta(name="robots" content="index, follow")
-        meta(name="description" content=meta_description)
-        
-        meta(name="twitter:card" content="summary_large_image")
-        meta(name="twitter:title" content="Jérôme Stephan")
-        meta(name="twitter:description" content=meta_description)
-        meta(name="twitter:image" content="/favicon/android-chrome-512x512.png")
-        meta(name="og:locale" content="en_US")
-        meta(name="og:title" content="Jérôme Stephan")
-        meta(name="og:description" content=meta_description)
-        meta(name="og:url" content="https://jeromestephan.de")
-        meta(name="og:image" content="/favicon/android-chrome-512x512.png")
-        meta(name="og:type" content="website")
+            - var meta_description = "Jérôme Stephan is a programmer and artist based in and around Berlin, Germany. Keen on using every opportunity to learn more."
+            meta(name="theme-color" content="orangered")
+            meta(name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes")
+            meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+            meta(name="robots" content="index, follow")
+            meta(name="description" content=meta_description)
+            
+            meta(name="twitter:card" content="summary_large_image")
+            meta(name="twitter:title" content="Jérôme Stephan")
+            meta(name="twitter:description" content=meta_description)
+            meta(name="twitter:image" content="/favicon/android-chrome-512x512.png")
+            meta(name="og:locale" content="en_US")
+            meta(name="og:title" content="Jérôme Stephan")
+            meta(name="og:description" content=meta_description)
+            meta(name="og:url" content="https://jeromestephan.de")
+            meta(name="og:image" content="/favicon/android-chrome-512x512.png")
+            meta(name="og:type" content="website")
 
-        script.
-            function color_toggle() {
-                const event = new Event('color_change');
-                if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)){
-                    localStorage.theme = 'light';
-                    document.documentElement.classList.remove('dark');
-                    event.value='light';
+            script.
+                function color_toggle() {
+                    const event = new Event('color_change');
+                    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)){
+                        localStorage.theme = 'light';
+                        document.documentElement.classList.remove('dark');
+                        event.value='light';
+                    }
+                    else  {
+                        localStorage.theme = 'dark';
+                        document.documentElement.classList.add('dark');
+                        event.value='dark';
+                    }
+                    event.key = "color"; // Optional..
+                    document.dispatchEvent(event);
                 }
-                else  {
-                    localStorage.theme = 'dark';
-                    document.documentElement.classList.add('dark');
-                    event.value='dark';
+                if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.classList.add('dark')
+                } else {
+                    document.documentElement.classList.remove('dark')
                 }
-                event.key = "color"; // Optional..
-                document.dispatchEvent(event);
-            }
-            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                document.documentElement.classList.add('dark')
-            } else {
-                document.documentElement.classList.remove('dark')
-            }
 
 
-        link(rel='stylesheet', type='text/css', href='/css/style.css')
-        link(rel="icon", href="/favicon/favicon.ico", sizes="any")
-        link(rel="icon", type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png")
-        link(rel="apple-touch-icon", href="/favicon/apple-touch-icon.png")
-        link(rel="manifest" href="/site.webmanifest")
-        //- make fonts have priority over images
-        link(rel='preload', as="font", type="font/woff2", href="/fonts/subset-IconFont-Regular.woff2", crossorigin)
-        link(rel='preload', as="font", type="font/woff2", href="/fonts/subset-Freizeit-Regular.woff2", crossorigin)
-        link(rel='preload', as="font", type="font/woff2", href="/fonts/subset-Freizeit-Bold.woff2", crossorigin)
+            link(rel='stylesheet', type='text/css', href='/css/style.css')
+            link(rel="icon", href="/favicon/favicon.ico", sizes="any")
+            link(rel="icon", type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png")
+            link(rel="apple-touch-icon", href="/favicon/apple-touch-icon.png")
+            link(rel="manifest" href="/site.webmanifest")
+            //- make fonts have priority over images
+            link(rel='preload', as="font", type="font/woff2", href="/fonts/subset-IconFont-Regular.woff2", crossorigin)
+            link(rel='preload', as="font", type="font/woff2", href="/fonts/subset-Freizeit-Regular.woff2", crossorigin)
+            link(rel='preload', as="font", type="font/woff2", href="/fonts/subset-Freizeit-Bold.woff2", crossorigin)
     body(class=" \
         pt-[10vh] \
         selection:bg-darkslateblue \

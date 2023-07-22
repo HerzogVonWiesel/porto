@@ -1,5 +1,8 @@
 extends ../sites/template
 
+block append head 
+    link(rel='stylesheet', type='text/css', href='/css/prism-min.css')
+
 block content 
     +pf_description({title: title, description: subtitle, tools: tags, date: date})
 
