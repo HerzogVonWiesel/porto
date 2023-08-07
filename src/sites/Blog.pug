@@ -1,16 +1,11 @@
 ---
 title: Blog
+permalink: "= `${title}/`"
 eleventyNavigation:
     key: Blog 
     order: 3
 ---
-extends template
+extends /_layouts/blog_view
 
-block content
-    h1 Blog
-    div.container
-        - console.log("Rendering blog posts")
-            each post in collections.blog 
-                //- make post date human readable (day month year)
-                - var post_date = post.data.date.toDateString().split(" ").slice(1).join(" ")
-                +pf_img({name:post.data.title, source:post.data.cover_img, width:"1/2", aspect_ratio:"2/1", ref:post.url, description:post_date})
+block posts_list
+    - let postslist = collections.blog

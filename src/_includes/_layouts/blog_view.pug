@@ -1,0 +1,17 @@
+extends template
+
+block content
+    div(class="p-def-2")
+        h1
+            block title
+                a(href="/Blog/") Blog
+        - var a_blog_tags = Array.from(collections.blog_tags)
+        h2
+            each tag in a_blog_tags
+                a(href=`/Blog/tag/${tag}/`) ##{tag}
+        block subtitle 
+            - NONE
+    div.flexcon
+        block posts_list
+            - let postslist = collections.blog
+        include /posts_list

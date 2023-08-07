@@ -3,11 +3,11 @@ pagination:
     data: projects 
     size: 1
     alias: project
-permalink: "= `sites/projects/${project}/index.html`"
+permalink: "= `projects/${project}/index.html`"
 eleventyComputed: 
     title: "= `${projects[project].name}`"
 ---
-extends template
+extends /_layouts/template
 
 block content
     - var cur_project = projects[project]
@@ -16,7 +16,7 @@ block content
     +divider(14)
     +pf_description({title: cur_project.name, description: cur_project.description, tools: cur_project.tools})
     +divider(14)
-    div.container
+    div.flexcon
         each media in cur_project.media
             +pf_img({name:media.title, source:media.src, width:media.width, aspect_ratio:media.aspect_ratio, description:media.subtitle, has_sound:media.has_sound})
     +divider(14)

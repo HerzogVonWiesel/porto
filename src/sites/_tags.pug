@@ -1,0 +1,30 @@
+---js
+{
+pagination: {
+  data: "collections",
+  size: 1,
+  alias: "tag",
+  addAllPagesToCollections: true,
+  before: function(paginationData, fullData) {
+        // `fullData` is new in v1.0.1 and contains the full Data Cascade thus far
+        //console.log(fullData.collections.blog_tags)
+
+        const allowed_tags = fullData.collections.blog_tags
+        return paginationData.filter(entry => allowed_tags.has(entry));
+    }
+},
+//- layout: Blog.pug
+permalink: "= `Blog/tag/${tag}/index.html`",
+eleventyComputed:{
+  title: "= `${tag}`",
+  description: "= `All posts tagged ${tag}`"
+},
+}
+---
+extends /_layouts/blog_view
+
+block append title
+    |!{space(1)}- Posts with tag ##{tag}
+
+block posts_list
+    - var postslist = collections[tag]

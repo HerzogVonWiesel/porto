@@ -23,19 +23,25 @@ module.exports = {
       fontFamily: {
         freizeit: ["Freizeit", "Icons", "sans-serif"],
         pluto: ["Pluto-Regular", "sans-serif"],
+        inferi: ["Inferi", "Icons", "serif"],
+      },
+      spacing: {
+        'def': '0.75rem',
+        'def-2': '1.5rem',
+        'def-3': '2.25rem',
+        'def-4': '3rem',
+        'def-5': '3.75rem',
+        'def-6': '4.5rem',
       },
     },
 
     colors: {
-      'bg': '#fff7ed',
-      'dark-bg': '#000000',
-      'orangered': 'orangered',
-      'darkslateblue': '#340B6B',
-      'black': 'black',
-      'white': 'white',
-      'orange-50': '#fff7ed',
-      'bisque': 'bisque',
-      'dark-orange': '#200F00',
+      'bg': 'var(--bg)',
+      'bg-dark': 'var(--bg-dark)',
+      "accent": "var(--accent)",
+      'accent-sec': 'var(--accent-sec)',
+      'base-dark': 'var(--base-dark)',
+      'base-bright': 'var(--base-bright)',
     }
   },
   plugins: [

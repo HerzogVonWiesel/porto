@@ -70,6 +70,8 @@ const convertHexToRGBA = (hexCode, opacity = 1) => {
     return `rgba(${r},${g},${b},${opacity})`;
 };
 
+let dpr = 1;
+
 function scaleCanvas(canvas, context, width, height) {
     // Handle window for SSR
     if (typeof window === 'undefined')
@@ -78,6 +80,7 @@ function scaleCanvas(canvas, context, width, height) {
     var ratio = window.devicePixelRatio || 1;
     if (devicePixelRatio !== 1) {
         ratio = ratio / 2;
+        dpr = ratio;
         // set the 'real' canvas size to the higher width/height
         canvas.width = width * ratio;
         canvas.height = height * ratio;
@@ -85,17 +88,17 @@ function scaleCanvas(canvas, context, width, height) {
         //canvas.style.width = width + 'px';
         //canvas.style.height = height + 'px';
         // scale the drawing context so everything will work at the higher ratio
-        console.log("Rescaled Canvas for DPR");
+        console.log("Rescaled Canvas for DPR ", ratio);
         context.scale(ratio, ratio);
     }
 }
 
 
 /////GLOBALS
-let bright_bg = "#fff7ed";
-let dark_bg = "#000000";
-let dark_stroke = "black";
-let bright_stroke = "white";
+let bright_bg = getComputedStyle(document.documentElement).getPropertyValue('--bg')
+let dark_bg = getComputedStyle(document.documentElement).getPropertyValue('--bg-dark')
+let dark_stroke = getComputedStyle(document.documentElement).getPropertyValue('--base-dark')
+let bright_stroke = getComputedStyle(document.documentElement).getPropertyValue('--base-bright')
 let bg = bright_bg;
 let stroke=dark_stroke;
 
@@ -152,16 +155,38 @@ function initField() { //f
   }
 }
 
-var mouseX = 0.0;
-var mouseY = 0.0;
+// Define a speed factor for the gradual movement (tweak this value as needed)
+const movementSpeed = 0.05;
+
+var targetMouseX = 0;
+var targetMouseY = 0;
 
 document.addEventListener('mousemove', (event) => {
     var rect = canvas.getBoundingClientRect();
 
-    mouseX = (mouseX*0.9) + 0.1*(event.clientX - rect.left);
-    mouseY = (mouseY*0.9) + 0.1*(event.clientY - rect.top);
-
+    // Update the target position towards the actual mouse position
+    targetMouseX = (event.clientX - rect.left) * dpr;
+    targetMouseY = (event.clientY - rect.top) * dpr;
 });
+
+// Initialize mouseX and mouseY to be the center of the canvas
+var mouseX = canvas.width / 2;
+var mouseY = canvas.height / 2;
+
+// Define a function to gradually update the mouseX and mouseY positions
+function updateMousePosition() {
+    var dx = targetMouseX - mouseX;
+    var dy = targetMouseY - mouseY;
+
+    mouseX += dx * movementSpeed;
+    mouseY += dy * movementSpeed;
+
+    // Call the function on the next frame to create a smooth animation
+    requestAnimationFrame(updateMousePosition);
+}
+
+// Start the gradual update of mouseX and mouseY positions
+updateMousePosition();
 
 function initParticles() { //p
     particles = [];
@@ -172,6 +197,24 @@ function initParticles() { //p
     }
 }
 
+function lerpAngle (A, B, w){
+    let CS = (1-w)*Math.cos(A) + w*Math.cos(B);
+    let SN = (1-w)*Math.sin(A) + w*Math.sin(B);
+    return Math.atan2(SN,CS);
+}
+
+function mouseDistance(x, y) {
+    var dx = mouseX - x;
+    var dy = mouseY - y;
+    return Math.sqrt(dx * dx + dy * dy);
+}
+
+function mouseAngle(x, y) {
+    var dx = mouseX - x;
+    var dy = mouseY - y;
+    return Math.atan2(dy, dx);
+}
+
 function fcalculateField() { //f
   for (let x = 0; x < columns; x++) {
     for (let y = 0; y < rows; y++) {
@@ -180,7 +223,10 @@ function fcalculateField() { //f
       let angle1 = noise.simplex3(x / 50, y / 50, noiseZ) * Math.PI * 2;
       let angle2 = Math.atan2(dy*10, dx*10) - 1.57;
       let length = noise.simplex3(x / 50 + 40000, y / 50 + 40000, noiseZ);
-      let angle = angle1 + angle2;
+      //the closer the mouse, the stronger the influence of angle 2; length has nothing to do with this though.
+      let d = Math.sqrt(dx * dx + dy * dy)/500;
+      let angle = lerpAngle(angle2, angle1, d);
+      //console.log(angle1, angle2);
       field[x][y][0] = angle;
       field[x][y][1] = length * 0.5 + 0.5;
     }
@@ -258,6 +304,13 @@ function wdraw() {
     }
 }
 
+function cdraw() {
+    requestAnimationFrame(draw);
+    drawBackground();
+    noiseZ += 0.002;
+    drawCircles(noiseZ, 0);
+}
+
 function resetDrawing() {
     if(cases == 0){
         setup(40);
@@ -265,8 +318,9 @@ function resetDrawing() {
         ctx.fillStyle = convertHexToRGBA(bg, 0.25);
     }
     if(cases == 1){
-        setup(13);
+        //setup(13);
         clear();
+        ctx.fillStyle = convertHexToRGBA(bg, 0.25);
     }
     if(cases == 2){
         clear();
@@ -290,7 +344,7 @@ function draw() {
             fdraw();
             break;
         case 1:
-            pdraw();
+            cdraw();
             break;
         case 2:
             wdraw();
@@ -384,6 +438,32 @@ function drawSine(t, offset_y) {
         ctx.lineTo(i, unit*y+yAxis+((dx+dy)*noise.simplex3(i, 0, noiseZ)*noise.simplex3(x/3, 10, noiseZ)));
     }
   ctx.stroke();  
+}
+
+function drawCircles(t, offset_y) {
+    let fillstyle_BAK = ctx.fillStyle;
+    ctx.fillStyle = stroke;
+    let r = Math.max(canvas.width, canvas.height) * 0.66;
+    const rings = r/5;
+    for (let j = 0; j < rings; j++) {
+      let rad = (r / rings) * (rings - j);
+      let polys = (rings+7-j);
+      for (let i = 0; i <= polys; i++) {
+        let pre_x = Math.cos(i / polys * Math.PI*2) * rad + canvas.width / (2*dpr);
+        let pre_y = Math.sin(i / polys * Math.PI*2) * rad + canvas.height / (2*dpr);
+        let cursor_dist = (mouseDistance(pre_x, pre_y)/1000)**2;
+        let circ_pos = i + (noise.simplex3(j/10, 0, t)/2+0.5)*5 + (noise.simplex3(pre_x*10, t*1.5, 0)/2+0.5)*cursor_dist;
+        let x = Math.cos(circ_pos / polys * Math.PI*2);
+        let y = Math.sin(circ_pos / polys * Math.PI*2);
+        const offset = cursor_dist * noise.simplex3(x, y + (j * 0.03), t) * (rad / 5);
+        x *= rad + offset;
+        y *= rad + offset;
+        x += canvas.width / (2*dpr);
+        y += canvas.height / (2*dpr);
+        ctx.fillRect(x, y, 3, 3);
+      }
+    }
+    ctx.fillStyle = fillstyle_BAK;
 }
 
 clear();

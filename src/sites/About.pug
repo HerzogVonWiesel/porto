@@ -1,10 +1,11 @@
 ---
 title: About
+permalink: "= `${title}/`"
 eleventyNavigation:
     key: About 
     order: 2
 ---
-extends template
+extends /_layouts/template
 
 block content
     //flowfield
@@ -14,7 +15,7 @@ block content
         script(src="/js/vector_utils.js")
         script(src="/js/flowfield.js")
 
-    div(class="flex flex-wrap md:grid md:grid-cols-4 m-auto")
+    div.flexcon(class="md:grid md:grid-cols-4")
         +divider(4, "w-full md:col-span-4")
         p(class="text-xl w-full md:col-span-1 p-2") ↝ !{space(4)} About
         p(class="text-xl w-full md:col-span-2 p-2")
@@ -29,7 +30,7 @@ block content
         p(class="text-xl w-full md:col-span-1 p-2") ↝ !{space(4)} Impressum
         p(class="text-xl w-full md:col-span-2 p-2")
             |For information concerning ownership and authorship of content, 
-            a(href="https://jeromestephan.de/sites/Impressum/") this site's impressum can be found here. →
+            a(href="https://jeromestephan.de/Impressum/") this site's impressum can be found here. →
 
         +divider(12, "w-full md:col-span-4")
         p(class="text-xl w-full md:col-span-1 p-2") ↝ !{space(4)} Meta

@@ -1,18 +1,20 @@
 ---
 title: Home
+permalink: "= `${title}/`"
 eleventyNavigation:
     key: Home 
     order: 1
 ---
-extends template
+extends /_layouts/template
 
 block content
     //title; think about md:scale-x-110
     //-Divider
     //-div(class="relative pt-[25vh] invisible")
     div(class="px-6 inset-x-0 inset-y-0 absolute w-full max-w-screen-3xl h-[65vh] grid grid-cols-1 grid-rows-2 m-auto mt-[17vh]")
-        h1(class="2xl:py-2 text-7xl leading-none md:text-[7rem] 2xl:text-[10rem] font-extrabold text-orangered text-center self-end z-10") Jérôme Stephan
-        h2(class="2xl:py-2 text-4xl 2xl:text-[3.3rem] text-center text-orangered tracking-wider md:tracking-widest self-start z-10") Technical Artist + 3D Artist + Programmer
+        //-font-extrabold
+        h1(class="2xl:py-2 text-6xl leading-none md:text-[7rem] 2xl:text-[10rem] text-accent text-center self-end z-10 px-def-2") JÉRÔME STEPHAN
+        h2(class="2xl:py-2 text-4xl 2xl:text-[3.3rem] text-center text-accent font-freizeit not-italic tracking-wider md:tracking-widest self-start z-10 px-def-2") Technical Artist + 3D Artist + Programmer
 
     //flowfield
     div(class="px-6 inset-x-0 inset-y-0 absolute w-full max-w-screen-3xl h-[65vh] m-auto mt-[17vh] -z-10")
@@ -24,12 +26,13 @@ block content
     //gallery
     //-Divider
     div(class="relative pt-[95vh] invisible")
-    h2(class="text-5xl md:text-8xl px-3 max-md:hidden") SELECTED <br> !{space(11)} PROJECTS ︎︎︎
-    h2(class="text-5xl px-3 md:hidden") SELECTED <br> PROJECTS ︎︎︎
-    div(class="flex flex-wrap m-auto")
+    div(class="px-def-2")
+        h1(class="max-md:hidden") SELECTED <br> !{space(11)} PROJECTS ︎︎︎
+        h1(class="md:hidden") SELECTED <br> PROJECTS ︎︎︎
+    div.flexcon
         - let sortedProjects = getSortedPortfolio();
         each project in sortedProjects
-            - var proj_ref = `/sites/projects/${project[0]}/`;
+            - var proj_ref = `/projects/${project[0]}/`;
             - var project_details = project[1];
             //- console.log(project_details.name);
             if (!project_details.hidden)

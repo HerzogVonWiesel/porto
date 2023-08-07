@@ -1,0 +1,73 @@
+---
+title: Mimicking anyone's voice using RVC 2 (in real-time!) Part 3 - Real-time
+subtitle: In the last year, I have fiddled around a ton with Generative AI models, though that has always been in the visual sector; be it AI upscaling or my dives into generating images using Disco Diffusion, and later on Stable Diffusion (which I still do very frequently). Apparently, not only the visual AI models have taken huge strides in the last few months, but the audio side of things as well.
+date: 2023-08-04
+cover_img: /images/blog_posts/rvc_3/cover_img.png
+tags:
+    - AI 
+---
+extends /_layouts/blog_post
+
+block blog_post
+    h1.py-def-2 Part 1&2?
+    p 
+        +a_new_tab("https:jeromestephan.de/blog_posts/rvc_1/") Check out how to actually train a voice here if you haven't already →,
+        <br> <br>
+        +a_new_tab("https:jeromestephan.de/blog_posts/rvc_2/") and how to transfer it to existing audio vocals here →.
+
+    h1.py-def-2 Setting up the client 
+    p 
+        |For real-time voice conversion, we're going to use W-Okadas Voice Changer client. You can find 
+        +a_new_tab("https://github.com/w-okada/voice-changer/blob/master/README_en.md") its GitHub repository here →.
+        <br>
+        |Scrolling down, you'll need the CUDA version if you're running NVidia cards, on AMD you'll need to look for DirectML. Sadly, there's still no Linux version available of this client, so you'll need to use Windows for this.
+    
+    h1.py-def-2 Run, VC client, run! 
+    p 
+        |Once you've downloaded the client, you'll need to extract it. Look for the "start_http.bat" and run it; Ignore the Windows safety warnings (trusting open source software and all that).
+        <br> <br>
+        |The client already has a few models as presets, though of course we want to use our trained voice model from Part 1&2. To do so, click on the "Edit" button of the voice models, scroll down to an empty slot, and "Upload" a new RVC model. For the Model, choose your .pth file from the training process that you were happy with; as for the Index, we actually don't need it, so leave that empty.
+        <br> <br>
+    +pf_img({name:"This is what it should look like when adding your model", source:"/images/blog_posts/rvc_3/client_upload.png", width:"1/3", aspect_ratio:"auto", blog:true})
+    p 
+        |You can now select the model, click on "Start", and try it out! There is some delay between you speaking and the trained voice speaking back, but we'll be able to adjust that with a few settings later. Take it for a spin and see how it sounds!
+
+    h1.py-def-2 Turning the knobs
+    +grid_block 
+        +grid_element("Gain", "base", 0)
+            |The output might be a little quieter than we'd like, so turning up the gain of "out" to something like 2 might fix that; Just keep in mind that we don't want to blow anyone's ears off.
+        +grid_element("Tune", "base", 0)
+            |This is actually the pitch of the output, so if your trained voice is higher or lower than your actual one, fiddle with this slider until it sounds right.
+        +grid_element("Chunk", "base", 0)
+            |The chunk size determines how much of your voice is processed at once. The higher the value, the more delay there will be between you speaking and the output, but as the model has more data to work with, it'll be more accurate. I'd recommend starting with a value of 384 (which will be one second of delay), and see how much further down you're willing to go.
+        +grid_element("Threshold", "base", 0)
+            |I've never seen this make the output sound better by turning it down, so just max it out at 0.001.
+
+    h1.py-def-2 Making it work in other apps 
+    p 
+        |Great, so we can now hear what we say in someone's else voice a second or so later. But how do we get to the fun part of actually using it?
+        <br> <br>
+        |We need to "pipe" the output from the client as a microphone input into other apps. To do so, we'll need to install a virtual audio cable. I'd recommend 
+        +a_new_tab("https://vb-audio.com/Cable/") VB-Cable →. 
+        <br>
+        |Install it (you might need to restart your PC), and then go to your sound settings. Under "Input", you should now see "CABLE Output (VB-Audio Virtual Cable)". Set that as your default input device. In the VC client, set the input device to your microphone, and the output device to the VB-Cable input.
+        <br> <br>
+        |Now, you can go to Discord, Zoom, or whatever other app you want to use this in, and set the input device to the VB-Cable output (if you can, just to be sure it doesn't have a fixed setting of your normal microphone). You should now be able to use your trained voice in real-time in any app you want! Call a fellow student as your professor and tell them they're failing your class, or call your boss as your coworker and tell them you're quitting. The possibilities are endless! (Please don't actually do this, this is just a joke, don't do anything malicious with this. Please please please. Thank you.)
+
+    h1.py-def-2 Moral complications & Disclaimer
+    p 
+        |As mentioned before, please don't use this information for malicious purposes. I'm not responsible for any damage you may cause with this information. I'm just a guy who likes to play around with AI models, and I'm sharing my findings with you.
+        <br> <br>
+        |Now we've run through the whole process of cloning someone else's voice and being able to convincingly use it in real-time. As exciting as this sounds and as much fun as it is to play around with, I'd like to take a moment to talk about the moral implications of this.
+        <br>
+        |As with any technology, there are good and bad ways to use it. I'm not here to tell you what to do with this information, but I'd like to ask you to think about the consequences of your actions. I'm not going to go into detail about what could happen if this technology is used maliciously, but I'm sure you can imagine the possibilities. Be careful who you are talking to over the phone, what data you're giving out, and what you're saying in general. In this tutorial we've seen that with just a few minutes of training data that can come from anywhere, be it voice recordings, recording a call or a short video, we can create a model that can convincingly mimic someone. Don't trust everything you hear, and be mindful of other people's and your own privacy.
+        <br> <br>
+        |I'm planning to write more about the importance of privacy and an open internet in the future.
+        <br>
+        |If you have any questions, feel free to send me an email. I'll try to answer as soon as possible.
+        <br> <br>
+        |I'd like to thank 
+        +a_new_tab("https://youtu.be/pHhjg2JwdPI") this video by Jarod →,
+        |which helped me a lot in understanding the process of setting it up and using it for myself.
+        <br>
+        |Thank you for reading!

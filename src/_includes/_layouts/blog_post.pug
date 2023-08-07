@@ -1,0 +1,36 @@
+extends template
+
+block append head 
+    link(rel='stylesheet', type='text/css', href='/css/prism-min.css')
+
+block content 
+
+    +divider(14)
+    +blog_description({title: title, description: subtitle, tags: tags, date: filters.format_date(date)})
+    +divider(14)
+
+    div(class="p-def-2")
+        block blog_post
+            :markdown-it(linkify langPrefix='highlight-')
+                # Markdown
+
+                Markdown document with http://links.com
+
+            //------------------------------ https://markdown-it.github.io/
+
+            - 
+                var code = `
+                import js
+                import hahah
+                print("hey")
+                
+                def test():
+                    print("test")
+                    return
+                `
+                var code = filters.render_code("python", code);
+            != code
+
+    +divider(14)
+    +back_button()
+    +divider(14)

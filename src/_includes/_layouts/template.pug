@@ -9,7 +9,7 @@ html(class="" lang="en")
             title Jérôme Stephan - #{title}
 
             - var meta_description = "Jérôme Stephan is a programmer and artist based in and around Berlin, Germany. Keen on using every opportunity to learn more."
-            meta(name="theme-color" content="orangered")
+            meta(name="theme-color" content="accent")
             meta(name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes")
             meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
             meta(name="robots" content="index, follow")
@@ -57,20 +57,21 @@ html(class="" lang="en")
             //- make fonts have priority over images
             link(rel='preload', as="font", type="font/woff2", href="/fonts/subset-IconFont-Regular.woff2", crossorigin)
             link(rel='preload', as="font", type="font/woff2", href="/fonts/subset-Freizeit-Regular.woff2", crossorigin)
-            link(rel='preload', as="font", type="font/woff2", href="/fonts/subset-Freizeit-Bold.woff2", crossorigin)
+            link(rel='preload', as="font", type="font/woff2", href="/fonts/subset-Inferi-LightItalic.woff2", crossorigin)
+            link(rel='preload', as="font", type="font/woff2", href="/fonts/subset-Inferi-NormalItalic.woff2", crossorigin)
     body(class=" \
         pt-[10vh] \
-        selection:bg-darkslateblue \
-        selection:text-orangered \
-        bg-bg dark:bg-dark-bg \
-        dark:text-white \
+        selection:bg-accent-sec \
+        selection:text-accent \
+        bg-bg dark:bg-bg-dark \
+        dark:text-base-bright \
         font-freizeit \
         md:cursor-custom md:dark:cursor-custom-dark")
 
         //header+footer
         include /navbar.pug
 
-        div(class="p-3 max-w-screen-3xl m-auto")
+        div(class="p-0 max-w-screen-3xl m-auto")
             block content
         
         script(type="module" src="/js/main.js")

@@ -1,0 +1,102 @@
+---
+title: Mimicking anyone's voice using RVC 2 (in real-time!) Part 1 - Training a voice
+subtitle: In the last year, I have fiddled around a ton with Generative AI models, though that has always been in the visual sector; be it AI upscaling or my dives into generating images using Disco Diffusion, and later on Stable Diffusion (which I still do very frequently). Apparently, not only the visual AI models have taken huge strides in the last few months, but the audio side of things as well.
+date: 2023-07-31
+cover_img: /images/blog_posts/rvc_1/cover_img.png
+tags:
+    - AI 
+---
+extends /_layouts/blog_post
+
+block blog_post
+    h1.py-def-2 What *is* RVC 2?
+    p RVC 2, or Retrieval-based-Voice-Conversion, is a technique that uses a deep neural network to transform the voice of a speaker into another voice. It is based on the VITS model, which is a state-of-the-art end-to-end text-to-speech system. RVC can be used to create realistic and expressive voice conversions with minimal data and computational resources. What is minimal you may ask? Well, the model can be trained on a single GPU in a few hours using as little as a few minutes of voice recordings, and can be used to convert voices in real-time.
+
+    h1.py-def-2 How do I install it?
+    p
+        +a_new_tab("https://github.com/Mangio621/Mangio-RVC-Fork/releases/latest") Get the latest release of the Mangio RVC 2 fork HERE →. 
+        |It adds some functionality, mainly new pitch models (which are about 10 times faster than the default ones). <br>
+        |<strong>You should avoid having spaces in the filepath</strong> leading to GO-WEB.BAT, or else you will run into issues; Same for the dataset folder, if you plan to train.
+
+    h1.py-def-2 Training a voice 
+    div.note
+        :markdown-it(linkify langPrefix='highlight-')
+            ## Dataset advice
+
+            Isolate your voice as much as possible, in the highest quality possible. This may seem like obvious advice, but it needs to be underlined: As for all machine learning: __BS in, BS out.__
+            \
+            You don't need to cut up your audio into pieces yourself; RVC will cut it into 4 second chunks automatically. As for how much training data you need, stay under 1 hour to not crash the process. I'd recommend at least a few minutes of audio but the more, the merrier.
+            \
+            \
+            I recommend using [Ultimate Vocal Remover→](https://github.com/Anjok07/ultimatevocalremovergui/releases) to isolate your desired voice using some nifty AI models. Of the models available, the best ones seem to be "Kim Vocal 2" and "MDX-NET_Main_438"; The latter is a VIP model, though you can get the VIP code from [UVR's Patreon→](https://www.patreon.com/uvr).
+            \
+            \
+            For the best results, it's essential to eliminate reverb and echo from your dataset. Ideally, you should minimize these effects during the recording process. However, in case there just *is* reverb, there's a solution available under MDX-Net called Reverb HQ, which allows you to export reverbless audio by selecting the 'No Other' option. 
+            In some cases, Reverb HQ might not completely remove the echo. One option is to process the vocal output through a VR Architecture model: I'd recommend De-Echo-DeReverb. 
+            If, for some reason, that's still not enough, there's still the De-Echo normal model, which is the most aggressive echo removal tool available and can be used as a last resort.
+            \
+            \
+            As for removing noise, I'd recommend using Audacity's Noise gate or its other noise removal tools.
+    p
+        |Switching to the "Train" tab in the GUI, we can firstly set the name of our model under "Experiment Name". <br>
+        |I usually keep the rest of these settings the same (generally, v2 as a model architecture is much faster at training and is preferred now). <strong>However, turn down the "Threads of CPU"</strong> option to 4, otherwise you will have to deal with a very angry computer where not even task manager can save you (trust me on this one). <br> <br>
+        |In the first field, for "Path to training folder", paste your dataset path (e.g.: "C:\_AI\RVC-beta-v2-0618\_training_data"). Then hit "process data". Wait until it fully completes (the text console will say "end pre-process" when it's finished).
+    
+    
+        |Crepe (specifically mangio-crepe, which is the old implementation, and in my opinion the better one) is the agreed upon best option for training high quality datasets. Lower hop lengths will be more pitch precise and therefore take longer to train, but personally I notice no major difference between 128 and 64 trains. It is up to your discretion; your dataset should be set up so that it is free of any major noise if you go for lower hop sizes, because it increases the risk of bad data in your dataset being focused on when you have higher pitch accuracy.
+        <br> <br>
+        |In summary:
+        ul.list-disc.list-inside
+            li If your dataset quality is great and free of noise: Use mangio-crepe; rmvpe training is a new method and seems promising, so try that too.
+            li If your dataset quality is mediocre: Use rmvpe, or harvest if that somehow has problems, or higher hop size mangio-crepe (i.e 256)
+        <br>
+        |Set your value and hit "Feature Extraction". Wait until the console mentions that it has ended feature extraction (all-feature-done) similar to the preprocess.
+        <br> <br>
+        |Batch size is how much data it processes at a time (it's about speed here, not a quality thing). This depends on your GPU's VRAM. So for an RTX 2070 for example, with 8GB of VRAM, you could use batch size 8 to stay on the safe side. On my RTX 4090, I could use a batch size of 32 without any issues, but maybe that was just lucky. <br>
+        |For a quick run without too much fiddling around set this equal to your VRAM in GB.
+        <br> <br>
+        +pf_img({name:"Small rundown of the training settings", source:"/images/blog_posts/rvc_1/settings.png", width:"2/3", aspect_ratio:"auto", blog:true})
+    
+    h1.py-def-2 Baby-Sitting
+    p 
+        |Enabling "Save a small finished model [...]", we save as a small .pth file in the /weights/ path for each save frequency (e.g., Merkel_e10, Merkel_e20 for a save frequency setting of "10"). To get an accurate (early) preview, generate the feature index <em>before</em> training; of course you must make sure you followed the first two steps (data processing + feature extraction) before training the index. Having this option on enables you to test the model at each epoch iteration if necessary, or use an earlier iteration if you overtrained.
+    div.note
+        h2 The elbow method
+        p 
+            |Use the TensorBoard logs to identify when the model starts overtraining. Go to the TensorBoard screen in colab. If training locally, use the "Launch_Tensorboard.bat" file in the RVC fixes folder. Click the scalars tab, and search for <strong>g/total</strong> on top. That means g/total, with a g. Not d/total.
+            <br> <br>
+        +pf_img({name:"Mini-Tensorboard guide: Pay attention to the 'Point of overtraining'", source:"/images/blog_posts/rvc_1/rvc_elbow.png", width:"2/3", aspect_ratio:"auto", blog:true})
+        p 
+            <br>
+            |The point of overtraining is the point where the model starts to overfit. In general, when training <em>any</em> machine learning model, <strong>you want to stop training at what looks like an "elbow" in the loss function</strong>: A point which has low loss, but isn't overfitting to the training data. This is because the model will start to learn the noise (as in variance, not audio noise) in the data, and will not generalize well to new data.
+            <br> <br>
+            |Once you find the ideal step count, do basic math to figure out the ideal epoch count.
+            <br>
+            |For example, let's say 10k steps is the point where overtraining starts. In this scenario you overtrained to 20k steps, and your model is at 600 epochs currently. Since 600 epochs is 20k steps, 10k/20k = 50%. 50% of 600 = is ~300 epochs, roughly; so that is the ideal epoch value in that scenario. 
+    p 
+        |Less epochs generally means the model will be less accurate, rather than necessarily "sounding worse" for v2 training. However, if your dataset isn't so high quality or lacks a lot of data, you might want to experiment later on and see which saved epoch model is the best balance between accuracy and sounding good. In some rarer cases, less epochs might sound better to your ears. It's trial and error for making a good model at this phase. If you want to stay on the safe side, I would go for a slightly undertrained model.
+
+    h1.py-def-2 Continuing the training
+    p 
+        |During a retrain, to continue where you left off, use the same exact name (with the same capitalization) and sample rate (default is 40kHz if unchanged). Use the same settings that you had before for batch size, version, etc… make them match.
+        <br> <br>
+        |Do not re-process the files and do not redo feature extract again. Basically, avoid pressing "process data" or performing "pitch extraction" again, as you don't want it to redo the pitch analysis that it already did.
+        <br>
+        |Only keep the two latest .pth files in the /logs/ folder for the model, based on their date modified. If there is a "G_23333" and “D_23333” file in your model's logs folder, it represents the latest checkpoint if you ticked "Save only latest ckpt". If that wasn't on, remove all .pth files in the folder that aren't the latest, to avoid inaccuracies.
+        <br> <br>
+        |Now you can start training again by pressing 'train model', with the same batch size and settings as before. If the training starts from the beginning again (at epoch 1 rather than your last saved epoch before the training stopped), immediately use CTRL+C or the stop button if on colab to kill the GUI server, to stop it, and try starting the GUI again.
+
+    h1.py-def-2 Part 2: Generating a voice
+    p 
+        |We did it! We trained our own AI voice! 
+        a(href="https:jeromestephan.de/blog_posts/rvc_2/") In Part 2, I'll show you how to use it for a voice transfer: changing a given voice to the one we just trained →.
+
+    h1.py-def-2 Disclaimer 
+    p 
+        |Please, please, please don't use this information for malicious purposes. I'm not responsible for any damage you may cause with this information. I'm just a guy who likes to play around with AI models, and I'm sharing my findings with you.
+        <br> <br>
+        |If you have any questions, feel free to send me an email. I'll try to answer as soon as possible.
+        <br> <br>
+        |A lot of this information was taken from 
+        +a_new_tab("https://docs.google.com/document/d/13ebnzmeEBc6uzYCMt-QVFQk-whVrK4zw8k7_Lw3Bv_A/edit") kalomaze's RVC 2 training guide→
+        |, just omitting some irrelevant information and adding my own findings of what works best and what doesn't.

@@ -30,7 +30,7 @@ let img_collection = async () => {
         }
     }
     const rawImages = fg.sync(img_dir+"**/*.{jpg,jpeg,png,gif,tiff,webp,svg}");
-    console.log(rawImages)
+    // console.log(rawImages)
     const mapping = {};
   
     for (const path of rawImages) {
@@ -51,6 +51,11 @@ function render_code(lang, code){
     return this.highlight(lang, code);
 }
 
+function format_date(date){
+    return date.toLocaleDateString("en-US", {year: 'numeric', month: 'long', day: 'numeric'});
+}
+
+
 module.exports = (function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/js")
     eleventyConfig.addPassthroughCopy("src/fonts")
@@ -69,11 +74,23 @@ module.exports = (function(eleventyConfig) {
     });
     eleventyConfig.addFilter("is_video", is_video);
     eleventyConfig.addFilter("render_code", render_code);
+    eleventyConfig.addFilter("format_date", format_date);
 
     eleventyConfig.addCollection("img_collection", img_collection);
     eleventyConfig.addCollection("blog", function (collection) {
         return collection.getFilteredByGlob("src/blog_posts/*.{pug,md}");
-      });
+    });
+    eleventyConfig.addCollection("blog_tags", function (collection) {
+        let blog_tags = new Set();
+        collection.getAll().forEach(function(item){
+            if(item.data.tags){
+                item.data.tags.forEach(function(tag){
+                    blog_tags.add(tag);
+                });
+            }
+        });
+        return blog_tags;
+    });
 
 
     // Add support for markdown
@@ -91,6 +108,11 @@ module.exports = (function(eleventyConfig) {
     });
 
     return {
-        dir: { input: 'src', output: '_site' }
+        dir: { 
+        input: 'src', 
+        output: '_site',
+        includes: "_includes",
+        layouts: "_layouts",
+        }
     };
 });

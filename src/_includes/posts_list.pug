@@ -1,0 +1,8 @@
+include pf_blog
+
+//- reverse the order of postslist
+each post in postslist.reverse()
+    //- make post date human readable (day month year)
+    - var post_date = filters.format_date(post.data.date)
+    //-+pf_img({name:post.data.title, source:post.data.cover_img, width:"1/2", aspect_ratio:"4/1", ref:post.url, description:post_date, name_classes:"text-3xl", description_classes:"text-base"})
+    +pf_img({name:post.data.title, source:post.data.cover_img, width:"1/2", aspect_ratio:"4/1", ref:post.url, description:post_date})

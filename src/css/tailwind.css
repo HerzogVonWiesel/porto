@@ -78,18 +78,85 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Inferi';
+    src: url('/fonts/subset-Inferi-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inferi';
+    src: url('/fonts/subset-Inferi-NormalItalic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inferi';
+    src: url('/fonts/subset-Inferi-LightItalic.woff2') format('woff2');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inferi';
+    src: url('/fonts/subset-Inferi-Normal.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inferi';
+    src: url('/fonts/subset-Inferi-SemiBoldItalic.woff2') format('woff2');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inferi';
+    src: url('/fonts/subset-PerfectlyNineties-Italic.woff2') format('woff2');
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+
+
 @layer base {
     h1, h2, h3, h4, h5, h6 {
-        @apply font-freizeit;
+        @apply font-inferi;
+        @apply italic;
+        @apply font-normal;
+        /* @apply font-freizeit; */
     }
     h1 {
-        @apply text-5xl md:text-8xl px-3;
+        @apply text-5xl md:text-8xl;
+    }
+    h2 {
+        @apply text-4xl md:text-6xl;
+        @apply font-freizeit not-italic;
+    }
+    :root {
+        --bg:           #fff7ed;
+        --bg-dark:      #000000;
+        --accent:       orangered;
+        --accent-sec:   #340B6B;
+        --base-dark:    black;
+        --base-bright:  white;
     }
 }
 
 @layer components {
-    .container {
+    .flexcon {
         @apply flex flex-wrap m-auto;
+    }
+    .note {
+        @apply p-def-2 my-def-2 border-accent border-4;
     }
 }
 
@@ -110,6 +177,6 @@
 
     a{
         @apply cursor-custom-clk;
-        @apply hover:text-orangered;
+        @apply hover:text-accent;
     }
   }

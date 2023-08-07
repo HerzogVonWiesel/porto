@@ -1,0 +1,67 @@
+---
+title: Snowflake
+permalink: "= `${title}/`"
+eleventyNavigation:
+    key: ❄
+    order: 4
+---
+extends /_layouts/template
+
+block append head 
+    link(rel='stylesheet', type='text/css', href='/css/prism-min.css')
+
+block content
+    //flowfield
+
+    div(class="p-def-2")
+        h1.py-def-2 Snowflake
+        +divider(14)
+        iframe(src="https://snowflake.torproject.org/embed.html", width="320", height="240", frameborder="0", scrolling="no", class="bg-base-bright border-accent border-4")
+        +divider(28)
+        h1.py-def-2 What is Snowflake?
+        p
+            |Snowflake is a system that allows people from all over the world to access censored websites and applications. Similar to how VPNs assist users in getting around Internet censorship, Snowflake helps you avoid being noticed by Internet censors by making your Internet activity appear as though you're using the Internet for a regular video or voice call.
+            <br><br>
+            |There are numerous tools available, such as Snowflake, that "transform" Internet activity, each using a different technique. Some redirect Internet traffic to appear to be coming from popular cloud providers like Microsoft Azure and Amazon Web Services. Others scramble Internet traffic in order to make it appear completely random.
+            <br><br>
+            |It therefore becomes costly for censors to consider blocking such circumvention tools since it would require blocking large parts of the Internet in order to achieve the initial targeted goal.
+        h1.py-def-2 Use Snowflake to bypass censorship
+        p
+            |Unlike VPNs, you do not need to install a separate application to connect to a Snowflake proxy and bypass censorship. It is usually a circumvention feature embedded within existing apps. Currently Snowflake is available inside Tor Browser on Desktop and Android, Onion Browser on iOS, and Orbot on Android and iOS. If you have downloaded and installed any of these apps, and they are censored in your country, you can bypass the censorship by activating Snowflake through the apps' settings page.
+        h1.py-def-2 Help people circumvent censorship
+        p
+            | Did you know that Snowflake proxies are operated entirely by volunteers? In other words, a user gets matched with a random Snowflake volunteer proxy, which is run by a volunteer like you! So, if you want to help people bypass censorship, consider installing and running a Snowflake proxy. The only prerequisite is that the Internet in your country is not heavily censored already.
+            <br><br>
+            |You can join thousands of volunteers from around the world who have a Snowflake proxy installed and running. There is no need to worry about which websites people are accessing through your Snowflake proxy. Their visible browsing IP address will match their Tor exit node, not yours.
+            <br><br>
+            |There are different ways to run a Snowflake proxy (beginner to advanced):
+        h2.py-def-2 Just leave this browser tab open
+        p
+            | If you switch on the Snowflake above and leave the browser tab open, a user can connect through your new proxy!
+        h2.py-def-2 Install the web extension
+        p
+            |The web extension is the second easiest way to run a Snowflake proxy. Simply install it on 
+            +a_new_tab("https://addons.mozilla.org/en-US/firefox/addon/torproject-snowflake/") Firefox→ 
+            |or 
+            +a_new_tab("https://chrome.google.com/webstore/detail/snowflake/mafpmfcccpbjnhfhjnllmmalhifmlcie") Chrome→
+            |, enable the extension, and watch the icon turn green when a user connects through your proxy!
+        h2.py-def-2 Embed a Snowflake proxy in your website
+        p 
+            | Alternatively, like me, you can embed a Snowflake proxy yourself inside a page in your own website. Visitors to your site can enter the page, enable the proxy, and leave it open to allow people to proxy through it (it behaves and looks exactly like the web extension).
+        - 
+            var code = `
+            <iframe src="https://snowflake.torproject.org/embed.html" width="320" height="240" frameborder="0" scrolling="no"></iframe>
+            `
+        - var code = filters.render_code("html", code);
+        != code
+
+        h1.py-def-2 Disclaimer
+        p 
+            | All of this info has been taken from 
+            +a_new_tab("https://snowflake.torproject.org/") the official Snowflake website→. 
+            | Feel free to support the creators, as well as being on the lookout for ways to help the internet stay free and open.
+        
+
+    +divider(14)
+    +back_button()
+    +divider(14)

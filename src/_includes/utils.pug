@@ -15,7 +15,7 @@ mixin spacer(height)
         p  
 
 mixin back_button()
-    h1
+    h1(class="px-def-2")
         a(href="javascript:history.back()") ← !{space(4)} Go Back
 
 mixin divider(size, classes)
@@ -25,4 +25,15 @@ mixin divider(size, classes)
 
 mixin a_new_tab(ref)
     a(href=ref target="_blank" rel="noopener noreferrer")
+        block
+
+mixin grid_block()
+    div(class="flex flex-wrap md:grid md:grid-cols-4 m-auto")
+        block
+
+mixin grid_element(grid_title, text_size="xl", divider_size=12)
+    +divider(divider_size, "w-full md:col-span-4")
+    p(class="text-"+text_size+" w-full md:col-span-1 py-def") 
+        |↝ !{space(5)} !{grid_title}
+    p(class="text-"+text_size+" w-full md:col-span-3 py-def")
         block
