@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       screens: {
         'max-3xl': {'max': '1919px'},
+        'max-md': {'max': '767px'},
       },
 
       maxWidth: {
@@ -21,9 +22,9 @@ module.exports = {
       },
 
       fontFamily: {
-        freizeit: ["Freizeit", "Icons", "sans-serif"],
+        sans: ["Freizeit", "Icons", "sans-serif"],
         pluto: ["Pluto-Regular", "sans-serif"],
-        inferi: ["Inferi", "Icons", "serif"],
+        serif: ["Inferi", "Icons", "serif"],
       },
       spacing: {
         'def': '0.75rem',
@@ -33,6 +34,10 @@ module.exports = {
         'def-5': '3.75rem',
         'def-6': '4.5rem',
       },
+
+      listStyleType: {
+        'square': 'square',
+      }
     },
 
     colors: {

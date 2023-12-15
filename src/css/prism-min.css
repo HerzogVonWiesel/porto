@@ -43,9 +43,11 @@ pre[class*=language-] {
 }
 
 :not(pre)>code[class*=language-] {
-    color: #f0f6f6;
-    background: #2a4555;
+    color: #d6e7ff;
+    background: #030314;
     padding: .2em .3em;
+    white-space: pre-wrap;
+    /* border: 1px solid #2a4555; */
     /* border-radius: .2em; */
     box-decoration-break: clone
 }

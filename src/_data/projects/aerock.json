@@ -4,12 +4,12 @@
     "year": "2021",
     "description": "aerock - a wind tunnel experiment that came from a post-it idea I wrote half-drunk at 2 AM. <br>Originally planned to finish in one (1) weekend. Didn't pan out at all, but I learned a ton about Houdini, all kinds of smoke simulation (definitely check out Axiom!) and well, that 24 gigs of RAM is not enough for hungry, hungry Houdini. <br>Huge shout-out to @therealentagma, @render.everything and the whole Houdini community, y'all rock!",
     "tools": "Houdini, Axiom, Redshift, After Effects",
-    "cover_img": "/images/projects/aerock/ASSEMBLE_PREV.mp4",
+    "cover_img": "/images/projects/aerock/assemble_prev.mp4",
     "aspect_ratio": "3/1",
     "width": "full",
     "media": [{
         "title": "Final Render",
-        "src": "/images/projects/aerock/ASSEMBLE.mp4",
+        "src": "/images/projects/aerock/assemble-1.mp4",
         "has_sound": true,
         "aspect_ratio": "2/1",
         "width": "full"

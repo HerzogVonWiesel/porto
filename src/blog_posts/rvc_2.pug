@@ -11,43 +11,36 @@ extends /_layouts/blog_post
 block blog_post
     h1.py-def-2 Part 1?
     p 
-        +a_new_tab("https:jeromestephan.de/blog_posts/rvc_1/") Check out how to actually train a voice here if you haven't already →.
+        +a_new_tab("/blog_posts/rvc_1/") Check out how to actually train a voice here if you haven't already →.
 
     h1.py-def-2 Vocal Isolation 
+    p Reiterating from part 1:
     div.note
-        :markdown-it(linkify langPrefix='highlight-')
-            ## Dataset advice (again)
-
-            Reiterating from part 1: Isolate your voice as much as possible, in the highest quality possible. This may seem like obvious advice, but it needs to be underlined: As for all machine learning: __BS in, BS out.__
-            \
-            \
-            I recommend using [Ultimate Vocal Remover→](https://github.com/Anjok07/ultimatevocalremovergui/releases) to isolate your desired voice using some nifty AI models. Of the models available, the best ones seem to be "Kim Vocal 2" and "MDX-NET_Main_438"; The latter is a VIP model, though you can get the VIP code from [UVR's Patreon→](https://www.patreon.com/uvr).
-            \
-            Be sure to export both "Other" and "No other" versions of your audio, as you'll need the voice for the transfer process, and the music to put your transferred voice on top of.
-            \
-            \
-            For the best results, it's essential to eliminate reverb and echo from your dataset. Ideally, you should minimize these effects during the recording process. However, in case there just *is* reverb, there's a solution available under MDX-Net called Reverb HQ, which allows you to export reverbless audio by selecting the 'No Other' option. 
-            In some cases, Reverb HQ might not completely remove the echo. One option is to process the vocal output through a VR Architecture model: I'd recommend De-Echo-DeReverb. 
-            If, for some reason, that's still not enough, there's still the De-Echo normal model, which is the most aggressive echo removal tool available and can be used as a last resort.
-            \
-            \
-            As for removing noise, I'd recommend using Audacity's Noise gate or its other noise removal tools.
+        include:markdown-it(linkify langPrefix='highlight-') _general/audio_dataset.md
+        p Be sure to export both "Other" and "No other" versions of your audio in UVR, as you'll need the voice for the transfer process, and the music to put your transferred voice on top of in the final step.
 
     h1.py-def-2 Vocal Transfer
     +grid_block 
-        +grid_element("Use volume envelope", "base", 0) The lower you set this to, the more it will capture the original volume range of the original song. A value of 1.0 will be equally loud throughout the whole conversion; 0 will make it mimic the volume range of the original as much as possible. 
-            <br>
-            |I would recommend you set this volume setting to a decently low value such as 0.25 or 0.2.
-        +grid_element("Transpose / Pitch", "base", 0) This changes the given audio in half-steps. E.g., -12 or 12 will both stay in the original key but at different octaves. Good for extreme differences, like a male singer doing a song sang by a female.
-            <br>
-            |Just fiddle around with this to see where your model performs best (and what sounds most like the person you trained the voice on). Remember what you set this to though, as you'll need to adjust the pitch of the original song (without the vocals) to match the converted voice, else it sounds off. You can do so in Audacity by going to Effect > Pitch > Change Pitch.
-        +grid_element("Search feature ratio", "base", 0) This value controls how much influence the .index file has on the voice model's output. (The index mainly controls the "accent" for the model.)
-            <br>
-            |If your model's dataset isn't very long or it's not very high quality (or both), this should be lower, and if it's a high quality model, you can afford to go a bit higher. Generally, my recommended value would be 0.6-0.8, and reduce it if you think it's truly necessary.
+        +grid_element("Use volume envelope", "base", 0) 
+            p 
+                |The lower you set this to, the more it will capture the original volume range of the original song. A value of 1.0 will be equally loud throughout the whole conversion; 0 will make it mimic the volume range of the original as much as possible. 
+                <br>
+                |I would recommend you set this volume setting to a decently low value such as 0.25 or 0.2.
+        +grid_element("Transpose / Pitch", "base", 0) 
+            p 
+                |This changes the given audio in half-steps. E.g., -12 or 12 will both stay in the original key but at different octaves. Good for extreme differences, like a male singer doing a song sang by a female.
+                <br>
+                |Just fiddle around with this to see where your model performs best (and what sounds most like the person you trained the voice on). Remember what you set this to though, as you'll need to adjust the pitch of the original song (without the vocals) to match the converted voice, else it sounds off. You can do so in Audacity by going to Effect > Pitch > Change Pitch.
+        +grid_element("Search feature ratio", "base", 0) 
+            p 
+                |This value controls how much influence the .index file has on the voice model's output. (The index mainly controls the "accent" for the model.)
+                <br>
+                |If your model's dataset isn't very long or it's not very high quality (or both), this should be lower, and if it's a high quality model, you can afford to go a bit higher. Generally, my recommended value would be 0.6-0.8, and reduce it if you think it's truly necessary.
         +grid_element("Advanced Settings: Pitch extraction algorithm", "base", 0) 
-            |The best option here is generally rmvpe, and I would recommend that, or mangio-crepe with different hop sizes between 64-192 for most cases. Mangio-crepe tends to be better for "smoothed out" results, but higher hop length values will lead to less pitch precision.
-            <br>
-            |You should experiment to see which sounds best for your specific song if you're unsure.
+            p
+                |The best option here is generally rmvpe, and I would recommend that, or mangio-crepe with different hop sizes between 64-192 for most cases. Mangio-crepe tends to be better for "smoothed out" results, but higher hop length values will lead to less pitch precision.
+                <br>
+                |You should experiment to see which sounds best for your specific song if you're unsure.
     p 
         |Once you've dialed in your settings, you can go ahead and convert your voice! On a 4090 using mangio-crepe it is reasonably fast, converting a 3-minute song in about 10 seconds.
 
@@ -57,7 +50,7 @@ block blog_post
 
     h1.py-def-2 Part 3: Real-time voice conversion
     p 
-        a(href="https:jeromestephan.de/blog_posts/rvc_3/") In Part 3, I'll show you how to use the model we've trained to change your voice in real-time from microphone input →.
+        a(href="/blog_posts/rvc_3/") In Part 3, I'll show you how to use the model we've trained to change your voice in real-time from microphone input →.
 
     h1.py-def-2 Disclaimer 
     p 

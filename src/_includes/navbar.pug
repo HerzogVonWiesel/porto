@@ -1,14 +1,11 @@
 include utils.pug
 
 header(class="fixed w-full top-0 z-40 landscape:rotated-nav")
-    nav(class="flex flex-wrap items-center justify-between \
-    w-full landscape:px-def-4 landscape:py-def-3 \
-    text-5xl md:text-sm max-md:font-inferi max-md:italic text-base-dark dark:text-base-bright")
-        //- div 
-            //- a(href="#" class="") Jérôme Stephan 
+    nav(class="py-def landscape:px-def-4 landscape:py-def-3 flex flex-wrap items-center justify-between md:text-sm \
+    text-5xl max-md:font-serif max-md:italic text-base-dark dark:text-base-bright")
         svg(xmlns="http://www.w3.org/2000/svg"
             id="menu-button"
-            class="ml-auto mr-def-2 mt-def-2 z-50 h-12 w-12 cursor-pointer md:hidden block stroke-base-dark dark:stroke-base-bright"
+            class="ml-auto mr-def-2 mt-def z-50 h-12 w-12 cursor-pointer md:hidden block stroke-base-dark dark:stroke-base-bright hover:stroke-accent"
             fill="none"
             viewBox="0 0 24 24")
             line(x1="0" y1="12" x2="24" y2="12" stroke-width="2")
@@ -17,13 +14,13 @@ header(class="fixed w-full top-0 z-40 landscape:rotated-nav")
         div(class="hidden \
         max-md:top-0 max-md:right-0 max-md:left-0 max-md:bottom-0 max-md:fixed w-full max-md:bg-bg max-md:dark:bg-bg-dark \
         md:flex md:items-center py-0 md:w-auto" id="menu")
-            ul(class="pt-40 px-def \
+            ul(class="max-md:pt-40 max-md:px-def max-md:text-right \
               md:flex \
-              md:justify-between \
-              md:pt-0")
+              md:justify-between")
                 each entry in filters.eleventyNavigation(collections.all)
                     li 
-                        a(href=entry.url class="px-def block") #{entry.key}
+                        //- trying to remove emoji with &#xFE0E;
+                        a(href=entry.url class="px-def block") #{entry.key}&#xFE0E;
                 each element in socials 
                     if !element.hidden
                         a(href=element.link target="_blank" rel="noopener noreferrer" class="px-def block md:hidden")= element.site

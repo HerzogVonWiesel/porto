@@ -1,0 +1,134 @@
+---
+title: Mimicking anyone's voice using RVC 2 (in real-time!) Bonus - Text to Speech
+subtitle: In the last year, I have fiddled around a ton with Generative AI models, though that has always been in the visual sector; be it AI upscaling or my dives into generating images using Disco Diffusion, and later on Stable Diffusion (which I still do very frequently). Apparently, not only the visual AI models have taken huge strides in the last few months, but the audio side of things as well.
+date: 2023-08-11
+cover_img: /images/blog_posts/rvc_4/cover_img.png
+tags:
+    - AI 
+---
+extends /_layouts/blog_post
+
+block blog_post
+    h1.py-def-2 Previously on: Voice Synthesis with me
+    p 
+        |After 
+        +a_new_tab("/blog_posts/rvc_1/") learning how to train a voice model on anyones voice →, 
+        +a_new_tab("/blog_posts/rvc_2/") transfering it to existing audio vocals →, 
+        +a_new_tab("/blog_posts/rvc_3/") and even using it in real-time voice calls →, 
+        |I thought it would be a good idea to loop around and go a step further: Text to Speech.
+        <br> <br>
+        |There are already some paid (ew), closed-source (ew ew ew) tools for this out there, though of course we'll do it the open-source way using TorToiSe TTS. <br>If at any point you get lost, check out 
+        +a_new_tab("https://git.ecker.tech/mrq/ai-voice-cloning/wiki/Home") the official wiki here →. 
+        |Also be sure to check out 
+        +a_new_tab("https://youtu.be/6sTsqSQYIzs") this video by Jarod →, 
+        |which basically runs through this whole process and you can follow along quite nicely.
+
+    h1.py-def-2 TorToiSetup
+    p
+        |Before embarking on the exciting journey of voice cloning with TorToiSe, there are a few prerequisites you need to have in place:
+    ul.list-square.list-inside
+        li Python 3.9 or 3.10
+        li Git
+        li ROCm for AMD or CUDA for NVIDIA
+        li FFMPEG (only needed for dataset preparation)
+
+    p 
+        |Once we're ready to roll, let's go ahead and set up TorToiSe.
+    +grid_block
+        +grid_element("Windows", "base", 0)
+                ol.list-decimal.list-inside
+                    li Open Command Prompt from the Start Menu and navigate to your desired working directory using <code class="language-bash">cd</code>.
+                    li Run the command: <code class="language-bash">git clone https://git.ecker.tech/mrq/ai-voice-cloning</code>.
+                    li Execute the setup script based on your GPU:
+                        ul.list-square.list-inside.ml-def-2
+                            li AMD: Run <code class="language-bash">setup-directml.bat</code>
+                            li NVIDIA: Run <code class="language-bash">setup-cuda.bat</code>
+        +grid_element("Linux enthusiasts", "base", 0)
+            ol.list-decimal.list-inside
+                li Download the TorToiSe repository by running: <code class="language-bash">git clone https://git.ecker.tech/mrq/ai-voice-cloning</code>.
+                li Navigate into the downloaded directory.
+                li Make shell scripts executable: <code class="language-bash">chmod +x *.sh</code>.
+                li Based on your GPU, run the respective setup script:
+                    ul.list-square.list-inside.ml-def-2
+                        li AMD: Run <code class="language-bash">./setup-rocm.sh</code>
+                        li NVIDIA: Run <code class="language-bash">./setup-cuda.sh</code>
+    p 
+        |With TorToiSe set up correctly, we can start the WebUI using <code class="language-bash">./start.bat</code> on Windows or <code class="language-bash">./start.sh</code> on Linux. This will (hopefully) alrready open a browser window on <code class="language-bash">127.0.0.1:7860</code>. If not, you can go there yourself.
+
+    h1.py-def-2 T(o)raining a voice
+    p 
+        |Now that we have TorToiSe set up, we can start training a voice model; one thing we need before diving into that is data. In german we have a saying: "Aller guten Dinge sind drei", which translates to "All good things come in threes". So without further ado, once more: 
+    div.note
+        include:markdown-it(linkify langPrefix='highlight-') _general/audio_dataset.md
+        p 
+            |Finally: You don't need to cut up your audio into pieces yourself; RVC will cut it into 4 second chunks automatically. As for how much training data you need I'd recommend at least a few minutes of audio but the more, the merrier. If you still have your dataset from the previous articles, just go ahead and use that!
+
+    :markdown-it(langPrefix='highlight-')
+        Create a subfolder in /voices/, name it whatever you want your voice to be called and move your training audio files there. 
+        \
+        \
+        Now that we have our data ready, we can finally start training! In the *Generate* Tab of the UI, click on *Refresh voice list*; Switch to the *Training* tab and select your voice from the dropdown menu under *Dataset source*. Leave all settings as they are - if you want a deep-dive into what they mean and how to change them accordingly, check out the wiki I linked earlier - and click on *Transcribe and process*. Once that's done and we have preprocessed our data for TorToiSe, switch to the *Generate Cofiguration* tab. Here we can change the settings for the actual training process. Again, select your dataset in the dropdown (you may need to refresh the dataset list once more) and choose your epochs: 
+    ul.list-square.list-inside
+            li More data → less epochs
+            li Less data → more epochs 
+
+    :markdown-it(langPrefix='highlight-')
+        With 320 voice samples (generated from the preprocess method under `/training/your_voice/audio`), I got great results with 200 epochs.
+        \
+        \
+        Leave the settings as they are once again, except for the *Save* and *Validation frequency*. Save on some disk space by choosing something like 50, as that should be enough to revert to an earlier model if you suspect overtraining without saving way too many models on your drive.
+        
+        Click on *Validate training configuration* to smartly adjust the rest of the settings, and save the automatically edited training configuration with the aptly named *Save training configuration*.
+        \
+        \
+        Moving on to the *Run training* tab, refresh the config list and select the config we just saved. Now, everything is set up to finally, finally start the training process! Simply click on *Train* and watch the magic happen: On the right side, in the *training metrics*, we'll get to see the loss curves of the training process. Something nice to look at while waiting for it to finish (be patient, it might take a few hours depending on your GPU)!
+
+    h1.py-def-2 TorToiSe: in action!
+    :markdown-it(langPrefix='highlight-')
+        Just now, while writing this post, I realized the capitalization of TorToiSe is the way it is because of it being a TTS model. I'm not too quick on puns it seems.
+        \
+        \
+        Hitting *Refresh model list* in the *Settings* tab of the UI, we can now select our freshly trained model from the dropdown menu under *Autoregressive Model*. While we're there, uncheck *Slimmer Computed Latents*.
+
+        Switching to the *Generate* tab once more, we can at last generate some audio! Select your voice from the dropdown menu under *Voice*, enter some text as a prompt and brace yourself for now having your very own model that can generate audio from just text! 
+        \
+        \
+        Of course, the default settings will not sound super convincing, so I'll post the ones I frequently use here, but feel free to play around and see what sticks for your case (more info? Head to the wiki!):
+
+    +grid_block 
+        +grid_element("Voice Chunks", "base", 0)
+            |This <em>should</em> automatically set to 0 as we've trained our own model, but just in case, set it to 0.
+        +grid_element("Samples", "base", 0)
+            |The more samples, the better it sounds (significantly), but this also increases the time it takes to generate the audio (significantly). Start with 16 and go from there.
+        +grid_element("Iterations", "base", 0)
+            |The more iterations, the better it sounds, but this also increases the time it takes to generate the audio. Start with 64 and go from there.
+        +grid_element("Temperature", "base", 0)
+            |Increasing the temperature leads to more *interesting* results, be it for better or worse; it also highly depends on the trained voice. I still like it at 1.
+    p Experimental settings: 
+    +grid_block 
+        +grid_element("Length penalty", "base", 0)
+            |The model will try to generate shorter audio; in my case it helped a lot maxing it out to 8.
+        +grid_element("Repetition penalty", "base", 0)
+            |Setting this to low values will lead to great results such as "Welcome to myyyyaiiiihhhaiiiihhhiiiiaaaaaaaiiii". I also often max this out at 8.
+
+    h1.py-def-2 Big brain time 
+    p
+        |As you may notice, the audio generated from TorToiSe <em>can</em> sound alright, though it is often worse quality than what we previously accomplished with RVC 2. No wonder, as the model has less to work with and needs to come up with a convincing sounding voice from just text instead of having a voice already as a base to be modified. The ones amongst you who may be familiar with being called "Part-time Sherlock Holmes" might deduce what comes next: Let's run the generated audio from TorToiSe through our RVC model trained on the same voice! If you've forgotten how (I don't blame you), you can read up on it again in 
+        +a_new_tab("/blog_posts/rvc_2/") Part 2 of this series →. 
+        |No need to split or pre-process the audio this time, just use it as input for RVC 2 and let it do its magic. Often times, the result should sound a lot more realistic and akin to the original voice!
+        
+
+
+    h1.py-def-2 Moral complications & Disclaimer
+    p
+        |As it cannot be stressed enough, please don't use this information for malicious purposes. I'm not responsible for any damage you may cause with this information. I'm just a guy who likes to play around with AI models, and I'm sharing my findings with you.
+        <br> <br>
+        |Now we've run through the whole process of cloning someone else's voice and being able to convincingly use it to read any text we enter. As exciting as this sounds and as much fun as it is to play around with, I'd like to take a moment to talk about the moral implications of this.
+        <br>
+        |As with any technology, there are good and bad ways to use it. I'm not here to tell you what to do with this information, but I'd like to ask you to think about the consequences of your actions. I'm not going to go into detail about what could happen if this technology is used maliciously, but I'm sure you can imagine the possibilities. Be careful who you are talking to over the phone, what data you're giving out, and what you're saying in general. In this tutorial we've seen that with just a few minutes of training data that can come from anywhere, be it voice recordings, recording a call or a short video, we can create a model that can convincingly mimic someone. Don't trust everything you hear, and be mindful of other people's and your own privacy.
+        <br> <br>
+        |I'm planning to write more about the importance of privacy and an open internet in the future.
+        <br>
+        |If you have any questions, feel free to send me an email. I'll try to answer as soon as possible.
+        <br> <br>
+        |Thank you for reading!

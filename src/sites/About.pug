@@ -9,38 +9,39 @@ extends /_layouts/template
 
 block content
     //flowfield
-    div(class="px-2 relative h-[20vh] -mt-16 -z-10")
+    div(class="px-def-2 relative h-[20vh] -mt-16 -z-10")
         canvas(id="canvas")
         script(src="/js/ps_noises.js ")
         script(src="/js/vector_utils.js")
         script(src="/js/flowfield.js")
 
-    div.flexcon(class="md:grid md:grid-cols-4")
+    div.flexcon(class="md:grid md:grid-cols-4 p-def-2")
         +divider(4, "w-full md:col-span-4")
-        p(class="text-xl w-full md:col-span-1 p-2") ↝ !{space(4)} About
-        p(class="text-xl w-full md:col-span-2 p-2")
+        p(class="text-xl w-full md:col-span-1 py-def") ↝ !{space(4)} About
+        p(class="text-xl w-full md:col-span-2 py-def")
             |Jérôme Stephan is a programmer and artist based in and around Berlin, Germany. Working with game studios, musicians and other clients all over the world. Loving to stroll the fine line between programming and art, leaning into either side depending on the kind of project and keen on using every opportunity to learn more.
             |<br>
-            +a_new_tab("https:jeromestephan.de/CV") Further reading in my CV →
+            +a_new_tab("/CV") Further reading in my CV →
 
-        div(class="w-full md:col-span-1 md:row-span-3")
-            +pf_img({source:"/images/jstephan.png", width:"full", aspect_ratio:"1/1"})
+        div(class="w-full md:col-span-1 md:row-span-5 md:pl-def-2 py-def")
+            +pf_img({source:"/images/jstephan.png", width:"full", aspect_ratio:"1/1", blog: true})
 
         +divider(12, "w-full md:col-span-3")
-        p(class="text-xl w-full md:col-span-1 p-2") ↝ !{space(4)} Impressum
-        p(class="text-xl w-full md:col-span-2 p-2")
+        p(class="text-xl w-full md:col-span-1 py-def") ↝ !{space(4)} Impressum
+        p(class="text-xl w-full md:col-span-2 py-def")
             |For information concerning ownership and authorship of content, 
-            a(href="https://jeromestephan.de/Impressum/") this site's impressum can be found here. →
+            a(href="/Impressum/") this site's impressum can be found here. →
 
-        +divider(12, "w-full md:col-span-4")
-        p(class="text-xl w-full md:col-span-1 p-2") ↝ !{space(4)} Meta
-        p(class="text-xl w-full md:col-span-2 p-2")
-            |This page was created by me using 11ty, 11ty-image, Pug and TailwindCSS. For a deep dive, feel free to head to 
+        +divider(12, "w-full md:col-span-3")
+        p(class="text-xl w-full md:col-span-1 py-def") ↝ !{space(4)} Meta
+        p(class="text-xl w-full md:col-span-2 py-def")
+            |This page is self-hosted on my trusty Raspberry Pi and was created by me using 11ty, 11ty-image, Pug and TailwindCSS. For a deep dive, feel free to head to 
             +a_new_tab("https://github.com/HerzogVonWiesel/porto") its GitHub repository. →
 
     +divider(14)
     //- h2(class="text-5xl md:text-8xl px-2 py-2") CONTACT ME ︎︎︎
-    h1 CONTACT ME ︎︎︎
-    h1(class="md:text-8xl text-7xl text-center z-10 p-2 py-8") 
-        a(href="mailto:hello@jeromestephan.de") hello@!{word_brk}jerome!{word_brk}stephan!{word_brk}.de
+    div.p-def-2
+        h1 CONTACT ME ︎︎︎
+        h1(class="md:text-8xl text-7xl text-center z-10 py-8") 
+            a(href="mailto:hello@jeromestephan.de") hello@!{word_brk}jerome!{word_brk}stephan!{word_brk}.de
     +divider(14)

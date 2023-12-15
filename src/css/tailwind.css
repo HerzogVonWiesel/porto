@@ -129,17 +129,20 @@
 
 @layer base {
     h1, h2, h3, h4, h5, h6 {
-        @apply font-inferi;
+        @apply font-serif;
         @apply italic;
         @apply font-normal;
-        /* @apply font-freizeit; */
+        /* @apply font-sans; */
     }
     h1 {
         @apply text-5xl md:text-8xl;
     }
     h2 {
         @apply text-4xl md:text-6xl;
-        @apply font-freizeit not-italic;
+        @apply font-sans not-italic;
+    }
+    p, ul, ol {
+        @apply text-justify;
     }
     :root {
         --bg:           #fff7ed;
@@ -148,6 +151,7 @@
         --accent-sec:   #340B6B;
         --base-dark:    black;
         --base-bright:  white;
+        -webkit-tap-highlight-color: transparent;
     }
 }
 

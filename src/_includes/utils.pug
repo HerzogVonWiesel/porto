@@ -35,5 +35,5 @@ mixin grid_element(grid_title, text_size="xl", divider_size=12)
     +divider(divider_size, "w-full md:col-span-4")
     p(class="text-"+text_size+" w-full md:col-span-1 py-def") 
         |↝ !{space(5)} !{grid_title}
-    p(class="text-"+text_size+" w-full md:col-span-3 py-def")
+    div(class="text-"+text_size+" w-full md:col-span-3 py-def")
         block

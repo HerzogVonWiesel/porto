@@ -433,8 +433,8 @@ function drawSine(t, offset_y) {
     for (i = xAxis-1; i <= w; i += 2) {
         x = t+(-xAxis+i)/unit;
         y = Math.sin(x+10*noise.simplex3(0, offset_y/30, noiseZ))+offset_y/1.6;
-        var dx = Math.abs(mouseX - unit*x)/15.0;
-        var dy = Math.abs(mouseY - unit*y - yAxis)/15.0;
+        var dx = Math.abs(mouseX - unit*x)/10.0;
+        var dy = Math.abs(mouseY - unit*y - yAxis)/10.0;
         ctx.lineTo(i, unit*y+yAxis+((dx+dy)*noise.simplex3(i, 0, noiseZ)*noise.simplex3(x/3, 10, noiseZ)));
     }
   ctx.stroke();  
@@ -445,22 +445,23 @@ function drawCircles(t, offset_y) {
     ctx.fillStyle = stroke;
     let r = Math.max(canvas.width, canvas.height) * 0.66;
     const rings = r/5;
+    dpr_mul = dpr*1.1;
     for (let j = 0; j < rings; j++) {
       let rad = (r / rings) * (rings - j);
       let polys = (rings+7-j);
       for (let i = 0; i <= polys; i++) {
-        let pre_x = Math.cos(i / polys * Math.PI*2) * rad + canvas.width / (2*dpr);
-        let pre_y = Math.sin(i / polys * Math.PI*2) * rad + canvas.height / (2*dpr);
-        let cursor_dist = (mouseDistance(pre_x, pre_y)/1000)**2;
-        let circ_pos = i + (noise.simplex3(j/10, 0, t)/2+0.5)*5 + (noise.simplex3(pre_x*10, t*1.5, 0)/2+0.5)*cursor_dist;
-        let x = Math.cos(circ_pos / polys * Math.PI*2);
-        let y = Math.sin(circ_pos / polys * Math.PI*2);
-        const offset = cursor_dist * noise.simplex3(x, y + (j * 0.03), t) * (rad / 5);
-        x *= rad + offset;
-        y *= rad + offset;
-        x += canvas.width / (2*dpr);
-        y += canvas.height / (2*dpr);
-        ctx.fillRect(x, y, 3, 3);
+            let pre_x = Math.cos(i / polys * Math.PI*2) * rad + canvas.width / (2*dpr);
+            let pre_y = Math.sin(i / polys * Math.PI*2) * rad + canvas.height / (2*dpr);
+            let cursor_dist = dpr_mul*(mouseDistance(pre_x*dpr_mul, pre_y*dpr_mul)/1000)**1.5;
+            let circ_pos = i + (noise.simplex3(j/10, 0, t)/2+0.5)*5 + (noise.simplex3(pre_x*10, t*1.5, 0)/2+0.5)*cursor_dist;
+            let x = Math.cos(circ_pos / polys * Math.PI*2);
+            let y = Math.sin(circ_pos / polys * Math.PI*2);
+            const offset = cursor_dist * noise.simplex3(x, y + (j * 0.03), t) * (rad / 5);
+            x *= rad + offset;
+            y *= rad + offset;
+            x += canvas.width / (2*dpr);
+            y += canvas.height / (2*dpr);
+            ctx.fillRect(x, y, 3, 3);
       }
     }
     ctx.fillStyle = fillstyle_BAK;

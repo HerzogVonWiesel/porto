@@ -1,0 +1,243 @@
+---
+title: Creating a Cinema4D python plugin from scratch - Über Texture Importer
+subtitle: What started as a quick script for myself, I've quickly realized could be something useful for a ton of other C4D users as well. Getting a lot of experience as a technical artist along the way, I've decided to share the journey of TexToMatO, an apparently now well-beloved superb texture importer plugin for Cinema4D with Redshift.
+date: 2023-08-19
+cover_img: /images/blog_posts/textomato/cover_img.png
+tags:
+    - 3D
+    - Cinema4D
+    - Python
+---
+extends /_layouts/blog_post
+
+block blog_post
+    h1.py-def-2 The Y in Python
+    p 
+        |After being truly blown away by my now favorite movie of all time, Suzume, I'd decided I definitely need to pour my love into and base a new 3D project on it (which I'm still working on, so stay tuned for that!). Combined with not wanting to create every single asset needed from scratch, somehow feature The Last Of Us II (since I recently finished it as well) and get to know more about game development (a little bit the other way around, but oh well), I dived into the topic of reverse-engineering game files - another story that I'll definitely write about in the future.
+        <br> <br>
+    +pf_img({name:"Still frame from Suzume ©CoMix Wave Films", source:"/images/blog_posts/textomato/suzume_poster.jpg", width:"full", aspect_ratio:"5/2", blog:true})
+    p
+        <br>
+        |Fiddling around with various scripts, some of those written myself, to get to those tasty unpacked, readable game files (as I said, story coming soon!), I've finally found myself with some good old .fbx files inside of Cinema4D; but wait, apparently most of the textures inside the material are missing! We only get the diffuse texture, but no normal, roughness, metallic, ... maps needed for our PBR workflow. Just add them? Oh I would, though not manually for every single material of those 100 or so we just imported. What now? Enter Python! 
+        <br> <br>
+    p 
+        |I've already known that we can interact with Cinema4D using Python, but I've never really done so, only in Houdini for 
+        +a_new_tab("https://jeromestephan.de/BachelorThesis") my Bachelor Thesis →. 
+        |So I've started looking into how to write scripts for Cinema4D, mostly using 
+        +a_new_tab("https://github.com/PluginCafe/cinema4d_py_sdk_extended/tree/master/plugins") the examples provided by Maxon on GitHub →, 
+        |though didn't get very far since I needed Redshift materials for our scene to work properly. Some googling and searching around later, I've found 
+        +a_new_tab("https://github.com/HerzogVonWiesel/Custom_Redshift_API") DunHouGo's repository to interact with Redshift nodes (which I've since updated) →, 
+        |which helped me a TON getting things off the ground.
+        //- <br> <br>
+    h1.py-def-2 The idea in.. idea?
+    p Okay, so now I know the basics of how to interact with materials using Python, but what exactly do I want the script to do? Let's see: <br>
+    ul.list-square.list-inside
+        li For the selected materials in the scene, ...
+            ol.list-decimal.list-inside.ml-def-2
+                li get the diffuse texture path
+                li gather all other channels of that texture (normal, roughness, metallic, ...)
+                li add the needed nodes like ramps for roughness, bump map for normal, ...
+                li connect it all to the right channels of the material 
+    p <br> So far, so good for that very specific instance of this project. However, it got me thinking: Me and a lot of other 3D artists have already spent a ton of time doing the same repetitive tasks when importing any texture sets from somewhere - setting the right color space, connecting it to the right ports, adding ramps, bump map nodes, etc. - , so surely I could expand that script to be more generic and useful for everyone, right? <br>
+    ul.list-square.list-inside 
+        li For a given texture folder, ...
+            ol.list-decimal.list-inside.ml-def-2
+                li gather all matching texture sets
+                li create a material for each texture set
+                li connect the textures to the right channels of each material
+                li add the needed nodes like ramps for roughness, bump map for normal, ...
+        li Pack both options into a nice UI so we can choose what we want to do!
+    p <br> So not a lot to expand on, right?
+
+    h1.py-def-2 Being wrong
+    p
+        |What lies behind a few simple ideas can turn out a little more difficult. I want the script to automatically recognize what kind of texture channel we're dealing with, and still find matching sets. If you like, you can ponder on this problem yourself for a bit and try to find a solution before reading on.
+    .note
+        h2 The problem at hand 
+        p 
+            |Once we recognize all matching texture sets and which channels they have, adding the other stuff like ramps and bump maps is easy. But how do we recognize what kind of texture channel we're dealing with? And how do we create matching sets? Let's take a look at some texture names we have lying around (sets are something before the channel name, e.g. "foo-bar-" or "foo_foo-foo-bar"):
+            <br>
+        ul.list-square.list-inside
+            li foo-bar-color.png
+            li foo_foo-foo-bar-normal.png
+            li foo_foo-foo-bar-DISP.png
+            li foo-bar-color_2k.png
+            li bar_foo_color.png
+            li bar_foo_color (2k).png
+            li bar_foo_tint-mask (2k).png
+            li bar_foo_AO.png
+            li Bricks10_AO_HIRES.jpg
+            li Bricks10_COL_VAR1_HIRES.jpg
+            li Bricks10_NRM_HIRES.jpg
+            li air-vent-a-color.png
+            li air-vent-a-normal.png
+            li bath-containers-set-a-color.png
+            li bath-containers-set-a-color-mask.png
+            li bath-containers-set-a-normal.png
+            li bath-containers-set-a-roughness.png
+            li RoadDesert001_COL_6K.jpg
+            li RoadDesert001_GLOSS_6K.jpg
+            li RoadDesert001_REFL_6K.jpg
+        p 
+            <br>
+            |As we can see, the texture names can be quite wild - the prefix, followed by the channel name (which, apparently, can have all sorts of naming schematics), and then sometimes even a suffix (like 2K or HIRES) in front of the file extension. Take some time to ponder and think about how you'd solve this problem.
+    p 
+        |I've asked this question in my (Tech) University's general chat and got all kinds of ideas, from reading the texture name character by character to even.. AI? Yeah, I think it's safe to say that's a little overkill for this problem. In the end, I came up with a solution I'm using quite <em>regularly</em> in some programming tasks. Still, I'm curious to hear how you'd solve this problem, 
+        a(href="mailto:hello@jeromestephan.de") so feel free to send me an email → 
+        |or DM me on Instagram!
+
+    h1.py-def-2 Hex hex with Reg Ex
+    p 
+        |Imagine you have a super powerful search tool, like when you use "Ctrl + F" in a document, but on steroids. Regular expressions are like a special language that helps you describe patterns in text. Think of a pattern as a rule you want to find in a bunch of text. This rule can be simple, like finding every word that starts with "cat", or really complex, like finding email addresses. Regular expressions give you a way to describe these rules using special characters and symbols, so let's look at an example to know what I'm talking about: Finding all the words that start with the letter "c" in a sentence.
+        <br> <br>
+        |Imagine you have the sentence: "Cats, dogs, and cows are cute animals." You can use the regular expression <code class="language-bash">c\w+</code> to match words that start with "c". Here's how it breaks down:
+    ul.list-square.list-inside
+        li <code class="language-bash">c</code> is the literal character "c" you want to match.
+        li <code class="language-bash">\w</code> represents any word character (letters, digits, or underscores).
+        li <code class="language-bash">+</code> means "one or more times", so <code class="language-bash">\w+</code> matches a sequence of word characters.
+    p
+        |When you apply the regular expression <code class="language-bash">c\w+</code> to the sentence, it will find and match "Cats", "cows", and "cute". Remember that regular expressions are often case-sensitive, so the above example would only match lowercase "c". If you want to match both uppercase and lowercase, you can modify the expression to <code class="language-bash">[Cc]\w+</code>.
+        <br> <br>
+        |Alright, hopefully you're still with me. Back to the problem at hand: Let's take a look at the regular expression I've come up with to solve our problem:
+    - 
+        var code = `
+        channels_dict = {
+            "image_extensions":         ["png", "jpeg", "jpg", "dds", "tga", "tif", "tiff", "bmp", "exr"],
+            "color_channel":            ["Base_Color", "BaseColor", "basecolor", "color", "COL", "Color", "Albedo", "col", "Base", "diff", "_D-", "_D."],
+            "normal_channel":           ["Normal_OpenGL", "normal", "NRM", "Normal", "nml", "nrml", "Norm", "_N.", "_N("],
+            "ao_channel":               ["Mixed_AO", "ao", "AO"],
+            "metalness_channel":        ["Metallic", "Meta", "_M.", "_metal."],
+            "roughness_channel":        ["Roughness", "roughness", "Roug", "_R.", "_rough."],
+            "specular_channel":         ["Specular", "specular", "_S."],
+            "glossiness_channel":       ["GLOSS", "glossiness"],
+            "opacity_channel":          ["opacity", "alpha", "opac", "_O.", "Opacity"],
+            "translucency_channel":     ["_L.", "_L_", "Translucency", "Transmission"],
+            "displacement_channel":     ["height", "DISP", "Displacement", "depth"],
+            "misc_channel":             ["soft-mask", "color-mask", "mix-mask", "tint-mask", "paint-mask", "mask", "_M(", "_MSK", "OVERLAY", "blend"]
+        }
+        all_channels = [channel for channels in channels_dict.values() for channel in channels]
+        texture_regex = r'^(.*?)(' + '|'.join(all_channels) + ')(.*?)(?:' + '|'.join(image_extensions) + ')\\b'
+        `
+    - var code = filters.render_code("python", code);
+    != code
+    p 
+        |Whew, quite a sight to behold, so let's break it down piece by piece:
+
+    ul.list-square.list-inside
+        li <code>channels_dict</code>: This dictionary contains keys representing the different types of image channels (e.g., color, normal, metalness), and the associated values are lists of possible naming schemes for each type.
+        li <code>all_channels</code>: This list extracts all the channel names from the values of <code>channels_dict</code> and flattens them into a single list.
+        li <code>texture_regex</code>: This is the regular expression pattern being constructed. Let's look at what it does:
+            ul.list-square.list-inside.ml-def-2
+                li <code class="language-python"><code>r'^(.*?)'</code></code>: This section captures any characters at the beginning of the input. The <code>^</code> asserts the start of the string, and <code><code>(.*?)</code></code> captures any characters non-greedily into a group: <strong>This will be our base name of the texture!</strong>
+                li <code class="language-python"><code>(' + '|'.join(all_channels) + ')</code></code>: This part creates a regular expression group using the <code>all_channels</code> list. The <code>|</code> between channel names functions as an "OR" operator, allowing any of the names to match: <strong>Our channel name!</strong>
+                li <code class="language-python"><code>(.*?)</code></code>: Similar to the previous part, this captures any characters between the channel name and the image extension: <strong>Our (not needed) suffix!</strong>
+                li <code class="language-python"><code>(?:' + '|'.join(image_extensions) + ')\b</code></code>: This segment captures any specified image extensions (e.g., <code>"png"</code>, <code>"jpg"</code>) using a non-capturing group <code>(?: ... )</code>. The <code>\b</code> ensures we end the match at the end of the extension and there's nothing after.
+    p
+        <br>
+        |If I could summarize regex in one sentence, it would be: "Defying expectations, this monstrous creation harmonizes chaos into function." - I'm not sure if that makes sense, but it sounds cool, right? Well, the important part is that after a lot of trial and error, I've finally come up with a regular expression that works for all the texture sets I've thrown at it.
+
+    h1.py-def-2 Galantis - Runaway
+    p 
+        |Getting the regular expression to work was, arguably, the most crucial part of this whole ordeal. The rest of the script's functions are pretty standard programming stuff, though it was a little harder to find out how to do this or that - the only real resource we have to look stuff up is the 
+        +a_new_tab("https://developers.maxon.net/docs/Cinema4DPythonSDK/html/index.html") Cinema4D Python SDK →, 
+        |which, well, to say the least, could see some improvements. A lot of trial and error (and a few posts and questions in C4D's Plugincafé) later, we've got most of it down. Great! Just.. how do we actually <em>use</em> our script? We need a UI!
+        <br> <br>
+        |Here, the SDK and 
+        +a_new_tab("https://github.com/PluginCafe/cinema4d_py_sdk_extended/tree/master/scripts") the examples provided by Maxon on GitHub →, 
+        |got me pretty far. I've created a simple UI with a few buttons and checkboxes, and we're good to go! I set the dialogue type to "ASYNC" so we can still interact with Cinema4D while the UI is open to select materials, and we're done - or so I thought.
+        <br> <br>
+        |After a lot of positive feedback from the Redshift community on my script, I got a DM from @stuckpixel, telling me when my script is installed, some other scripts of his studio won't work anymore. Huh, must be them then, since it works for everyone else.
+    .note 
+        h2 Pitfalls, advice, and how to turn a script into a plugin
+        p 
+            |Well, @ferdinand, a superb Maxon employee told me on the forums later on that it's actually <em>"illegal" for scripts to create ASYNC dialogs</em>, so I'll need to change my script into a plugin: 
+        ol.list-decimal.list-inside.ml-def-2
+            li Create a new folder in your Cinema4D plugins directory, e.g. "TexToMatO" and move your script there.
+            li Change the extension of your script from ".py" to ".pyp".
+            li Register a unique plugin ID on 
+                +a_new_tab("https://plugincafe.maxon.net/c4dpluginid_cp") Plugincafé → 
+                |to avoid conflicts with other plugins and C4D itself.
+            li Use that ID to invoke registration of a CommandData plugin: 
+                - 
+                    var code = `
+                    import c4d
+                    from c4d import gui
+
+                    class HelloWorldCommand(c4d.plugins.CommandData):
+                        def Execute(self, doc):
+                            #Put your executable Code here...
+                            c4d.gui.MessageDialog("Hello World!")
+                            return True
+
+                    if __name__ == "__main__":
+                        c4d.plugins.RegisterCommandPlugin(
+                            id=XXXXXXX, #Get Unique ID from https://plugincafe.maxon.net/c4dpluginid_cp
+                            str="HelloWorld",
+                            info=0,
+                            dat=HelloWorldCommand(),
+                            help="put some Help test here...",
+                            icon=c4d.bitmaps.InitResourceBitmap(5126)
+                            )
+                    `
+                - var code = filters.render_code("python", code);
+                != code
+            li look at the 
+                +a_new_tab("https://github.com/PluginCafe/cinema4d_py_sdk_extended/tree/master/plugins") examples provided by Maxon on GitHub → 
+                |to see if you did it right.
+        p 
+            <br>
+            |Once it's a plugin, you can quickly realize code changes without restarting C4D by going to Extensions → Tools → Reload Python plugins.
+            <br> <br>
+            |You can't change the size of the UI in Python. So if you want an "Extra settings" dialog, it can't fold out if you toggle them (it was such a rad idea!), it needs to be another (modal) dialog.
+            <br> <br>
+            |Another thing I've learned when implementing the "Preferences" dialogue is how tricky it is to communicate between two dialogs: You can't just send a message to the other dialog, that would be too easy. The main dialog needs to listen to all C4D event messages (CoreMessage function), and look whether the id is the one we're looking for. The subdialog needs to send a C4D event (c4d.SpecialEventAdd) with the specific ID, which should be our Plugin's ID, and the main dialog will then know what to do.
+            <br>
+            |If we also want to encode more information into the message, we'll need to use the "p1" field; though that will get encoded in weird C data types, so we'll need to decode it with some C magic in the main dialog. Here's the gist of <strong>how to communicate between two dialogs</strong>:
+            - 
+                var code = `
+                def decodeMessage(message): # As taken from https://developers.maxon.net/docs/Cinema4DPythonSDK/html/manuals/misc/python3_migration.html
+                    pythonapi.PyCapsule_GetPointer.restype = c_int
+                    pythonapi.PyCapsule_GetPointer.argtypes = [py_object]
+                    return pythonapi.PyCapsule_GetPointer(message.GetVoid(c4d.BFM_CORE_PAR1), None)
+
+                class SubDialog(c4d.gui.SubDialog):
+                    def Command(self, mid, msg):
+                        c4d.SpecialEventAdd(PLUGIN_ID, p1=42) # 42 is the information we want to send
+                        return True
+
+                class MainDialog(c4d.gui.SubDialog):
+                    def CoreMessage(self, id, msg):
+                        if id == PLUGIN_ID:
+                            message = decodeMessage(msg)
+                            if message == 42:
+                                self.DoSomething()
+                        return c4d.gui.GeDialog.CoreMessage(self, id, msg) # Don't forget to still handle the other messages!
+                `
+            - var code = filters.render_code("python", code);
+            != code
+    p 
+        |A lot to consider it seems! But it's all worth it in the end. Trust me.
+    h1.py-def-2 The final product
+    +pf_img({name:"Screenshot from the finished plugin, TexToMatO", source:"/images/blog_posts/textomato/TexToMatO_Screenshot.png", width:"1/2", aspect_ratio:"auto", blog:true})
+    p
+        <br> <br>
+        |We did it! But where to go from here?
+        <br> <br>
+        |↝ !{space(5)} 
+        +a_new_tab("https://jeromestephan.gumroad.com/l/TexToMatO?layout=profile") Support this project and me on Gumroad →! 
+        |It's free to download, so try it out for yourself and read up on all the features!
+        <br> <br>
+        |↝ !{space(5)}
+        +a_new_tab("https://github.com/HerzogVonWiesel/TexToMatO") Check out the source code on GitHub →!
+        <br> <br>
+        |↝ !{space(5)}
+        a(href="mailto:hello@jeromestephan.de") Send me an e-mail → 
+        |if you have any questions, feedback, or just want to say hi!
+        <br> <br>
+        |Since I was asked multiple times why I'm sharing it for free if so much work went into it and it's so useful, I'd like to say that I'm a big fan of open-source software and the idea of sharing knowledge. I've learned a lot from other people's open-source projects, and I'd like to give back to the community. If you want to support me, you can still pay for it on Gumroad; but if you can't or don't want to, that's fine too. I believe that access to knowledge and creativity should be free: Let's support each other in becoming better at what we love to do! 
+        <br> <br>
+        |I hope you enjoyed this little journey of mine, and maybe even learned something new. Have fun and keep on creating!
+        <br>
+        |Cheers,
+        <br>
+        |Jérôme

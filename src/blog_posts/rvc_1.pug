@@ -20,23 +20,9 @@ block blog_post
 
     h1.py-def-2 Training a voice 
     div.note
-        :markdown-it(linkify langPrefix='highlight-')
-            ## Dataset advice
-
-            Isolate your voice as much as possible, in the highest quality possible. This may seem like obvious advice, but it needs to be underlined: As for all machine learning: __BS in, BS out.__
-            \
-            You don't need to cut up your audio into pieces yourself; RVC will cut it into 4 second chunks automatically. As for how much training data you need, stay under 1 hour to not crash the process. I'd recommend at least a few minutes of audio but the more, the merrier.
-            \
-            \
-            I recommend using [Ultimate Vocal Remover→](https://github.com/Anjok07/ultimatevocalremovergui/releases) to isolate your desired voice using some nifty AI models. Of the models available, the best ones seem to be "Kim Vocal 2" and "MDX-NET_Main_438"; The latter is a VIP model, though you can get the VIP code from [UVR's Patreon→](https://www.patreon.com/uvr).
-            \
-            \
-            For the best results, it's essential to eliminate reverb and echo from your dataset. Ideally, you should minimize these effects during the recording process. However, in case there just *is* reverb, there's a solution available under MDX-Net called Reverb HQ, which allows you to export reverbless audio by selecting the 'No Other' option. 
-            In some cases, Reverb HQ might not completely remove the echo. One option is to process the vocal output through a VR Architecture model: I'd recommend De-Echo-DeReverb. 
-            If, for some reason, that's still not enough, there's still the De-Echo normal model, which is the most aggressive echo removal tool available and can be used as a last resort.
-            \
-            \
-            As for removing noise, I'd recommend using Audacity's Noise gate or its other noise removal tools.
+        include:markdown-it(linkify langPrefix='highlight-') _general/audio_dataset.md
+        p 
+            |Finally: You don't need to cut up your audio into pieces yourself; RVC will cut it into 4 second chunks automatically. As for how much training data you need, stay under 1 hour to not crash the process. I'd recommend at least a few minutes of audio but the more, the merrier.
     p
         |Switching to the "Train" tab in the GUI, we can firstly set the name of our model under "Experiment Name". <br>
         |I usually keep the rest of these settings the same (generally, v2 as a model architecture is much faster at training and is preferred now). <strong>However, turn down the "Threads of CPU"</strong> option to 4, otherwise you will have to deal with a very angry computer where not even task manager can save you (trust me on this one). <br> <br>
@@ -46,7 +32,7 @@ block blog_post
         |Crepe (specifically mangio-crepe, which is the old implementation, and in my opinion the better one) is the agreed upon best option for training high quality datasets. Lower hop lengths will be more pitch precise and therefore take longer to train, but personally I notice no major difference between 128 and 64 trains. It is up to your discretion; your dataset should be set up so that it is free of any major noise if you go for lower hop sizes, because it increases the risk of bad data in your dataset being focused on when you have higher pitch accuracy.
         <br> <br>
         |In summary:
-        ul.list-disc.list-inside
+        ul.list-square.list-inside
             li If your dataset quality is great and free of noise: Use mangio-crepe; rmvpe training is a new method and seems promising, so try that too.
             li If your dataset quality is mediocre: Use rmvpe, or harvest if that somehow has problems, or higher hop size mangio-crepe (i.e 256)
         <br>
@@ -89,7 +75,7 @@ block blog_post
     h1.py-def-2 Part 2: Generating a voice
     p 
         |We did it! We trained our own AI voice! 
-        a(href="https:jeromestephan.de/blog_posts/rvc_2/") In Part 2, I'll show you how to use it for a voice transfer: changing a given voice to the one we just trained →.
+        a(href="/blog_posts/rvc_2/") In Part 2, I'll show you how to use it for a voice transfer: changing a given voice to the one we just trained →.
 
     h1.py-def-2 Disclaimer 
     p 
