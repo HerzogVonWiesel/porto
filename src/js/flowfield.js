@@ -12,6 +12,11 @@ let unit = 100;
 let xAxis = 0;
 let yAxis;
 //flowparticles
+let cfield;
+let cpolys;
+let cr;
+let crings;
+let dpr_mul;
 let particles;
 class Particle {
     constructor(x, y) {
@@ -148,11 +153,32 @@ function setup(sizer=30) { //fp
 function initField() { //f
   field = new Array(columns);
   for (let x = 0; x < columns; x++) {
-    field[x] = new Array(columns);
+    field[x] = new Array(rows);
     for (let y = 0; y < rows; y++) {
       field[x][y] = [0, 0];
     }
   }
+}
+
+function initCfield() { //c
+    cr = Math.max(canvas.width, canvas.height) * 0.6;
+    crings = cr/7;
+    dpr_mul = dpr*1.1;
+    //rings to int
+    crings = Math.floor(crings);
+    cfield = new Array(crings);
+    cpolys = new Array(crings);
+    crad = new Array(crings);
+    for (let j = 0; j < crings; j++) {
+      crad[j] = (cr / crings) * (crings - j);
+      cpolys[j] = (crings+5-j);
+      cfield[j] = new Array(cpolys[j]);
+      for (let i = 0; i < cpolys[j]; i++) {
+            let pre_x = Math.cos(i / cpolys[j] * Math.PI*2) * crad[j] + canvas.width / (2*dpr);
+            let pre_y = Math.sin(i / cpolys[j] * Math.PI*2) * crad[j] + canvas.height / (2*dpr);
+            cfield[j][i] = new Vector(pre_x, pre_y);
+      }
+    }
 }
 
 // Define a speed factor for the gradual movement (tweak this value as needed)
@@ -165,8 +191,8 @@ document.addEventListener('mousemove', (event) => {
     var rect = canvas.getBoundingClientRect();
 
     // Update the target position towards the actual mouse position
-    targetMouseX = (event.clientX - rect.left) * dpr;
-    targetMouseY = (event.clientY - rect.top) * dpr;
+    targetMouseX = Math.min((event.clientX - rect.left), rect.width) * dpr;
+    targetMouseY = Math.min((event.clientY - rect.top), rect.height) * dpr;
 });
 
 // Initialize mouseX and mouseY to be the center of the canvas
@@ -233,11 +259,9 @@ function fcalculateField() { //f
   }
 }
 
-function pcalculateField() { //p
-    field = new Array(columns);
+function ccalculateField() { //p
     let partID = 0;
     for(let x = 0; x < columns; x++) {
-        field[x] = new Array(columns);
         for(let y = 0; y < rows; y++) {
             
             var dx = mouseX - (canvas.width/columns) * x;
@@ -250,7 +274,7 @@ function pcalculateField() { //p
             let length = noise.simplex3(x/50 + 40000, y/50 + 40000, noiseZ) * 0.3;
             let v = new Vector(0, length*5.0);
             v.setAngle(angle);
-            field[x][y] = v;
+            pfield[x][y] = v;
             partID++;
         }
     }
@@ -276,6 +300,7 @@ function initDatafields(){
     rows = Math.floor(h / size) + 1;
     initParticles();
     initField();
+    initCfield();
 }
 
 function fdraw() {
@@ -443,24 +468,20 @@ function drawSine(t, offset_y) {
 function drawCircles(t, offset_y) {
     let fillstyle_BAK = ctx.fillStyle;
     ctx.fillStyle = stroke;
-    let r = Math.max(canvas.width, canvas.height) * 0.66;
-    const rings = r/5;
-    dpr_mul = dpr*1.1;
-    for (let j = 0; j < rings; j++) {
-      let rad = (r / rings) * (rings - j);
-      let polys = (rings+7-j);
-      for (let i = 0; i <= polys; i++) {
-            let pre_x = Math.cos(i / polys * Math.PI*2) * rad + canvas.width / (2*dpr);
-            let pre_y = Math.sin(i / polys * Math.PI*2) * rad + canvas.height / (2*dpr);
-            let cursor_dist = dpr_mul*(mouseDistance(pre_x*dpr_mul, pre_y*dpr_mul)/1000)**1.5;
-            let circ_pos = i + (noise.simplex3(j/10, 0, t)/2+0.5)*5 + (noise.simplex3(pre_x*10, t*1.5, 0)/2+0.5)*cursor_dist;
-            let x = Math.cos(circ_pos / polys * Math.PI*2);
-            let y = Math.sin(circ_pos / polys * Math.PI*2);
-            const offset = cursor_dist * noise.simplex3(x, y + (j * 0.03), t) * (rad / 5);
-            x *= rad + offset;
-            y *= rad + offset;
-            x += canvas.width / (2*dpr);
-            y += canvas.height / (2*dpr);
+    const halfWidth = canvas.width / (2 * dpr);
+    const halfHeight = canvas.height / (2 * dpr);
+    for (let j = 0; j < crings; j++) {
+      const polyCount = cpolys[j];
+      const ringRadius = crad[j];
+      const noisej = (noise.simplex3(j/10, 0, t)/2+0.5)*3;
+      for (let i = 0; i < polyCount; i++) {
+            let cursor_dist = dpr_mul*(mouseDistance(cfield[j][i].x*dpr_mul, cfield[j][i].y*dpr_mul)/600);
+            let circ_pos = i + noisej;
+            let x = Math.cos(circ_pos / polyCount * Math.PI*2);
+            let y = Math.sin(circ_pos / polyCount * Math.PI*2);
+            const offset = cursor_dist * noise.simplex3(x, y + (j * 0.03), t) * (ringRadius / 5);
+            x = x * (ringRadius + offset) + halfWidth;
+            y = y * (ringRadius + offset) + halfHeight;
             ctx.fillRect(x, y, 3, 3);
       }
     }

@@ -69,6 +69,8 @@ module.exports = (function(eleventyConfig) {
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
     eleventyConfig.addPlugin(syntaxHighlight);
 
+    eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
+
     eleventyConfig.addFilter("toUppercase", function(string) {
         return string.toUpperCase();
     });

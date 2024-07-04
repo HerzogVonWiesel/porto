@@ -35,6 +35,10 @@ module.exports = {
         'def-6': '4.5rem',
       },
 
+      gridRow: {
+        'span-7': 'span 7 / span 7',
+      },
+
       listStyleType: {
         'square': 'square',
       }
