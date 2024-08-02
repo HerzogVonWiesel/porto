@@ -1,0 +1,76 @@
+{
+    "name": "deep+fake",
+    "subtitle": "Creating fake people and resurrecting the dead",
+    "year": "2024",
+    "description": "I've been tasked with researching open-source state-of-the-art deepfake techniques for a few clients' projects. This has led me to create videos of non-existent people, resurrecting the dead and making Angela Merkel sing.",
+    "tools": "Various img2video, video2video & audio2audio models, ComfyUI",
+    "cover_img": "/images/projects/deepfake/Showcase_1_Web.mp4",
+    "aspect_ratio": "7/4",
+    "width": "1/2",
+    "media": [
+    {
+        "text": "Creating a non-existent person",
+        "type": "header",
+        "width": "full"
+    },
+    {
+        "text": "Due to the nature of a client's project, it couldn't be shot in a way that allowed a real person to appear in the final film. Now, how do you create a video of a person that does not exist?<br><br>To tackle this problem I was tasked with, I started out by firstly generating a portrait of a 'new' person using the tried and true StyleGAN. <br> I then fed this single portrait image, after trying out various other uncompelling options, into my workflow - consisting of a state of the art face swapper - along with the source video to generate a low resolution deepfake. Using a face restorer model to upscale the face again, I was able to create a quite convincing final result. <br><br>Of course the result isn't perfect: We get a few jitters, mainly in the hair due to the face restoring; I also put it under a hard test with the dance video, and as expected it struggles with objects in front of the face which I highlighted in the slow-motion. Still, the harsh and quick lighting changes were no issue, and I as well as the client are satisfied with the result. <br>The videos seen here are only examples I created to show off the process to comply with the NDA.",
+        "type": "text",
+        "width": "1/2"
+    },
+    {
+        "title": "Non-existent person: Breakdown",
+        "src": "/images/projects/deepfake/Showcase_1_Web.mp4",
+        "aspect_ratio": "auto",
+        "width": "1/2"
+    },
+    {
+        "title": "Non-existent person: video with sound",
+        "src": "/images/projects/deepfake/FakevOrig_1_Web.mp4",
+        "has_sound": true,
+        "aspect_ratio": "auto",
+        "width": "1/2"
+    },
+    {
+        "title": "Non-existent person: dance harsh test",
+        "src": "/images/projects/deepfake/Dance_1_Web.mp4",
+        "has_sound": true,
+        "aspect_ratio": "1/1",
+        "width": "1/2"
+    },
+    {
+        "text": " ",
+        "type": "spacer",
+        "width": "full"
+    },
+    {
+        "text": "Resurrecting the dead",
+        "type": "header",
+        "width": "full"
+    },
+    {
+        "title": "Lip Syncing from old footage",
+        "src": "/images/projects/deepfake/LipSync1.mp4",
+        "has_sound": true,
+        "aspect_ratio": "auto",
+        "width": "1/2"
+    },
+    {
+        "text": "Now we don't want to play Frankenstein, especially since creating videos for commercial use without being able to get consent is a whole can of worms. So as a disclaimer, these videos are again only examples I created to show off the process, nothing final or commercial. <br><br>The question was whether, given existing video of people talking, could we make them say something else? The footage we had available was still in black and white, which some of the models didn't cope well with - a great opportunity to also test out video colorization methods! After lots of trial and error (and a *ton* of conda and venv environments later), I was able to design a workflow that worked best for the goal in mind.",
+        "type": "text",
+        "width": "1/2"
+    },
+    {
+        "text": "<br>As TV hosts tend to rather sit still and not move a lot, another idea I explored was simply using a single input image, whose face was then animated given a script. Of course it isn't as convincing as using a video as input already, though we were quite impressed how well it worked given the circumstances.",
+        "type": "text",
+        "width": "1/2"
+    },
+    {
+        "title": "Lip Syncing with single image",
+        "src": "/images/projects/deepfake/Img2video.mp4",
+        "has_sound": true,
+        "aspect_ratio": "auto",
+        "width": "1/2"
+    }
+    ]
+}

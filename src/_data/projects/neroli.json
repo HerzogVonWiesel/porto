@@ -8,6 +8,11 @@
     "aspect_ratio": "2/1",
     "width": "1/2",
     "media": [
+        {
+            "text": "2022",
+            "type": "header",
+            "width": "full"
+        },
     {
         "title": "Beach shot (revisited 2022)",
         "src": "/images/projects/neroli/beachnu.png",
@@ -18,6 +23,16 @@
         "title": "Beach shot (full color, revisited 2022)",
         "src": "/images/projects/neroli/beachnucol.png",
         "aspect_ratio": "auto",
+        "width": "full"
+    },
+    {
+        "text": " ",
+        "type": "spacer",
+        "width": "full"
+    },
+    {
+        "text": "2021",
+        "type": "header",
         "width": "full"
     },
     {

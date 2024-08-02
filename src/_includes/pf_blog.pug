@@ -35,6 +35,10 @@ mixin blog_description({title, description, tags, date} = {})
         p(class="text-xl w-full md:w-1/4 p-def-2") ↝ !{space(4)} Date
         p(class="text-xl w-full md:w-3/4 p-def-2")= date
 
+mixin pf_div({width="1/2", paddings=" p-def-2 py-def"} = {})
+    div(class="w-full md:w-"+width+paddings)
+        block
+
 mixin pf_img({name, source, ref, width="1/2", aspect_ratio="1/1", description, has_sound=false, name_classes="", description_classes="", blog=false} = {})
     - 
         var eval_aspect_ratio = "aspect-["+aspect_ratio+"]"
@@ -52,13 +56,14 @@ mixin pf_img({name, source, ref, width="1/2", aspect_ratio="1/1", description, h
     - var image_mul = eval(w_modifier+"*"+ar_modifier).toString()
     - var sizes = "(max-width: "+screen_md+") 100vw, (min-width: "+screen_3xl+") calc("+screen_3xl+" * "+image_mul+"), calc(100vw * "+image_mul+")"
     
-    - var paddings = " p-def-2 py-def"
     if (blog)
         - var paddings = " "
-    div(class="w-full md:w-"+width+paddings)
+    +pf_div({width:width, paddings:paddings})
         +a_ref(ref)
             if filters.is_video(source)
                 video(class=eval_aspect_ratio+" w-full object-cover" loop controls=has_sound autoplay=!has_sound muted=!has_sound playsinline src=source) 
+            else if filters.is_svg(source)
+                != filters.inline_svg("_site"+source)
             else if source != ""
                 +responsive_image(source, sizes)(alt="" class=eval_aspect_ratio+" w-full object-cover")
             div(class="w-full items-start leading-none mt-1")
@@ -67,8 +72,13 @@ mixin pf_img({name, source, ref, width="1/2", aspect_ratio="1/1", description, h
                         - name = name+" • "
                     span(class=""+name_classes)= name
                     span(class="text-xs"+description_classes)= description
-    //-empty image for whitespace
-    //-if width == "1/4"
-        div(class="w-full md:w-"+width+" p-2 invisible")
-    if width == "1/3"
-        div(class="w-full md:w-1/6 p-def invisible")
+
+mixin pf_text({text, type, ref, width="1/2", text_classes="", padding} = {})
+    +pf_div({width:width, paddings:padding})
+        +a_ref(ref)
+            div(class="w-full items-start leading-none mt-1")
+                if (type=="header")
+                    h1(class=""+text_classes)= text
+                else 
+                    p(class="text-xl"+text_classes).
+                        !{text}

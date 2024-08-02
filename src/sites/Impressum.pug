@@ -14,13 +14,13 @@ block content
 
     div(class="flex flex-wrap md:grid md:grid-cols-4 m-auto")
         div(class="w-full md:w-full md:col-span-4 p-3 py-8")
-                h2(class="text-5xl md:text-8xl text-left break-words") Impressum
+                h1(class="text-5xl md:text-8xl text-left break-words") Impressum
         div(class="relative w-full md:col-span-4 pt-4 invisible") Divider
         p(class="text-xl w-full md:col-span-1 p-2") ↝ !{space(4)} Angaben gemäß § 5 TMG
         p(class="text-xl w-full md:col-span-3 p-2")
             |Marvin Jérôme Stephan
             |<br>
-            |Stahnsdorfer Str. 148b
+            |Dieselstr. 20
             |<br>
             |14482 Potsdam, DE
             |<br>
@@ -47,6 +47,6 @@ block content
         p(class="text-xl w-full md:col-span-3 p-2")
             |Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder eMail-Adressen) erhoben werden, erfolgt dies, soweit möglich, stets auf freiwilliger Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben. Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten durch Dritte zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit ausdrücklich widersprochen. Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-Mails, vor.
 
-    div(class="relative pt-12 invisible") Divider
-    a(class="text-5xl md:text-8xl px-3" href="javascript:history.back()") ← !{space(4)} Go Back
-    div(class="relative pt-12 invisible") Divider
+    +divider(14)
+    +back_button()
+    +divider(14)

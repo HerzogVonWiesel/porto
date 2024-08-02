@@ -39,6 +39,11 @@
         "width": "1/3"
     },
     {
+        "text": " ",
+        "type": "spacer",
+        "width": "1/6"
+    },
+    {
         "title": "Wireframe of the scene",
         "src": "/images/projects/groovanomalism/wireframe.jpg",
         "aspect_ratio": "3/4",

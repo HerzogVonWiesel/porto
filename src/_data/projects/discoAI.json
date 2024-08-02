@@ -64,6 +64,11 @@
         "width": "1/3"
     },
     {
+        "text": " ",
+        "type": "spacer",
+        "width": "1/3"
+    },
+    {
         "title": "sunflower portrait",
         "subtitle": "8th iteration",
         "src": "/images/projects/discoAI/portrait3.png",
@@ -85,11 +90,21 @@
         "width": "1/3"
     },
     {
+        "text": " ",
+        "type": "spacer",
+        "width": "1/6"
+    },
+    {
         "title": "alien plant still life",
         "subtitle": "46th iteration",
         "src": "/images/projects/discoAI/still.png",
         "aspect_ratio": "4/5",
         "width": "1/3"
+    },
+    {
+        "text": " ",
+        "type": "spacer",
+        "width": "1/6"
     },
     {
         "title": "pastel rock waterfall",

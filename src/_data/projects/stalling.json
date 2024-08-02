@@ -27,6 +27,16 @@
         "width": "full"
     },
     {
+        "text": " ",
+        "type": "spacer",
+        "width": "full"
+    },
+    {
+        "text": "WIPs (Wery Important Pictures)",
+        "type": "header",
+        "width": "full"
+    },
+    {
         "title": "3D reprojection of the scene using the depth matte for realistic camera shake",
         "src": "/images/projects/stalling/projection.png",
         "aspect_ratio": "2/1",

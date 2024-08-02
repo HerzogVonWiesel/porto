@@ -18,7 +18,19 @@ block content
     +divider(14)
     div.flexcon
         each media in cur_project.media
-            +pf_img({name:media.title, source:media.src, width:media.width, aspect_ratio:media.aspect_ratio, description:media.subtitle, has_sound:media.has_sound})
+            if (!media.hidden)
+                //- TODO: Implement better handling of multimedia
+                if (media.multi)
+                    +pf_div({width:media.width})
+                        each submedia in media.media 
+                            if (submedia.text)
+                                +pf_text({text:submedia.text, type:submedia.type, ref:submedia.ref, width:submedia.width, text_classes:submedia.text_classes, padding:" "})
+                            else 
+                                +pf_img({name:submedia.title, source:submedia.src, width:submedia.width, aspect_ratio:submedia.aspect_ratio, description:submedia.subtitle, has_sound:submedia.has_sound, blog:true})
+                else if (media.text)
+                    +pf_text({text:media.text, type:media.type, ref:media.ref, width:media.width, text_classes:media.text_classes})
+                else 
+                    +pf_img({name:media.title, source:media.src, width:media.width, aspect_ratio:media.aspect_ratio, description:media.subtitle, has_sound:media.has_sound})
     +divider(14)
     +back_button()
     +divider(14)

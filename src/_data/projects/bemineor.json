@@ -1,0 +1,187 @@
+{
+    "name": "Be mine (or)",
+    "subtitle": "Custom trained AI image recognition",
+    "year": "2024",
+    "description": "<i>Be mine (or)</i> is an art installation using image recognition to adjust noise levels based on the level of intimacy shown between people. When the system detects gestures like standing close, hugging, or kissing, it lowers the volume of loud, stress-inducing noises. <br><br>Using technology to highlight human interaction, it provides a unique experience that underlines the importance of personal connections in our digital age. Affection has been shown to reduce stress levels, represented by the decreasing noise volume, encouraging people to think about our understanding and appreciation of intimacy in a stressful technological era. <br><br>I published the source code of this project can be found on its <a href='https://github.com/HerzogVonWiesel/Be-mine-or' target='_blank' rel='noopener noreferrer'>GitHub repository →</a>.",
+    "tools": "Python: YOLOv8, PyAudio, OpenVino; Stable Diffusion, Suno.ai",
+    "cover_img": "/images/projects/bemineor/cover.png",
+    "aspect_ratio": "2/1",
+    "width": "1/2",
+    "media": [
+    {
+        "title": "Demo video of the project",
+        "src": "/images/projects/bemineor/DEMO.mp4",
+        "has_sound": true,
+        "aspect_ratio": "auto",
+        "width": "full"
+    },
+    {
+        "text": "I fine-trained YOLOv8 - a fast machine-vision model - to classify images into different categories of human affection: no affection, holding hands, kissing and hugging. Using a webcam, the computer can then capture the scene. This video is analyzed and then classified which type of affection, if any, is shown. Based on what it sees, it regulates the amount of noise sources and their volumes such that less noise is emitted the more affection is shown; while the volume of calming, relaxing sounds is increased. <br><br>I hope that thanks to the project, people will become more aware of how being close to others can reduce stress as well as calm down negative thoughts, freeing from the chaos of voices that sometimes linger in our heads.",
+        "type": "text",
+        "width": "full"
+    },
+    {
+        "text": " ",
+        "type": "spacer",
+        "width": "full"
+    },
+    {
+        "text": "Diving deeper",
+        "type": "header",
+        "width": "full"
+    },
+    {
+        "title": "Training image of 'hugging' generated using Stable Diffusion",
+        "src": "/images/projects/bemineor/sd_hugging.png",
+        "aspect_ratio": "auto",
+        "width": "1/2"
+    },
+    {
+        "text": "To train the YOLOv8 model, I needed a large dataset of images showing different types of affection. Off to Google Images I went, though I quickly found out how difficult it is to find fitting images; not necessarily close-ups of two hands being held, but rather two people in a room holding hands. <br><br>As I couldn't find enough pictures of the different classes I wanted to train, I turned to Stable Diffusion, a generative model which can create images from text prompts; a tool I am greatly familiar with from other projects. I used it to generate around 100 images of people hugging, 100 more of people holding hands, etc. With these images being really close to how I expected the real images the webcam would later capture, I was able to train the model to a high accuracy. <br><br>Similarly, I wasn't happy with any of the 'relaxing' sounds I found online; I first thought of these zen monk bowls which give off calming frequencies, but in every single video the sound was always started by just mashing the bowl resulting in a <i>loud</i> and <i>not</i> relaxing sound. So I turned to Suno.ai, an at this time just-released tool to generate music from text prompts. After asking for the most relaxing and calming sounds imaginable, I was happy with the result and used it in the installation. <br><br>Lastly, I wanted to run the project on my nearly ancient 2012 Macbook Pro, which was a bit of a challenge. To help it a little with the task, I found that I could optimize the image recognition model using <b>OpenVino</b>, cutting the inference time nearly by half on Intel CPUs. With this, the installation became interactive enough that I was happy.",
+        "type": "text",
+        "width": "1/2"
+    },
+    {
+        "text": " ",
+        "type": "spacer",
+        "width": "full"
+    },
+    {
+        "text": "Results",
+        "type": "header",
+        "width": "full"
+    },
+    {
+        "text": "After presenting the project to various groups of people, I asked each of them to participate in a survey - if they wanted to - to gather feedback. The questions were designed to understand whether I achieved my goals with the installation and how I could improve upon it. The results shown here are the average of n=8 participants. <br><br><a href='https://tally.so/r/n9lOD4' target='_blank' rel='noopener noreferrer'>The survey can be found here →</a>",
+        "type": "text",
+        "width": "full"
+    },
+    {
+        "text": " ",
+        "type": "spacer",
+        "width": "full"
+    },
+    {
+        "multi":true,
+        "media":[
+            {
+                "text": "How did your mood or stress levels change when you engaged in physical contact in front of the installation?",
+                "type": "text",
+                "width": "full"
+            },
+            {
+                "title": "",
+                "src": "/images/projects/bemineor/q1.svg",
+                "aspect_ratio": "auto",
+                "width": "full"
+            },
+            {
+                "text": "Negatively Postively",
+                "type": "text",
+                "text_classes": " [text-align-last:justify]",
+                "width": "full"
+            }
+        ],
+        "width": "7/16"
+    },
+    {
+        "text": " ",
+        "type": "spacer",
+        "width": "1/8"
+    },
+    {
+        "multi":true,
+        "media":[
+            {
+                "text": "Did you feel more connected to the person you interacted with due to the changes in the installation's sounds?",
+                "type": "text",
+                "width": "full"
+            },
+            {
+                "title": "",
+                "src": "/images/projects/bemineor/q2.svg",
+                "aspect_ratio": "auto",
+                "width": "full"
+            },
+            {
+                "text": "No Yes",
+                "type": "text",
+                "text_classes": " [text-align-last:justify]",
+                "width": "full"
+            }
+        ],
+        "width": "7/16"
+    },
+    {
+        "text": " ",
+        "type": "spacer",
+        "width": "full"
+    },
+    {
+        "multi":true,
+        "media":[
+            {
+                "text": "Did you find the transition from stressful to calming sounds effective in encouraging physical interaction?",
+                "type": "text",
+                "width": "full"
+            },
+            {
+                "title": "",
+                "src": "/images/projects/bemineor/q3.svg",
+                "aspect_ratio": "auto",
+                "width": "full"
+            },
+            {
+                "text": "No Yes",
+                "type": "text",
+                "text_classes": " [text-align-last:justify]",
+                "width": "full"
+            }
+        ],
+        "width": "7/16"
+    },
+    {
+        "text": " ",
+        "type": "spacer",
+        "width": "1/8"
+    },
+    {
+        "multi":true,
+        "media":[
+            {
+                "text": "Do you think this installation successfully communicates the connection between physical touch and emotional well-being?",
+                "type": "text",
+                "width": "full"
+            },
+            {
+                "title": "",
+                "src": "/images/projects/bemineor/q4.svg",
+                "aspect_ratio": "auto",
+                "width": "full"
+            },
+            {
+                "text": "No Yes",
+                "type": "text",
+                "text_classes": " [text-align-last:justify]",
+                "width": "full"
+            }
+        ],
+        "width": "7/16"
+    },
+    {
+        "text": " ",
+        "type": "spacer",
+        "width": "full"
+    },
+    {
+        "text": "Literature References",
+        "type": "header",
+        "width": "full"
+    },
+    {
+        "text": "↝ &nbsp;&nbsp; Gallace, A., & Spence, C. (2010). <i>The science of interpersonal touch: An overview.</i> Neuroscience & Biobehavioral Reviews, Vol. 34, Issue 2. https://doi.org/10.1016/j.neubiorev.2008.10.004 <br><br>↝ &nbsp;&nbsp; Murphy, M., & Cohen, S. (2018). <i>Receiving a hug is associated with attenuation of negative mood.</i> PLOS ONE. https://doi.org/10.1371/journal.pone.0203522 <br><br>↝ &nbsp;&nbsp; Bloomer, C., Hitt, C., et al. (2014). <i>Stress responses due to application of audio or visual stimuli.</i> Journal of Advanced Student Sciences. http://digital.library.wisc.edu/1793/80052 <br><br>↝ &nbsp;&nbsp; Westman, J., & Walters, J. (1981). <i>Noise and stress: a comprehensive approach.</i> Environmental Health Perspectives, Vol. 41. https://doi.org/10.1289/ehp.8141291 <br><br>↝ &nbsp;&nbsp; Zhang, Z., Wu, B., & Jiang, Y. (2022). <i>Gesture recognition based on YOLOv3.</i> 2022 7th International Conference on Intelligent Computing & Signal Processing. https://doi.org/10.1109/ICSP54964.2022.9778394",
+        "type": "text",
+        "width": "full"
+    }
+    ]
+}

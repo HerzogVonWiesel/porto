@@ -21,6 +21,16 @@
         "width": "full"
     },
     {
+        "text": " ",
+        "type": "spacer",
+        "width": "full"
+    },
+    {
+        "text": "Looking at the progress images, you can really see how much the piece taught me about lighting and composition.",
+        "type": "text",
+        "width": "full"
+    },
+    {
         "title": "Work in Progress 1",
         "src": "/images/projects/styxhelix/wip1.jpg",
         "aspect_ratio": "auto",

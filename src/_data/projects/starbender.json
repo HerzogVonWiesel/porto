@@ -1,0 +1,67 @@
+{
+    "name": "starbender",
+    "subtitle": "Lighting practice with a twist",
+    "year": "2024",
+    "description": "The W111 \"Heckflosse\" has to be one of the prettiest cars ever made. Seeing it in action at a wedding I attended recently, I just had to let it shine in all its glory. The 1960s Mercedes 220S is a curvaceous beauty whose lines I wanted to show off in their best way, especially its name-giving tailfins.",
+    "tools": "Cinema 4D, Redshift, After Effects",
+    "cover_img": "/images/projects/starbender/1_wide.png",
+    "aspect_ratio": "5/2",
+    "width": "full",
+    "media": [
+    {
+        "title": "Final shot",
+        "src": "/images/projects/starbender/1_wide.png",
+        "aspect_ratio": "auto",
+        "width": "full"
+    },{
+        "title": "Curving around",
+        "src": "/images/projects/starbender/2.png",
+        "aspect_ratio": "auto",
+        "width": "1/2"
+    },
+    {
+        "title": "Proudly flaunting its details",
+        "src": "/images/projects/starbender/3.png",
+        "aspect_ratio": "auto",
+        "width": "1/2"
+    },
+    {
+        "text": " ",
+        "type": "spacer",
+        "width": "full"
+    },
+    {
+        "text": "Laboratory",
+        "type": "header",
+        "width": "full"
+    },
+    {
+        "text": "After finishing the shots I intended to make, I didn't want to let go just yet, so I experimented with some avant-garde techniques to see what I'd end up with.",
+        "type": "text",
+        "width": "full"
+    },
+    {
+        "title": "Flaunting abstraction",
+        "src": "/images/projects/starbender/abstract_3.png",
+        "aspect_ratio": "auto",
+        "width": "1/2"
+    },
+    {
+        "title": "Experimental drivers view - notice that it's not just pixelated",
+        "src": "/images/projects/starbender/cockpit.png",
+        "aspect_ratio": "auto",
+        "width": "1/2"
+    },
+    {
+        "title": "Glass is class",
+        "src": "/images/projects/starbender/Glass.png",
+        "aspect_ratio": "auto",
+        "width": "1/2"
+    },
+    {
+        "title": "Lights on",
+        "src": "/images/projects/starbender/lights.png",
+        "aspect_ratio": "auto",
+        "width": "1/2"
+    }]
+}

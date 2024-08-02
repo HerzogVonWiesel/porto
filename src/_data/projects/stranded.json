@@ -21,6 +21,16 @@
         "width": "full"
     },
     {
+        "text": " ",
+        "type": "spacer",
+        "width": "full"
+    },
+    {
+        "text": "Quick Breakdown",
+        "type": "header",
+        "width": "full"
+    },
+    {
         "title": "Render breakdown",
         "src": "/images/projects/stranded/breakdown.mp4",
         "has_sound": true,
@@ -31,6 +41,21 @@
         "title": "Raw render",
         "src": "/images/projects/stranded/raw.jpg",
         "aspect_ratio": "auto",
+        "width": "full"
+    },
+    {
+        "text": " ",
+        "type": "spacer",
+        "width": "full"
+    },
+    {
+        "text": "Mud: The star of the show",
+        "type": "header",
+        "width": "full"
+    },
+    {
+        "text": "For this scene, I knew I wanted a big plane of muddy surface. So as to not have repeating patterns or, god forbid, sculpt it all manually, I built a procedural mud shader in Redshift and C4D based on a few ground textures I had lying around. The result is mud that looks wet, a little out of this world, and as a VFX YouTuber said, 'delicious'.",
+        "type": "text",
         "width": "full"
     },
     {

@@ -46,6 +46,13 @@ function is_video(src){
     const extension = path.extname(src);
     return video_types.includes(extension);
 }
+function is_svg(src){
+    const extension = path.extname(src);
+    return extension === ".svg";
+}
+function inline_svg(src){
+    return fs.readFileSync(src);
+}
 
 function render_code(lang, code){
     return this.highlight(lang, code);
@@ -75,6 +82,8 @@ module.exports = (function(eleventyConfig) {
         return string.toUpperCase();
     });
     eleventyConfig.addFilter("is_video", is_video);
+    eleventyConfig.addFilter("is_svg", is_svg);
+    eleventyConfig.addFilter("inline_svg", inline_svg);
     eleventyConfig.addFilter("render_code", render_code);
     eleventyConfig.addFilter("format_date", format_date);
 

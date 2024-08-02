@@ -3,7 +3,7 @@ const plugin = require('tailwindcss/plugin')
 
 module.exports = {
   darkMode: 'class',
-  content: ["./_site/**/*.{html,js}",],
+  content: ["./_site/**/*.{html,js,svg}",],
   theme: {
     extend: {
       screens: {
@@ -33,6 +33,11 @@ module.exports = {
         'def-4': '3rem',
         'def-5': '3.75rem',
         'def-6': '4.5rem',
+        '1/8': '12.5%',
+        '3/8': '37.5%',
+        '5/8': '62.5%',
+        '7/8': '87.5%',
+        '7/16': '43.75%',
       },
 
       gridRow: {

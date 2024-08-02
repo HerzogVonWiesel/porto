@@ -235,6 +235,12 @@ function mouseDistance(x, y) {
     return Math.sqrt(dx * dx + dy * dy);
 }
 
+function mouseDistanceSignedY(x, y) {
+    var dx = mouseX - x;
+    var dy = mouseY - y;
+    return Math.sign(dy)*Math.sqrt(dx * dx + dy * dy);
+}
+
 function mouseAngle(x, y) {
     var dx = mouseX - x;
     var dy = mouseY - y;
@@ -296,7 +302,7 @@ function resetCanvas() {
 
 function initDatafields(){
     noise.seed(Math.random());
-    columns = Math.floor(w / size) + 1;
+    columns = Math.floor(w / size) + 2;
     rows = Math.floor(h / size) + 1;
     initParticles();
     initField();
@@ -324,7 +330,7 @@ function wdraw() {
     requestAnimationFrame(draw);
     drawBackground();
     noiseZ += 0.002;
-    for(let i = -8; i < 8; i++){
+    for(let i = -11; i < 15; i++){
         drawSine(noiseZ, i);
     }
 }
@@ -338,7 +344,6 @@ function cdraw() {
 
 function resetDrawing() {
     if(cases == 0){
-        setup(40);
         clear();
         ctx.fillStyle = convertHexToRGBA(bg, 0.25);
     }
@@ -358,18 +363,19 @@ function resetDrawing() {
 function draw() {
     if(!timer){
         timer = Date.now();
+        setup(40);
     }
     if (Date.now() - timer > 4500 || cases == -1){
-        timer = null;
+        timer = Date.now();
         cases = (cases+1) % 3;
         resetDrawing();
     }
     switch (cases){
         case 0:
-            fdraw();
+            fdraw(); //f
             break;
         case 1:
-            cdraw();
+            cdraw(); //c
             break;
         case 2:
             wdraw();
@@ -453,16 +459,22 @@ function drawSine(t, offset_y) {
     var x = t;
     var y = Math.sin(x)
     ctx.moveTo(yAxis, unit*y+xAxis);
+    // Pre-compute values that do not change within the loop
+    const offset_y_div_30 = offset_y / 30;
+    const offset_y_div_1_6 = offset_y / 2.4;
+    
     ctx.beginPath();
-    // Loop to draw segments
-    for (i = xAxis-1; i <= w; i += 2) {
-        x = t+(-xAxis+i)/unit;
-        y = Math.sin(x+10*noise.simplex3(0, offset_y/30, noiseZ))+offset_y/1.6;
-        var dx = Math.abs(mouseX - unit*x)/10.0;
-        var dy = Math.abs(mouseY - unit*y - yAxis)/10.0;
-        ctx.lineTo(i, unit*y+yAxis+((dx+dy)*noise.simplex3(i, 0, noiseZ)*noise.simplex3(x/3, 10, noiseZ)));
+    
+    for (let i = xAxis - 1; i <= w; i += 4) {
+        const x = t + (-xAxis + i) / unit;
+        const noiseValue1 = noise.simplex3(0, offset_y_div_30, t);
+        let y = Math.sin(x + 10 * noiseValue1) + offset_y_div_1_6;
+        y *= unit;
+        y -= 1000.0/Math.max(1.0, 0.03*mouseDistance(i, y+yAxis*0.5)); //*Math.sign(unit*offset_y_div_1_6+yAxis-mouseY);
+        ctx.lineTo(i, y + yAxis); // + (80000.0/Math.max(5.0*mouseDistance(i, unit*y+yAxis), 1000.0) * noiseValue2 * noiseValue3));
     }
-  ctx.stroke();  
+    
+    ctx.stroke();
 }
 
 function drawCircles(t, offset_y) {
@@ -482,7 +494,7 @@ function drawCircles(t, offset_y) {
             const offset = cursor_dist * noise.simplex3(x, y + (j * 0.03), t) * (ringRadius / 5);
             x = x * (ringRadius + offset) + halfWidth;
             y = y * (ringRadius + offset) + halfHeight;
-            ctx.fillRect(x, y, 3, 3);
+            ctx.fillRect(x, y, cursor_dist+1, cursor_dist+1);
       }
     }
     ctx.fillStyle = fillstyle_BAK;
