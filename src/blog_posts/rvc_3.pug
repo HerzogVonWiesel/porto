@@ -34,13 +34,13 @@ block blog_post
 
     h1.py-def-2 Turning the knobs
     +grid_block 
-        +grid_element("Gain", "base", 0)
+        +grid_element("Gain", "blog", 0)
             |The output might be a little quieter than we'd like, so turning up the gain of "out" to something like 2 might fix that; Just keep in mind that we don't want to blow anyone's ears off.
-        +grid_element("Tune", "base", 0)
+        +grid_element("Tune", "blog", 0)
             |This is actually the pitch of the output, so if your trained voice is higher or lower than your actual one, fiddle with this slider until it sounds right.
-        +grid_element("Chunk", "base", 0)
+        +grid_element("Chunk", "blog", 0)
             |The chunk size determines how much of your voice is processed at once. The higher the value, the more delay there will be between you speaking and the output, but as the model has more data to work with, it'll be more accurate. I'd recommend starting with a value of 384 (which will be one second of delay), and see how much further down you're willing to go.
-        +grid_element("Threshold", "base", 0)
+        +grid_element("Threshold", "blog", 0)
             |I've never seen this make the output sound better by turning it down, so just max it out at 0.001.
 
     h1.py-def-2 Making it work in other apps 

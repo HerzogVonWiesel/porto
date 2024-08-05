@@ -6,7 +6,7 @@ include mixin_responsive_image.pug
 //- →
 mixin a_ref(ref)
     if ref 
-        a(href=ref)
+        a(href=ref).contents
             block 
     else 
         block
@@ -35,9 +35,10 @@ mixin blog_description({title, description, tags, date} = {})
         p(class="text-xl w-full md:w-1/4 p-def-2") ↝ !{space(4)} Date
         p(class="text-xl w-full md:w-3/4 p-def-2")= date
 
-mixin pf_div({width="1/2", paddings=" p-def-2 py-def"} = {})
-    div(class="w-full md:w-"+width+paddings)
-        block
+mixin pf_div({width="1/2", paddings=" p-def-2 py-def", ref} = {})
+    +a_ref(ref)
+        div(class="w-full md:w-"+width+paddings)
+            block
 
 mixin pf_img({name, source, ref, width="1/2", aspect_ratio="1/1", description, has_sound=false, name_classes="", description_classes="", blog=false} = {})
     - 
@@ -58,27 +59,31 @@ mixin pf_img({name, source, ref, width="1/2", aspect_ratio="1/1", description, h
     
     if (blog)
         - var paddings = " "
-    +pf_div({width:width, paddings:paddings})
-        +a_ref(ref)
-            if filters.is_video(source)
-                video(class=eval_aspect_ratio+" w-full object-cover" loop controls=has_sound autoplay=!has_sound muted=!has_sound playsinline src=source) 
-            else if filters.is_svg(source)
-                != filters.inline_svg("_site"+source)
-            else if source != ""
-                +responsive_image(source, sizes)(alt="" class=eval_aspect_ratio+" w-full object-cover")
-            div(class="w-full items-start leading-none mt-1")
-                if name
-                    if description
-                        - name = name+" • "
-                    span(class=""+name_classes)= name
-                    span(class="text-xs"+description_classes)= description
+    +pf_div({width:width, paddings:paddings, ref:ref})
+        if filters.is_video(source)
+            video(class=eval_aspect_ratio+" w-full object-cover" loop controls=has_sound autoplay=!has_sound muted=!has_sound playsinline src=source) 
+        else if filters.is_svg(source)
+            != filters.inline_svg("_site"+source)
+        else if source != ""
+            +responsive_image(source, sizes)(alt="" class=eval_aspect_ratio+" w-full object-cover")
+        div(class="w-full items-start leading-none mt-1")
+            if name
+                if description
+                    - name = name+" • "
+                span(class=""+name_classes)= name
+                span(class="text-xs"+description_classes)= description
 
 mixin pf_text({text, type, ref, width="1/2", text_classes="", padding} = {})
-    +pf_div({width:width, paddings:padding})
-        +a_ref(ref)
-            div(class="w-full items-start leading-none mt-1")
-                if (type=="header")
-                    h1(class=""+text_classes)= text
-                else 
-                    p(class="text-xl"+text_classes).
-                        !{text}
+    +pf_div({width:width, paddings:padding, ref:ref})
+        div(class="w-full items-start mt-1")
+            if (type=="header")
+                h1(class=""+text_classes)= text
+            else if (type=="subheader")
+                h2(class=""+text_classes)= text
+            else if (type=="subsubheader")
+                h3(class=""+text_classes)= text
+            else 
+                if (text_classes == "")
+                    - text_classes = "text-xl"
+                p(class=""+text_classes).
+                    !{text}

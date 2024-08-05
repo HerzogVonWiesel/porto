@@ -181,6 +181,7 @@
     {
         "text": "↝ &nbsp;&nbsp; Gallace, A., & Spence, C. (2010). <i>The science of interpersonal touch: An overview.</i> Neuroscience & Biobehavioral Reviews, Vol. 34, Issue 2. https://doi.org/10.1016/j.neubiorev.2008.10.004 <br><br>↝ &nbsp;&nbsp; Murphy, M., & Cohen, S. (2018). <i>Receiving a hug is associated with attenuation of negative mood.</i> PLOS ONE. https://doi.org/10.1371/journal.pone.0203522 <br><br>↝ &nbsp;&nbsp; Bloomer, C., Hitt, C., et al. (2014). <i>Stress responses due to application of audio or visual stimuli.</i> Journal of Advanced Student Sciences. http://digital.library.wisc.edu/1793/80052 <br><br>↝ &nbsp;&nbsp; Westman, J., & Walters, J. (1981). <i>Noise and stress: a comprehensive approach.</i> Environmental Health Perspectives, Vol. 41. https://doi.org/10.1289/ehp.8141291 <br><br>↝ &nbsp;&nbsp; Zhang, Z., Wu, B., & Jiang, Y. (2022). <i>Gesture recognition based on YOLOv3.</i> 2022 7th International Conference on Intelligent Computing & Signal Processing. https://doi.org/10.1109/ICSP54964.2022.9778394",
         "type": "text",
+        "text_classes": " text-base",
         "width": "full"
     }
     ]

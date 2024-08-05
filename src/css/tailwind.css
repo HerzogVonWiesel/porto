@@ -141,6 +141,14 @@
         @apply text-4xl md:text-6xl;
         @apply font-sans not-italic;
     }
+    h3 {
+        @apply text-3xl md:text-5xl;
+        @apply font-sans not-italic;
+    }
+    h4 {
+        @apply text-2xl md:text-4xl;
+        @apply font-sans not-italic;
+    }
     p, ul, ol {
         @apply text-justify;
     }

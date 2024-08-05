@@ -1,17 +1,20 @@
 extends template
 
 block content
-    div(class="p-def-2")
-        h1
+    +divider(14)
+    div(class="px-def-2")
+        h1.py-def-2
             block title
                 a(href="/Blog/") Blog
-        - var a_blog_tags = Array.from(collections.blog_tags)
-        h2
+        - var a_blog_tags = Array.from(collections.blog_tags).sort()
+        h4
             each tag in a_blog_tags
-                a(href=`/Blog/tag/${tag}/`) ##{tag}
+                a(href=`/Blog/tag/${tag}/`).contents ##{tag} 
         block subtitle 
             - NONE
+    +divider(14)
     div.flexcon
         block posts_list
             - let postslist = collections.blog
         include /posts_list
+    +divider(14)

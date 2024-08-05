@@ -35,7 +35,7 @@ block blog_post
     p 
         |Once we're ready to roll, let's go ahead and set up TorToiSe.
     +grid_block
-        +grid_element("Windows", "base", 0)
+        +grid_element("Windows", "blog", 0)
                 ol.list-decimal.list-inside
                     li Open Command Prompt from the Start Menu and navigate to your desired working directory using <code class="language-bash">cd</code>.
                     li Run the command: <code class="language-bash">git clone https://git.ecker.tech/mrq/ai-voice-cloning</code>.
@@ -43,7 +43,7 @@ block blog_post
                         ul.list-square.list-inside.ml-def-2
                             li AMD: Run <code class="language-bash">setup-directml.bat</code>
                             li NVIDIA: Run <code class="language-bash">setup-cuda.bat</code>
-        +grid_element("Linux enthusiasts", "base", 0)
+        +grid_element("Linux enthusiasts", "blog", 0)
             ol.list-decimal.list-inside
                 li Download the TorToiSe repository by running: <code class="language-bash">git clone https://git.ecker.tech/mrq/ai-voice-cloning</code>.
                 li Navigate into the downloaded directory.
@@ -96,19 +96,19 @@ block blog_post
         Of course, the default settings will not sound super convincing, so I'll post the ones I frequently use here, but feel free to play around and see what sticks for your case (more info? Head to the wiki!):
 
     +grid_block 
-        +grid_element("Voice Chunks", "base", 0)
+        +grid_element("Voice Chunks", "blog", 0)
             |This <em>should</em> automatically set to 0 as we've trained our own model, but just in case, set it to 0.
-        +grid_element("Samples", "base", 0)
+        +grid_element("Samples", "blog", 0)
             |The more samples, the better it sounds (significantly), but this also increases the time it takes to generate the audio (significantly). Start with 16 and go from there.
-        +grid_element("Iterations", "base", 0)
+        +grid_element("Iterations", "blog", 0)
             |The more iterations, the better it sounds, but this also increases the time it takes to generate the audio. Start with 64 and go from there.
-        +grid_element("Temperature", "base", 0)
+        +grid_element("Temperature", "blog", 0)
             |Increasing the temperature leads to more *interesting* results, be it for better or worse; it also highly depends on the trained voice. I still like it at 1.
     p Experimental settings: 
     +grid_block 
-        +grid_element("Length penalty", "base", 0)
+        +grid_element("Length penalty", "blog", 0)
             |The model will try to generate shorter audio; in my case it helped a lot maxing it out to 8.
-        +grid_element("Repetition penalty", "base", 0)
+        +grid_element("Repetition penalty", "blog", 0)
             |Setting this to low values will lead to great results such as "Welcome to myyyyaiiiihhhaiiiihhhiiiiaaaaaaaiiii". I also often max this out at 8.
 
     h1.py-def-2 Big brain time 

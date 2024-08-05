@@ -26,6 +26,9 @@ module.exports = {
         pluto: ["Pluto-Regular", "sans-serif"],
         serif: ["Inferi", "Icons", "serif"],
       },
+      fontSize: {
+        blog: "1.15rem",
+      },
       spacing: {
         'def': '0.75rem',
         'def-2': '1.5rem',

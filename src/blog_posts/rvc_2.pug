@@ -21,22 +21,22 @@ block blog_post
 
     h1.py-def-2 Vocal Transfer
     +grid_block 
-        +grid_element("Use volume envelope", "base", 0) 
+        +grid_element("Use volume envelope", "blog", 0) 
             p 
                 |The lower you set this to, the more it will capture the original volume range of the original song. A value of 1.0 will be equally loud throughout the whole conversion; 0 will make it mimic the volume range of the original as much as possible. 
                 <br>
                 |I would recommend you set this volume setting to a decently low value such as 0.25 or 0.2.
-        +grid_element("Transpose / Pitch", "base", 0) 
+        +grid_element("Transpose / Pitch", "blog", 0) 
             p 
                 |This changes the given audio in half-steps. E.g., -12 or 12 will both stay in the original key but at different octaves. Good for extreme differences, like a male singer doing a song sang by a female.
                 <br>
                 |Just fiddle around with this to see where your model performs best (and what sounds most like the person you trained the voice on). Remember what you set this to though, as you'll need to adjust the pitch of the original song (without the vocals) to match the converted voice, else it sounds off. You can do so in Audacity by going to Effect > Pitch > Change Pitch.
-        +grid_element("Search feature ratio", "base", 0) 
+        +grid_element("Search feature ratio", "blog", 0) 
             p 
                 |This value controls how much influence the .index file has on the voice model's output. (The index mainly controls the "accent" for the model.)
                 <br>
                 |If your model's dataset isn't very long or it's not very high quality (or both), this should be lower, and if it's a high quality model, you can afford to go a bit higher. Generally, my recommended value would be 0.6-0.8, and reduce it if you think it's truly necessary.
-        +grid_element("Advanced Settings: Pitch extraction algorithm", "base", 0) 
+        +grid_element("Advanced Settings: Pitch extraction algorithm", "blog", 0) 
             p
                 |The best option here is generally rmvpe, and I would recommend that, or mangio-crepe with different hop sizes between 64-192 for most cases. Mangio-crepe tends to be better for "smoothed out" results, but higher hop length values will lead to less pitch precision.
                 <br>

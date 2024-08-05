@@ -41,6 +41,7 @@
         "width": "full"
     },
     {
+        "hidden": true,
         "title": "Various generated characters using my fine-trained model",
         "src": "/images/projects/elevaite/Capri_Bestof.png",
         "aspect_ratio": "auto",
