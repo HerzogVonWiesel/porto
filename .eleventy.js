@@ -106,12 +106,16 @@ module.exports = (function(eleventyConfig) {
 
     // Add support for markdown
     let markdownIt = require("markdown-it");
+    const markdownItTable = require("markdown-it-table");
     let markdownItOptions = {
         html: true,
         breaks: true,
         linkify: true,
     };
     eleventyConfig.setLibrary("md", markdownIt(markdownItOptions));
+    module.exports = function (eleventyConfig) {
+        eleventyConfig.amendLibrary("md", (mdLib) => mdLib.use(markdownItTable));
+    };
 
     global.filters = eleventyConfig.javascriptFunctions; // magic happens here
     eleventyConfig.setPugOptions({ // and here

@@ -20,6 +20,7 @@
     "fast-glob": "^3.2.12",
     "jstransformer-markdown-it": "^3.0.0",
     "kill-port": "^2.0.1",
+    "markdown-it-table": "^4.1.1",
     "node": "^20.2.0",
     "sharp": "^0.32.1"
   }

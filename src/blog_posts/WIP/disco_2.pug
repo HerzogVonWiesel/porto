@@ -1,0 +1,34 @@
+---
+title: Art! at the Disco - Settings
+subtitle: In the last year, I have fiddled around a ton with Generative AI models, though that has always been in the visual sector; be it AI upscaling or my dives into generating images using Disco Diffusion, and later on Stable Diffusion (which I still do very frequently). Apparently, not only the visual AI models have taken huge strides in the last few months, but the audio side of things as well.
+date: 2024-08-14
+cover_img: /images/blog_posts/rvc_2/cover_img.png
+tags:
+    - AI 
+---
+extends /_layouts/blog_post
+
+block blog_post
+    table 
+        tr  
+            th 
+                p 
+                    |Setting
+            th 
+                p 
+                    |Description
+        tr
+            td 
+                p 
+                    |`--disco-diffusion`
+            td 
+                p 
+                    |The Disco Diffusion model is a generative model that generates images based on a given input. The model is trained on a dataset of images and can generate images that are similar to the ones in the dataset. The Disco Diffusion model is a generative model that generates images based on a given input. The model is trained on a dataset of images and can generate images that are similar to the ones in the dataset.
+
+    +grid_block 
+        +grid_element("Artists", "blog", 0) 
+            p Picasso
+        +grid_element("Modifiers", "blog", 0) 
+            p 4k
+
+    h1 Clip Guidance Scale

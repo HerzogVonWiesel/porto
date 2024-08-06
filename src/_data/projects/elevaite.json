@@ -2,9 +2,9 @@
     "name": "elevAIte",
     "subtitle": "Enhance! Enhance! Enhance!",
     "year": "2024",
-    "description": "While I don't think that CG is going to be replaced by AI completely anytime soon, it is an incredibly powerful tool to have in your arsenal; not replacing 3D renders, but aiding and enhancing the process. <br><br>Creating intricate backgrounds for 3D scenes tend to be a laborious process, especially when given further restrictions by the client. This is where I helped out: I crafted two workflows, one for generating a background that fits the scene and its style, and another to 'enhance' the details of the final render - especially noticeable in the foliage and the water, both of which can be quite tricky to get right in pure 3D. This allowed the client to choose from a palette of backgrounds and to implement revisions quickly and efficiently. <br>Another thing to note is that this process was done with print-ready resolution in mind: That is to say, 8k x 8k pixels.",
+    "description": "While I don't think that CG is going to be replaced by AI completely anytime soon, it is an incredibly powerful tool to have in your arsenal; not replacing 3D renders, but aiding and enhancing the process. <br><br>Creating intricate backgrounds for 3D scenes tend to be a laborious process, especially when given further restrictions by the client. This is where I helped out: I crafted two workflows, one for generating a background that fits the scene and its style, and another to 'enhance' the details of the final render - especially noticeable in the foliage, which can be quite tricky to get right in pure 3D. This allowed the client to choose from a palette of backgrounds and to implement revisions quickly and efficiently. <br>Another thing to note is that this process was done with print-ready resolution in mind: That is to say, 8k x 8k pixels. Bear in mind that these are example images to show off the process until I may show the final product.",
     "tools": "ComfyUI & other AI tools",
-    "cover_img": "/images/projects/elevaite/UP_Comp_Web.mp4",
+    "cover_img": "/images/projects/elevaite/ALT_UP_Comp_Web.mp4",
     "aspect_ratio": "7/4",
     "width": "1/2",
     "media": [
@@ -15,7 +15,7 @@
     },
     {
         "title": "Closeup: Raw render vs. inpainted background & upscaled",
-        "src": "/images/projects/elevaite/UP_Comp_Web.mp4",
+        "src": "/images/projects/elevaite/ALT_UP_Comp_Web.mp4",
         "aspect_ratio": "auto",
         "width": "full"
     },
@@ -26,7 +26,7 @@
     },
     {
         "title": "Various inpainted backgrounds for the scene",
-        "src": "/images/projects/elevaite/Inpaint_Web.mp4",
+        "src": "/images/projects/elevaite/ALT_Inpaint_Web.mp4",
         "aspect_ratio": "auto",
         "width": "full"
     },
@@ -41,16 +41,19 @@
         "width": "full"
     },
     {
-        "hidden": true,
-        "title": "Various generated characters using my fine-trained model",
-        "src": "/images/projects/elevaite/Capri_Bestof.png",
+        "title": "Various generated characters/objects using my fine-trained model",
+        "src": "/images/projects/elevaite/NIKE_Bestof1.png",
         "aspect_ratio": "auto",
         "width": "1/2"
     },
     {
-        "text": "Another idea I pursued for this project was whether it is possible to delegate quick concept designs of a given - branded - mascot to AI. I was handed only 8 images of the character in various costumes, and I did my best to fine-train a model with those to be able to generate new ones. The results were all we could have asked for: The character was recognizable, the 'costume' you could prompt for could be nearly anything - again, there were only 8 original images, whose costumes I did not choose to generate again here - and the style fit the branding perfectly. <br><br>Another thing to note is bias: you might notice the character with the pink, liquid cape; AI tends to try to make liquid blue, especially when the training data is of a blue character. However, the model performed exceptionally well in this regard, and liquid capes could be generated in any color. <br><br><br>Now, AI image generation is a little beast to handle. And while it has gotten a ton easier since the days of Disco Díffusion in early 2022, it still struggles to place objects in the scene correctly based solely on the prompt. What I did below was to create a workflow in which you could sketch out in different colors where the object should be in the image; which of course isn't perfect by any means, but it helps tremendously in the layout phase - especially when you're working with a client who has a very specific vision in mind. <br>If you add a depth pass from a quick blockout in 3D, you can get pretty consistent and yet varied results for the kind of layout you might have in mind.",
+        "text": "Another idea I pursued for this project was whether it is possible to delegate quick concept designs of a given - branded - mascot to AI. I was handed only 8 images of the character in various costumes, and I did my best to fine-train a model with those to be able to generate new ones. The results were all we could have asked for: The character was recognizable, the 'costume' you could prompt for could be nearly anything - again, there were only 8 original images, whose costumes I did not choose to generate again - and the style fit the branding perfectly. Again, I am showing example images of another model I fine-trained which still show off the various styles and ideas one can achieve while still fitting the branding. My favorite is the sour gummy version in the center. <br><br><br>Now, AI image generation is a little beast to handle. And while it has gotten a ton easier since the days of Disco Díffusion in early 2022, it still struggles to place objects in the scene correctly based solely on the prompt. What I did below was to create a workflow in which you could sketch out in different colors where the object should be in the image; which of course isn't perfect by any means, but it helps tremendously in the layout phase - especially when you're working with a client who has a very specific vision in mind. <br>If you add a depth pass from a quick blockout in 3D, you can get pretty consistent and yet varied results for the kind of layout you might have in mind.",
         "type": "text",
         "width": "1/2"
+    },
+    {
+        "hidden": true,
+        "text": "<br><br>Another thing to note is bias: you might notice the character with the pink, liquid cape; AI tends to try to make liquid blue, especially when the training data is of a blue character. However, the model performed exceptionally well in this regard, and liquid capes could be generated in any color. "
     },
     {
         "text": " ",
@@ -59,7 +62,7 @@
     },
     {
         "title": "Sketches and their results. Note on the last one the added depth pass.",
-        "src": "/images/projects/elevaite/Layout_Web.mp4",
+        "src": "/images/projects/elevaite/ALT_Layout_Web.mp4",
         "aspect_ratio": "auto",
         "width": "full"
     }

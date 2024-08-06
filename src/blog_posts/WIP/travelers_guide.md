@@ -166,11 +166,11 @@ I can guarantee you the example prompt listed up there will give you something p
 
 Here’s a list of some fun and common things to add to your prompt, to get you started.
 
-| Artists | Modifiers  |
-| --- | --- |
-| Fantasy Landscapes
-- Tyler Edlin
-- Mark Simonetti
+| Option | Description |
+| ------ | ----------- |
+| data   | path to data files to supply the data that will be passed into templates. |
+| engine | engine to be used for processing templates. Handlebars is the default. |
+| ext    | extension to be used for dest files. |
 
 Fantasy Characters
 - Justin Gerard
@@ -218,6 +218,8 @@ Cgsociety
 Mandelbulb 3D
 Trending on Flickr.
 Vaporwave
+
+(You can really put anything though, don’t let this limit you) |
 
 (You can really put anything though, don’t let this limit you) |
 
