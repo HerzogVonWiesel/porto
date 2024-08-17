@@ -12,7 +12,7 @@ block content
     +blog_description({title: title, description: subtitle, tags: tags, date: filters.format_date(date)})
     +divider(14)
 
-    div(class="p-def-2 text-blog")
+    div(class="p-def-2 md:text-blog")
         block blog_post
             :markdown-it(linkify langPrefix='highlight-')
                 # Markdown

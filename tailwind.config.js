@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       screens: {
         'max-3xl': {'max': '1919px'},
+        'max-4xl': {'max': '3839px'},
         'max-md': {'max': '767px'},
       },
 
@@ -36,6 +37,8 @@ module.exports = {
         'def-4': '3rem',
         'def-5': '3.75rem',
         'def-6': '4.5rem',
+        'def-7': '5.25rem',
+        'def-8': '6rem',
         '1/8': '12.5%',
         '3/8': '37.5%',
         '5/8': '62.5%',

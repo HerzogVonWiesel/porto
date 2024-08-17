@@ -1,0 +1,13 @@
+- var eval_aspect_ratio = "aspect-["+aspect_ratio+"]"
+- var ar_modifier = 1;
+if (aspect_ratio != "auto" && !filters.is_video(source))
+    - var aspect_ratio = eval(aspect_ratio);
+    - const fallback = get_fallback(source);
+    - var og_img_ar = fallback.width / fallback.height;
+    if (og_img_ar > aspect_ratio)
+        - ar_modifier = og_img_ar / aspect_ratio;
+- var w_modifier = 1;
+if (width != "full")
+    - w_modifier = eval(width);
+- var image_mul = eval(w_modifier+"*"+ar_modifier).toString()
+- var sizes = "(max-width: "+screen_md+") 100vw, (min-width: "+screen_3xl+") calc("+screen_3xl+" * "+image_mul+"), calc(100vw * "+image_mul+")"

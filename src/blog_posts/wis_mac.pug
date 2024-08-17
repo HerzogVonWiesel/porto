@@ -1,0 +1,87 @@
+---
+title: WIS(h) it was on MacOS
+subtitle: This guide is written in German, as it's aimed at the communities caring about older Mercedeses. If you're interested in an English translation, you can probably get away with using the browser's translator, though I'd be happy to write another version if there's enough interest.
+date: 2024-08-12
+cover_img: /images/blog_posts/wis_mac/cover_img.png
+tags:
+    - Auto
+---
+extends /_layouts/blog_post
+
+block blog_post
+    h1.py-def-2 WISo?
+    p 
+        |Das WIS (Werkstatt-Informations-System) ist ein Programm von Mercedes-Benz selbst herausgegeben, welches (fast) alle nötigen Informationen zur Reparatur und Wartung von den Fahrzeugen für die Service-Mitarbeiter bereitstellt. Nur, dass man als Oldtimer-Liebhaber nicht direkt für jedes Wehwehchen in die Werkstatt fahren möchte, weswegen nun <em>wir</em> zum Service-Mitarbeiter werden wollen.
+        <br> <br>
+        |Jetzt habe ich schon etwas vorgegriffen und erwähnt, dass es um Oldtimer geht. Das heißt wiederum, dass wir bei dem passenden WIS mit nahezu antiker Software hantieren, welche schon auf modernen Windows-Versionen rummeckert, geschweige denn, dass es überhaupt auf Mac oder Linux läuft.
+        <br> <br>
+    
+    +pf_img({name:"WIS auf dem Mac", source:"/images/blog_posts/wis_mac/wis_mac.png", width:"1/2", aspect_ratio:"auto", blog:true})
+
+    p <br>Tja, anscheinend geht es eben doch, das Ganze läuft ohne dicke Virtuelle Maschine und ist garnicht mal so schwer! <br>
+
+    h1.py-def-2 in vino veritas
+    p
+        |Dafür nutzen wir Wine, ein Programm, welches als Kompatibiltätsschicht Windows-Programme auf Mac und Linux laufen lässt. Das Ganze ist kostenlos und Open Source, ein Träumchen! <br><br>
+    .note
+        h2 Für Nerds (wie mich): Was ist Wine?
+        p 
+            |Wine ist ein Open-Source-Softwareprojekt, das eine Kompatibilitätsschicht bietet, um Windows-Anwendungen unter Unix-basierten Betriebssystemen wie Linux, macOS und BSD auszuführen. Der Name Wine steht ursprünglich für "Wine Is Not an Emulator". Es ist also kein Emulator im traditionellen Sinne, sondern eine Implementierung der Windows-API für Unix-basierte Systeme.
+            <br><br>
+            |Wine funktioniert, indem es Windows-Systemaufrufe in POSIX-kompatible Aufrufe umwandelt. Dadurch können Windows-Anwendungen direkt auf dem Unix-basierten Betriebssystem laufen, ohne dass eine Kopie von Windows selbst installiert sein muss. Wine enthält auch Bibliotheken, die den Windows-Bibliotheken entsprechen, und ermöglicht so, dass viele Programme funktionieren, als würden sie unter Windows ausgeführt.
+    p 
+        |Zuerst müssen wir Wine installieren, was wir am einfachsten über Homebrew machen. Homebrew ist ein Paketmanager für MacOS; man kann es sich ein bisschen wie einen App Store im Terminal vorstellen. <br><br>
+        |Homebrew installieren wir mit folgendem Befehl in der Terminal-App: 
+    -
+        var code = `
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        `
+    - var code = filters.render_code("bash", code);
+    != code
+    +pf_img({name:"", source:"/images/blog_posts/wis_mac/install_homebrew.png", width:"1/2", aspect_ratio:"auto", blog:true})
+    p 
+        <br>
+        |Homebrew wird euch fragen, ob ihr okay damit seid, dass es installiert wird. Einfach weiter <i>Enter</i> drücken, bis es tatsächlich installiert ist (und nicht von dem ganzen Text abschrecken lassen). Ist das geschafft, können wir ganz einfach Wine mittels Homebrew installieren. Dazu geben wir folgenden Befehl im Terminal ein:
+    -
+        var code = `
+        brew install --cask wine-stable
+        `
+    - var code = filters.render_code("bash", code);
+    != code
+    +pf_img({name:"", source:"/images/blog_posts/wis_mac/install_wine.png", width:"1/2", aspect_ratio:"auto", blog:true})
+
+
+    h1.py-def-2 Das war's! (Fast)
+    +pf_img({name:"", source:"/images/blog_posts/wis_mac/open_wis.png", width:"1/2", aspect_ratio:"auto", blog:true})
+    p 
+        <br>
+        |Das ging ja schnell! Rein mit dem WIS, auf die .exe klicken, und wir werden von einem uralten Acrobat Reader begrüßt. Alles wie es soll! Allerdings ist es doch etwas umständlich, immer die CD dabeihaben zu müssen, besonders, wenn der Mac kein CD-Laufwerk hat wie meiner. <br><br>
+        |Doch auch dafür gibt es Abhilfe, und zwar in Form einer <em>.iso</em>, quasi die CD als Datei. Diese können wir auf Windows mittels eines Programms wie <a href="https://www.imgburn.com/" target="_blank">ImgBurn</a> erstellen, und dann auf den Mac übertragen, oder direkt auf dem Mac wie folgt erstellen:
+    .note 
+        h2 ISO von CD auf dem Mac
+        p 
+            |Apple selbst hat einen guide dazu geschrieben, den ich mal eben dreisterweise kopiere: 
+            ol.list-decimal.list-inside
+                li Lege die Windows-Installations-DVD in ein externes optisches USB-Laufwerk ein, oder verbinde das Windows-USB-Laufwerk mit einem USB-Anschluss des Mac-Computers, nachdem du den Mac mit OS X gestartet hast.
+                li Nachdem das Installationsmedium im Finder aktiviert wurde, öffnest du das Festplattendienstprogramm im Ordner „Dienstprogramme“ (wähle hierzu im Finder „Gehe zu“ > „Dienstprogramme“).
+                li Wähle das optische USB-Laufwerk oder das Windows-Flash-Laufwerk aus, sodass dieses im Fenster „Festplattendienstprogramm“ markiert ist.
+                li Wähle „Ablage“ > „Neues Image“ und dann aus dem Untermenü die Windows-DVD oder das Flash-Laufwerk.
+                li Wähle im Menü „Image-Format“ die Option „DVD/CD-Master“ und anschließend im Menü „Verschlüsselung“ die Option „Keine“ aus.
+                li Benenne die neue Datei, und klicke auf „Sichern“. Gib einen Administratornamen und das zugehörige Passwort ein, wenn du dazu aufgefordert wirst. Während der Erstellung der Imagedatei wird ein Fortschrittsbalken angezeigt. Das Erstellen der Imagedatei kann eine Weile dauern.
+                li Wirf die Windows-Installations-DVD oder das Flash-Laufwerk aus, nachdem die Imagedatei erstellt wurde. Wenn du ein externes optisches Laufwerk verwendest, trennst du es nach dem Auswerfen der DVD vom USB-Anschluss.
+                li Suche im Finder die Imagedatei, die du zuvor erstellt hast. Markiere sie mit einem Klick, und drücke den Zeilenschalter auf der Tastatur, um die Datei umzubenennen. Ändere das Suffix der Imagedatei von .cdr in .iso. Klicke bei entsprechender Aufforderung auf „.iso verwenden“, um diese Änderung zu bestätigen.
+
+    p 
+        |Doppelklick auf die .iso, wieder die .exe öffnen, und wir haben unsere mobile Version des WIS immer parat! <br><br>
+
+    p
+        <br> <br>
+        |Noch Fragen? Schreib mir gerne eine E-Mail, ich gebe mein bestes dann weiterzuhelfen! <br><br>
+        |↝ !{space(5)}
+        a(href="mailto:hallo@jeromestephan.de") hallo@jeromestephan.de → 
+        <br> <br>
+        |Hoffentlich hat euch dieser kleine Guide weitergeholfen! Tatsächlich ist die Installation für Linux-Systeme sehr ähnlich, da installieren wir Wine dann über den entsprechenden Paketmanager anstatt über Homebrew. Viel Spaß beim Schrauben und Danke an die tolle Community, die sich um die alten Mercedes kümmert; besonders das 123er-Forum!<br><br>
+        <br>
+        |Liebe Grüße,
+        <br>
+        |Jérôme

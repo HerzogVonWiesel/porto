@@ -24,7 +24,8 @@ block content
             +a_new_tab("/CV") Further reading in my CV →
 
         div(class="w-full md:col-span-1 md:row-span-7 md:pl-def-2 py-def")
-            +pf_img({source:"/images/collage.png", width:"full", aspect_ratio:"auto", blog: true})
+            //-+responsive_carousel(["/images/collage.png", "/images/jstephan.png"], "100vw")
+            +pf_img({source:["/images/me/picasso.png", "/images/me/profbw.jpg", "/images/me/favicon.png"], width:"full", aspect_ratio:"auto", blog: true, carousel_interval:1500})
 
         +divider(12, "w-full md:col-span-3")
         p(class="text-xl w-full md:col-span-1 py-def") ↝ !{space(4)} Selected Clients

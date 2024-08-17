@@ -80,6 +80,35 @@
         "width": "full"
     },
     {
+        "text": "When a new image generation model was released by a German startup in August 2024, I immediately jumped on the experimental support for it in ComfyUI to see whether it is useful for current or even future projects. Realizing that the model was a huge step up in prompt comprehension as well as generating text, I tried out some diverse range of possible applications to see in which use cases it would be of help - and it fared incredibly well.",
+        "type": "text",
+        "width": "1/4"
+    },
+    {
+        "title": "First test: Prompt adhesion + text",
+        "subtitle": "",
+        "src": "/images/projects/stableAI/flux_2.png",
+        "aspect_ratio": "1/1",
+        "width": "1/4"
+    },
+    {
+        "title": "Product render",
+        "subtitle": "",
+        "src": "/images/projects/stableAI/flux_1.png",
+        "aspect_ratio": "1/1",
+        "width": "1/4"
+    },
+    {
+        "title": "Concept art",
+        "subtitle": "",
+        "src": "/images/projects/stableAI/flux_3.png",
+        "aspect_ratio": "1/1",
+        "width": "1/4"
+    },
+    {
+        "text": " ","type": "spacer","width": "full"
+    },
+    {
         "hidden": true,
         "title": "aurora ice cave",
         "subtitle": "3rd iteration",

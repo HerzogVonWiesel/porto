@@ -1,7 +1,7 @@
 include utils.pug
 
 header(class="fixed w-full top-0 z-40 landscape:rotated-nav")
-    nav(class="py-def landscape:px-def-4 landscape:py-def-3 flex flex-wrap items-center justify-between md:text-sm \
+    nav(class="py-def-2 px-def-2 landscape:px-def-4 landscape:py-def-3 flex flex-wrap items-center justify-between md:text-sm \
     text-5xl max-md:font-serif max-md:italic text-base-dark dark:text-base-bright")
         svg(xmlns="http://www.w3.org/2000/svg"
             id="menu-button"
@@ -32,7 +32,7 @@ header(class="fixed w-full top-0 z-40 landscape:rotated-nav")
                 a(class="hidden dark:inline") Light Mode
 
 footer(class="fixed w-full bottom-0 z-40 landscape:rotated-footer")
-    div(class="py-def landscape:px-def-4 landscape:py-def-3 flex flex-wrap items-center justify-between text-sm")
+    div(class="py-def-2 px-def-2 landscape:px-def-4 landscape:py-def-3 flex flex-wrap items-center justify-between text-sm")
         div(class="hidden md:block")
             each element in socials 
                 if !element.hidden

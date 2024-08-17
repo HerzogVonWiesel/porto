@@ -40,32 +40,31 @@ mixin pf_div({width="1/2", paddings=" p-def-2 py-def", ref} = {})
         div(class="w-full md:w-"+width+paddings)
             block
 
-mixin pf_img({name, source, ref, width="1/2", aspect_ratio="1/1", description, has_sound=false, name_classes="", description_classes="", blog=false} = {})
-    - 
-        var eval_aspect_ratio = "aspect-["+aspect_ratio+"]"
-        var ar_modifier = 1;
-    if (aspect_ratio != "auto" && !filters.is_video(source))
-        - var aspect_ratio = eval(aspect_ratio);
-        - const fallback = get_fallback(source);
-        - var og_img_ar = fallback.width / fallback.height;
-        if (og_img_ar > aspect_ratio)
-            - ar_modifier = og_img_ar / aspect_ratio;
-    
-    - var w_modifier = 1;
-    if (width != "full")
-        - w_modifier = eval(width);
-    - var image_mul = eval(w_modifier+"*"+ar_modifier).toString()
-    - var sizes = "(max-width: "+screen_md+") 100vw, (min-width: "+screen_3xl+") calc("+screen_3xl+" * "+image_mul+"), calc(100vw * "+image_mul+")"
+mixin handle_source({source, eval_aspect_ratio, has_sound, sizes, id} = {})
+    if filters.is_video(source)
+        video(class=eval_aspect_ratio+" w-full object-cover" loop controls=has_sound autoplay=!has_sound muted=!has_sound playsinline src=source id=id) 
+    else if filters.is_svg(source)
+        != filters.inline_svg("_site"+source)
+    else if source != ""
+        +responsive_image(source, sizes, id)(alt="" class=eval_aspect_ratio+" w-full object-cover")
+
+mixin pf_img({name, source, ref, width="1/2", aspect_ratio="1/1", description, has_sound=false, name_classes="", description_classes="", blog=false, carousel_interval} = {})
+    include _eval_ar_sizes.pug
     
     if (blog)
         - var paddings = " "
     +pf_div({width:width, paddings:paddings, ref:ref})
-        if filters.is_video(source)
-            video(class=eval_aspect_ratio+" w-full object-cover" loop controls=has_sound autoplay=!has_sound muted=!has_sound playsinline src=source) 
-        else if filters.is_svg(source)
-            != filters.inline_svg("_site"+source)
-        else if source != ""
-            +responsive_image(source, sizes)(alt="" class=eval_aspect_ratio+" w-full object-cover")
+        - var is_carousel = Array.isArray(source)
+        if is_carousel
+            - var og_source = source
+            - var hash_id = Math.random().toString(36).substring(7)
+            - var carousel_id = 0
+            each source in og_source
+                +handle_source({source:source, eval_aspect_ratio:eval_aspect_ratio, has_sound:has_sound, sizes:sizes, id:hash_id+"-"+carousel_id})
+                - carousel_id++
+            +carousel_script({id:hash_id, interval:carousel_interval})
+        else
+            +handle_source({source:source, eval_aspect_ratio:eval_aspect_ratio, has_sound:has_sound, sizes:sizes})
         div(class="w-full items-start leading-none mt-1")
             if name
                 if description
@@ -84,6 +83,6 @@ mixin pf_text({text, type, ref, width="1/2", text_classes="", padding} = {})
                 h3(class=""+text_classes)= text
             else 
                 if (text_classes == "")
-                    - text_classes = "text-xl"
+                    - text_classes = "md:text-xl"
                 p(class=""+text_classes).
                     !{text}

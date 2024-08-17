@@ -7,14 +7,31 @@
     return fallback;
   }
 
-mixin responsive_image(path, sizes)
+mixin responsive_image(path, sizes, id="res-img")
   - const data = collections.img_collection["src"+path];
   - const fallback = get_fallback(path);
-  picture
+  picture(id=id)
     each value, format in data
       - let srcset_collection = [];
       - let srcType = value[0].sourceType;
       each source in value
         - srcset_collection.push(source.srcset)
-      source(type=srcType srcset=srcset_collection.toString() sizes=sizes)
-    img(src=fallback.url)&attributes(attributes)
+      source(type=srcType srcset=srcset_collection.toString() sizes=sizes) 
+      //- id=id+"-"+srcType 
+    img(src=fallback.url)&attributes(attributes) 
+    //- id=id+"-fallback" 
+
+mixin carousel_script({id="carousel", interval=800} = {})
+  script.
+    let currentIndex = 0;
+    // Get all images with the id of carousel
+    const images = document.querySelectorAll('[id^="!{id}-"]');
+    for (let i = 1; i < images.length; i++) {
+      images[i].style.display = 'none';
+    }
+    function changeImage() {
+      images[currentIndex].style.display = 'none';
+      currentIndex = (currentIndex + 1) % images.length;
+      images[currentIndex].style.display = 'block';
+    }
+    setInterval(changeImage, !{interval});
