@@ -67,6 +67,7 @@ module.exports = {
   plugins: [
     plugin(function ({ addVariant }) {
       addVariant('max-md', "@media screen and (max-width: theme('screens.md'))"); // instead of hard-coded 640px use sm breakpoint value from config. Or anything
+      addVariant('navbar-change', "@media (orientation: landscape)"); //	@media (min-width: 768px) @media (orientation: landscape)
     }),
   ],
 }

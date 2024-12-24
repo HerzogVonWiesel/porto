@@ -1,0 +1,36 @@
+---
+title: Noise cancelling distributions
+subtitle: Some quantitative analyses on the Maxon noises in Cinema 4D
+date: 2024-08-21
+cover_img: /images/blog_posts/maxon_noises/cover_img.png
+tags:
+    - 3D
+    - Cinema4D
+    - Python
+---
+extends /_layouts/blog_post
+
+block blog_post
+    div.note
+        h2 See the full notebook on GitHub
+        p 
+            |This blog post is just to talk about why exactly I've gone about doing this, and to quickly show off the distribution of values compared to the noise itself. If you want to see the full notebook, its code and the full analysis on which parameters on each distribution best fit each noise type, 
+            +a_new_tab("https://github.com/HerzogVonWiesel/Maxon-Noise-Study/blob/main/maxon_noises.ipynb") take a look here →.
+    h1.py-def-2 Noise cancelling distributions
+    p 
+        |In one of my past projects I've believed that all noise types are in form of an even distribution of values, but that's (obviously, if you take a look at fire noise for example) not the case. I've decided to take a look at the distribution of values of each noise type in Cinema 4D, and see if I can match them to some common distributions; if I want to fit them to an equal distribution of values, I'd thus be able to retrofit them to an uniform distribution.
+        <br><br>
+        |You might now wonder <i>why</i> I'd go about doing this. Well, I thought it might just be useful to know that 25% of the pixels have a value of 0.25 or lower in a noise; this then led me to analyze them all simply out of interest (I'm a CompSci student after all) and to know what to expect when working with them. So without further ado, below you can see each noise type and the corresponding distribution of values.
+    h1.py-def-2 Make some noise!
+    div.flexcon.-mx-def-2
+        each noise_type in ["blistered", "box", "buya", "cell", "cell_voronoi", "cranal", "dents", "displaced_turbulence", "displaced_voronoi", "electric", "fbm", "fire", "gaseous", "hama", "luka", "mod", "naki", "noise", "nutous", "ober", "pezo", "poxo", "ridged_multi_fractal", "sema", "sparse_convolution", "stupl", "turbulence", "vl", "voronoi1", "voronoi2", "voronoi3", "wavy_turbulence", "zada"]
+            +pf_img({name:noise_type, source:"/images/blog_posts/maxon_noises/noises/"+noise_type+".png", width:"1/4", aspect_ratio:"4/3"})
+            +pf_img({name:noise_type+" distribution", source:"/images/blog_posts/maxon_noises/anal/"+noise_type+".png", width:"1/4", aspect_ratio:"4/3"})
+
+    div.py-def-2
+    p
+        |Well, that's already it. Maybe it's of some use to you and your projects. Have fun and keep on doing what you love!
+        <br>
+        |Cheers,
+        <br>
+        |Jérôme

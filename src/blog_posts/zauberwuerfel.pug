@@ -1,0 +1,141 @@
+---
+title: AI twisting cubes
+subtitle: An analysis of AI's capability of knowledge transfer compared to humans
+date: 2024-12-27
+cover_img: /images/blog_posts/zauberwuerfel/cover_img.png
+tags:
+    - AI
+    - Python
+---
+extends /_layouts/blog_post
+
+block blog_post
+    h1.py-def-2 Laying the cornerstones
+    p Transferring knowledge to tackle new but related challenges is a hallmark of both human smarts and artificial intelligence (AI). Transfer learning, the fancy term for this, lets us apply what we've already figured out to fresh problems without starting from scratch. While humans tend to pull this off naturally —sometimes without even realizing it— it's intriguing to see just how far AI can go in mimicking this trick.
+    br
+    p In this project, we're diving into the transfer abilities of both AI models and humans. Specifically, we're asking: Can an AI trained to master a classic Rubik's cube stretch its skills to solve variants with a twist — like swapped sticker colors? And how does that compare to humans confronted with the same test?
+    br
+    p
+        |The Rubik's cube is perfect for this task, thanks to its blend of brain-bending complexity and the existence of (spoiler: not as good as ours) 
+        +a_new_tab("https://www.nature.com/articles/s42256-019-0070-z") AI models that already solve it using reinforcement learning →
+        |. By switching the color scheme - think of it as swapping all blue and white stickers -, we aim to uncover whether the AI has truly grasped the cube's inner workings or is just playing a fancy game of pattern recognition. Meanwhile, human participants face the same challenge, solving both the classic and the remixed cube to see how adaptable they really are.
+    h1.py-def-2 RL: <s>Reinforcement</s> Rubik's Learning
+    p.
+        We started by building a digital version of the Rubik's Cube with all the essentials - the ability to check its state, make moves, and shuffle itself into a proper mess.
+    br
+    p.
+        For the main event, we taught an AI to solve the cube (with some training wheels on - we limited the shuffle complexity). Using reinforcement learning, we kept things simple: solve the cube in under 10 moves, get 100 points. No partial credit here!
+    br
+    p
+        |To make this work with OpenAI Gymnasium and Stable Baselines, we had to do some translating - namely having 
+        +a_new_tab("https://medium.com/@walkerastro41/action-space-state-space-observation-space-demystified-6c9c00a355b4") a clearly defined action space and observation space →
+        |. Each possible cube move became a number between 0 and 11 (i.e. 0 is F [rotate Front], 1 is F' [rotate Front counterclockwise], 2 is R [rotate Right], etc.), and we mapped the colors to numbers 0 through 5. The result? A 54-element list that captures the entire state of the cube - not exactly light reading for us humans, but it's what the model wants.
+    p
+        |We approached the training gradually, increasing the number of rotations one step at a time. After testing several options, we found that Stable Baselines and PPO (Proximal Policy Optimization) gave us the best results.
+        br
+        br
+        |Something interesting happened with the training time - it increased exponentially with each new rotation due to the search space increasing exponentially as well. Where a cube with 4 rotations can end up in 12^4 = 20,736 states, 5 rotations lead already to 12^5 = 248,832 possible states. This is why we stopped specific training at five rotations. Our strategy was to start simple: train the AI on a single rotation until it got good enough at solving it, then slowly increase the complexity. This worked much better than diving straight into multiple rotations - when we tried starting with four or five rotations, our success rate was barely 5%, even after an hour of training.
+        br
+        br
+        |The diagram below shows how dramatically the training time increases as we add more complexity:
+        br
+        br
+        +pf_img({name:"Tensorboard diagram showing the training progress. Orange: 3 rotations, Blue: 4 rotations, Pink: 5 rotations. Y-Axis is the accuracy, 10M steps on the X-Axis took about an hour.", source:"/images/blog_posts/zauberwuerfel/training_diagram.png", width:"full", aspect_ratio:"auto", blog:true})
+        br
+        |We kept track of everything using tensorboard, which helped us monitor the training and check our results. The final numbers were pretty good: our AI solved 100% of cubes scrambled with 3 rotations, 97% with four rotations, and 82% with five rotations. We got our initial inspiration from 
+        +a_new_tab("https://towardsdatascience.com/hands-on-introduction-toreinforcement-learning-in-python-da07f7aaca88") some helpful articles on reinforcement learning → 
+        |and 
+        +a_new_tab("https://medium.com/analytics-vidhya/solving-a-rubiks-cubewith-reinforcement-learning-part-2-b4ff0f3522b3") Rubik's Cube-specific AI applications →
+        |.
+        br
+        br
+        |For the next phase, we wanted to see how well our AI could adapt to changes, specifically, switching the color stickers of the faces as mentioned earlier. It's actually quite simple - just switching up the color mapping. Instead of white being "0" and blue being "3" in our system, we flipped them. So a solved cube's data now looks like this:
+        br
+        |[3 3 3 3 3 3 3 3 3 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 0 0 0 0 0 0 0 0 0 4 4 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5]
+        br
+        |compared to the original:
+        br
+        |[0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5]
+        br
+        br
+        |As implementing and testing both the virtual cube and the model was my contribution to the project, you can peek under the hood as all the code lives 
+        +a_new_tab("https://github.com/HerzogVonWiesel/zauberwuerfel") in my GitHub repo →.
+
+    h1.py-def-2 "Do you have a moment to talk about our Lord and Savior, the Rubik's Cube?"
+    div.flexcon
+        +pf_img({name:"Normal cube and modified cube", source:"/images/blog_posts/zauberwuerfel/cub1.jpg", width:"1/3", aspect_ratio:"auto", blog:true})
+        +pf_text({text:"In parallel, we set up a human experiment to compare with our AI results, with people experienced as well as unexperienced in solving the Rubik's cube. We created two versions of the cube - a regular one and a modified version where we replaced the blue stickers with black ones using colored paper.", width:"2/3", padding:" md:pl-def-2", text_classes:" "})
+    br
+    div.flexcon
+        +pf_text({text:"We asked 30 students to try solving both cubes in two different starting positions. To keep things consistent, we used the same scramble patterns for everyone. Each participant got 10 moves to solve each cube - we kept the move limit the same to the AI's since we didn't want the sessions running too long. In total, each person had four attempts: two with the normal cube (one with three rotations scrambled, one with four) and two with the modified cube.", width:"2/3", padding:" md:pr-def-2", text_classes:" "})
+        +pf_img({name:"Used patterns for the experiment", source:"/images/blog_posts/zauberwuerfel/cub2.png", width:"1/3", aspect_ratio:"auto", blog:true})
+    br
+    p.
+        To make sure our results weren't biased, we had every second participant start with the modified cube instead of the normal one. We tracked everything in a database, noting:
+    p
+        ul.list-square.list-inside
+            li Whether participants had prior experience with Rubik's cubes
+            li If they solved the normal cube (3-rotation scramble) and how many moves it took
+            li If they solved the normal cube (4-rotation scramble) and the move count
+            li The same data for both attempts with the modified cube
+
+    h1.py-def-2 The results are in
+    p.
+        For the three-rotation challenge, humans performed surprisingly well with both cubes. The modified cube actually saw a slightly higher success rate (93.3%) than the normal one (90%). Participants needed about the same number of moves for both - around 3 moves on average (3.1 for normal, 3.3 for modified).
+    br
+    p.
+        Things got more interesting with four rotations. The success rate dropped significantly: only 5 participants (17%) solved the normal cube, with just 3 of them having prior experience. The modified cube saw better results, with 11 participants (37%) finding the solution. Interestingly, 6 of these successful solvers had no previous cube experience. Four out of the five people who solved the normal cube also managed to solve the modified version. The average moves needed increased to 4 for the normal cube and 5.1 for the modified one.
+    br
+    div.flexcon
+        +pf_img({name:"", source:"/images/blog_posts/zauberwuerfel/comparison.svg", width:"1/2", aspect_ratio:"auto", blog:true})
+        +pf_text({text:"The AI showed a completely different pattern. With the normal cube, it was nearly perfect - 100% success rate for three rotations and 96.7% for four rotations (out of 10,000 attempts). However, it struggled significantly with the modified cube, managing only 3.3% success rate for three rotations and dropping to 0.86% for four rotations. <br><br>This contrast between human and AI performance suggests some fascinating differences in how each approaches problem-solving and adaptation.", width:"1/2", padding:"", text_classes:" "})
+
+    h1.py-def-2 Tracing back 
+    p.
+        When it came to three-rotation puzzles, switching colors didn't seem to matter much. Prior experience wasn't a factor either - both novices and experienced cubers performed similarly.
+    p.
+        The four-rotation results were more surprising. The modified cube was solved more often than the standard one, which is interesting. Since we alternated which cube participants started with, we can rule out a simple learning effect. A few theories might explain this:
+    p
+        ul.list-square.list-inside
+            li The alternative colors (black instead of blue) might have made the cube easier to visually track and navigate.
+            li The high success rate among inexperienced solvers with the modified cube (6 out of 11) supports this better-orientation theory.
+            li Psychology might have played a role too. Many participants initially said "I can't solve a Rubik's cube!" The modified version, free from these preconceptions, might have felt less intimidating - leading to more relaxed and focused attempts.
+    br
+    p.
+        Interestingly, prior experience wasn't necessarily helpful with these shorter scrambles. Many experienced solvers relied on memorized algorithms that required many more moves than our 10-move limit. When their usual approach wouldn't work, they often struggled. Though some adapted better on their second attempt after realizing their standard method wasn't viable.
+    p.
+        One limitation of our study was how we measured "experience." Participants likely had different standards for what counted as "experienced", and we could have gathered more detailed information about their skill levels for better analysis.
+    br
+    p.
+        We got an interesting glimpse into human vs. AI adaptation when one experienced participant offered to solve our leftover scrambled cubes. She breezed through the normal cube, but the modified one took her about 2-3 times longer. Her explanation was revealing - she had memorized solving algorithms by color, making the color swap genuinely challenging. Still, she managed to solve both versions every time.
+    br
+    p.
+        Comparing human and AI performance showed some fascinating contrasts. Humans performed similarly well with both normal and modified cubes when dealing with the same number of rotations. The AI, however, showed a dramatic drop in performance after the color swap, despite the underlying solution remaining identical. While we can't make a direct comparison (many humans lacked experience while the AI knew solving methods), it's telling that the AI struggled to apply its knowledge to slightly modified systems, while humans adapted more readily - even though some experienced humans noted difficulties transferring their algorithms.
+    br
+    p.
+        The AI's performance varied interestingly depending on which colors we swapped. Switching green and yellow led to this array:
+    p.
+        [0 0 0 0 0 0 0 0 0 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1 1 3 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5]
+    br
+    p.
+        With this change, the AI managed pretty well - solving 58.06% of four-rotation cases and 71.10% of three-rotation cases across 10,000 attempts. But switching white and blue created this array:
+    p.
+        [3 3 3 3 3 3 3 3 3 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 0 0 0 0 0 0 0 0 0 4 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5]
+    br
+    p.
+        This led to those much lower success rates we saw earlier - just 0.86% for four rotations and 3.3% for three rotations.
+    br
+    p.
+        These results suggest the AI performs better when the numerical pattern stays closer to what it was trained on. Minor changes, like the green-yellow swap, still let it use its learned patterns effectively. But bigger disruptions to the pattern, like the white-blue swap, severely impact its performance - even though the actual solution process hasn't changed.
+        
+
+    div.py-def-2
+    p.
+        This was an interesting and fun project to tackle with some interesting results. It would be fascinating to dive deeper and see how the AI would fare if we'd also train it on modified cubes, but that also wouldn't be all too fair to the human participants now would it?
+    br
+    p
+        |If you've got any questions or want to dive deeper into the data, feel free to shoot me an email. I'm always happy to answer.
+        br
+        |Cheers,
+        br
+        |Jérôme
