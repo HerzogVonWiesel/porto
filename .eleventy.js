@@ -77,6 +77,7 @@ module.exports = (function(eleventyConfig) {
     eleventyConfig.addPlugin(syntaxHighlight);
 
     eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
+    eleventyConfig.addShortcode("domain", () => `${"jeromestephan.de"}`);
 
     eleventyConfig.addFilter("toUppercase", function(string) {
         return string.toUpperCase();

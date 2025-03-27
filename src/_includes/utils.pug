@@ -16,7 +16,7 @@ mixin spacer(height)
 
 mixin back_button()
     h1(class="px-def-2")
-        a(href="javascript:history.back()") ← !{space(4)} Go Back
+        a(href="#" onclick="javascript:document.referrer.indexOf('"+ filters.domain() +"') >= 0 ? history.go(-1) : window.location.href = '/'; return false;") ← !{space(4)} Go Back
 
 mixin divider(size, classes)
     if !classes
