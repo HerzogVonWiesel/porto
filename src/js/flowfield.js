@@ -104,8 +104,19 @@ let bright_bg = getComputedStyle(document.documentElement).getPropertyValue('--b
 let dark_bg = getComputedStyle(document.documentElement).getPropertyValue('--bg-dark')
 let dark_stroke = getComputedStyle(document.documentElement).getPropertyValue('--base-dark')
 let bright_stroke = getComputedStyle(document.documentElement).getPropertyValue('--base-bright')
+let dark_theme = 0;
 let bg = bright_bg;
 let stroke=dark_stroke;
+
+
+function update_colors() {
+    bright_bg = getComputedStyle(document.documentElement).getPropertyValue('--bg');
+    dark_bg = getComputedStyle(document.documentElement).getPropertyValue('--bg-dark');
+    dark_stroke = getComputedStyle(document.documentElement).getPropertyValue('--base-dark');
+    bright_stroke = getComputedStyle(document.documentElement).getPropertyValue('--base-bright');
+    set_colors();
+}
+document.addEventListener('random_theme', update_colors, false);
 
 let timer;
 let cases = -1;
@@ -126,6 +137,16 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', fun
 
 function change_color() {
     if (stroke==dark_stroke){
+        dark_theme = 1;
+    }
+    else{
+        dark_theme = 0;
+    }
+    set_colors();
+}
+
+function set_colors() {
+    if (dark_theme == 1){
         bg=dark_bg;
         stroke=bright_stroke;
     }
