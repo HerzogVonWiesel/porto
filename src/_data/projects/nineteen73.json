@@ -1,11 +1,11 @@
 {
-    "hidden": true,
+    "hidden": false,
     "name": "1973",
     "subtitle": "Dream for Speed",
     "year": "2025",
     "description": "\"Six European championships, a sensational lap record on the Nürburgring and the first ever BMW Art Car – wherever the BMW 3.0 CSL turned up, it stood out from the crowd.\" <br><br>To get up to speed with a new render engine - Arnold - I decided on a texturing & lighting exercise using the iconic 70s dream BMW. Featuring some cool node math and dabbling in sound design!",
     "tools": "Cinema 4D, Arnold, After Effects, Ableton, Topaz VideoAI",
-    "cover_img": "/images/projects/1973/A_1.png",
+    "cover_img": "/images/projects/1973/A_1_2.png",
     "aspect_ratio": "1/1",
     "width": "1/2",
     "media": [

@@ -1,0 +1,72 @@
+{
+    "hidden": false,
+    "name": "tojimari",
+    "subtitle": "when life shuts a door",
+    "year": "2025",
+    "description": "After watching my now favorite movie of all time, I was left awestruck (and bawling my eyes out) in a way that I <i>had</i> to show my appreciation for it in one way or another. What followed was a project that took me on a two-year journey of learning and growth, both personally and professionally. Using all of the programs I had learned over the years as well as writing not one, but two Python plugins to help me with the project (and are now also helping hundreds of other artists), I created a short animation that I am incredibly proud of. The project was a labor of love, and I hope it does the original work justice.",
+    "tools": "Cinema 4D, Redshift, Houdini, Nuke, Python, Ableton",
+    "cover_img": "/images/projects/suzume/Cout.mp4",
+    "aspect_ratio": "1/1",
+    "width": "1/2",
+    "media": [
+    {
+        "title": "Final video",
+        "src": "/images/projects/suzume/fin.mp4",
+        "aspect_ratio": "auto",
+        "width": "1/2",
+        "has_sound": true
+    },
+    {
+        "text": " ",
+        "type": "spacer",
+        "width": "1/6"
+    },
+    {
+        "multi":true,
+        "media":[
+            {
+                "text": "Suzume",
+                "type": "header",
+                "width": "full"
+            },
+            {
+                "text": "<i>Don't be scared, the future is not that scary. You'll meet many people who you'll cherish and many people who'll cherish you back. It might be tough moving forward but at the end of a seemingly endless dark night but there will be morning. You will grow up basking in that light. I'm sure of it.</i><br><br> Makoto Shinkai’s Suzume is a whirlwind adventure featuring a three-legged chair, a mischievous cat deity, and an overarching theme of grief, healing, and closure. The film blends jaw-dropping visuals with themes of trauma and resilience, all while weaving in Japanese folklore. It’s heartfelt without being heavy-handed and quirky without losing its depth, and has both earned the spot as my favorite movie and served inspiration for this project.",
+                "type": "text",
+                "width": "full"
+            }
+        ],
+        "width": "1/3"
+    },
+    {
+        "text": " ",
+        "type": "spacer",
+        "width": "full"
+    },
+    {
+        "title": "",
+        "src": "/images/projects/suzume/widebannercol.png",
+        "aspect_ratio": "auto",
+        "width": "full"
+    },
+    {
+        "text": " ",
+        "type": "spacer",
+        "width": "full"
+    },
+    {
+        "text": "I’d do it all over again",
+        "type": "header",
+        "width": "full"
+    },
+    {
+        "text": " ",
+        "type": "spacer",
+        "width": "full"
+    },
+    {
+        "text": "It will take time",
+        "type": "header",
+        "width": "full"
+    }
+    ]
+}
