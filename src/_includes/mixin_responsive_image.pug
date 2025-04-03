@@ -26,6 +26,7 @@ mixin carousel_script({id="carousel", interval=800} = {})
     let currentIndex = 0;
     // Get all images with the id of carousel
     const images = document.querySelectorAll('[id^="!{id}-"]');
+    //- console.log(images);
     for (let i = 1; i < images.length; i++) {
       images[i].style.display = 'none';
     }

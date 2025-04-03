@@ -3,7 +3,7 @@
     "subtitle": "Custom trained AI image recognition",
     "year": "2024",
     "description": "<i>Be mine (or)</i> is an art installation using image recognition to adjust noise levels based on the level of intimacy shown between people. When the system detects gestures like standing close, hugging, or kissing, it lowers the volume of loud, stress-inducing noises. <br><br>Using technology to highlight human interaction, it provides a unique experience that underlines the importance of personal connections in our digital age. Affection has been shown to reduce stress levels, represented by the decreasing noise volume, encouraging people to think about our understanding and appreciation of intimacy in a stressful technological era. <br><br>I published the source code of this project can be found on its <a href='https://github.com/HerzogVonWiesel/Be-mine-or' target='_blank' rel='noopener noreferrer'>GitHub repository →</a>.",
-    "tools": "Python: YOLOv8, PyAudio, OpenVino; Stable Diffusion, Suno.ai",
+    "tools": "YOLOv8, PyAudio, OpenVino, Stable Diffusion, Suno.AI",
     "cover_img": "/images/projects/bemineor/cover.png",
     "aspect_ratio": "2/1",
     "width": "1/2",

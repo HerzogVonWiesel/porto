@@ -103,6 +103,45 @@ module.exports = (function(eleventyConfig) {
         });
         return blog_tags;
     });
+    eleventyConfig.addCollection("icons", function (collection) {
+        const icons = {};
+        icons["Ableton"] = "ableton";
+        icons["After Effects"] = "aftereffects";
+        icons["Various AI models"] = "aivar";
+        icons["Arnold"] = "arnold";
+        icons["Audio to Audio models"] = "aud2aud";
+        icons["Axiom Solver"] = "axiom";
+        icons["Cinema 4D"] = "c4d";
+        icons["ComfyUI"] = "comfyui";
+        icons["Disco Diffusion"] = "disco";
+        icons["EmberGen"] = "embergen";
+        icons["Topaz Gigapixel"] = "gigapixel";
+        icons["Alhambra Classical Guitar"] = "guitar";
+        icons["Houdini"] = "houdini";
+        icons["Image to Video models"] = "img2vid";
+        icons["Nuke"] = "nuke";
+        icons["OpenVino"] = "openvino";
+        icons["Ornatrix"] = "ornatrix";
+        icons["OpenShadingLanguage"] = "osl";
+        icons["Python Pandas"] = "pandas";
+        icons["Photoshop"] = "photoshop";
+        icons["PyAudio"] = "pyaudio";
+        icons["Python"] = "python";
+        icons["DaVinci Resolve"] = "resolve";
+        icons["Redshift"] = "rs";
+        icons["Stable Diffusion"] = "stablediffusion";
+        icons["Substance Painter"] = "substancepainter";
+        icons["Suno.AI"] = "suno";
+        icons["Topaz Studio"] = "tstudio";
+        icons["Video to Video models"] = "vid2vid";
+        icons["Topaz VideoAI"] = "videoai";
+        icons["World Creator"] = "worldcreator";
+        icons["YOLOv8"] = "yolov8";
+        for (let icon in icons) {
+            icons[icon] = "/images/icons/" + icons[icon] + ".svg";
+        }
+        return icons;
+    });
 
 
     // Add support for markdown

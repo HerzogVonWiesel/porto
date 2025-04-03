@@ -30,7 +30,7 @@ block content
                 else if (media.text)
                     +pf_text({text:media.text, type:media.type, ref:media.ref, width:media.width, text_classes:media.text_classes})
                 else 
-                    +pf_img({name:media.title, source:media.src, width:media.width, aspect_ratio:media.aspect_ratio, description:media.subtitle, has_sound:media.has_sound})
+                    +pf_img({name:media.title, source:media.src, width:media.width, aspect_ratio:media.aspect_ratio, description:media.subtitle, has_sound:media.has_sound, carousel_interval:media.carousel_interval})
     +divider(14)
     +back_button()
     +divider(14)

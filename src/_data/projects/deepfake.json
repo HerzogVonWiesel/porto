@@ -3,7 +3,7 @@
     "subtitle": "Creating fake people and resurrecting the dead",
     "year": "2024",
     "description": "I've been tasked with researching open-source state-of-the-art deepfake techniques for a few clients' projects. This has led me to create videos of non-existent people, resurrecting the dead and making Angela Merkel sing.",
-    "tools": "Various img2video, video2video & audio2audio models, ComfyUI",
+    "tools": "Image to Video models, Video to Video models, Audio to Audio models, ComfyUI",
     "cover_img": "/images/projects/deepfake/Showcase_1_Web.mp4",
     "aspect_ratio": "7/4",
     "width": "1/2",

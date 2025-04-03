@@ -3,7 +3,7 @@
     "subtitle": "Trippy OSL experiments",
     "year": "2021",
     "description": "Inspired by @anomalitkate's trippy work, I delved into Cinema4D and played around a ton. The very colory material is OSL code I've written and can be found in Redshifts OSL shader library!",
-    "tools": "Cinema 4D, Redshift, Photoshop",
+    "tools": "Cinema 4D, OpenShadingLanguage, Redshift, Photoshop",
     "cover_img": "/images/projects/groovanomalism/en_final.mp4",
     "aspect_ratio": "1/1",
     "width": "1/2",

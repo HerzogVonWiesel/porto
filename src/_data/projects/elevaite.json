@@ -3,7 +3,7 @@
     "subtitle": "Enhance! Enhance! Enhance!",
     "year": "2024",
     "description": "While I don't think that CG is going to be replaced by AI completely anytime soon, it is an incredibly powerful tool to have in your arsenal; not replacing 3D renders, but aiding and enhancing the process. <br><br>Creating intricate backgrounds for 3D scenes tend to be a laborious process, especially when given further restrictions by the client. This is where I helped out: I crafted two workflows, one for generating a background that fits the scene and its style, and another to 'enhance' the details of the final render - especially noticeable in the foliage, which can be quite tricky to get right in pure 3D. This allowed the client to choose from a palette of backgrounds and to implement revisions quickly and efficiently. <br>Another thing to note is that this process was done with print-ready resolution in mind: That is to say, 8k x 8k pixels. Bear in mind that these are example images to show off the process until I may show the final product.",
-    "tools": "ComfyUI & other AI tools",
+    "tools": "ComfyUI, Various AI models",
     "cover_img": "/images/projects/elevaite/ALT_UP_Comp_Web.mp4",
     "aspect_ratio": "7/4",
     "width": "1/2",

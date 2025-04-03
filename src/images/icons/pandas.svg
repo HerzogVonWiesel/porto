@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" version="1.1" viewBox="0 0 230 230">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: .75;
+      }
+
+      .cls-2 {
+        opacity: .5;
+      }
+    </style>
+  </defs>
+  <!-- Generator: Adobe Illustrator 28.6.0, SVG Export Plug-In . SVG Version: 1.2.0 Build 709)  -->
+  <g>
+    <g id="Layer_1">
+      <rect id="rect12" class="cls-2" x="83.19" y="81.14" width="25.05" height="24.54"/>
+      <rect id="rect20" class="cls-1" x="122.59" y="123.97" width="25.05" height="24.54"/>
+      <g>
+        <rect id="rect8" x="83.19" y="13.96" width="25.05" height="52"/>
+        <rect id="rect10" x="83.19" y="120.79" width="25.05" height="52"/>
+        <rect id="rect14" x="42.96" y="56.71" width="25.05" height="172.87"/>
+        <rect id="rect16" x="122.59" y="163.69" width="25.05" height="52"/>
+        <rect id="rect18" x="122.59" y="56.77" width="25.05" height="52"/>
+        <rect id="rect22" x="161.99" y=".41" width="25.05" height="172.87"/>
+      </g>
+    </g>
+  </g>
+</svg>

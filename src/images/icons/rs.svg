@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 120 120">
+  <defs>
+    <style>
+      .cls-1 {
+        fill-opacity: .4;
+      }
+
+      .cls-2 {
+        fill-opacity: .52;
+      }
+
+      .cls-3 {
+        fill-opacity: .63;
+      }
+
+      .cls-4 {
+        fill-opacity: .83;
+      }
+
+      .cls-5 {
+        fill-opacity: .86;
+      }
+
+      .cls-6 {
+        fill-opacity: .77;
+      }
+
+      .cls-7 {
+        fill-opacity: .78;
+      }
+
+      .cls-8 {
+        fill-opacity: .9;
+      }
+
+      .cls-9 {
+        fill-opacity: .93;
+      }
+    </style>
+  </defs>
+  <!-- Generator: Adobe Illustrator 28.6.0, SVG Export Plug-In . SVG Version: 1.2.0 Build 709)  -->
+  <g>
+    <g id="apps">
+      <path class="cls-1" d="M113.64,30L60,0v30l26.82,15,26.82-15Z"/>
+      <path class="cls-2" d="M6.37,30L60,0v30l-26.82,15L6.37,30Z"/>
+      <path class="cls-6" d="M86.82,45l-26.82,15v-30l26.82,15Z"/>
+      <path class="cls-4" d="M33.18,45l26.82,15v-30l-26.82,15Z"/>
+      <path class="cls-9" d="M60,90v-30l26.82,15-26.82,15Z"/>
+      <path class="cls-8" d="M60,90v-30l-26.82,15,26.82,15Z"/>
+      <path class="cls-7" d="M60,120v-30l-26.82-15-26.82,15,53.64,30Z"/>
+      <path class="cls-3" d="M113.64,60v30l-26.82-15,26.82-15Z"/>
+      <path class="cls-3" d="M6.37,60v30l26.81-15-26.81-15Z"/>
+      <path class="cls-5" d="M113.63,60l-26.81-15-26.82,15,26.82,15,26.81-15Z"/>
+      <path class="cls-5" d="M6.37,60l26.82-15,26.81,15-26.82,15-26.81-15Z"/>
+      <path class="cls-3" d="M113.64,30v30l-26.82-15,26.82-15Z"/>
+      <path class="cls-3" d="M6.37,30v30l26.82-15L6.37,30Z"/>
+      <path class="cls-4" d="M60,120v-30l26.82-15,26.82,15-53.64,30Z"/>
+    </g>
+  </g>
+</svg>

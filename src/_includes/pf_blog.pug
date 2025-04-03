@@ -19,7 +19,20 @@ mixin pf_description({title, description, tools} = {})
         p(class="text-xl w-full md:w-3/4 p-def-2").
             !{description}
         p(class="text-xl w-full md:w-1/4 p-def-2") ↝ !{space(4)} Tools used
-        p(class="text-xl w-full md:w-3/4 p-def-2")= tools
+        div(class="text-xl w-full md:w-3/4 p-def-2")
+            - var tools = tools.split(", ")
+            each tool, index in tools
+                if tool in collections.icons 
+                    div(class="has-tooltip inline-block")
+                        span(class="tooltip align-middle p-1 bg-base-dark dark:bg-base-bright text-bg dark:text-bg-dark mt-12") !{tool}
+                        span(class="inline-block w-8 h-8 align-middle dark:invert")
+                            +handle_source({source:collections.icons[tool], aspect_ratio:"auto"})
+                        if index != tools.length-1
+                            span !{space(4)}
+                else if index == tools.length-1
+                    span #{tool}
+                else 
+                    span #{tool}, 
 
 mixin blog_description({title, description, tags, date} = {})
     div.flexcon
@@ -40,7 +53,9 @@ mixin pf_div({width="1/2", paddings=" p-def-2 py-def", ref} = {})
         div(class="w-full md:w-"+width+paddings)
             block
 
-mixin handle_source({source, eval_aspect_ratio, has_sound, sizes, id} = {})
+mixin handle_source({source, aspect_ratio, has_sound, id} = {})
+    include _eval_ar_sizes.pug
+
     if filters.is_video(source)
         video(class=eval_aspect_ratio+" w-full object-cover" loop controls=has_sound autoplay=!has_sound muted=!has_sound playsinline src=source id=id) 
     else if filters.is_svg(source)
@@ -49,8 +64,6 @@ mixin handle_source({source, eval_aspect_ratio, has_sound, sizes, id} = {})
         +responsive_image(source, sizes, id)(alt="" class=eval_aspect_ratio+" w-full object-cover")
 
 mixin pf_img({name, source, ref, width="1/2", aspect_ratio="1/1", description, has_sound=false, name_classes="", description_classes="", blog=false, carousel_interval} = {})
-    include _eval_ar_sizes.pug
-    
     if (blog)
         - var paddings = " "
     +pf_div({width:width, paddings:paddings, ref:ref})
@@ -60,11 +73,12 @@ mixin pf_img({name, source, ref, width="1/2", aspect_ratio="1/1", description, h
             - var hash_id = Math.random().toString(36).substring(7)
             - var carousel_id = 0
             each source in og_source
-                +handle_source({source:source, eval_aspect_ratio:eval_aspect_ratio, has_sound:has_sound, sizes:sizes, id:hash_id+"-"+carousel_id})
+                //- - console.log("Handling source "+source + " with id "+hash_id+"-"+carousel_id)
+                +handle_source({source:source, aspect_ratio:aspect_ratio, has_sound:has_sound, id:hash_id+"-"+carousel_id})
                 - carousel_id++
             +carousel_script({id:hash_id, interval:carousel_interval})
         else
-            +handle_source({source:source, eval_aspect_ratio:eval_aspect_ratio, has_sound:has_sound, sizes:sizes})
+            +handle_source({source:source, aspect_ratio:aspect_ratio, has_sound:has_sound})
         div(class="w-full items-start leading-none mt-1")
             if name
                 if description
