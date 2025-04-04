@@ -69,6 +69,16 @@
         "width": "full"
     },
     {
+        "text": "Seeing as this project took quite some time (on and off two years), the style evolved rather a bit. Going from the whimsical, summer-like bright turquoise in the beginning - just like the inspiration -, turning more into the muddy, darker vibe of the abandoned mall; though still less aquatic than its original scene in The Last Of Us: Part 2 (if you haven't noticed yet). <br><br>I believe this emphasizes the feeling of getting pulled into the Other Side of the door and makes for a more rounded palette.",
+        "type": "text",
+        "width": "1/3"
+    },
+    {
+        "text": " ",
+        "type": "spacer",
+        "width": "1/6"
+    },
+    {
         "title": "",
         "src": ["/images/projects/suzume/wip1.png", "/images/projects/suzume/wip2.png", "/images/projects/suzume/wip3.png", "/images/projects/suzume/wip4.jpg", "/images/projects/suzume/wip5.jpg", "/images/projects/suzume/wip6.png", "/images/projects/suzume/wip7.jpg", "/images/projects/suzume/wip8.jpg"],
         "aspect_ratio": "1/1",
