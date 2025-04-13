@@ -59,6 +59,77 @@
         "width": "full"
     },
     {
+        "text": "If you're a certified gamer, you might recognize the scene's background being eerily similar to the mall level in The Last Of Us: Part 2 (just less aquatic). However, this \"model\" that I was handed had two big problems: <br>a) All Instances of Objects were'nt cloned, but separate objects (inefficient as hell with about 10.000 objects), and <br>b) No materials were assigned and I was only handed a folder with a ton of raw texture files - in DDS format.",
+        "type": "text",
+        "width": "1/3"
+    },
+    {
+        "multi":true,
+        "width": "1/3",
+        "media":[
+        {
+            "text": "We have the red and green channel and want to calculate the blue value. Knowing that the vector defining the normal is uniform, that is to say, has length 1, we can set up the formula defining the length of the vector:<br> ",
+            "type": "text",
+            "width": "full"
+        },
+        {
+            "title": "",
+            "src": "/images/projects/suzume/normform1.svg",
+            "aspect_ratio": "auto",
+            "width": "full"
+        },
+        {
+            "text": "<br>which can easily be rearranged as<br> ",
+            "type": "text",
+            "width": "full"
+        },
+        {
+            "title": "",
+            "src": "/images/projects/suzume/normform2.svg",
+            "aspect_ratio": "auto",
+            "width": "full"
+        },
+        {
+            "text": "<br>Using this, I wrote two Python scripts to convert the DDS texture files to PNG, as well as to convert the Red-Green-Normals to the standard RGB Normals which most 3D render engines expect.",
+            "type": "text",
+            "width": "full"
+        }
+        ]
+    },
+    {
+        "multi":true,
+        "width": "1/3",
+        "media":[
+        {
+            "text": "We have the red and green channel and want to calculate the blue value. Knowing that the vector defining the normal is uniform, that is to say, has length 1, we can set up the formula defining the length of the vector:<br> ",
+            "type": "text",
+            "width": "full"
+        },
+        {
+            "title": "",
+            "src": "/images/projects/suzume/normform1.svg",
+            "aspect_ratio": "auto",
+            "width": "full"
+        },
+        {
+            "text": "<br>which can easily be rearranged as<br> ",
+            "type": "text",
+            "width": "full"
+        },
+        {
+            "title": "",
+            "src": "/images/projects/suzume/normform2.svg",
+            "aspect_ratio": "auto",
+            "width": "full"
+        },
+        {
+            "text": "<br>Using this, I wrote two Python scripts to convert the DDS texture files to PNG, as well as to convert the Red-Green-Normals to the standard RGB Normals which most 3D render engines expect.",
+            "type": "text",
+            "width": "full"
+        }
+        ]
+    },
+    {
         "text": " ",
         "type": "spacer",
         "width": "full"
@@ -69,7 +140,7 @@
         "width": "full"
     },
     {
-        "text": "Seeing as this project took quite some time (on and off two years), the style evolved rather a bit. Going from the whimsical, summer-like bright turquoise in the beginning - just like the inspiration -, turning more into the muddy, darker vibe of the abandoned mall; though still less aquatic than its original scene in The Last Of Us: Part 2 (if you haven't noticed yet). <br><br>I believe this emphasizes the feeling of getting pulled into the Other Side of the door and makes for a more rounded palette.",
+        "text": "Seeing as this project took quite some time (on and off two years), the style evolved rather a bit. Going from the whimsical, summer-like bright turquoise in the beginning - just like the inspiration -, turning more into the muddy, darker vibe of the abandoned mall. <br><br>I believe this emphasizes the feeling of getting pulled into the Other Side of the door and makes for a more rounded palette.",
         "type": "text",
         "width": "1/3"
     },

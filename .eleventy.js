@@ -2,6 +2,7 @@ const fs = require("fs");
 const fg = require("fast-glob");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const Image = require("@11ty/eleventy-img")
+const mathjaxPlugin = require("eleventy-plugin-mathjax");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const path = require('path')
 
@@ -74,6 +75,7 @@ module.exports = (function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/css/prism-min.css")
 
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
+    eleventyConfig.addPlugin(mathjaxPlugin);
     eleventyConfig.addPlugin(syntaxHighlight);
 
     eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);

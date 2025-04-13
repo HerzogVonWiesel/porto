@@ -53,7 +53,7 @@ mixin pf_div({width="1/2", paddings=" p-def-2 py-def", ref} = {})
         div(class="w-full md:w-"+width+paddings)
             block
 
-mixin handle_source({source, aspect_ratio, has_sound, id} = {})
+mixin handle_source({source, aspect_ratio, width="full", has_sound, id} = {})
     include _eval_ar_sizes.pug
 
     if filters.is_video(source)
@@ -74,11 +74,11 @@ mixin pf_img({name, source, ref, width="1/2", aspect_ratio="1/1", description, h
             - var carousel_id = 0
             each source in og_source
                 //- - console.log("Handling source "+source + " with id "+hash_id+"-"+carousel_id)
-                +handle_source({source:source, aspect_ratio:aspect_ratio, has_sound:has_sound, id:hash_id+"-"+carousel_id})
+                +handle_source({source:source, aspect_ratio:aspect_ratio, width:width, has_sound:has_sound, id:hash_id+"-"+carousel_id})
                 - carousel_id++
             +carousel_script({id:hash_id, interval:carousel_interval})
         else
-            +handle_source({source:source, aspect_ratio:aspect_ratio, has_sound:has_sound})
+            +handle_source({source:source, aspect_ratio:aspect_ratio, width:width, has_sound:has_sound})
         div(class="w-full items-start leading-none mt-1")
             if name
                 if description
