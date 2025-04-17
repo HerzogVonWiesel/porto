@@ -23,16 +23,17 @@ mixin responsive_image(path, sizes, id="res-img")
 
 mixin carousel_script({id="carousel", interval=800} = {})
   script.
-    let currentIndex = 0;
+    let currentIndex!{id} = 0;
     // Get all images with the id of carousel
-    const images = document.querySelectorAll('[id^="!{id}-"]');
-    //- console.log(images);
-    for (let i = 1; i < images.length; i++) {
-      images[i].style.display = 'none';
+    const images!{id} = document.querySelectorAll('[id^="!{id}-"]');
+    //- console.log(images!{id});
+    for (let i = 1; i < images!{id}.length; i++) {
+      images!{id}[i].style.display = 'none';
     }
-    function changeImage() {
-      images[currentIndex].style.display = 'none';
-      currentIndex = (currentIndex + 1) % images.length;
-      images[currentIndex].style.display = 'block';
+    function changeImage!{id}() {
+      images!{id}[currentIndex!{id}].style.display = 'none';
+      currentIndex!{id} = (currentIndex!{id} + 1) % images!{id}.length;
+      images!{id}[currentIndex!{id}].style.display = 'block';
+      //- console.log("Current index: " + currentIndex!{id});
     }
-    setInterval(changeImage, !{interval});
+    setInterval(changeImage!{id}, !{interval});

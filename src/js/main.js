@@ -36,12 +36,15 @@ function random_light_color() {
     const hue = Math.floor(Math.random() * 360);
     // random saturation and lightness between 50% and 100%
     const sat_min = 0;
-    const sat_max = 80;
-    const light_min = 80;
-    const light_max = 100;
+    const sat_max = 90;
+    const light_min = 85;
+    const light_max = 97;
     const saturation = randint(sat_min, sat_max);
     // const lightness = randint(scale(saturation, [sat_min, sat_max], [light_min, light_max]), light_max);
-    const lightness = randint(light_min, light_max);
+    var lightness = randint(light_min, light_max);
+    if (saturation > 50) {
+        lightness = Math.min(lightness + 5, 100);
+    }
     return [hue, saturation, lightness];
 }
 

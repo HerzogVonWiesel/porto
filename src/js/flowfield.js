@@ -155,6 +155,7 @@ function set_colors() {
         stroke=dark_stroke;
     }
     resetDrawing();
+    // console.log("Colors set to: ", bg, stroke);
 }
   
 document.addEventListener("color_change", change_color, false);

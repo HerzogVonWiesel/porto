@@ -7,6 +7,9 @@ module.exports = {
   theme: {
     extend: {
       screens: {
+        '3xl': '1920px',
+        '4xl': '2560px',
+        '5xl': '3840px',
         'max-3xl': {'max': '1919px'},
         'max-4xl': {'max': '3839px'},
         'max-md': {'max': '767px'},
@@ -29,6 +32,9 @@ module.exports = {
       },
       fontSize: {
         blog: "1.15rem",
+        '2-5xl': ["1.7rem", "2.125rem"],
+        // lg: '1.125rem',
+        // xl: '1.25rem',
       },
       spacing: {
         'def': '0.75rem',
@@ -43,6 +49,9 @@ module.exports = {
         '3/8': '37.5%',
         '5/8': '62.5%',
         '7/8': '87.5%',
+        '1/10': '10%',
+        '1/12': '8.33333%',
+        '1/15': '6.66667%',
         '7/16': '43.75%',
       },
 

@@ -12,7 +12,7 @@ extends /_layouts/template
 block content
     - var cur_project = projects[project]
     - title = project
-    //- console.log("Creating project "+cur_project.name)
+    //- - console.log("Creating project "+cur_project.name)
     +divider(14)
     +pf_description({title: cur_project.name, description: cur_project.description, tools: cur_project.tools})
     +divider(14)

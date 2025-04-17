@@ -19,11 +19,11 @@ mixin pf_description({title, description, tools} = {})
         p(class="text-xl w-full md:w-3/4 p-def-2").
             !{description}
         p(class="text-xl w-full md:w-1/4 p-def-2") ↝ !{space(4)} Tools used
-        div(class="text-xl w-full md:w-3/4 p-def-2")
+        div(class="text-xl w-full md:w-3/4 p-def-2 -mb-def-2")
             - var tools = tools.split(", ")
             each tool, index in tools
                 if tool in collections.icons 
-                    div(class="has-tooltip inline-block")
+                    div(class="has-tooltip tabindex="+index+" inline-block pb-def-2")
                         span(class="tooltip align-middle p-1 bg-base-dark dark:bg-base-bright text-bg dark:text-bg-dark mt-12") !{tool}
                         span(class="inline-block w-8 h-8 align-middle dark:invert")
                             +handle_source({source:collections.icons[tool], aspect_ratio:"auto"})
@@ -79,12 +79,12 @@ mixin pf_img({name, source, ref, width="1/2", aspect_ratio="1/1", description, h
             +carousel_script({id:hash_id, interval:carousel_interval})
         else
             +handle_source({source:source, aspect_ratio:aspect_ratio, width:width, has_sound:has_sound})
-        div(class="w-full items-start leading-none mt-1")
+        div(class="w-full items-start leading-none mt-1 flex")
             if name
                 if description
-                    - name = name+" • "
+                    //- - name = name+" • "
                 span(class=""+name_classes)= name
-                span(class="text-xs"+description_classes)= description
+                span(class="text-xs ml-auto"+description_classes)= description
 
 mixin pf_text({text, type, ref, width="1/2", text_classes="", padding} = {})
     +pf_div({width:width, paddings:padding, ref:ref})
@@ -97,6 +97,8 @@ mixin pf_text({text, type, ref, width="1/2", text_classes="", padding} = {})
                 h3(class=""+text_classes)= text
             else 
                 if (text_classes == "")
-                    - text_classes = "md:text-xl"
+                    - text_classes = "md:text-lg"
+                if text.includes("\n")
+                    - text = text.replace(/\n/g, "<br>")
                 p(class=""+text_classes).
                     !{text}
