@@ -5,78 +5,78 @@
     "description": "Exploring the different effects one can achieve using only Refraction and Dispersion inside of Redshift.",
     "tools": "Cinema 4D, Redshift, Photoshop",
     "cover_img": "/images/projects/aurora/rund_cover.png",
-    "aspect_ratio": "1/1",
-    "width": "1/2",
-    "media": [{
-        "title": "mountain",
-        "src": "/images/projects/aurora/au1.jpg",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    },
-    {
-        "title": "edge",
-        "src": "/images/projects/aurora/au2.jpg",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    },
-    {
-        "title": "city",
-        "src": "/images/projects/aurora/au3.jpg",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    },
-    {
-        "title": "vinyl",
-        "src": "/images/projects/aurora/au4.jpg",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    },
-    {
-        "title": "round",
-        "src": "/images/projects/aurora/au5.jpg",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    },
-    {
-        "title": "tubey",
-        "src": "/images/projects/aurora/au6.jpg",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    },
-    {
-        "title": "foil",
-        "src": "/images/projects/aurora/au7.png",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    },
-    {
-        "title": "eye",
-        "src": "/images/projects/aurora/au8.png",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    },
-    {
-        "title": "borealis",
-        "src": "/images/projects/aurora/au9.png",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    },
-    {
-        "title": "scar",
-        "src": "/images/projects/aurora/au10.png",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    },
-    {
-        "title": "fire",
-        "src": "/images/projects/aurora/au11.png",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    },
-    {
-        "title": "passed - the project that started it all",
-        "src": "/images/projects/aurora/au13.png",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    }]
+    "media": [
+        {
+            "title": "mountain",
+            "src": "/images/projects/aurora/au1.jpg",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        },
+        {
+            "title": "edge",
+            "src": "/images/projects/aurora/au2.jpg",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        },
+        {
+            "title": "city",
+            "src": "/images/projects/aurora/au3.jpg",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        },
+        {
+            "title": "vinyl",
+            "src": "/images/projects/aurora/au4.jpg",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        },
+        {
+            "title": "round",
+            "src": "/images/projects/aurora/au5.jpg",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        },
+        {
+            "title": "tubey",
+            "src": "/images/projects/aurora/au6.jpg",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        },
+        {
+            "title": "foil",
+            "src": "/images/projects/aurora/au7.png",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        },
+        {
+            "title": "eye",
+            "src": "/images/projects/aurora/au8.png",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        },
+        {
+            "title": "borealis",
+            "src": "/images/projects/aurora/au9.png",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        },
+        {
+            "title": "scar",
+            "src": "/images/projects/aurora/au10.png",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        },
+        {
+            "title": "fire",
+            "src": "/images/projects/aurora/au11.png",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        },
+        {
+            "title": "passed - the project that started it all",
+            "src": "/images/projects/aurora/au13.png",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        }
+    ]
 }

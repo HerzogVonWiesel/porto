@@ -5,80 +5,78 @@
     "description": "Italians talk with their hands. A lot. Did you know that there are over 250 different hand gestures in Italy for communicating non-verbally? One of them seems to stand out - simply named the <i>italian hands</i> or more formally <i>che vuoi</i>. For a client project I was tasked with finding a way to make the country of italy talk if you will, incorporating the hand gesture into the topography of the country in a 3D scene. The result is a playful scene, catching the eye and incorporating the culture in a fun way. <br><br>To incorporate the gesture into the topography, we first need, well, the topography. As I was familiar with gathering scientific data, I wrote a small Python script to download and puzzle together the needed satellite data as a heightmap. Though how do we go on from here, making the hand be a part of this heightmap?",
     "tools": "World Creator, Python, Cinema 4D, Redshift, Photoshop",
     "cover_img": "/images/projects/chevuoi/Final_Web.mp4",
-    "aspect_ratio": "2/1",
-    "width": "1/2",
     "media": [
-    {
-        "title": "Final video after a lot of revisions",
-        "src": "/images/projects/chevuoi/Final.mp4",
-        "aspect_ratio": "auto",
-        "width": "full"
-    },
-    {
-        "text": " ",
-        "type": "spacer",
-        "width": "full"
-    },
-    {
-        "title": "",
-        "src": "/images/projects/chevuoi/sd_hand.png",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    },
-    {
-        "title": "",
-        "src": "/images/projects/chevuoi/depth_hand.mp4",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    },
-    {
-        "text": " ",
-        "type": "spacer",
-        "width": "full"
-    },
-    {
-        "text": "So I got a 3D scan of a hand doing the specific gesture I found on a 3D-printing platform and exported a depth map from the angle I needed. Now it's just a tad too smooth to really look like it is part of a map, doesn't it? I remembered using a software called <i>World Creator</i> a few years back to create quick landscapes. I booted it up and went straight ahead experimenting with the hand's depth map, applying various kinds of erosion and noise to make it look like it was part of a huge mountain riff. <br><br>After a few iterations, I was happy with the result and exported the simulated and eroded heightmap to Photoshop, where I merged it with the original height data of the map of Europe.",
-        "type": "text",
-        "width": "1/4"
-    },
-    {
-        "title": "Speedrun of the process in World Creator",
-        "src": "/images/projects/chevuoi/world_creator.mp4",
-        "aspect_ratio": "auto",
-        "width": "3/4"
-    },
-    {
-        "text": " ",
-        "type": "spacer",
-        "width": "full"
-    },
-    {
-        "text": "Style development",
-        "type": "header",
-        "width": "full"
-    },
-    {
-        "title": "Satellite image",
-        "src": "/images/projects/chevuoi/wip1.png",
-        "aspect_ratio": "4/3",
-        "width": "1/3"
-    },
-    {
-        "title": "Stylized vintage map",
-        "src": "/images/projects/chevuoi/wip2.png",
-        "aspect_ratio": "4/3",
-        "width": "1/3"
-    },
-    {
-        "title": "Stylized globe",
-        "src": "/images/projects/chevuoi/wip3.jpg",
-        "aspect_ratio": "4/3",
-        "width": "1/3"
-    },
-    {
-        "text": "Having the finished heightmap on hand, I went through a few iterations and revisions of different styles incorporating the client's feedback until we settled on the final look. A little more polishing, rigging the map using some simple bones, animating the camera and I was ready to roll the final render and send it off to the post-team.",
-        "type": "text",
-        "width": "full"
-    }
+        {
+            "title": "Final video after a lot of revisions",
+            "src": "/images/projects/chevuoi/Final.mp4",
+            "aspect_ratio": "auto",
+            "width": "full"
+        },
+        {
+            "text": " ",
+            "type": "spacer",
+            "width": "full"
+        },
+        {
+            "title": "",
+            "src": "/images/projects/chevuoi/sd_hand.png",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        },
+        {
+            "title": "",
+            "src": "/images/projects/chevuoi/depth_hand.mp4",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        },
+        {
+            "text": " ",
+            "type": "spacer",
+            "width": "full"
+        },
+        {
+            "text": "So I got a 3D scan of a hand doing the specific gesture I found on a 3D-printing platform and exported a depth map from the angle I needed. Now it's just a tad too smooth to really look like it is part of a map, doesn't it? I remembered using a software called <i>World Creator</i> a few years back to create quick landscapes. I booted it up and went straight ahead experimenting with the hand's depth map, applying various kinds of erosion and noise to make it look like it was part of a huge mountain riff. <br><br>After a few iterations, I was happy with the result and exported the simulated and eroded heightmap to Photoshop, where I merged it with the original height data of the map of Europe.",
+            "type": "text",
+            "width": "1/4"
+        },
+        {
+            "title": "Speedrun of the process in World Creator",
+            "src": "/images/projects/chevuoi/world_creator.mp4",
+            "aspect_ratio": "auto",
+            "width": "3/4"
+        },
+        {
+            "text": " ",
+            "type": "spacer",
+            "width": "full"
+        },
+        {
+            "text": "Style development",
+            "type": "header",
+            "width": "full"
+        },
+        {
+            "title": "Satellite image",
+            "src": "/images/projects/chevuoi/wip1.png",
+            "aspect_ratio": "4/3",
+            "width": "1/3"
+        },
+        {
+            "title": "Stylized vintage map",
+            "src": "/images/projects/chevuoi/wip2.png",
+            "aspect_ratio": "4/3",
+            "width": "1/3"
+        },
+        {
+            "title": "Stylized globe",
+            "src": "/images/projects/chevuoi/wip3.jpg",
+            "aspect_ratio": "4/3",
+            "width": "1/3"
+        },
+        {
+            "text": "Having the finished heightmap on hand, I went through a few iterations and revisions of different styles incorporating the client's feedback until we settled on the final look. A little more polishing, rigging the map using some simple bones, animating the camera and I was ready to roll the final render and send it off to the post-team.",
+            "type": "text",
+            "width": "full"
+        }
     ]
 }

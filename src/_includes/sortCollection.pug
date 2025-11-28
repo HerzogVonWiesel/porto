@@ -1,20 +1,121 @@
 -
--
     let sortedPortfolio = [];
     let sortedPortfolioLookup = null;
-    function getSortedPortfolio(){
-        if (sortedPortfolio.length == 0){
-            console.log("Sorting projects...")
-            const entries = Object.entries(projects);
-            //sortedPortfolio = entries.sort((a, b) => b[1].order - a[1].order);
-            sortedPortfolio = entries.sort((a, b) => project_order.indexOf(a[0])- project_order.indexOf(b[0]));
+
+    function ensureArray(entry){
+        return Array.isArray(entry) ? entry : [];
+    }
+
+    function resolveProject(slug){
+        const project = projects[slug];
+        if (!project){
+            console.warn(`Project "${slug}" referenced in project_order.yaml but missing in /src/_data/projects`);
+        }
+        return project;
+    }
+
+    function normalizeLayout(entry){
+        if (typeof entry === "string"){
+            entry = { project: entry };
         }
 
+        if (!entry){
+            return null;
+        }
+
+        if (entry.multi){
+            const children = ensureArray(entry.items || entry.media).map(normalizeLayout).filter(Boolean);
+            if (!children.length){
+                return null;
+            }
+            return {
+                type: "multi",
+                width: entry.width || "full",
+                paddings: entry.paddings || " ",
+                items: children
+            };
+        }
+
+        if (entry.project){
+            const project = resolveProject(entry.project);
+            if (!project){
+                return null;
+            }
+            return {
+                type: "project",
+                slug: entry.project,
+                width: entry.width || project.width || "1/2",
+                aspect_ratio: entry.aspect_ratio || project.aspect_ratio || "1/1",
+                ref: entry.ref || `/projects/${entry.project}/`,
+                data: project
+            };
+        }
+
+        if (entry.text){
+            return {
+                type: "text",
+                width: entry.width || "full",
+                text: entry.text,
+                text_type: entry.type || "text",
+                ref: entry.ref,
+                text_classes: entry.text_classes,
+                padding: entry.padding
+            };
+        }
+
+        return null;
+    }
+
+    function buildPortfolio(){
+        if (sortedPortfolio.length === 0){
+            const initial = ensureArray(project_order).map(normalizeLayout).filter(Boolean);
+            const includedProjects = new Set();
+
+            const markIncluded = (entry) => {
+                if (!entry){
+                    return;
+                }
+                if (entry.type === "project"){
+                    includedProjects.add(entry.slug);
+                } else if (entry.type === "multi"){
+                    ensureArray(entry.items).forEach(markIncluded);
+                }
+            };
+
+            initial.forEach(markIncluded);
+
+            Object.keys(projects).forEach(slug => {
+                if (!includedProjects.has(slug)){
+                    const fallback = normalizeLayout({ project: slug });
+                    if (fallback){
+                        initial.push(fallback);
+                    }
+                }
+            });
+
+            sortedPortfolio = initial;
+        }
         return sortedPortfolio;
     }
+
+    function getSortedPortfolio(){
+        return buildPortfolio();
+    }
+
     function getSortedPortfolioLookup(){
         if (!sortedPortfolioLookup){
-            sortedPortfolioLookup = Object.fromEntries(getSortedPortfolio());
+            sortedPortfolioLookup = {};
+            buildPortfolio().forEach(entry => {
+                if (entry.type === "project"){
+                    sortedPortfolioLookup[entry.slug] = entry;
+                } else if (entry.type === "multi"){
+                    ensureArray(entry.items).forEach(child => {
+                        if (child.type === "project"){
+                            sortedPortfolioLookup[child.slug] = child;
+                        }
+                    });
+                }
+            });
         }
 
         return sortedPortfolioLookup;

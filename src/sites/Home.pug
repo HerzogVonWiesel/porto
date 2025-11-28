@@ -30,18 +30,22 @@ block content
         h1(class="max-md:hidden") SELECTED <br> !{space(11)} PROJECTS ︎︎︎
         h1(class="md:hidden") SELECTED <br> PROJECTS ︎︎︎
     div.flexcon
-        +pf_div({width:"1/2"})
-            +pf_text({text:"Selected <br> &nbsp;&nbsp;&nbsp;&nbsp;Projects", type:"header", ref:none, width:"full"})
-            +pf_text({text:" ", type:"text", ref:none, width:"full"})
-            +pf_text({text:"Curated <br> Works", type:"subheader", ref:none, width:"full", text_classes:"text-right"})
-            +pf_text({text:" ", type:"text", ref:none, width:"full"})
-            +pf_text({text:"Portfolio", type:"subsubheader", ref:none, width:"full"})
         - let sortedProjects = getSortedPortfolio();
-        - let sortedProjectsLookup = getSortedPortfolioLookup();
-        - console.log(sortedProjectsLookup);
-        each project in sortedProjects
-            - var proj_ref = `/projects/${project[0]}/`;
-            - var project_details = project[1];
-            //- console.log(project_details.name);
-            if (!project_details.hidden)
-                +pf_img({name:project_details.name, source:project_details.cover_img, width:project_details.width, aspect_ratio:project_details.aspect_ratio, ref:proj_ref, description:project_details.subtitle+", "+project_details.year})
+        each block in sortedProjects
+            if (block.type === "project")
+                - const projectDetails = block.data;
+                if (!projectDetails.hidden)
+                    - const description = projectDetails.subtitle ? projectDetails.subtitle+", "+projectDetails.year : projectDetails.year;
+                    +pf_img({name:projectDetails.name, source:projectDetails.cover_img, width:block.width, aspect_ratio:block.aspect_ratio, ref:block.ref, description:description})
+            else if (block.type === "multi")
+                +pf_div({width:block.width, paddings:block.paddings, classes:"content-between grid"})
+                    each item in block.items
+                        if (item.type === "project")
+                            - const nestedDetails = item.data;
+                            if (!nestedDetails.hidden)
+                                - const nestedDescription = nestedDetails.subtitle ? nestedDetails.subtitle+", "+nestedDetails.year : nestedDetails.year;
+                                +pf_img({name:nestedDetails.name, source:nestedDetails.cover_img, width:item.width, aspect_ratio:item.aspect_ratio, ref:item.ref, description:nestedDescription})
+                        else if (item.type === "text")
+                            +pf_text({text:item.text, type:item.text_type, ref:item.ref, width:item.width, text_classes:item.text_classes, padding:item.padding})
+            else if (block.type === "text")
+                +pf_text({text:block.text, type:block.text_type, ref:block.ref, width:block.width, text_classes:block.text_classes, padding:block.padding})

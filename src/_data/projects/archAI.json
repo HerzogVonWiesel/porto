@@ -5,66 +5,66 @@
     "description": "I fine-trained the OpenAI 512x512 diffusion model on 30.000 images of the AIDA architecture database of the Harvard dataverse, with more or less success. For higher resolution results, I used Topaz Gigapixel AI to upscale all 30k training images to 512x512. I let the training run for 1.5 million iterations, after which the model seemed to overfit and you could see upscaling artifacts more clearly while quality did not improve. <br>If you are interested in giving my fine-tuned model a whirl, just head to <a href='https://colab.research.google.com/github/WASasquatch/discostream/blob/main/DiscoStream.ipynb#scrollTo=ModelSettings'>the DiscoStream Colab notebook and select <em>Architecture_Diffusion_1-5m</em> →</a>",
     "tools": "Python, Topaz Gigapixel, Disco Diffusion",
     "cover_img": "/images/projects/archAI/custom1.png",
-    "aspect_ratio": "2/1",
-    "width": "1/2",
-    "media": [{
-        "title": "Modern architecture 1, Fine-trained model by me",
-        "src": "/images/projects/archAI/custom0.png",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    },
-    {
-        "title": "Modern architecture 1, OpenAI unconditional model",
-        "src": "/images/projects/archAI/truth0.png",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    },
-    {
-        "title": "Modern architecture 2, Fine-trained model by me",
-        "src": "/images/projects/archAI/custom1.png",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    },
-    {
-        "title": "Modern architecture 2, OpenAI unconditional model",
-        "src": "/images/projects/archAI/truth1.png",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    },
-    {
-        "title": "Modern architecture 3, Fine-trained model by me",
-        "src": "/images/projects/archAI/custom2.png",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    },
-    {
-        "title": "Modern architecture 3, OpenAI unconditional model",
-        "src": "/images/projects/archAI/truth2.png",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    },
-    {
-        "title": "Modern architecture 4, Fine-trained model by me",
-        "src": "/images/projects/archAI/custom3.png",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    },
-    {
-        "title": "Modern architecture 4, OpenAI unconditional model",
-        "src": "/images/projects/archAI/truth3.png",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    },
-    {
-        "title": "Modern jungle bio-architecture, Fine-trained model by me",
-        "src": "/images/projects/archAI/jungle.png",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    },
-    {
-        "title": "Modern jungle bio-architecture, Diffusion steps visualisation",
-        "src": "/images/projects/archAI/jungle_progress.png",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    }]
+    "media": [
+        {
+            "title": "Modern architecture 1, Fine-trained model by me",
+            "src": "/images/projects/archAI/custom0.png",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        },
+        {
+            "title": "Modern architecture 1, OpenAI unconditional model",
+            "src": "/images/projects/archAI/truth0.png",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        },
+        {
+            "title": "Modern architecture 2, Fine-trained model by me",
+            "src": "/images/projects/archAI/custom1.png",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        },
+        {
+            "title": "Modern architecture 2, OpenAI unconditional model",
+            "src": "/images/projects/archAI/truth1.png",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        },
+        {
+            "title": "Modern architecture 3, Fine-trained model by me",
+            "src": "/images/projects/archAI/custom2.png",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        },
+        {
+            "title": "Modern architecture 3, OpenAI unconditional model",
+            "src": "/images/projects/archAI/truth2.png",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        },
+        {
+            "title": "Modern architecture 4, Fine-trained model by me",
+            "src": "/images/projects/archAI/custom3.png",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        },
+        {
+            "title": "Modern architecture 4, OpenAI unconditional model",
+            "src": "/images/projects/archAI/truth3.png",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        },
+        {
+            "title": "Modern jungle bio-architecture, Fine-trained model by me",
+            "src": "/images/projects/archAI/jungle.png",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        },
+        {
+            "title": "Modern jungle bio-architecture, Diffusion steps visualisation",
+            "src": "/images/projects/archAI/jungle_progress.png",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        }
+    ]
 }

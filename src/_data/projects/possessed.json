@@ -6,30 +6,30 @@
     "description": "Breakdown of a scene inspired by one of my favorite games, Oxenfree. One of my first projects after a three year hiatus from 3D.<br>Again a ton of fun trying to get the environment and the ambience right!",
     "tools": "Cinema 4D, Octane",
     "cover_img": "/images/projects/possessed/final.jpg",
-    "aspect_ratio": "5/2",
-    "width": "1/2",
-    "media": [{
-        "title": "Final wide shot",
-        "src": "/images/projects/possessed/final.jpg",
-        "aspect_ratio": "auto",
-        "width": "full"
-    },
-    {
-        "title": "Daylight lighting",
-        "src": "/images/projects/possessed/daylight.jpg",
-        "aspect_ratio": "auto",
-        "width": "full"
-    },
-    {
-        "title": "Clay render",
-        "src": "/images/projects/possessed/clay.jpg",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    },
-    {
-        "title": "Wireframe render (very creepy)",
-        "src": "/images/projects/possessed/wireframe.jpg",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    }]
+    "media": [
+        {
+            "title": "Final wide shot",
+            "src": "/images/projects/possessed/final.jpg",
+            "aspect_ratio": "auto",
+            "width": "full"
+        },
+        {
+            "title": "Daylight lighting",
+            "src": "/images/projects/possessed/daylight.jpg",
+            "aspect_ratio": "auto",
+            "width": "full"
+        },
+        {
+            "title": "Clay render",
+            "src": "/images/projects/possessed/clay.jpg",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        },
+        {
+            "title": "Wireframe render (very creepy)",
+            "src": "/images/projects/possessed/wireframe.jpg",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        }
+    ]
 }

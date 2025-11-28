@@ -6,24 +6,24 @@
     "description": "Inspired by the anime 'Your Lie in April' and @james_films works. Stunning visuals in both the former and the latter.",
     "tools": "Cinema 4D, Redshift, Photoshop",
     "cover_img": "/images/projects/hikaru/final.jpg",
-    "aspect_ratio": "1/1",
-    "width": "1/2",
-    "media": [{
-        "title": "Final Render",
-        "src": "/images/projects/hikaru/final.jpg",
-        "aspect_ratio": "auto",
-        "width": "full"
-    },
-    {
-        "title": "Raw render",
-        "src": "/images/projects/hikaru/raw.jpg",
-        "aspect_ratio": "3/5",
-        "width": "1/2"
-    },
-    {
-        "title": "Viewport wireframe setup",
-        "src": "/images/projects/hikaru/viewport.jpg",
-        "aspect_ratio": "3/5",
-        "width": "1/2"
-    }]
+    "media": [
+        {
+            "title": "Final Render",
+            "src": "/images/projects/hikaru/final.jpg",
+            "aspect_ratio": "auto",
+            "width": "full"
+        },
+        {
+            "title": "Raw render",
+            "src": "/images/projects/hikaru/raw.jpg",
+            "aspect_ratio": "3/5",
+            "width": "1/2"
+        },
+        {
+            "title": "Viewport wireframe setup",
+            "src": "/images/projects/hikaru/viewport.jpg",
+            "aspect_ratio": "3/5",
+            "width": "1/2"
+        }
+    ]
 }

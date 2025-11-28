@@ -6,156 +6,154 @@
     "description": "\"Six European championships, a sensational lap record on the Nürburgring and the first ever BMW Art Car – wherever the BMW 3.0 CSL turned up, it stood out from the crowd.\" <br><br>To get up to speed with a new render engine - Arnold - I decided on a texturing & lighting exercise using the iconic 70s dream BMW. Featuring some cool node math and dabbling in sound design!",
     "tools": "Cinema 4D, Arnold, After Effects, Ableton, Topaz VideoAI",
     "cover_img": "/images/projects/1973/A_1_2.png",
-    "aspect_ratio": "1/1",
-    "width": "1/2",
     "media": [
-    {
-        "title": "Final video",
-        "src": "/images/projects/1973/Fin_updated.mp4",
-        "aspect_ratio": "auto",
-        "width": "1/2",
-        "has_sound": true
-    },
-    {
-        "text": " ",
-        "type": "spacer",
-        "width": "1/6"
-    },
-    {
-        "multi":true,
-        "media":[
-            {
-                "text": "Dream on",
-                "type": "header",
-                "width": "full"
-            },
-            {
-                "text": "..by legendary rock band <i>Aerosmith</i> felt like the perfect match, especially in the orchestral rendition being the favorite of mine and many others. Born in the same year as this legendary \"Batmobile\", the song captures the ambition about \"the hunger to be somebody,\" that mirrors BMW's own hunger to create something extraordinary. Just like the 3.0 CSL with its aluminum body and aggressive aerodynamics was destined for racing greatness, <i>Dream On</i> struggled initially before climbing the charts to become timeless. Some dreams, whether engineered in Munich or composed in New Hampshire, really do live forever.",
-                "type": "text",
-                "width": "full"
-            }
-        ],
-        "width": "1/3"
-    },
-    {
-        "text": " ",
-        "type": "spacer",
-        "width": "full"
-    },
-    {
-        "title": "",
-        "src": "/images/projects/1973/widebanner.png",
-        "aspect_ratio": "auto",
-        "width": "full"
-    },
-    {
-        "text": " ",
-        "type": "spacer",
-        "width": "full"
-    },
-    {
-        "text": "Like dusk to dawn",
-        "type": "header",
-        "width": "full"
-    },
-    {
-        "text": "This was the first project I experimented using light groups. Besides saving the final image, I could assign each light in the scene to a group, which then got saved out as separate images as well. As Arnold is a slow as heck render engine, this made it possible to iterate on the lighting setup without having to rerender the whole scene. <br><br>For the final video, I used the light groups to animate the lights turning on and off, creating a dynamic and moody atmosphere as well as even changing the color of the lights.",
-        "type": "text",
-        "width": "1/3"
-    },
-    {
-        "title": "",
-        "src": "/images/projects/1973/lightgroups.mp4",
-        "aspect_ratio": "auto",
-        "width": "2/3"
-    },
-    {
-        "text": " ",
-        "type": "spacer",
-        "width": "full"
-    },
-    {
-        "title": "",
-        "src": "/images/projects/1973/A_1.png",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    },
-    {
-        "title": "",
-        "src": "/images/projects/1973/B_1.png",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    },
-    {
-        "text": " ",
-        "type": "spacer",
-        "width": "full"
-    },
-    {
-        "text": "Look in the mirror",
-        "type": "header",
-        "width": "full"
-    },
-    {
-        "title": "",
-        "src": "/images/projects/1973/A_5.png",
-        "aspect_ratio": "auto",
-        "width": "1/3"
-    },
-    {
-        "text": "With normal reflection (like in a mirror), light follows the \"angle of incidence equals angle of reflection\" rule. Throw a ball at the wall at an angle, and it bounces away at the same angle in the opposite direction. That's why you need to stand directly in front of a mirror to see yourself. But retroreflective materials are special - they send light straight back to its source, no matter at which angle it gets shined on. This is why when you shine your car headlights at road signs or someone wearing a safety vest at night, they appear to \"light up\" so brightly, since you are looking at it from (basically) the same angle as the light source. <br><br>There are retroreflectors inside of the brakelights of the BMW, as well as numberplates having a retroreflective coating. To get the same effect in the render, I created a node setup that mimics this behaviour: I set the surface normal to always face the camera by negating the vector of the ray direction hitting the surface.",
-        "type": "text",
-        "width": "1/3"
-    },
-    {
-        "title": "",
-        "src": "/images/projects/1973/A_4.png",
-        "aspect_ratio": "auto",
-        "width": "1/3"
-    },
-    {
-        "text": " ",
-        "type": "spacer",
-        "width": "full"
-    },
-    {
-        "title": "",
-        "src": "/images/projects/1973/A_2.png",
-        "aspect_ratio": "auto",
-        "width": "2/5"
-    },
-    {
-        "title": "",
-        "src": "/images/projects/1973/A_3.png",
-        "aspect_ratio": "auto",
-        "width": "2/5"
-    },
-    {
-        "text": " ",
-        "type": "spacer",
-        "width": "full"
-    },
-    {
-        "text": "Until them dreams come true",
-        "type": "header",
-        "width": "full"
-    },
-    {
-        "text": "To save time and resources, I rendered out the scene at half the framerate, using Topaz' VideoAI to generate the missing frames. Due to the slow-moving camera and lights, it was a perfect candidate to do so. <br><br>I did the sound design in Ableton, which of course is rather a tool to create music, but it handled the job quite well. <br>This project was a ton of fun to work on and get into a new render engine, especially as a fan of classic cars. The BMW 3.0 CSL is a true icon of the 70s, and I hope I did it justice with this project.",
-        "type": "text",
-        "width": "1/5"
-    },
-    {
-        "title": "",
-        "src": "/images/projects/1973/B_4.png",
-        "aspect_ratio": "auto",
-        "width": "2/5"
-    },
-    {
-        "title": "",
-        "src": "/images/projects/1973/B_5.png",
-        "aspect_ratio": "auto",
-        "width": "2/5"
-    }
+        {
+            "title": "Final video",
+            "src": "/images/projects/1973/Fin_updated.mp4",
+            "aspect_ratio": "auto",
+            "width": "1/2",
+            "has_sound": true
+        },
+        {
+            "text": " ",
+            "type": "spacer",
+            "width": "1/6"
+        },
+        {
+            "multi": true,
+            "media": [
+                {
+                    "text": "Dream on",
+                    "type": "header",
+                    "width": "full"
+                },
+                {
+                    "text": "..by legendary rock band <i>Aerosmith</i> felt like the perfect match, especially in the orchestral rendition being the favorite of mine and many others. Born in the same year as this legendary \"Batmobile\", the song captures the ambition about \"the hunger to be somebody,\" that mirrors BMW's own hunger to create something extraordinary. Just like the 3.0 CSL with its aluminum body and aggressive aerodynamics was destined for racing greatness, <i>Dream On</i> struggled initially before climbing the charts to become timeless. Some dreams, whether engineered in Munich or composed in New Hampshire, really do live forever.",
+                    "type": "text",
+                    "width": "full"
+                }
+            ],
+            "width": "1/3"
+        },
+        {
+            "text": " ",
+            "type": "spacer",
+            "width": "full"
+        },
+        {
+            "title": "",
+            "src": "/images/projects/1973/widebanner.png",
+            "aspect_ratio": "auto",
+            "width": "full"
+        },
+        {
+            "text": " ",
+            "type": "spacer",
+            "width": "full"
+        },
+        {
+            "text": "Like dusk to dawn",
+            "type": "header",
+            "width": "full"
+        },
+        {
+            "text": "This was the first project I experimented using light groups. Besides saving the final image, I could assign each light in the scene to a group, which then got saved out as separate images as well. As Arnold is a slow as heck render engine, this made it possible to iterate on the lighting setup without having to rerender the whole scene. <br><br>For the final video, I used the light groups to animate the lights turning on and off, creating a dynamic and moody atmosphere as well as even changing the color of the lights.",
+            "type": "text",
+            "width": "1/3"
+        },
+        {
+            "title": "",
+            "src": "/images/projects/1973/lightgroups.mp4",
+            "aspect_ratio": "auto",
+            "width": "2/3"
+        },
+        {
+            "text": " ",
+            "type": "spacer",
+            "width": "full"
+        },
+        {
+            "title": "",
+            "src": "/images/projects/1973/A_1.png",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        },
+        {
+            "title": "",
+            "src": "/images/projects/1973/B_1.png",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        },
+        {
+            "text": " ",
+            "type": "spacer",
+            "width": "full"
+        },
+        {
+            "text": "Look in the mirror",
+            "type": "header",
+            "width": "full"
+        },
+        {
+            "title": "",
+            "src": "/images/projects/1973/A_5.png",
+            "aspect_ratio": "auto",
+            "width": "1/3"
+        },
+        {
+            "text": "With normal reflection (like in a mirror), light follows the \"angle of incidence equals angle of reflection\" rule. Throw a ball at the wall at an angle, and it bounces away at the same angle in the opposite direction. That's why you need to stand directly in front of a mirror to see yourself. But retroreflective materials are special - they send light straight back to its source, no matter at which angle it gets shined on. This is why when you shine your car headlights at road signs or someone wearing a safety vest at night, they appear to \"light up\" so brightly, since you are looking at it from (basically) the same angle as the light source. <br><br>There are retroreflectors inside of the brakelights of the BMW, as well as numberplates having a retroreflective coating. To get the same effect in the render, I created a node setup that mimics this behaviour: I set the surface normal to always face the camera by negating the vector of the ray direction hitting the surface.",
+            "type": "text",
+            "width": "1/3"
+        },
+        {
+            "title": "",
+            "src": "/images/projects/1973/A_4.png",
+            "aspect_ratio": "auto",
+            "width": "1/3"
+        },
+        {
+            "text": " ",
+            "type": "spacer",
+            "width": "full"
+        },
+        {
+            "title": "",
+            "src": "/images/projects/1973/A_2.png",
+            "aspect_ratio": "auto",
+            "width": "2/5"
+        },
+        {
+            "title": "",
+            "src": "/images/projects/1973/A_3.png",
+            "aspect_ratio": "auto",
+            "width": "2/5"
+        },
+        {
+            "text": " ",
+            "type": "spacer",
+            "width": "full"
+        },
+        {
+            "text": "Until them dreams come true",
+            "type": "header",
+            "width": "full"
+        },
+        {
+            "text": "To save time and resources, I rendered out the scene at half the framerate, using Topaz' VideoAI to generate the missing frames. Due to the slow-moving camera and lights, it was a perfect candidate to do so. <br><br>I did the sound design in Ableton, which of course is rather a tool to create music, but it handled the job quite well. <br>This project was a ton of fun to work on and get into a new render engine, especially as a fan of classic cars. The BMW 3.0 CSL is a true icon of the 70s, and I hope I did it justice with this project.",
+            "type": "text",
+            "width": "1/5"
+        },
+        {
+            "title": "",
+            "src": "/images/projects/1973/B_4.png",
+            "aspect_ratio": "auto",
+            "width": "2/5"
+        },
+        {
+            "title": "",
+            "src": "/images/projects/1973/B_5.png",
+            "aspect_ratio": "auto",
+            "width": "2/5"
+        }
     ]
 }

@@ -5,24 +5,24 @@
     "description": "Feels like its already Halloween with this kind of mood and an army of evil Lancias rolling toward you! (Good luck outrunning these hungry, hungry AWD beasts.)<br>Strongly inspired by @colorsponge 's incredible automotive work, and shoutout to @martinfuhr.3design for helping me create a better car paint shader.",
     "tools": "Cinema 4D, Redshift, Nuke",
     "cover_img": "/images/projects/evilancia/three.png",
-    "aspect_ratio": "5/2",
-    "width": "1/2",
-    "media": [{
-        "title": "beasts",
-        "src": "/images/projects/evilancia/three.png",
-        "aspect_ratio": "auto",
-        "width": "full"
-    },
-    {
-        "title": "hivemind",
-        "src": "/images/projects/evilancia/hive.png",
-        "aspect_ratio": "auto",
-        "width": "full"
-    },
-    {
-        "title": "run",
-        "src": "/images/projects/evilancia/front.png",
-        "aspect_ratio": "auto",
-        "width": "full"
-    }]
+    "media": [
+        {
+            "title": "beasts",
+            "src": "/images/projects/evilancia/three.png",
+            "aspect_ratio": "auto",
+            "width": "full"
+        },
+        {
+            "title": "hivemind",
+            "src": "/images/projects/evilancia/hive.png",
+            "aspect_ratio": "auto",
+            "width": "full"
+        },
+        {
+            "title": "run",
+            "src": "/images/projects/evilancia/front.png",
+            "aspect_ratio": "auto",
+            "width": "full"
+        }
+    ]
 }

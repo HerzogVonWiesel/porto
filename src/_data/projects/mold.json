@@ -6,18 +6,18 @@
     "description": "Inspired by old-school still lives in the likes of Claesz, Heda and Flegel. Had some fun getting the feel of it with a small twist on the freshness of the display.",
     "tools": "Cinema 4D, Redshift, Photoshop",
     "cover_img": "/images/projects/mold/final.jpg",
-    "aspect_ratio": "4/3",
-    "width": "1/2",
-    "media": [{
-        "title": "Final Render",
-        "src": "/images/projects/mold/final.jpg",
-        "aspect_ratio": "auto",
-        "width": "full"
-    },
-    {
-        "title": "Closeup",
-        "src": "/images/projects/mold/closeup.jpg",
-        "aspect_ratio": "auto",
-        "width": "full"
-    }]
+    "media": [
+        {
+            "title": "Final Render",
+            "src": "/images/projects/mold/final.jpg",
+            "aspect_ratio": "auto",
+            "width": "full"
+        },
+        {
+            "title": "Closeup",
+            "src": "/images/projects/mold/closeup.jpg",
+            "aspect_ratio": "auto",
+            "width": "full"
+        }
+    ]
 }

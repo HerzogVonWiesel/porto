@@ -6,30 +6,30 @@
     "description": "I have been watching Riot Games' Arcane and was mesmerized by both the artstyle and the cinematography.<br>I knew I just had to create a more realistic-style rendition of it!",
     "tools": "Cinema 4D, Redshift, Nuke",
     "cover_img": "/images/projects/hexhex/final.jpg",
-    "aspect_ratio": "5/2",
-    "width": "1/2",
-    "media": [{
-        "title": "Final wide shot",
-        "src": "/images/projects/hexhex/final.jpg",
-        "aspect_ratio": "auto",
-        "width": "full"
-    },
-    {
-        "title": "Final closeup shot",
-        "src": "/images/projects/hexhex/closeup.jpg",
-        "aspect_ratio": "auto",
-        "width": "full"
-    },
-    {
-        "title": "Clay render",
-        "src": "/images/projects/hexhex/clay.jpg",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    },
-    {
-        "title": "Viewport render",
-        "src": "/images/projects/hexhex/viewport.jpg",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    }]
+    "media": [
+        {
+            "title": "Final wide shot",
+            "src": "/images/projects/hexhex/final.jpg",
+            "aspect_ratio": "auto",
+            "width": "full"
+        },
+        {
+            "title": "Final closeup shot",
+            "src": "/images/projects/hexhex/closeup.jpg",
+            "aspect_ratio": "auto",
+            "width": "full"
+        },
+        {
+            "title": "Clay render",
+            "src": "/images/projects/hexhex/clay.jpg",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        },
+        {
+            "title": "Viewport render",
+            "src": "/images/projects/hexhex/viewport.jpg",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        }
+    ]
 }

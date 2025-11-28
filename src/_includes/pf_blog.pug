@@ -48,9 +48,9 @@ mixin blog_description({title, description, tags, date} = {})
         p(class="text-xl w-full md:w-1/4 p-def-2") ↝ !{space(4)} Date
         p(class="text-xl w-full md:w-3/4 p-def-2")= date
 
-mixin pf_div({width="1/2", paddings=" p-def-2 py-def", ref} = {})
+mixin pf_div({width="1/2", paddings=" p-def-2 py-def", ref, classes=""} = {})
     +a_ref(ref)
-        div(class="w-full md:w-"+width+paddings)
+        div(class="w-full md:w-"+width+paddings+" "+classes)
             block
 
 mixin handle_source({source, aspect_ratio, width="full", has_sound, id} = {})

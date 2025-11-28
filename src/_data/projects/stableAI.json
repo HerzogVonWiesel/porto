@@ -5,207 +5,210 @@
     "description": "Exploring and experimenting with StabilityAI's diffusion models, namely Stable Diffusion. What started as experiments two years ago turned into various client projects in the past few months, be it matching image styles for a client's brand timeline, enhancing 3D renders using the newest techniques, or creating custom models for a project's specific needs.",
     "tools": "Stable Diffusion, Photoshop",
     "cover_img": "/images/projects/stableAI/bbgate_4_imp.png",
-    "aspect_ratio": "1/1",
-    "width": "1/2",
     "media": [
-    {
-        "title": "Tractor Timeline 1",
-        "subtitle": "",
-        "src": "/images/projects/stableAI/ox_2.png",
-        "aspect_ratio": "1/1",
-        "width": "1/4"
-    },
-    {
-        "title": "Tractor Timeline 2",
-        "subtitle": "",
-        "src": "/images/projects/stableAI/ox_3.png",
-        "aspect_ratio": "1/1",
-        "width": "1/4"
-    },
-    {
-        "title": "Tractor Timeline 3",
-        "subtitle": "",
-        "src": "/images/projects/stableAI/ox_4.png",
-        "aspect_ratio": "1/1",
-        "width": "1/4"
-    },
-    {
-        "text": "For a client's brand timeline, The style needed to match the moodboard given, as well as some objects that were too obscure for the AI to know them. Using bleeding-edge techniques, I was able to create a workflow that allowed me to match the given style to overdraw images of obscure objects or generate images from scratch.",
-        "type": "text",
-        "width": "1/4"
-    },
-    {
-        "text": " ","type": "spacer","width": "full"
-    },
-    {
-        "title": "ControlNet tests 1",
-        "subtitle": "",
-        "src": "/images/projects/stableAI/bbgate_1.png",
-        "aspect_ratio": "1/1",
-        "width": "1/4"
-    },
-    {
-        "text": "Back in early 2023, it was still a challenge to get AI to follow the schematics of an already given image. ControlNet was just released and nobody really knew or understood it all too well, so when I was asked to generate abstracted artwork reminiscent of the Brandenburg Gate, I took that chance to test out the various different ControlNet approaches.",
-        "type": "text",
-        "width": "1/4"
-    },
-    {
-        "title": "ControlNet tests 2",
-        "subtitle": "",
-        "src": "/images/projects/stableAI/bbgate_4.png",
-        "aspect_ratio": "1/1",
-        "width": "1/4"
-    },
-    {
-        "title": "ControlNet tests 3",
-        "subtitle": "",
-        "src": "/images/projects/stableAI/bbgate_3.png",
-        "aspect_ratio": "1/1",
-        "width": "1/4"
-    },
-    {
-        "hidden": true,
-        "text": "Capri-Lora",
-        "type": "text",
-        "width": "1/4"
-    },
-    {
-        "text": " ",
-        "type": "spacer",
-        "width": "full"
-    },
-    {
-        "text": "Personal Experiments",
-        "type": "header",
-        "width": "full"
-    },
-    {
-        "text": "When a new image generation model was released by a German startup in August 2024, I immediately jumped on the experimental support for it in ComfyUI to see whether it is useful for current or even future projects. Realizing that the model was a huge step up in prompt comprehension as well as generating text, I tried out some diverse range of possible applications to see in which use cases it would be of help - and it fared incredibly well.",
-        "type": "text",
-        "width": "1/4"
-    },
-    {
-        "title": "First test: Prompt adhesion + text",
-        "subtitle": "",
-        "src": "/images/projects/stableAI/flux_2.png",
-        "aspect_ratio": "1/1",
-        "width": "1/4"
-    },
-    {
-        "title": "Product render",
-        "subtitle": "",
-        "src": "/images/projects/stableAI/flux_1.png",
-        "aspect_ratio": "1/1",
-        "width": "1/4"
-    },
-    {
-        "title": "Concept art",
-        "subtitle": "",
-        "src": "/images/projects/stableAI/flux_3.png",
-        "aspect_ratio": "1/1",
-        "width": "1/4"
-    },
-    {
-        "text": " ","type": "spacer","width": "full"
-    },
-    {
-        "hidden": true,
-        "title": "aurora ice cave",
-        "subtitle": "3rd iteration",
-        "src": "/images/projects/stableAI/auroracave.png",
-        "aspect_ratio": "2/1",
-        "width": "full"
-    },
-    {
-        "title": "AI travels the world: Part 1",
-        "subtitle": "2022",
-        "src": "/images/projects/stableAI/AITravel_1.mp4",
-        "aspect_ratio": "4/5",
-        "width": "1/2"
-    },
-    {
-        "text": "Even in the Disco Diffusion days (where you needed an A100 graphics card and about 30 minutes to generate a single picture, those were the times), people were already trying out to generate some form of videos with AI. Come Stable Diffusion which made generating a lot more resource friendly, I tried to do something similarly to how video generation worked then: A video in which the camera moves slightly while the prompt changes every few seconds to make the sense of travelling across the world. <br><br>Of course the result isn't - contrary to the name of the model - stable, as it creates a new image for every single frame, so keep in mind this was before any of the fancy video capabilities seen in the last years.",
-        "type": "text",
-        "width": "1/2"
-    },
-    {
-        "title": "Battle of Waterloo",
-        "subtitle": "2022",
-        "src": "/images/projects/stableAI/waterloo.png",
-        "aspect_ratio": "4/5",
-        "width": "1/2"
-    },
-    {
-        "title": "AI travels the world: Part 2",
-        "subtitle": "2022",
-        "src": "/images/projects/stableAI/AITravel_2.mp4",
-        "aspect_ratio": "4/5",
-        "width": "1/2"
-    },
-    {
-        "title": "peacock fractal lace",
-        "subtitle": "2022",
-        "src": "/images/projects/stableAI/peacock_imp.png",
-        "aspect_ratio": "1/1",
-        "width": "1/2"
-    },
-    {
-        "title": "s.t.a.l.k.e.r.",
-        "subtitle": "2022",
-        "src": "/images/projects/stableAI/chernobyl.png",
-        "aspect_ratio": "1/1",
-        "width": "1/2"
-    },
-    {
-        "title": "robo battle of colors",
-        "subtitle": "2022",
-        "src": "/images/projects/stableAI/robots.png",
-        "aspect_ratio": "2/1",
-        "width": "1/2"
-    },
-    {
-        "title": "helheim lighthouse",
-        "subtitle": "2022",
-        "src": "/images/projects/stableAI/lighthouse.png",
-        "aspect_ratio": "2/1",
-        "width": "1/2"
-    },
-    {
-        "hidden": true,
-        "title": "dystopian future",
-        "subtitle": "2nd iteration",
-        "src": "/images/projects/stableAI/robowoman.png",
-        "aspect_ratio": "3/4",
-        "width": "1/3"
-    },
-    {
-        "hidden": true,
-        "title": "anime princess",
-        "subtitle": "11th iteration",
-        "src": "/images/projects/stableAI/animeprincess.png",
-        "aspect_ratio": "3/4",
-        "width": "1/3"
-    },
-    {
-        "title": "feverdreams logo design",
-        "subtitle": "2022",
-        "src": "/images/projects/stableAI/corp_logo.png",
-        "aspect_ratio": "1/1",
-        "width": "1/2"
-    },
-    {
-        "title": "dreamery",
-        "subtitle": "2022",
-        "src": "/images/projects/stableAI/dream_girl.png",
-        "aspect_ratio": "1/1",
-        "width": "1/2"
-    },
-    {
-        "hidden": true,
-        "title": "Cyberpunk anime",
-        "subtitle": "3rd iteration",
-        "src": "/images/projects/stableAI/anime_cyber.png",
-        "aspect_ratio": "4/5",
-        "width": "1/2"
-    }]
+        {
+            "title": "Tractor Timeline 1",
+            "subtitle": "",
+            "src": "/images/projects/stableAI/ox_2.png",
+            "aspect_ratio": "1/1",
+            "width": "1/4"
+        },
+        {
+            "title": "Tractor Timeline 2",
+            "subtitle": "",
+            "src": "/images/projects/stableAI/ox_3.png",
+            "aspect_ratio": "1/1",
+            "width": "1/4"
+        },
+        {
+            "title": "Tractor Timeline 3",
+            "subtitle": "",
+            "src": "/images/projects/stableAI/ox_4.png",
+            "aspect_ratio": "1/1",
+            "width": "1/4"
+        },
+        {
+            "text": "For a client's brand timeline, The style needed to match the moodboard given, as well as some objects that were too obscure for the AI to know them. Using bleeding-edge techniques, I was able to create a workflow that allowed me to match the given style to overdraw images of obscure objects or generate images from scratch.",
+            "type": "text",
+            "width": "1/4"
+        },
+        {
+            "text": " ",
+            "type": "spacer",
+            "width": "full"
+        },
+        {
+            "title": "ControlNet tests 1",
+            "subtitle": "",
+            "src": "/images/projects/stableAI/bbgate_1.png",
+            "aspect_ratio": "1/1",
+            "width": "1/4"
+        },
+        {
+            "text": "Back in early 2023, it was still a challenge to get AI to follow the schematics of an already given image. ControlNet was just released and nobody really knew or understood it all too well, so when I was asked to generate abstracted artwork reminiscent of the Brandenburg Gate, I took that chance to test out the various different ControlNet approaches.",
+            "type": "text",
+            "width": "1/4"
+        },
+        {
+            "title": "ControlNet tests 2",
+            "subtitle": "",
+            "src": "/images/projects/stableAI/bbgate_4.png",
+            "aspect_ratio": "1/1",
+            "width": "1/4"
+        },
+        {
+            "title": "ControlNet tests 3",
+            "subtitle": "",
+            "src": "/images/projects/stableAI/bbgate_3.png",
+            "aspect_ratio": "1/1",
+            "width": "1/4"
+        },
+        {
+            "hidden": true,
+            "text": "Capri-Lora",
+            "type": "text",
+            "width": "1/4"
+        },
+        {
+            "text": " ",
+            "type": "spacer",
+            "width": "full"
+        },
+        {
+            "text": "Personal Experiments",
+            "type": "header",
+            "width": "full"
+        },
+        {
+            "text": "When a new image generation model was released by a German startup in August 2024, I immediately jumped on the experimental support for it in ComfyUI to see whether it is useful for current or even future projects. Realizing that the model was a huge step up in prompt comprehension as well as generating text, I tried out some diverse range of possible applications to see in which use cases it would be of help - and it fared incredibly well.",
+            "type": "text",
+            "width": "1/4"
+        },
+        {
+            "title": "First test: Prompt adhesion + text",
+            "subtitle": "",
+            "src": "/images/projects/stableAI/flux_2.png",
+            "aspect_ratio": "1/1",
+            "width": "1/4"
+        },
+        {
+            "title": "Product render",
+            "subtitle": "",
+            "src": "/images/projects/stableAI/flux_1.png",
+            "aspect_ratio": "1/1",
+            "width": "1/4"
+        },
+        {
+            "title": "Concept art",
+            "subtitle": "",
+            "src": "/images/projects/stableAI/flux_3.png",
+            "aspect_ratio": "1/1",
+            "width": "1/4"
+        },
+        {
+            "text": " ",
+            "type": "spacer",
+            "width": "full"
+        },
+        {
+            "hidden": true,
+            "title": "aurora ice cave",
+            "subtitle": "3rd iteration",
+            "src": "/images/projects/stableAI/auroracave.png",
+            "aspect_ratio": "2/1",
+            "width": "full"
+        },
+        {
+            "title": "AI travels the world: Part 1",
+            "subtitle": "2022",
+            "src": "/images/projects/stableAI/AITravel_1.mp4",
+            "aspect_ratio": "4/5",
+            "width": "1/2"
+        },
+        {
+            "text": "Even in the Disco Diffusion days (where you needed an A100 graphics card and about 30 minutes to generate a single picture, those were the times), people were already trying out to generate some form of videos with AI. Come Stable Diffusion which made generating a lot more resource friendly, I tried to do something similarly to how video generation worked then: A video in which the camera moves slightly while the prompt changes every few seconds to make the sense of travelling across the world. <br><br>Of course the result isn't - contrary to the name of the model - stable, as it creates a new image for every single frame, so keep in mind this was before any of the fancy video capabilities seen in the last years.",
+            "type": "text",
+            "width": "1/2"
+        },
+        {
+            "title": "Battle of Waterloo",
+            "subtitle": "2022",
+            "src": "/images/projects/stableAI/waterloo.png",
+            "aspect_ratio": "4/5",
+            "width": "1/2"
+        },
+        {
+            "title": "AI travels the world: Part 2",
+            "subtitle": "2022",
+            "src": "/images/projects/stableAI/AITravel_2.mp4",
+            "aspect_ratio": "4/5",
+            "width": "1/2"
+        },
+        {
+            "title": "peacock fractal lace",
+            "subtitle": "2022",
+            "src": "/images/projects/stableAI/peacock_imp.png",
+            "aspect_ratio": "1/1",
+            "width": "1/2"
+        },
+        {
+            "title": "s.t.a.l.k.e.r.",
+            "subtitle": "2022",
+            "src": "/images/projects/stableAI/chernobyl.png",
+            "aspect_ratio": "1/1",
+            "width": "1/2"
+        },
+        {
+            "title": "robo battle of colors",
+            "subtitle": "2022",
+            "src": "/images/projects/stableAI/robots.png",
+            "aspect_ratio": "2/1",
+            "width": "1/2"
+        },
+        {
+            "title": "helheim lighthouse",
+            "subtitle": "2022",
+            "src": "/images/projects/stableAI/lighthouse.png",
+            "aspect_ratio": "2/1",
+            "width": "1/2"
+        },
+        {
+            "hidden": true,
+            "title": "dystopian future",
+            "subtitle": "2nd iteration",
+            "src": "/images/projects/stableAI/robowoman.png",
+            "aspect_ratio": "3/4",
+            "width": "1/3"
+        },
+        {
+            "hidden": true,
+            "title": "anime princess",
+            "subtitle": "11th iteration",
+            "src": "/images/projects/stableAI/animeprincess.png",
+            "aspect_ratio": "3/4",
+            "width": "1/3"
+        },
+        {
+            "title": "feverdreams logo design",
+            "subtitle": "2022",
+            "src": "/images/projects/stableAI/corp_logo.png",
+            "aspect_ratio": "1/1",
+            "width": "1/2"
+        },
+        {
+            "title": "dreamery",
+            "subtitle": "2022",
+            "src": "/images/projects/stableAI/dream_girl.png",
+            "aspect_ratio": "1/1",
+            "width": "1/2"
+        },
+        {
+            "hidden": true,
+            "title": "Cyberpunk anime",
+            "subtitle": "3rd iteration",
+            "src": "/images/projects/stableAI/anime_cyber.png",
+            "aspect_ratio": "4/5",
+            "width": "1/2"
+        }
+    ]
 }

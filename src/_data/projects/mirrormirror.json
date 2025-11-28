@@ -5,31 +5,30 @@
     "description": "A fun little side project inspired by i_go_by_zaks recent work, putting my own twist on it.",
     "tools": "Cinema 4D, Redshift, After Effects, Photoshop",
     "cover_img": "/images/projects/mirrormirror/halftonecircled.png",
-    "aspect_ratio": "1/1",
-    "width": "1/2",
     "media": [
-    {
-        "title": "Final Variation 1 - halftones",
-        "src": "/images/projects/mirrormirror/halftonecircled.png",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    },
-    {
-        "title": "Final Variation 2 - gradients",
-        "src": "/images/projects/mirrormirror/smoothed.png",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    },
-    {
-        "title": "Final Variation 3 - pixel sorting",
-        "src": "/images/projects/mirrormirror/sorted.png",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    },
-    {
-        "title": "Raw render straight out of C4D",
-        "src": "/images/projects/mirrormirror/raw_render.jpg",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    }]
+        {
+            "title": "Final Variation 1 - halftones",
+            "src": "/images/projects/mirrormirror/halftonecircled.png",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        },
+        {
+            "title": "Final Variation 2 - gradients",
+            "src": "/images/projects/mirrormirror/smoothed.png",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        },
+        {
+            "title": "Final Variation 3 - pixel sorting",
+            "src": "/images/projects/mirrormirror/sorted.png",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        },
+        {
+            "title": "Raw render straight out of C4D",
+            "src": "/images/projects/mirrormirror/raw_render.jpg",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        }
+    ]
 }

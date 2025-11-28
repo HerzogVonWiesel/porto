@@ -5,35 +5,35 @@
     "description": "As Covid has spoiled my travel plans, virtual ones will have to do. How about a picturesque mediterranean village in the early summer?",
     "tools": "Cinema 4D, Redshift, Photoshop, Topaz Studio",
     "cover_img": "/images/projects/villagesummer/drawn.jpg",
-    "aspect_ratio": "1/1",
-    "width": "1/2",
-    "media": [{
-        "title": "Final image",
-        "src": "/images/projects/villagesummer/drawn.jpg",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    },
-    {
-        "title": "Stable Diffusion overdraw of the render",
-        "src": "/images/projects/villagesummer/ai.png",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    },
-    {
-        "title": "Alternative version",
-        "src": "/images/projects/villagesummer/edited.jpg",
-        "aspect_ratio": "auto",
-        "width": "1/3"
-    },
-    {
-        "text": " ",
-        "type": "spacer",
-        "width": "1/6"
-    },
-    {
-        "title": "Raw render",
-        "src": "/images/projects/villagesummer/raw.jpg",
-        "aspect_ratio": "auto",
-        "width": "1/3"
-    }]
+    "media": [
+        {
+            "title": "Final image",
+            "src": "/images/projects/villagesummer/drawn.jpg",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        },
+        {
+            "title": "Stable Diffusion overdraw of the render",
+            "src": "/images/projects/villagesummer/ai.png",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        },
+        {
+            "title": "Alternative version",
+            "src": "/images/projects/villagesummer/edited.jpg",
+            "aspect_ratio": "auto",
+            "width": "1/3"
+        },
+        {
+            "text": " ",
+            "type": "spacer",
+            "width": "1/6"
+        },
+        {
+            "title": "Raw render",
+            "src": "/images/projects/villagesummer/raw.jpg",
+            "aspect_ratio": "auto",
+            "width": "1/3"
+        }
+    ]
 }

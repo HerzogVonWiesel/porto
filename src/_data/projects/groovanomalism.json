@@ -5,48 +5,48 @@
     "description": "Inspired by @anomalitkate's trippy work, I delved into Cinema4D and played around a ton. The very colory material is OSL code I've written and can be found in Redshifts OSL shader library!",
     "tools": "Cinema 4D, OpenShadingLanguage, Redshift, Photoshop",
     "cover_img": "/images/projects/groovanomalism/en_final.mp4",
-    "aspect_ratio": "1/1",
-    "width": "1/2",
     "media": [
         {
             "title": "",
             "src": "",
             "aspect_ratio": "auto",
             "width": "1/4"
-        },{
-        "title": "Final looping video",
-        "src": "/images/projects/groovanomalism/final.mp4",
-        "has_sound": true,
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    },
-    {
-        "title": "Final still taken from video",
-        "src": "/images/projects/groovanomalism/Final.jpg",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    },
-    {
-        "title": "Stylised OSL code of the jawbreaker material",
-        "src": "/images/projects/groovanomalism/code.mp4",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    },
-    {
-        "title": "Raw render",
-        "src": "/images/projects/groovanomalism/raw.jpg",
-        "aspect_ratio": "3/4",
-        "width": "1/3"
-    },
-    {
-        "text": " ",
-        "type": "spacer",
-        "width": "1/6"
-    },
-    {
-        "title": "Wireframe of the scene",
-        "src": "/images/projects/groovanomalism/wireframe.jpg",
-        "aspect_ratio": "3/4",
-        "width": "1/3"
-    }]
+        },
+        {
+            "title": "Final looping video",
+            "src": "/images/projects/groovanomalism/final.mp4",
+            "has_sound": true,
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        },
+        {
+            "title": "Final still taken from video",
+            "src": "/images/projects/groovanomalism/Final.jpg",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        },
+        {
+            "title": "Stylised OSL code of the jawbreaker material",
+            "src": "/images/projects/groovanomalism/code.mp4",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        },
+        {
+            "title": "Raw render",
+            "src": "/images/projects/groovanomalism/raw.jpg",
+            "aspect_ratio": "3/4",
+            "width": "1/3"
+        },
+        {
+            "text": " ",
+            "type": "spacer",
+            "width": "1/6"
+        },
+        {
+            "title": "Wireframe of the scene",
+            "src": "/images/projects/groovanomalism/wireframe.jpg",
+            "aspect_ratio": "3/4",
+            "width": "1/3"
+        }
+    ]
 }

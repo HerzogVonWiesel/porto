@@ -6,68 +6,68 @@
     "description": "Death has stranded. <br>Had a ton of fun and learned so incredibly much in the month that I worked on this project! Inspired by the great video game Death Stranding by Hideo Kojima. (and yes, that is totally delicious procedural mud.)",
     "tools": "Cinema 4D, Redshift, Substance Painter, After Effects",
     "cover_img": "/images/projects/stranded/final.jpg",
-    "aspect_ratio": "2.5/1",
-    "width": "full",
-    "media": [{
-        "title": "Final Render (Still frame)",
-        "src": "/images/projects/stranded/final.jpg",
-        "aspect_ratio": "auto",
-        "width": "full"
-    },
-    {
-        "title": "Final render (Video)",
-        "src": "/images/projects/stranded/1920.mp4",
-        "aspect_ratio": "auto",
-        "width": "full"
-    },
-    {
-        "text": " ",
-        "type": "spacer",
-        "width": "full"
-    },
-    {
-        "text": "Quick Breakdown",
-        "type": "header",
-        "width": "full"
-    },
-    {
-        "title": "Render breakdown",
-        "src": "/images/projects/stranded/breakdown.mp4",
-        "has_sound": true,
-        "aspect_ratio": "auto",
-        "width": "full"
-    },
-    {
-        "title": "Raw render",
-        "src": "/images/projects/stranded/raw.jpg",
-        "aspect_ratio": "auto",
-        "width": "full"
-    },
-    {
-        "text": " ",
-        "type": "spacer",
-        "width": "full"
-    },
-    {
-        "text": "Mud: The star of the show",
-        "type": "header",
-        "width": "full"
-    },
-    {
-        "text": "For this scene, I knew I wanted a big plane of muddy surface. So as to not have repeating patterns or, god forbid, sculpt it all manually, I built a procedural mud shader in Redshift and C4D based on a few ground textures I had lying around. The result is mud that looks wet, a little out of this world, and as a VFX YouTuber said, 'delicious'.",
-        "type": "text",
-        "width": "full"
-    },
-    {
-        "title": "Procedural Mud (1)",
-        "src": "/images/projects/stranded/mud1.jpg",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    },
-    {
-        "title": "Procedural Mud (2)",
-        "src": "/images/projects/stranded/mud2.jpg",
-        "aspect_ratio": "auto",
-        "width": "1/2"
-    }]
+    "media": [
+        {
+            "title": "Final Render (Still frame)",
+            "src": "/images/projects/stranded/final.jpg",
+            "aspect_ratio": "auto",
+            "width": "full"
+        },
+        {
+            "title": "Final render (Video)",
+            "src": "/images/projects/stranded/1920.mp4",
+            "aspect_ratio": "auto",
+            "width": "full"
+        },
+        {
+            "text": " ",
+            "type": "spacer",
+            "width": "full"
+        },
+        {
+            "text": "Quick Breakdown",
+            "type": "header",
+            "width": "full"
+        },
+        {
+            "title": "Render breakdown",
+            "src": "/images/projects/stranded/breakdown.mp4",
+            "has_sound": true,
+            "aspect_ratio": "auto",
+            "width": "full"
+        },
+        {
+            "title": "Raw render",
+            "src": "/images/projects/stranded/raw.jpg",
+            "aspect_ratio": "auto",
+            "width": "full"
+        },
+        {
+            "text": " ",
+            "type": "spacer",
+            "width": "full"
+        },
+        {
+            "text": "Mud: The star of the show",
+            "type": "header",
+            "width": "full"
+        },
+        {
+            "text": "For this scene, I knew I wanted a big plane of muddy surface. So as to not have repeating patterns or, god forbid, sculpt it all manually, I built a procedural mud shader in Redshift and C4D based on a few ground textures I had lying around. The result is mud that looks wet, a little out of this world, and as a VFX YouTuber said, 'delicious'.",
+            "type": "text",
+            "width": "full"
+        },
+        {
+            "title": "Procedural Mud (1)",
+            "src": "/images/projects/stranded/mud1.jpg",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        },
+        {
+            "title": "Procedural Mud (2)",
+            "src": "/images/projects/stranded/mud2.jpg",
+            "aspect_ratio": "auto",
+            "width": "1/2"
+        }
+    ]
 }
