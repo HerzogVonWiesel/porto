@@ -1,8 +1,12 @@
 [
     "suzume",
     "nineteen73",
+    {
+    "width": "1/2",
+    "projects": [
     "bemineor",
-    "chevuoi",
+    "chevuoi"]
+    },
     "starbender",
     "elevaite",
     "deepfake",

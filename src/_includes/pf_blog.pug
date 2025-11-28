@@ -90,11 +90,14 @@ mixin pf_text({text, type, ref, width="1/2", text_classes="", padding} = {})
     +pf_div({width:width, paddings:padding, ref:ref})
         div(class="w-full items-start mt-1")
             if (type=="header")
-                h1(class=""+text_classes)= text
+                h1(class=""+text_classes). 
+                    !{text}
             else if (type=="subheader")
-                h2(class=""+text_classes)= text
+                h2(class=""+text_classes). 
+                    !{text}
             else if (type=="subsubheader")
-                h3(class=""+text_classes)= text
+                h3(class=""+text_classes). 
+                    !{text}
             else 
                 if (text_classes == "")
                     - text_classes = "md:text-lg"

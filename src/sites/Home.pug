@@ -30,7 +30,15 @@ block content
         h1(class="max-md:hidden") SELECTED <br> !{space(11)} PROJECTS ︎︎︎
         h1(class="md:hidden") SELECTED <br> PROJECTS ︎︎︎
     div.flexcon
+        +pf_div({width:"1/2"})
+            +pf_text({text:"Selected <br> &nbsp;&nbsp;&nbsp;&nbsp;Projects", type:"header", ref:none, width:"full"})
+            +pf_text({text:" ", type:"text", ref:none, width:"full"})
+            +pf_text({text:"Curated <br> Works", type:"subheader", ref:none, width:"full", text_classes:"text-right"})
+            +pf_text({text:" ", type:"text", ref:none, width:"full"})
+            +pf_text({text:"Portfolio", type:"subsubheader", ref:none, width:"full"})
         - let sortedProjects = getSortedPortfolio();
+        - let sortedProjectsLookup = getSortedPortfolioLookup();
+        - console.log(sortedProjectsLookup);
         each project in sortedProjects
             - var proj_ref = `/projects/${project[0]}/`;
             - var project_details = project[1];

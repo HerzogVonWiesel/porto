@@ -1,0 +1,146 @@
+hidden: false
+name: Bon Voyage
+subtitle: Shouting at stars
+year: '2025'
+description: >-
+  "Nearly half a century later, Voyager 1 is now the most distant spacecraft ever launched. Even though it was preceded by the Pioneer probes by several years and even its own twin by two weeks, Voyager 1 attained a greater escape velocity and has since overtaken them all. Amazingly, both Voyagers are still transmitting to this day, although they're fast approaching their operational limits. Once they go offline and fall out of range, they'll join their pioneering brethren in a timeless and destinationless trek between the stars."
+  
+  <br><br>
+  A small personal tribute to the messages encompassing the human experience, far beyond our little blue dot.
+tools: Cinema 4D, Redshift, After Effects, Substance Painter
+cover_img: /images/projects/bonvoyage/final.png
+aspect_ratio: '1/1'
+width: '1/2'
+media:
+  - title: Final render
+    src: /images/projects/bonvoyage/final.png
+    aspect_ratio: auto
+    width: 3/5
+
+  - text: " "
+    type: spacer
+    width: 1/15
+
+  - multi: true
+    media:
+      - text: Golden Record
+        type: header
+        width: full
+
+      - text: >-
+          <i>This is a present from a small, distant world, a token of our sounds, our science, our images, our music, our thoughts and our feelings. We are attempting to survive our time so we may live into yours.</i> - U.S. President Jimmy Carter, 1977
+
+
+          <i>The spacecraft will be encountered and the record played only if there are advanced space-faring civilizations in interstellar space, but the launching of this 'bottle' into the cosmic 'ocean' says something very hopeful about life on this planet.</i> - Planetary scientist Carl Sagan, 1978
+
+
+          Launched by NASA in 1977 aboard the Voyager 1 and 2 spacecraft, the Voyager Golden Record is a gold-plated copper phonograph intended to serve as a time capsule for potential extraterrestrial life. Curated by a committee chaired by Carl Sagan, the record contains a diverse representation of life on Earth, including 115 analog images detailing human culture, natural sounds, greetings in 55 languages, and a musical selection ranging from Bach and Beethoven to Chuck Berry. With instructions for playback and a map to Earth etched onto its cover, it is hoping that an advanced extraterrestrial civilization might one day recover it and decipher the story of our existence.
+        type: text
+        width: full
+    width: '1/3'
+
+  - text: " "
+    type: spacer
+    width: full
+
+  - title: ""
+    src: /images/projects/bonvoyage/widebannercol.png
+    aspect_ratio: auto
+    width: full
+
+  # - text: " "
+  #   type: spacer
+  #   width: full
+
+  - title: ""
+    src: /images/projects/bonvoyage/cover_explanation.svg
+    aspect_ratio: auto
+    width: full
+
+  - text: " "
+    type: spacer
+    width: full
+
+  - text: Handle with(out) care
+    type: header
+    width: full
+
+  - text: " "
+    type: spacer
+    width: '1/20'
+
+  - text: >-
+      If you've started 3D around the same time as me, you might have learned from various YouTube tutorials that to make it more realistic you need surface imperfections that you plug into the roughness channel. There are actually two issues with that: many, many renders with just way too many imperfections (even in product renders). Luckily this very project actually lends itself to a ton of imperfections, which is great to show off the second issue: surface imperfections very often are not "plug into roughness et voilà". 
+
+
+      Think about it: smearing your finger across a glass surface or staining it with *liquids*, does it change the properties of the glass itself? Not really, these imperfections are just another layer (of fat or said liquids) on the unchanged glass surface. So, to get the proper effect, we'll need to do some material layering: create a fat/smudge material that you layer over the original material using the provided imperfections map. The result is stunning and way closer to real-life references. Pay attention how the reflections themselves don't get smudged, but are still crystal clear *through* the smudgy layer above it.
+
+
+      Of course, no rules without exceptions. That is, imperfections that actually change the surface properties can and should change the original material: think scratches in metal changing its height (bump/normal) and how reflective it is (our friend from the beginning, roughness).
+
+      In the process of writing this, I've actually come across 
+      <a href='
+      https://youtu.be/OW4L0vdo_e4?si=Alr72pMS4SfjSATb' target='_blank' rel='noopener noreferrer'>
+      a great tutorial explaining this behavior in more detail than I could ever convey via text, so give it a watch if you're in the mood! →</a>
+    type: text
+    width: '9/20'
+
+  - src: /images/projects/bonvoyage/mtlrgh.mp4
+    has_sound: false
+    aspect_ratio: auto
+    width: '1/2'
+
+  - text: " "
+    type: spacer
+    width: full
+
+  # - text: " "
+  #   type: spacer
+  #   width: '1/5'
+
+  # - text: "*✧･ﾟ: *✧･ﾟ"
+  #   type: header
+  #   width: '4/5'
+
+  - title: ""
+    src:
+      - /images/projects/bonvoyage/lal1.png
+      - /images/projects/bonvoyage/lal2.png
+      - /images/projects/bonvoyage/lal3.png
+      - /images/projects/bonvoyage/lal4.png
+      - /images/projects/bonvoyage/lal5.png
+      - /images/projects/bonvoyage/lal5.png
+    aspect_ratio: auto
+    width: '3/5'
+    carousel_interval: 1000
+  
+  - multi: true
+    width: '1/3'
+    media:
+    # - text: "*✧･ﾟ: *✧･ﾟ"
+    #   type: subheader
+    #   width: full
+
+    - text: >-
+        The final cherry on top is the return sticker on the packaging, and to put some wear on it I've done some sticker texturing in Substance Painter; which I haven't used in quite a while, so it was fun to get back into it! Using a combination of smart materials and hand-painting I achieved a nice worn-out look with different peeled-off layers: the top printed paper layer, an internal paper fiber layer, and the glue at the bottom.
+
+        Oh, and if you have a special interest and are wondering, shouldn't Nixie labels actually be yellow? Well yeah, but the answer is the most powerful tool we have: artistic freedom.
+      type: text
+      width: full
+
+  - text: " "
+    type: spacer
+    width: full
+
+  - text: " "
+    type: spacer
+    width: 1/8
+
+  - text: "*✧･ﾟ: *✧･ﾟ"
+    type: text
+    width: 1/2
+
+  - title: ""
+    src: /images/projects/bonvoyage/widebannercol2.png
+    aspect_ratio: auto
+    width: full

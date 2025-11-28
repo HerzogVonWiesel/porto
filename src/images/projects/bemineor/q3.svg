@@ -9,7 +9,6 @@
     </marker>
   </defs>
   <g class="layer">
-    <title>Layer 1</title>
     <!-- Scale the y-coordinates to fit within the new viewBox height -->
     <line fill="none" id="svg_2" marker-end="url(#mkr_end_svg_2)" marker-start="url(#mkr_start_svg_2)" stroke="#ff3700" stroke-linecap="round" stroke-width="3" x1="8" x2="504" y1="32" y2="32"/>
     <line fill="none" id="svg_3" stroke="#ff3700" stroke-width="3" x1="256" x2="256" y1="28" y2="36"/>

@@ -1,12 +1,21 @@
 -
+-
     let sortedPortfolio = [];
+    let sortedPortfolioLookup = null;
     function getSortedPortfolio(){
         if (sortedPortfolio.length == 0){
             console.log("Sorting projects...")
-            entries = (Object.entries(projects));
+            const entries = Object.entries(projects);
             //sortedPortfolio = entries.sort((a, b) => b[1].order - a[1].order);
             sortedPortfolio = entries.sort((a, b) => project_order.indexOf(a[0])- project_order.indexOf(b[0]));
         }
 
         return sortedPortfolio;
+    }
+    function getSortedPortfolioLookup(){
+        if (!sortedPortfolioLookup){
+            sortedPortfolioLookup = Object.fromEntries(getSortedPortfolio());
+        }
+
+        return sortedPortfolioLookup;
     }

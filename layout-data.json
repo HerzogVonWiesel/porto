@@ -1,0 +1,126 @@
+{
+  "aerock": {
+    "width": "full",
+    "aspect_ratio": "3/1"
+  },
+  "archAI": {
+    "width": "1/2",
+    "aspect_ratio": "2/1"
+  },
+  "aurora": {
+    "width": "1/2",
+    "aspect_ratio": "1/1"
+  },
+  "bemineor": {
+    "width": "1/2",
+    "aspect_ratio": "2/1"
+  },
+  "bonvoyage": {
+    "width": "1/2",
+    "aspect_ratio": "1/1"
+  },
+  "chevuoi": {
+    "width": "1/2",
+    "aspect_ratio": "2/1"
+  },
+  "covis": {
+    "width": "1/2",
+    "aspect_ratio": "2/1"
+  },
+  "deepfake": {
+    "width": "1/2",
+    "aspect_ratio": "7/4"
+  },
+  "discoAI": {
+    "width": "1/2",
+    "aspect_ratio": "1/1"
+  },
+  "elevaite": {
+    "width": "1/2",
+    "aspect_ratio": "7/4"
+  },
+  "evilancia": {
+    "width": "1/2",
+    "aspect_ratio": "5/2"
+  },
+  "falling": {
+    "width": "1/2",
+    "aspect_ratio": "2/1"
+  },
+  "fbc": {
+    "width": "1/2",
+    "aspect_ratio": "4/3"
+  },
+  "groovanomalism": {
+    "width": "1/2",
+    "aspect_ratio": "1/1"
+  },
+  "hexhex": {
+    "width": "1/2",
+    "aspect_ratio": "5/2"
+  },
+  "hikaru": {
+    "width": "1/2",
+    "aspect_ratio": "1/1"
+  },
+  "mediterran": {
+    "width": "1/2",
+    "aspect_ratio": "1/1"
+  },
+  "mirrormirror": {
+    "width": "1/2",
+    "aspect_ratio": "1/1"
+  },
+  "mold": {
+    "width": "1/2",
+    "aspect_ratio": "4/3"
+  },
+  "neroli": {
+    "width": "1/2",
+    "aspect_ratio": "2/1"
+  },
+  "nineteen73": {
+    "width": "1/2",
+    "aspect_ratio": "1/1"
+  },
+  "possessed": {
+    "width": "1/2",
+    "aspect_ratio": "5/2"
+  },
+  "scouts": {
+    "width": "full",
+    "aspect_ratio": "2/1"
+  },
+  "stableAI": {
+    "width": "1/2",
+    "aspect_ratio": "1/1"
+  },
+  "stalling": {
+    "width": "full",
+    "aspect_ratio": "5/2"
+  },
+  "starbender": {
+    "width": "full",
+    "aspect_ratio": "5/2"
+  },
+  "stranded": {
+    "width": "full",
+    "aspect_ratio": "2.5/1"
+  },
+  "styxhelix": {
+    "width": "1/2",
+    "aspect_ratio": "5/2"
+  },
+  "suzume": {
+    "width": "1/2",
+    "aspect_ratio": "1/1"
+  },
+  "villagesummer": {
+    "width": "1/2",
+    "aspect_ratio": "1/1"
+  },
+  "_SPACE": {
+    "width": "1/2",
+    "aspect_ratio": "auto"
+  }
+}
