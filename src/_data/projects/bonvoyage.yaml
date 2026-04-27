@@ -1,11 +1,11 @@
 hidden: false
 name: Bon Voyage
-subtitle: Shouting at stars
+subtitle: Stellar material practice
 year: '2025'
 description: |-
   "Nearly half a century later, Voyager 1 is now the most distant spacecraft ever launched. Even though it was preceded by the Pioneer probes by several years and even its own twin by two weeks, Voyager 1 attained a greater escape velocity and has since overtaken them all. Amazingly, both Voyagers are still transmitting to this day, although they're fast approaching their operational limits. Once they go offline and fall out of range, they'll join their pioneering brethren in a timeless and destinationless trek between the stars."
   <br><br> A small personal tribute to the messages encompassing the human experience, far beyond our little blue dot.
-tools: 'Cinema 4D, Redshift, After Effects, Substance Painter'
+tools: 'Cinema 4D, Redshift, After Effects, Substance Painter, Audacity'
 cover_img: /images/projects/bonvoyage/final.png
 media:
   - title: Final render
@@ -97,3 +97,40 @@ media:
     src: /images/projects/bonvoyage/widebannercol2.png
     aspect_ratio: auto
     width: full
+
+  - text:  
+    type: spacer
+    width: full
+  - text:  
+    type: spacer
+    width: 1/15
+  - multi: true
+    media:
+      - text: Data Shmata
+        type: header
+        width: full
+      - text: |-
+          I dig the style of glitched art. Something about finding the beauty in intended imperfection really strikes a chord with me. Seeing as the subject of this project - the Golden Record - has images encoded in audio, I figured: why not do the same thing and experiment in that direction?
+
+          Audacity is a free audio editor that I've used in the past for simple audio tasks, but it also has a fun hidden gem: you can import raw data as audio, and export audio as raw data. This means that you can encode your image in a raw format (like .bmp), import it as audio, apply any kind of audio effects to it, and then export it back as raw data and see what happened to your image! The most important thing to keep in mind is that the header needs to stay intact*, so when applying effects you want to avoid messing with the beginning of the audio file, or replace the first few bytes of the exported mangled image with the original header.
+
+          *The first few bytes of an image file, called the header, contain important information about the file type, dimensions, color depth, etc. If these bytes are altered or corrupted during the audio processing, the image may become unreadable when you try to open it again.
+        type: text
+        width: full
+    width: 1/3
+
+  - src: /images/projects/bonvoyage/_FIN_int.png
+    aspect_ratio: auto
+    width: 1/2
+  - src: /images/projects/bonvoyage/screen_header.png
+    aspect_ratio: auto
+    width: full
+  - src: /images/projects/bonvoyage/_FIN_bmp.png
+    aspect_ratio: auto
+    width: 1/3
+  - src: /images/projects/bonvoyage/screen_audacity.png
+    aspect_ratio: auto
+    width: 1/3
+  - src: /images/projects/bonvoyage/_FIN_int_purpl.png
+    aspect_ratio: auto
+    width: 1/3

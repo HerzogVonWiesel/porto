@@ -168,7 +168,7 @@ function setup(sizer=30) { //fp
     noiseZ = 0;
     noise.seed(Math.random());
     ctx.strokeStyle = stroke;
-    ctx.lineWidth = 1.0;
+    ctx.lineWidth = 2.0;
     initDatafields();
 }
 
@@ -368,6 +368,7 @@ function resetDrawing() {
     if(cases == 0){
         clear();
         ctx.fillStyle = convertHexToRGBA(bg, 0.25);
+        ctx.lineWidth = 1;
     }
     if(cases == 1){
         //setup(13);

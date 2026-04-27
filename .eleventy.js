@@ -112,6 +112,7 @@ module.exports = (function(eleventyConfig) {
         icons["After Effects"] = "aftereffects";
         icons["Various AI models"] = "aivar";
         icons["Arnold"] = "arnold";
+        icons["Audacity"] = "audacity";
         icons["Audio to Audio models"] = "aud2aud";
         icons["Axiom Solver"] = "axiom";
         icons["Cinema 4D"] = "c4d";

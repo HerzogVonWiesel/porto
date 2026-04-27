@@ -2,7 +2,7 @@
     "name": "Stable AI",
     "subtitle": "AI client work & art exploration",
     "year": "2022 - 2024",
-    "description": "Exploring and experimenting with StabilityAI's diffusion models, namely Stable Diffusion. What started as experiments two years ago turned into various client projects in the past few months, be it matching image styles for a client's brand timeline, enhancing 3D renders using the newest techniques, or creating custom models for a project's specific needs.",
+    "description": "Note: Building these pipelines to direct AI for client projects was done before the widespread adoption and ease of use of image generation.<br><br>Exploring and experimenting with StabilityAI's diffusion models, namely Stable Diffusion. What started as experiments two years ago turned into various client projects in the past few months, be it matching image styles for a client's brand timeline, enhancing 3D renders using the newest techniques, or creating custom models for a project's specific needs.",
     "tools": "Stable Diffusion, Photoshop",
     "cover_img": "/images/projects/stableAI/bbgate_4_imp.png",
     "media": [

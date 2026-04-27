@@ -84,15 +84,6 @@
 
             initial.forEach(markIncluded);
 
-            Object.keys(projects).forEach(slug => {
-                if (!includedProjects.has(slug)){
-                    const fallback = normalizeLayout({ project: slug });
-                    if (fallback){
-                        initial.push(fallback);
-                    }
-                }
-            });
-
             sortedPortfolio = initial;
         }
         return sortedPortfolio;

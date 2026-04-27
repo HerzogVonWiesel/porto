@@ -49,33 +49,33 @@
 - project: stranded
   width: full
   aspect_ratio: "2.5/1"
-- project: fbc
-  width: "1/2"
-  aspect_ratio: "4/3"
-- project: mold
-  width: "1/2"
-  aspect_ratio: "4/3"
-- project: styxhelix
-  width: "1/2"
-  aspect_ratio: "5/2"
-- project: evilancia
-  width: "1/2"
-  aspect_ratio: "5/2"
-- project: hikaru
-  width: "1/2"
-  aspect_ratio: "1/1"
+# - project: fbc
+#   width: "1/3"
+#   aspect_ratio: "13/11"
 - project: villagesummer
-  width: "1/2"
-  aspect_ratio: "1/1"
+  width: "1/3"
+  aspect_ratio: "13/11"
+- project: styxhelix
+  width: "2/3"
+  aspect_ratio: "5/2"
+- project: falling
+  width: "2/3"
+  aspect_ratio: "5/2"
+- project: groovanomalism
+  width: "1/3"
+  aspect_ratio: "13/11"
+# - project: mold
+#   width: "1/3"
+#   aspect_ratio: "13/11"
+# - project: evilancia
+#   width: "1/2"
+#   aspect_ratio: "5/2"
 - project: aerock
   width: full
   aspect_ratio: "3/1"
-- project: neroli
-  width: "1/2"
-  aspect_ratio: "2/1"
-- project: falling
-  width: "1/2"
-  aspect_ratio: "2/1"
+# - project: neroli
+#   width: "1/2"
+#   aspect_ratio: "2/1"
 - project: hexhex
   width: "1/2"
   aspect_ratio: "5/2"
@@ -85,12 +85,12 @@
 - project: scouts
   width: full
   aspect_ratio: "2/1"
-- project: aurora
-  width: "1/2"
-  aspect_ratio: "1/1"
-- project: groovanomalism
-  width: "1/2"
-  aspect_ratio: "1/1"
+# - project: hikaru
+#   width: "1/4"
+#   aspect_ratio: "3/4"
+# - project: aurora
+#   width: "1/4"
+#   aspect_ratio: "3/4"
 - project: _SPACE
   width: "1/2"
   aspect_ratio: auto
