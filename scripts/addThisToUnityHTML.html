@@ -1,0 +1,27 @@
+
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: transparent;
+      }
+      #unity-container {
+        width: 100% !important;
+        height: 100% !important;
+      }
+      #unity-canvas {
+        width: 100% !important;
+        height: calc(100% - 38px) !important; /* Leaves room for the footer! */
+        object-fit: contain;
+        display: block !important; /* Removes stray inline baseline spacing */
+      }
+      #unity-footer {
+        width: 100% !important;
+        height: 38px !important;
+        display: block !important;
+      }
+    </style>

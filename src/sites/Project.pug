@@ -14,7 +14,7 @@ block content
     - title = project
     //- - console.log("Creating project "+cur_project.name)
     +divider(14)
-    +pf_description({title: cur_project.name, description: cur_project.description, tools: cur_project.tools})
+    +pf_description({title: cur_project.name, description: cur_project.description, tools: cur_project.tools, year: cur_project.year})
     +divider(14)
     div.flexcon
         each media in cur_project.media
@@ -25,10 +25,14 @@ block content
                         each submedia in media.media 
                             if (submedia.text)
                                 +pf_text({text:submedia.text, type:submedia.type, ref:submedia.ref, width:submedia.width, text_classes:submedia.text_classes, padding:" "})
+                            else if (submedia.type == 'iframe')
+                                +pf_iframe({name:submedia.title, source:submedia.src, cover:submedia.cover, width:submedia.width, aspect_ratio:submedia.aspect_ratio, description:submedia.subtitle, blog:true})
                             else 
                                 +pf_img({name:submedia.title, source:submedia.src, width:submedia.width, aspect_ratio:submedia.aspect_ratio, description:submedia.subtitle, has_sound:submedia.has_sound, blog:true})
                 else if (media.text)
                     +pf_text({text:media.text, type:media.type, ref:media.ref, width:media.width, text_classes:media.text_classes})
+                else if (media.type == 'iframe')
+                    +pf_iframe({name:media.title, source:media.src, cover:media.cover, width:media.width, aspect_ratio:media.aspect_ratio, description:media.subtitle})
                 else 
                     +pf_img({name:media.title, source:media.src, width:media.width, aspect_ratio:media.aspect_ratio, description:media.subtitle, has_sound:media.has_sound, carousel_interval:media.carousel_interval})
     +divider(14)

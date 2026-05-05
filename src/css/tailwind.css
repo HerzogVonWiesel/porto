@@ -78,55 +78,54 @@
     font-display: swap;
 }
 
-@font-face {
-    font-family: 'Inferi';
-    src: url('/fonts/subset-Inferi-Light.woff2') format('woff2');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
+/* @font-face { */
+    /* font-family: 'Inferi'; */
+    /* src: url('/fonts/subset-Inferi-Light.woff2') format('woff2'); */
+    /* font-weight: 300; */
+    /* font-style: normal; */
+    /* font-display: swap; */
+/* } */
 
 @font-face {
     font-family: 'Inferi';
-    src: url('/fonts/subset-Inferi-NormalItalic.woff2') format('woff2');
+    /* src: url('/fonts/subset-Inferi-NormalItalic.woff2') format('woff2'); */
+    src: url('/fonts/GelaWeb72pt.woff2') format('woff2');
     /* src: url('/fonts/subset-ThatThatNewPixel-ItalicSquare.woff2') format('woff2'); */
     font-weight: normal;
-    font-style: italic;
     font-display: swap;
 }
 
-@font-face {
-    font-family: 'Inferi';
-    src: url('/fonts/subset-Inferi-LightItalic.woff2') format('woff2');
-    font-weight: 300;
-    font-style: italic;
-    font-display: swap;
-}
+/* @font-face { */
+    /* font-family: 'Inferi'; */
+    /* src: url('/fonts/subset-Inferi-LightItalic.woff2') format('woff2'); */
+    /* font-weight: 300; */
+    /* font-style: italic; */
+    /* font-display: swap; */
+/* } */
 
-@font-face {
-    font-family: 'Inferi';
-    src: url('/fonts/subset-Inferi-Normal.woff2') format('woff2');
-    /* src: url('/fonts/subset-ThatThatNewPixel-Square.woff2') format('woff2'); */
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
+/* @font-face { */
+    /* font-family: 'Inferi'; */
+    /* src: url('/fonts/subset-Inferi-Normal.woff2') format('woff2'); */
+    /* font-weight: normal; */
+    /* font-style: normal; */
+    /* font-display: swap; */
+/* } */
 
-@font-face {
-    font-family: 'Inferi';
-    src: url('/fonts/subset-Inferi-SemiBoldItalic.woff2') format('woff2');
-    font-weight: 600;
-    font-style: italic;
-    font-display: swap;
-}
+/* @font-face { */
+    /* font-family: 'Inferi'; */
+    /* src: url('/fonts/subset-Inferi-SemiBoldItalic.woff2') format('woff2'); */
+    /* font-weight: 600; */
+    /* font-style: italic; */
+    /* font-display: swap; */
+/* } */
 
-@font-face {
-    font-family: 'Inferi';
-    src: url('/fonts/subset-PerfectlyNineties-Italic.woff2') format('woff2');
-    font-weight: 800;
-    font-style: italic;
-    font-display: swap;
-}
+/* @font-face { */
+    /* font-family: 'Inferi'; */
+    /* src: url('/fonts/subset-PerfectlyNineties-Italic.woff2') format('woff2'); */
+    /* font-weight: 800; */
+    /* font-style: italic; */
+    /* font-display: swap; */
+/* } */
 
 
 @layer base {
@@ -135,7 +134,7 @@
     }
     h1, h2, h3, h4, h5, h6 {
         @apply font-serif;
-        @apply italic;
+        /* @apply italic; */
         @apply font-normal;
         /* @apply font-sans; */
     }
@@ -144,11 +143,11 @@
     }
     h2 {
         @apply text-4xl md:text-6xl;
-        @apply font-sans not-italic;
+        /* @apply font-sans not-italic; */
     }
     h3 {
         @apply text-3xl md:text-5xl;
-        @apply font-sans not-italic;
+        @apply font-sans not-italic font-bold;
     }
     h4 {
         @apply text-2xl md:text-4xl;
@@ -156,6 +155,9 @@
     }
     p, ul, ol {
         @apply text-justify;
+    }
+    p a {
+        @apply underline decoration-wavy;
     }
     :root {
         --bg:           #fff7ed;

@@ -11,7 +11,7 @@ tags:
 extends /_layouts/blog_post
 
 block blog_post
-    h1.py-def-2 The Y in Python
+    h2.py-def-2 The Y in Python
     p 
         |After being truly blown away by my now favorite movie of all time, Suzume, I'd decided I definitely need to pour my love into and base a new 3D project on it (which I'm still working on, so stay tuned for that!). Combined with not wanting to create every single asset needed from scratch, somehow feature The Last Of Us II (since I recently finished it as well) and get to know more about game development (a little bit the other way around, but oh well), I dived into the topic of reverse-engineering game files - another story that I'll definitely write about in the future.
         <br> <br>
@@ -29,7 +29,7 @@ block blog_post
         +a_new_tab("https://github.com/HerzogVonWiesel/Custom_Redshift_API") DunHouGo's repository to interact with Redshift nodes (which I've since updated) →, 
         |which helped me a TON getting things off the ground.
         //- <br> <br>
-    h1.py-def-2 The idea in.. idea?
+    h2.py-def-2 The idea in.. idea?
     p Okay, so now I know the basics of how to interact with materials using Python, but what exactly do I want the script to do? Let's see: <br>
     ul.list-square.list-inside
         li For the selected materials in the scene, ...
@@ -49,11 +49,11 @@ block blog_post
         li Pack both options into a nice UI so we can choose what we want to do!
     p <br> So not a lot to expand on, right?
 
-    h1.py-def-2 Being wrong
+    h2.py-def-2 Being wrong
     p
         |What lies behind a few simple ideas can turn out a little more difficult. I want the script to automatically recognize what kind of texture channel we're dealing with, and still find matching sets. If you like, you can ponder on this problem yourself for a bit and try to find a solution before reading on.
     .note
-        h2 The problem at hand 
+        h3 The problem at hand 
         p 
             |Once we recognize all matching texture sets and which channels they have, adding the other stuff like ramps and bump maps is easy. But how do we recognize what kind of texture channel we're dealing with? And how do we create matching sets? Let's take a look at some texture names we have lying around (sets are something before the channel name, e.g. "foo-bar-" or "foo_foo-foo-bar"):
             <br>
@@ -86,7 +86,7 @@ block blog_post
         a(href="mailto:hello@jeromestephan.de") so feel free to send me an email → 
         |or DM me on Instagram!
 
-    h1.py-def-2 Hex hex with Reg Ex
+    h2.py-def-2 Hex hex with Reg Ex
     p 
         |Imagine you have a super powerful search tool, like when you use "Ctrl + F" in a document, but on steroids. Regular expressions are like a special language that helps you describe patterns in text. Think of a pattern as a rule you want to find in a bunch of text. This rule can be simple, like finding every word that starts with "cat", or really complex, like finding email addresses. Regular expressions give you a way to describe these rules using special characters and symbols, so let's look at an example to know what I'm talking about: Finding all the words that start with the letter "c" in a sentence.
         <br> <br>
@@ -136,7 +136,7 @@ block blog_post
         <br>
         |If I could summarize regex in one sentence, it would be: "Defying expectations, this monstrous creation harmonizes chaos into function." - I'm not sure if that makes sense, but it sounds cool, right? Well, the important part is that after a lot of trial and error, I've finally come up with a regular expression that works for all the texture sets I've thrown at it.
 
-    h1.py-def-2 Galantis - Runaway
+    h2.py-def-2 Galantis - Runaway
     p 
         |Getting the regular expression to work was, arguably, the most crucial part of this whole ordeal. The rest of the script's functions are pretty standard programming stuff, though it was a little harder to find out how to do this or that - the only real resource we have to look stuff up is the 
         +a_new_tab("https://developers.maxon.net/docs/Cinema4DPythonSDK/html/index.html") Cinema4D Python SDK →, 
@@ -148,7 +148,7 @@ block blog_post
         <br> <br>
         |After a lot of positive feedback from the Redshift community on my script, I got a DM from @stuckpixel, telling me when my script is installed, some other scripts of his studio won't work anymore. Huh, must be them then, since it works for everyone else.
     .note 
-        h2 Pitfalls, advice, and how to turn a script into a plugin
+        h3 Pitfalls, advice, and how to turn a script into a plugin
         p 
             |Well, @ferdinand, a superb Maxon employee told me on the forums later on that it's actually <em>"illegal" for scripts to create ASYNC dialogs</em>, so I'll need to change my script into a plugin: 
         ol.list-decimal.list-inside.ml-def-2
@@ -217,7 +217,7 @@ block blog_post
             != code
     p 
         |A lot to consider it seems! But it's all worth it in the end. Trust me.
-    h1.py-def-2 The final product
+    h2.py-def-2 The final product
     +pf_img({name:"Screenshot from the finished plugin, TexToMatO", source:"/images/blog_posts/textomato/TexToMatO_Screenshot.png", width:"1/2", aspect_ratio:"auto", blog:true})
     p
         <br> <br>

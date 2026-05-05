@@ -9,7 +9,7 @@ extends /_layouts/template
 
 block content
     //flowfield
-    div(class="px-def-2 relative h-[20vh] -mt-16 -z-10")
+    div(class="px-def-2 relative h-[20vh] -mt-8 -z-10")
         canvas(id="canvas")
         script(src="/js/ps_noises.js ")
         script(src="/js/vector_utils.js")
@@ -19,13 +19,22 @@ block content
         +divider(4, "w-full md:col-span-4")
         p(class="text-xl w-full md:col-span-1 py-def") ↝ !{space(4)} About
         p(class="text-xl w-full md:col-span-2 py-def")
-            |Jérôme Stephan is a programmer and artist based in and around Berlin, Germany. Working with game studios, musicians and other clients all over the world. Loving to stroll the fine line between programming and art, leaning into either side depending on the kind of project and keen on using every opportunity to learn more.
+            |I am a programmer and artist based in and around Berlin, Germany. Working with game studios, musicians and other clients all over the world. Loving to stroll the fine line between programming and art, leaning into either side depending on the project and keen on using every opportunity to learn more.
             |<br>
             +a_new_tab("/CV") Further reading in my CV →
 
         div(class="w-full md:col-span-1 md:row-span-7 md:pl-def-2 py-def")
             //-+responsive_carousel(["/images/collage.png", "/images/jstephan.png"], "100vw")
-            +pf_img({source:["/images/me/picasso.png", "/images/me/profbw.jpg", "/images/me/favicon.png"], width:"full", aspect_ratio:"auto", blog: true, carousel_interval:1500})
+            +pf_img({source:[
+            "/images/me/picasso.png", 
+            "/images/me/profbw.jpg", 
+            "/images/me/favicon_nu.png",
+            "/images/me/pers1.jpg",
+            "/images/me/pers5.jpg",
+            "/images/me/pers2.jpg",
+            "/images/me/pers3.jpg",
+            "/images/me/pers4.jpg",
+            ], width:"full", aspect_ratio:"auto", blog: true, carousel_interval:1500})
 
         +divider(12, "w-full md:col-span-3")
         p(class="text-xl w-full md:col-span-1 py-def") ↝ !{space(4)} Selected Clients
@@ -49,7 +58,7 @@ block content
     +divider(14)
     //- h2(class="text-5xl md:text-8xl px-2 py-2") CONTACT ME ︎︎︎
     div.p-def-2
-        h1 CONTACT ME ︎︎︎
+        h2 Contact Me ⬎
         h1(class="md:text-8xl text-7xl text-center z-10 py-8") 
             a(href="mailto:hello@jeromestephan.de") hello@!{word_brk}jerome!{word_brk}stephan!{word_brk}.de
     +divider(14)

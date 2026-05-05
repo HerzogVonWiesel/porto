@@ -11,10 +11,13 @@ mixin a_ref(ref)
     else 
         block
 
-mixin pf_description({title, description, tools} = {})
+mixin pf_description({title, description, tools, year} = {})
      div.flexcon
         div(class="w-full md:w-full p-def-2")
             h1(class="text-left break-words")= title
+        if year
+            p(class="text-xl w-full md:w-1/4 p-def-2") ↝ !{space(4)} Year
+            p(class="text-xl w-full md:w-3/4 p-def-2")= year
         p(class="text-xl w-full md:w-1/4 p-def-2") ↝ !{space(4)} Description
         p(class="text-xl w-full md:w-3/4 p-def-2").
             !{description}
@@ -49,11 +52,12 @@ mixin blog_description({title, description, tags, date} = {})
         p(class="text-xl w-full md:w-3/4 p-def-2")= date
 
 mixin pf_div({width="1/2", paddings=" p-def-2 py-def", ref, classes=""} = {})
-    div(class="w-full md:w-"+width+paddings+" "+classes)
+    - var w_class = width === "full" ? "md:w-full" : (width.includes("/") ? "md:w-[calc("+width+"*100%)]" : "md:w-"+width)
+    div(class="w-full "+w_class+paddings+" "+classes)
         +a_ref(ref)
             block
 
-mixin handle_source({source, aspect_ratio, width="full", has_sound, id} = {})
+mixin handle_source({source, aspect_ratio, width="full", has_sound, id, eager=false} = {})
     include _eval_ar_sizes.pug
 
     if filters.is_video(source)
@@ -61,7 +65,7 @@ mixin handle_source({source, aspect_ratio, width="full", has_sound, id} = {})
     else if filters.is_svg(source)
         != filters.inline_svg("_site"+source)
     else if source != ""
-        +responsive_image(source, sizes, id)(alt="" class=eval_aspect_ratio+" w-full object-cover")
+        +responsive_image(source, sizes, id, eager)(alt="" class=eval_aspect_ratio+" w-full object-cover")
 
 mixin pf_img({name, source, ref, width="1/2", aspect_ratio="1/1", description, has_sound=false, name_classes="", description_classes="", blog=false, carousel_interval} = {})
     if (blog)
@@ -74,7 +78,7 @@ mixin pf_img({name, source, ref, width="1/2", aspect_ratio="1/1", description, h
             - var carousel_id = 0
             each source in og_source
                 //- - console.log("Handling source "+source + " with id "+hash_id+"-"+carousel_id)
-                +handle_source({source:source, aspect_ratio:aspect_ratio, width:width, has_sound:has_sound, id:hash_id+"-"+carousel_id})
+                +handle_source({source:source, aspect_ratio:aspect_ratio, width:width, has_sound:has_sound, id:hash_id+"-"+carousel_id, eager:true})
                 - carousel_id++
             +carousel_script({id:hash_id, interval:carousel_interval})
         else
@@ -84,19 +88,34 @@ mixin pf_img({name, source, ref, width="1/2", aspect_ratio="1/1", description, h
                 if description
                     //- - name = name+" • "
                 span(class=""+name_classes)= name
-                span(class="text-xs ml-auto"+description_classes)= description
+                span(class="text-right text-xs ml-auto"+description_classes)= description
+
+mixin pf_iframe({name, source, cover, ref, width="1/2", aspect_ratio="1/1", description, name_classes="", description_classes="", blog=false} = {})
+    if (blog)
+        - var paddings = " "
+    +pf_div({width:width, paddings:paddings, ref:ref})
+        - var eval_aspect_ratio = "aspect-["+aspect_ratio+"]"
+        - var iframe_html = "<iframe src='"+source+"' class='"+eval_aspect_ratio+" w-full object-cover' frameborder='0' allowfullscreen></iframe>"
+        div(class="relative cursor-pointer group "+eval_aspect_ratio+" w-full" onclick=`this.innerHTML="${iframe_html}"; this.onclick=null;`)
+            +handle_source({source:cover, aspect_ratio:aspect_ratio, width:width, has_sound:false})
+            div(class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10")
+                div(class="text-base-dark dark:text-base-bright bg-bg dark:bg-bg-dark text-4xl 4xl:text-6xl font-bold px-8 pt-4 pb-6 underline decoration-wavy group-hover:text-accent group-hover:decoration-accent") PLAY
+        div(class="w-full items-start leading-none mt-1 flex")
+            if name
+                span(class=""+name_classes)= name
+                span(class="text-right text-xs ml-auto"+description_classes)= description
 
 mixin pf_text({text, type, ref, width="1/2", text_classes="", padding} = {})
     +pf_div({width:width, paddings:padding, ref:ref})
         div(class="w-full items-start mt-1")
             if (type=="header")
-                h1(class=""+text_classes). 
-                    !{text}
-            else if (type=="subheader")
                 h2(class=""+text_classes). 
                     !{text}
-            else if (type=="subsubheader")
+            else if (type=="subheader")
                 h3(class=""+text_classes). 
+                    !{text}
+            else if (type=="subsubheader")
+                h4(class=""+text_classes). 
                     !{text}
             else 
                 if (text_classes == "")

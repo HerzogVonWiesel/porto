@@ -7,7 +7,7 @@
     return fallback;
   }
 
-mixin responsive_image(path, sizes, id="res-img")
+mixin responsive_image(path, sizes, id="res-img", eager=false)
   - const data = collections.img_collection["src"+path];
   - const fallback = get_fallback(path);
   picture(id=id)
@@ -18,7 +18,10 @@ mixin responsive_image(path, sizes, id="res-img")
         - srcset_collection.push(source.srcset)
       source(type=srcType srcset=srcset_collection.toString() sizes=sizes) 
       //- id=id+"-"+srcType 
-    img(src=fallback.url)&attributes(attributes) 
+    if eager
+      img(src=fallback.url loading="eager" fetchpriority="high" decoding="sync")&attributes(attributes) 
+    else
+      img(src=fallback.url)&attributes(attributes) 
     //- id=id+"-fallback" 
 
 mixin carousel_script({id="carousel", interval=800} = {})

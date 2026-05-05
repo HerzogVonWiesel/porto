@@ -32,9 +32,7 @@ const scale = (number, [inMin, inMax], [outMin, outMax]) => {
 }
 
 function random_light_color() {
-    // use hsl
     const hue = Math.floor(Math.random() * 360);
-    // random saturation and lightness between 50% and 100%
     const sat_min = 0;
     const sat_max = 90;
     const light_min = 85;

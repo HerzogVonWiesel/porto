@@ -9,7 +9,7 @@ tags:
 extends /_layouts/blog_post
 
 block blog_post
-    h1.py-def-2 WISo?
+    h2.py-def-2 WISo?
     p 
         |Das WIS (Werkstatt-Informations-System) ist ein Programm von Mercedes-Benz selbst herausgegeben, welches (fast) alle nötigen Informationen zur Reparatur und Wartung von den Fahrzeugen für die Service-Mitarbeiter bereitstellt. Nur, dass man als Oldtimer-Liebhaber nicht direkt für jedes Wehwehchen in die Werkstatt fahren möchte, weswegen nun <em>wir</em> zum Service-Mitarbeiter werden wollen.
         <br> <br>
@@ -20,11 +20,11 @@ block blog_post
 
     p <br>Tja, anscheinend geht es eben doch, das Ganze läuft ohne dicke Virtuelle Maschine und ist garnicht mal so schwer! <br>
 
-    h1.py-def-2 in vino veritas
+    h2.py-def-2 in vino veritas
     p
         |Dafür nutzen wir Wine, ein Programm, welches als Kompatibiltätsschicht Windows-Programme auf Mac und Linux laufen lässt. Das Ganze ist kostenlos und Open Source, ein Träumchen! <br><br>
     .note
-        h2 Für Nerds (wie mich): Was ist Wine?
+        h3 Für Nerds (wie mich): Was ist Wine?
         p 
             |Wine ist ein Open-Source-Softwareprojekt, das eine Kompatibilitätsschicht bietet, um Windows-Anwendungen unter Unix-basierten Betriebssystemen wie Linux, macOS und BSD auszuführen. Der Name Wine steht ursprünglich für "Wine Is Not an Emulator". Es ist also kein Emulator im traditionellen Sinne, sondern eine Implementierung der Windows-API für Unix-basierte Systeme.
             <br><br>
@@ -51,14 +51,14 @@ block blog_post
     +pf_img({name:"", source:"/images/blog_posts/wis_mac/install_wine.png", width:"1/2", aspect_ratio:"auto", blog:true})
 
 
-    h1.py-def-2 Das war's! (Fast)
+    h2.py-def-2 Das war's! (Fast)
     +pf_img({name:"", source:"/images/blog_posts/wis_mac/open_wis.png", width:"1/2", aspect_ratio:"auto", blog:true})
     p 
         <br>
         |Das ging ja schnell! Rein mit dem WIS, auf die .exe klicken, und wir werden von einem uralten Acrobat Reader begrüßt. Alles wie es soll! Allerdings ist es doch etwas umständlich, immer die CD dabeihaben zu müssen, besonders, wenn der Mac kein CD-Laufwerk hat wie meiner. <br><br>
         |Doch auch dafür gibt es Abhilfe, und zwar in Form einer <em>.iso</em>, quasi die CD als Datei. Diese können wir auf Windows mittels eines Programms wie <a href="https://www.imgburn.com/" target="_blank">ImgBurn</a> erstellen, und dann auf den Mac übertragen, oder direkt auf dem Mac wie folgt erstellen:
     .note 
-        h2 ISO von CD auf dem Mac
+        h3 ISO von CD auf dem Mac
         p 
             |Apple selbst hat einen guide dazu geschrieben, den ich mal eben dreisterweise kopiere: 
             ol.list-decimal.list-inside

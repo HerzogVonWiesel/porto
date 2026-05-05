@@ -45,10 +45,12 @@ let img_collection = async () => {
 
 const video_types = [".mp4", ".ogg", ".avi", ".mkv"];
 function is_video(src){
+    if (!src || typeof src !== 'string') return false;
     const extension = path.extname(src);
     return video_types.includes(extension);
 }
 function is_svg(src){
+    if (!src || typeof src !== 'string') return false;
     const extension = path.extname(src);
     return extension === ".svg";
 }
@@ -72,6 +74,7 @@ module.exports = (function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/favicon")
     eleventyConfig.addPassthroughCopy("src/site.webmanifest")
     eleventyConfig.addPassthroughCopy("src/files")
+    eleventyConfig.addPassthroughCopy("src/Games")
     eleventyConfig.addPassthroughCopy("src/css/prism-one-dark.css")
     eleventyConfig.addPassthroughCopy("src/css/prism-min.css")
 
@@ -109,6 +112,7 @@ module.exports = (function(eleventyConfig) {
     eleventyConfig.addCollection("icons", function (collection) {
         const icons = {};
         icons["Ableton"] = "ableton";
+        icons["Affinity"] = "affinity";
         icons["After Effects"] = "aftereffects";
         icons["Various AI models"] = "aivar";
         icons["Arnold"] = "arnold";
@@ -137,6 +141,7 @@ module.exports = (function(eleventyConfig) {
         icons["Substance Painter"] = "substancepainter";
         icons["Suno.AI"] = "suno";
         icons["Topaz Studio"] = "tstudio";
+        icons["Unity"] = "unity";
         icons["Video to Video models"] = "vid2vid";
         icons["Topaz VideoAI"] = "videoai";
         icons["World Creator"] = "worldcreator";

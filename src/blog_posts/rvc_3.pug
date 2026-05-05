@@ -9,20 +9,20 @@ tags:
 extends /_layouts/blog_post
 
 block blog_post
-    h1.py-def-2 Part 1&2?
+    h2.py-def-2 Part 1&2?
     p 
         +a_new_tab("/blog_posts/rvc_1/") Check out how to actually train a voice here if you haven't already →,
         <br> <br>
         +a_new_tab("/blog_posts/rvc_2/") and how to transfer it to existing audio vocals here →.
 
-    h1.py-def-2 Setting up the client 
+    h2.py-def-2 Setting up the client 
     p 
         |For real-time voice conversion, we're going to use W-Okadas Voice Changer client. You can find 
         +a_new_tab("https://github.com/w-okada/voice-changer/blob/master/README_en.md") its GitHub repository here →.
         <br>
         |Scrolling down, you'll need the CUDA version if you're running NVidia cards, on AMD you'll need to look for DirectML. Sadly, there's still no Linux version available of this client, so you'll need to use Windows for this.
     
-    h1.py-def-2 Run, VC client, run! 
+    h2.py-def-2 Run, VC client, run! 
     p 
         |Once you've downloaded the client, you'll need to extract it. Look for the "start_http.bat" and run it; Ignore the Windows safety warnings (trusting open source software and all that).
         <br> <br>
@@ -32,7 +32,7 @@ block blog_post
     p 
         |You can now select the model, click on "Start", and try it out! There is some delay between you speaking and the trained voice speaking back, but we'll be able to adjust that with a few settings later. Take it for a spin and see how it sounds!
 
-    h1.py-def-2 Turning the knobs
+    h2.py-def-2 Turning the knobs
     +grid_block 
         +grid_element("Gain", "blog", 0)
             |The output might be a little quieter than we'd like, so turning up the gain of "out" to something like 2 might fix that; Just keep in mind that we don't want to blow anyone's ears off.
@@ -43,7 +43,7 @@ block blog_post
         +grid_element("Threshold", "blog", 0)
             |I've never seen this make the output sound better by turning it down, so just max it out at 0.001.
 
-    h1.py-def-2 Making it work in other apps 
+    h2.py-def-2 Making it work in other apps 
     p 
         |Great, so we can now hear what we say in someone's else voice a second or so later. But how do we get to the fun part of actually using it?
         <br> <br>
@@ -54,7 +54,7 @@ block blog_post
         <br> <br>
         |Now, you can go to Discord, Zoom, or whatever other app you want to use this in, and set the input device to the VB-Cable output (if you can, just to be sure it doesn't have a fixed setting of your normal microphone). You should now be able to use your trained voice in real-time in any app you want! Call a fellow student as your professor and tell them they're failing your class, or call your boss as your coworker and tell them you're quitting. The possibilities are endless! (Please don't actually do this, this is just a joke, don't do anything malicious with this. Please please please. Thank you.)
 
-    h1.py-def-2 Moral complications & Disclaimer
+    h2.py-def-2 Moral complications & Disclaimer
     p 
         |As mentioned before, please don't use this information for malicious purposes. I'm not responsible for any damage you may cause with this information. I'm just a guy who likes to play around with AI models, and I'm sharing my findings with you.
         <br> <br>

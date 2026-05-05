@@ -9,17 +9,17 @@ tags:
 extends /_layouts/blog_post
 
 block blog_post
-    h1.py-def-2 Part 1?
+    h2.py-def-2 Part 1?
     p 
         +a_new_tab("/blog_posts/rvc_1/") Check out how to actually train a voice here if you haven't already →.
 
-    h1.py-def-2 Vocal Isolation 
+    h2.py-def-2 Vocal Isolation 
     p Reiterating from part 1:
     div.note
         include:markdown-it(linkify langPrefix='highlight-') _general/audio_dataset.md
         p Be sure to export both "Other" and "No other" versions of your audio in UVR, as you'll need the voice for the transfer process, and the music to put your transferred voice on top of in the final step.
 
-    h1.py-def-2 Vocal Transfer
+    h2.py-def-2 Vocal Transfer
     +grid_block 
         +grid_element("Use volume envelope", "blog", 0) 
             p 
@@ -44,15 +44,15 @@ block blog_post
     p 
         |Once you've dialed in your settings, you can go ahead and convert your voice! On a 4090 using mangio-crepe it is reasonably fast, converting a 3-minute song in about 10 seconds.
 
-    h1.py-def-2 Vocal + not Vocals = Song
+    h2.py-def-2 Vocal + not Vocals = Song
     p 
         |As mentioned before, you'll need to adjust the pitch of the original song to match the converted voice (if you've adjusted the pitch). Also, now is the time to use the "Other" version of your isolated voice (Which will be the song's instrumentals), as you'll need to put it on top of the converted voice. The simplest way I've found is to layer them on top of each other in Audacity, and then exporting as MP3. Et voilà, we're all done!
 
-    h1.py-def-2 Part 3: Real-time voice conversion
+    h2.py-def-2 Part 3: Real-time voice conversion
     p 
         a(href="/blog_posts/rvc_3/") In Part 3, I'll show you how to use the model we've trained to change your voice in real-time from microphone input →.
 
-    h1.py-def-2 Disclaimer 
+    h2.py-def-2 Disclaimer 
     p 
         |Please, please, please don't use this information for malicious purposes. I'm not responsible for any damage you may cause with this information. I'm just a guy who likes to play around with AI models, and I'm sharing my findings with you.
         <br> <br>
