@@ -63,3 +63,21 @@ function _calculateScrollbarWidth() {
   document.addEventListener('DOMContentLoaded', _calculateScrollbarWidth, false); 
   // recalculate on load (assets loaded as well)
   window.addEventListener('load', _calculateScrollbarWidth);
+
+function markMediaLoaded(media) {
+    const isVideo = media.tagName === 'VIDEO';
+    const isLoaded = isVideo ? media.readyState >= 2 : media.complete;
+    if (isLoaded) {
+        media.classList.add('media-loaded');
+        return;
+    }
+
+    media.addEventListener(isVideo ? 'loadeddata' : 'load', () => {
+        media.classList.add('media-loaded');
+    }, { once: true });
+    media.addEventListener('error', () => {
+        media.classList.add('media-loaded');
+    }, { once: true });
+}
+
+document.querySelectorAll('.media-placeholder').forEach(markMediaLoaded);

@@ -61,7 +61,7 @@ mixin handle_source({source, aspect_ratio, width="full", has_sound, id, eager=fa
     include _eval_ar_sizes.pug
 
     if filters.is_video(source)
-        video(class=eval_aspect_ratio+" w-full object-cover" loop controls=has_sound autoplay=!has_sound muted=!has_sound playsinline src=source id=id) 
+        video(class=eval_aspect_ratio+" w-full object-cover media-placeholder" loop controls=has_sound autoplay=!has_sound muted=!has_sound playsinline preload=has_sound ? "metadata" : "auto" src=source id=id) 
     else if filters.is_svg(source)
         != filters.inline_svg("_site"+source)
     else if source != ""
