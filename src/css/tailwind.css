@@ -186,6 +186,50 @@
     .note {
         @apply p-def-2 my-def-2 border-accent border-4;
     }
+
+    .blog-article {
+        @apply mx-auto w-full text-base md:text-blog;
+        /* Keep about 70 characters of prose, plus the existing horizontal padding. */
+        max-width: calc(70ch + 3rem);
+        line-height: 1.7;
+        overflow-wrap: anywhere;
+    }
+
+    .blog-article p,
+    .blog-article ul,
+    .blog-article ol {
+        @apply text-left;
+    }
+
+    .blog-article h1 {
+        font-size: clamp(2.5rem, 4vw, 4rem);
+        line-height: 1.1;
+    }
+
+    .blog-article h2 {
+        font-size: clamp(2rem, 3vw, 3rem);
+        line-height: 1.2;
+    }
+
+    .blog-article h3 {
+        font-size: clamp(1.5rem, 2vw, 2rem);
+        line-height: 1.3;
+    }
+
+    .blog-prose p + p {
+        margin-top: 1em;
+    }
+
+    .blog-prose pre {
+        max-width: 100%;
+        overflow-x: auto;
+        overflow-wrap: normal;
+    }
+
+    .blog-prose :not(pre) > code {
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
 }
 
 @layer utilities {
