@@ -179,6 +179,40 @@
     @apply visible z-50;
 }
 
+.media-placeholder {
+    background-color: rgba(0, 0, 0, 0.08);
+    background-image: linear-gradient(90deg, transparent 0% 45%, rgba(0,0, 0, 0.08) 45% 55%, transparent 55% 100%);
+    background-position: 100% 0;
+    background-size: 600% 100%;
+    animation: media-loading 1.8s linear infinite;
+}
+
+.dark .media-placeholder {
+    background-color: rgba(255, 255, 255, 0.08);
+    background-image: linear-gradient(90deg, transparent 0% 45%, rgba(255,255, 255, 0.08) 45% 55%, transparent 55% 100%);
+}
+
+.media-loaded {
+    background-color: transparent;
+    background-image: none;
+    animation: none;
+}
+
+@keyframes media-loading {
+    from {
+        background-position: 100% 0;
+    }
+    to {
+        background-position: 0 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .media-placeholder {
+        animation: none;
+    }
+}
+
 @layer components {
     .flexcon {
         @apply flex flex-wrap m-auto;

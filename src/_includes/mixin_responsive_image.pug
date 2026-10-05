@@ -19,9 +19,9 @@ mixin responsive_image(path, sizes, id="res-img", eager=false)
       source(type=srcType srcset=srcset_collection.toString() sizes=sizes) 
       //- id=id+"-"+srcType 
     if eager
-      img(src=fallback.url loading="eager" fetchpriority="high" decoding="sync")&attributes(attributes) 
+      img.media-placeholder(src=fallback.url width=fallback.width height=fallback.height loading="eager" fetchpriority="high" decoding="sync")&attributes(attributes) 
     else
-      img(src=fallback.url)&attributes(attributes) 
+      img.media-placeholder(src=fallback.url width=fallback.width height=fallback.height)&attributes(attributes) 
     //- id=id+"-fallback" 
 
 mixin carousel_script({id="carousel", interval=800} = {})
