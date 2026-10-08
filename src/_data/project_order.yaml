@@ -1,4 +1,6 @@
-
+- project: beyond-mirror-therapy
+  width: full
+  aspect_ratio: "5/2"
 - project: suzume
   width: "1/2"
   aspect_ratio: "1/1"

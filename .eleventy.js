@@ -127,6 +127,7 @@ module.exports = (function(eleventyConfig) {
         icons["Alhambra Classical Guitar"] = "guitar";
         icons["Houdini"] = "houdini";
         icons["Image to Video models"] = "img2vid";
+        icons["Meta XR SDK"] = "meta";
         icons["Nuke"] = "nuke";
         icons["OpenVino"] = "openvino";
         icons["Ornatrix"] = "ornatrix";
