@@ -5,7 +5,8 @@
     },
     {
         "site": "ArtStation",
-        "link": "https://artstation.com/jerostephan"
+        "link": "https://artstation.com/jerostephan",
+        "hidden": true
     },
     {
         "site": "GitHub",

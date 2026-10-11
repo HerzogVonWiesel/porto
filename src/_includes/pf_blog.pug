@@ -70,7 +70,7 @@ mixin handle_source({source, aspect_ratio, width="full", has_sound, id, eager=fa
 mixin pf_img({name, source, ref, width="1/2", aspect_ratio="1/1", description, has_sound=false, name_classes="", description_classes="", blog=false, carousel_interval} = {})
     if (blog)
         - var paddings = " "
-    +pf_div({width:width, paddings:paddings, ref:ref})
+    +pf_div({width:width, paddings:paddings, ref:ref, classes:"pf-media"})
         - var is_carousel = Array.isArray(source)
         if is_carousel
             - var og_source = source
@@ -83,7 +83,7 @@ mixin pf_img({name, source, ref, width="1/2", aspect_ratio="1/1", description, h
             +carousel_script({id:hash_id, interval:carousel_interval})
         else
             +handle_source({source:source, aspect_ratio:aspect_ratio, width:width, has_sound:has_sound})
-        div(class="w-full items-start leading-none mt-1 flex")
+        div(class="pf-caption w-full items-start leading-none mt-1 flex")
             if name
                 if description
                     //- - name = name+" • "
@@ -93,20 +93,21 @@ mixin pf_img({name, source, ref, width="1/2", aspect_ratio="1/1", description, h
 mixin pf_iframe({name, source, cover, ref, width="1/2", aspect_ratio="1/1", description, name_classes="", description_classes="", blog=false} = {})
     if (blog)
         - var paddings = " "
-    +pf_div({width:width, paddings:paddings, ref:ref})
+    +pf_div({width:width, paddings:paddings, ref:ref, classes:"pf-media"})
         - var eval_aspect_ratio = "aspect-["+aspect_ratio+"]"
         - var iframe_html = "<iframe src='"+source+"' class='"+eval_aspect_ratio+" w-full object-cover' frameborder='0' allowfullscreen></iframe>"
         div(class="relative cursor-pointer group "+eval_aspect_ratio+" w-full" onclick=`this.innerHTML="${iframe_html}"; this.onclick=null;`)
             +handle_source({source:cover, aspect_ratio:aspect_ratio, width:width, has_sound:false})
             div(class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10")
                 div(class="text-base-dark dark:text-base-bright bg-bg dark:bg-bg-dark text-4xl 4xl:text-6xl font-bold px-8 pt-4 pb-6 underline decoration-wavy group-hover:text-accent group-hover:decoration-accent") PLAY
-        div(class="w-full items-start leading-none mt-1 flex")
+        div(class="pf-caption w-full items-start leading-none mt-1 flex")
             if name
                 span(class=""+name_classes)= name
                 span(class="text-right text-xs ml-auto"+description_classes)= description
 
 mixin pf_text({text, type, ref, width="1/2", text_classes="", padding} = {})
-    +pf_div({width:width, paddings:padding, ref:ref})
+    - var text_type_class = ["header", "subheader", "subsubheader"].includes(type) ? "pf-heading" : (type === "spacer" ? "pf-spacer" : "pf-text")
+    +pf_div({width:width, paddings:padding, ref:ref, classes:text_type_class})
         div(class="w-full items-start mt-1")
             if (type=="header")
                 h2(class=""+text_classes). 

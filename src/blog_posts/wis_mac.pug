@@ -16,7 +16,7 @@ block blog_post
         |Jetzt habe ich schon etwas vorgegriffen und erwähnt, dass es um Oldtimer geht. Das heißt wiederum, dass wir bei dem passenden WIS mit nahezu antiker Software hantieren, welche schon auf modernen Windows-Versionen rummeckert, geschweige denn, dass es überhaupt auf Mac oder Linux läuft.
         <br> <br>
     
-    +pf_img({name:"WIS auf dem Mac", source:"/images/blog_posts/wis_mac/wis_mac.png", width:"1/2", aspect_ratio:"auto", blog:true})
+    +pf_img({name:"WIS auf dem Mac", source:"/images/blog_posts/wis_mac/wis_mac.png", width:"full", aspect_ratio:"auto", blog:true})
 
     p <br>Tja, anscheinend geht es eben doch, das Ganze läuft ohne dicke Virtuelle Maschine und ist garnicht mal so schwer! <br>
 
@@ -38,7 +38,7 @@ block blog_post
         `
     - var code = filters.render_code("bash", code);
     != code
-    +pf_img({name:"", source:"/images/blog_posts/wis_mac/install_homebrew.png", width:"1/2", aspect_ratio:"auto", blog:true})
+    +pf_img({name:"", source:"/images/blog_posts/wis_mac/install_homebrew.png", width:"full", aspect_ratio:"auto", blog:true})
     p 
         <br>
         |Homebrew wird euch fragen, ob ihr okay damit seid, dass es installiert wird. Einfach weiter <i>Enter</i> drücken, bis es tatsächlich installiert ist (und nicht von dem ganzen Text abschrecken lassen). Ist das geschafft, können wir ganz einfach Wine mittels Homebrew installieren. Dazu geben wir folgenden Befehl im Terminal ein:
@@ -48,11 +48,11 @@ block blog_post
         `
     - var code = filters.render_code("bash", code);
     != code
-    +pf_img({name:"", source:"/images/blog_posts/wis_mac/install_wine.png", width:"1/2", aspect_ratio:"auto", blog:true})
+    +pf_img({name:"", source:"/images/blog_posts/wis_mac/install_wine.png", width:"full", aspect_ratio:"auto", blog:true})
 
 
     h2.py-def-2 Das war's! (Fast)
-    +pf_img({name:"", source:"/images/blog_posts/wis_mac/open_wis.png", width:"1/2", aspect_ratio:"auto", blog:true})
+    +pf_img({name:"", source:"/images/blog_posts/wis_mac/open_wis.png", width:"full", aspect_ratio:"auto", blog:true})
     p 
         <br>
         |Das ging ja schnell! Rein mit dem WIS, auf die .exe klicken, und wir werden von einem uralten Acrobat Reader begrüßt. Alles wie es soll! Allerdings ist es doch etwas umständlich, immer die CD dabeihaben zu müssen, besonders, wenn der Mac kein CD-Laufwerk hat wie meiner. <br><br>

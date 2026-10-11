@@ -5,7 +5,7 @@ year: '2026'
 description: |-
   What if a small movement could go a little further? For my Master's thesis, I built a controller-free VR exercise environment that turns limited physical finger movement into a fuller virtual grasp. Running on a Meta Quest 3, it brings together hand tracking, playful plant-watering tasks and a painterly visual style, with the aim of making repeated hand practice feel achievable and rewarding. What started as a research prototype has since grown into an adapted environment for an upcoming study at Uniklinik Erlangen with exoskeleton partner ottobock, complete with a new balloon game, an AI-based asset workflow and a connected live dashboard.
 tools: 'Unity, Cinema 4D, Meta XR SDK, Various AI models'
-cover_img: /images/projects/beyond-mirror-therapy/studio_cutout.png
+cover_img: /images/projects/beyond-mirror-therapy/project_consortium_wc.png
 media:
   - title: Demo from my thesis presentation
     src: /images/projects/beyond-mirror-therapy/BMT_low.mp4

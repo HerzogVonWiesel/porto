@@ -1,0 +1,81 @@
+---
+title: "The sound of silence: headphone repair"
+subtitle: A pair of silent studio headphones, a replacement cable and the comforting thought that I probably couldn't make them any more broken.
+date: 2026-10-02
+cover_img: /images/blog_posts/headphone_repair/cover.png
+tags:
+    - Electronics
+---
+extends /_layouts/blog_post
+
+block blog_post
+    h2.py-def-2 Hello darkness, my old friend
+    p.
+        I found a pair of beyerdynamic DT 770 Pro studio headphones sitting on a shelf and asked if I could borrow them. A nice pair of headphones for DJing? Don't mind if I do! Except, when I got home and plugged them in, they didn't work. At all. Neither the left nor the right side made a sound.
+    p.
+        When I mentioned this, I was told to just toss them. Well, that did give me a rather comforting thought: if they're already headed for the bin, I can't really make it worse, can I? Out came the soldering iron.
+    +pf_img({name:"The patient on the workbench", source:"/images/blog_posts/headphone_repair/workbench.jpg", width:"full", aspect_ratio:"4/3", blog:true})
+
+    h2.py-def-2 Two ears, zero sound
+    div.flexcon
+        div(class="w-full md:w-1/2 md:pr-def-2")
+            p.
+                My first thought was that the chances of both drivers being busted were probably slimmer than something being wrong with the cable they share. The drivers are the little speakers inside the earcups, and replacing both of those would be a rather different repair. A new audio cable seemed like a reasonable place to start, so I ordered a replacement and got to work.
+            p.
+                Not exactly an exhaustive diagnosis, but sometimes you've got to start somewhere. And in this case, somewhere was a cable with a plug on one end and a few little wires waiting to be soldered on the other.
+        +pf_img({name:"The replacement audio cable", source:"/images/blog_posts/headphone_repair/replacement_cable.jpg", width:"1/2", aspect_ratio:"auto", blog:true})
+
+    h2.py-def-2 Open ear surgery
+    p.
+        First, the earpad has to come off. Its edge sits around the rim of the cup, so work it off until you can get to the speaker cover underneath. Taking it off is, unfortunately, the easier half of this particular task. We'll get to the other half later.
+    div.flexcon
+        +pf_img({name:"Lifting out the speaker cover", source:"/images/blog_posts/headphone_repair/speaker_cover_off.jpg", width:"1/3", aspect_ratio:"auto", blog:true})
+        div(class="w-full md:w-2/3 md:pl-def-2")
+            p.
+                Using a flat screwdriver or a thin shim, gently pry out the speaker cover. Once that's out of the way, the driver itself should basically fall into your hand. If it doesn't, a few gentle taps on the back of the cup can help loosen it - a little like getting ketchup out of a bottle, just with significantly less enthusiasm.
+            p.
+                Keep the cup over your hand so you can catch the driver, which is still attached to the wiring. We're trying to fix a broken cable here, not create a few more of them.
+            p
+                |Reference image from 
+                +a_new_tab("https://www.youtube.com/@CustomCans") Custom Cans on YouTube →.
+    p.
+        Before desoldering anything, take note of which wire goes where. A photo is quite handy for this; tiny wires and solder terminals are not the sort of thing I particularly want to trust to memory. Then heat the existing solder joints to release the old cable's wires.
+
+    h2.py-def-2 A marker with questionable directions
+    p.
+        This is where I noticed something odd. There was a Sharpie-style marker on the plastic around the driver, but it was on the opposite side compared to all the reference images I'd found online. It also didn't correspond to the ground wire in my pair. Huh. Could that have had something to do with why they didn't work?
+    div.flexcon
+        +pf_img({name:"The wiring I found in my pair", source:"/images/blog_posts/headphone_repair/flipped_wiring.jpeg", width:"1/2", aspect_ratio:"auto", blog:true})
+        div(class="w-full md:w-1/2 md:pl-def-2")
+            +pf_img({name:"Reference wiring from Head-Fi", source:"/images/blog_posts/headphone_repair/usual_wiring.jpg", width:"full", aspect_ratio:"auto", blog:true})
+            p
+                |Reference photo from 
+                +a_new_tab("https://www.head-fi.org/") Head-Fi →.
+    p.
+        Maybe! It certainly made me look twice before soldering the replacement in. I changed the connections rather than simply recreating the old layout, but the marker alone isn't proof of what caused the silence. The important part was getting the new cable connected correctly, rather than assuming a little colored mark would tell the whole story.
+
+    h2.py-def-2 A little solder, a little glue
+    p.
+        With the old cable disconnected, I fitted the replacement and soldered its wires onto the terminals. There was one more little difference between the cables, though: the replacement didn't have the rubber inlet that stops a tug on the outgoing cable from pulling on the internal components.
+    p.
+        To keep those pulls away from the delicate wiring, I secured the new cable at the cup entry with hot glue. It's a bit of strain relief: giving the cable something to pull against instead of asking the solder joints to do all the mechanical work as well. Quite an important detail for headphones that are going to be used for DJing, rather than sitting perfectly still on a shelf.
+    +pf_img({name:"Hot glue securing the replacement cable at the cup entry", source:"/images/blog_posts/headphone_repair/glue.jpg", width:"full", aspect_ratio:"4/3", blog:true})
+    p.
+        Before putting everything back together, I plugged them in and tested both sides. Success! We had sound in the left ear, sound in the right ear, and a pair of headphones that suddenly seemed a lot less suited for the bin. Testing at this point also meant I wouldn't have to take everything apart again if something still wasn't right.
+
+    h2.py-def-2 Putting a ring on it
+    p.
+        With the test passed, I put the driver and speaker cover back into place. Then came the earpad. Remember how I said taking it off was the easy part? Getting that edge back around the cup is quite fiddly, especially when the bit you just got into place decides to pop off while you're working on the next one.
+    div.flexcon
+        +pf_img({name:"A small shim helps work the earpad back around the cup", source:"/images/blog_posts/headphone_repair/pads_tool.jpg", width:"1/2", aspect_ratio:"auto", blog:true})
+        div(class="w-full md:w-1/2 md:pl-def-2")
+            p.
+                My tip: use a small shim to guide the pad's edge over the rim, then slowly work your way around the cup. Keep the part you've already fitted in place while moving along. A little patience and a handy-dandy flat tool worked much better than trying to convince the whole thing to go on at once.
+            p.
+                And that was it! A pair I was told to throw away became the studio headphones I now use for DJing, with a replacement cable, a little soldering and some hot glue. Not a particularly grand repair, but a very satisfying one.
+    p.
+        I hope you enjoyed this little detour into electronics, and maybe even picked up a tip or two for a repair of your own. Have fun and keep on doing what you love!
+    p
+        |Cheers,
+        br
+        |Jérôme

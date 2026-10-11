@@ -1,0 +1,154 @@
+hidden: false
+name: Droste to Impress
+subtitle: A magic mirror to the past
+year: '2025'
+description: |-
+  A place in the ancestry gallery, without having to sit still for a painter? For an exhibition about Annette von Droste-Hülshoff, I created a magic mirror that turns visitors into Biedermeier-inspired painted portraits. A custom Snapchat filter runs inside an iPad app I built in Swift, combining painterly style transfer with generated bodies and Gaussian-splat accessories. With budget and timeline constraints shaping the workflow, I brought together Lens Studio's generative tools, a little Python-based model cleanup and a distance-aware invitation to come closer. The result is a playful way to become part of the gallery, complete with a randomized wardrobe. Droste to impress, quite literally.
+tools: 'Lens Studio, Swift, Python, Various AI models'
+# Temporary cover until the dedicated portfolio cover is ready.
+cover_img: /images/projects/droste-to-impress/cover.png
+media:
+  - title: The magic mirror in action
+    src: /images/projects/droste-to-impress/demo.mp4
+    aspect_ratio: auto
+    width: 1/3
+    has_sound: false
+  - text:  
+    type: spacer
+    width: 1/15
+  - multi: true
+    width: 3/5
+    media:
+      - text: Mirror, mirror, on the wall
+        type: header
+        width: full
+      - text: |-
+          Looking at an ancestry gallery usually means looking at other people. For this exhibition, the idea was to turn that around: let visitors see themselves as a painted portrait from the era of Annette von Droste-Hülshoff, becoming part of the gallery rather than just standing in front of it. A little trip into the Biedermeier period, with considerably less waiting around for the paint to dry.
+
+          The interaction should feel like a magic mirror. You stand in front of it, recognize yourself, and discover what you might look like with a different outfit, a few accessories and a painterly finish. Keeping that recognizable connection to the person in front of the camera was just as important as the transformation itself.
+        type: text
+        width: full
+      - text: A Snap decision
+        type: subheader
+        width: full
+      - text: |-
+          Rather than building the whole face-filter system from scratch, I decided to use Snapchat's technology. They've spent the past decade and a half getting rather good at making things follow people's faces, so borrowing that foundation felt like a sensible decision. More time for the portrait, less time reinventing face tracking.
+
+          I developed the filter in Lens Studio and built a custom iPad app in Swift to host it. That brings the familiar technology into an exhibition setting: the visitor interacts with the mirror, while the app and filter take care of what's happening behind it.
+        type: text
+        width: full
+  - text:  
+    type: spacer
+    width: full
+  - multi: true
+    width: 2/5
+    media:
+      - text: A well-dressed point cloud
+        type: header
+        width: full
+      - text: |-
+          The budget and schedule didn't leave room to model an entire historical wardrobe by hand. Instead, I put together an AI-assisted asset workflow using Lens Studio's generators. I found accessories I wanted to include in the portraits, then generated them as Gaussian splats: 3D representations made from lots of small, soft, overlapping splats rather than the usual polygon surfaces.
+
+          The previews here show some of that dressing-up kit on a neutral head: hairstyles, hats, collars and jewelry. Seeing each piece in isolation made it easier to judge what it brought to the portrait before combining it with the rest. There is quite a difference between a subtle necklace and a hat that decides to become the main character.
+
+          These accessories become part of the filter's mix-and-match wardrobe, giving the same visitor room to look rather different from one combination to the next.
+        type: text
+        width: full
+  - text:  
+    type: spacer
+    width: 1/10
+  - title: Generated accessory previews
+    subtitle: Hairstyles, headwear, collars and jewelry
+    src:
+      - /images/projects/droste-to-impress/1.png
+      - /images/projects/droste-to-impress/2.png
+      - /images/projects/droste-to-impress/3.png
+      - /images/projects/droste-to-impress/4.png
+      - /images/projects/droste-to-impress/5.png
+      - /images/projects/droste-to-impress/6.png
+      - /images/projects/droste-to-impress/7.png
+      - /images/projects/droste-to-impress/8.png
+      - /images/projects/droste-to-impress/9.png
+    aspect_ratio: auto
+    width: 1/2
+    carousel_interval: 2500
+  - text:  
+    type: spacer
+    width: full
+  - text: A fresh coat of paint
+    type: header
+    width: full
+  - text: |-
+      Accessories alone would make this more of a digital dressing room than a painted portrait. To bring everything into the same visual world, I also created a painterly style transfer with Lens Studio's generative tools. It gives the camera image that painted appearance, tying the person and the transformed scene together instead of leaving a very photographic face surrounded by historical clothing.
+
+      The comparisons below alternate between the original images and the filtered versions. What I like about them is how much the overall impression changes while the person remains recognizable. A different wardrobe and a different visual style, but still very much the face that came to the mirror.
+    type: text
+    width: 3/4
+  - title: Style-transfer test 01
+    subtitle: Original / filtered
+    src:
+      - /images/projects/droste-to-impress/style_01a.png
+      - /images/projects/droste-to-impress/style_01b.png
+    aspect_ratio: auto
+    width: 1/3
+    carousel_interval: 3000
+  - title: Style-transfer test 02
+    subtitle: Original / filtered
+    src:
+      - /images/projects/droste-to-impress/style_02a.png
+      - /images/projects/droste-to-impress/style_02b.png
+    aspect_ratio: auto
+    width: 1/3
+    carousel_interval: 3000
+  - title: Style-transfer test 03
+    subtitle: Original / filtered
+    src:
+      - /images/projects/droste-to-impress/style_03a.png
+      - /images/projects/droste-to-impress/style_03b.png
+    aspect_ratio: auto
+    width: 1/3
+    carousel_interval: 3000
+  - text:  
+    type: spacer
+    width: full
+  - multi: true
+    width: 3/5
+    media:
+      - text: A little tailoring
+        type: header
+        width: full
+      - text: |-
+          I generated several body styles as well, although those didn't look quite how I wanted at first. Generating an asset quickly is handy; being able to adjust the result is just as important. In this case, the adjustment meant removing some vertices from the models.
+
+          Snapchat uses a custom 3D model format for these assets, so I quickly wrote a Python script to make those edits. A small bit of code to clean up the generated bodies and get them into a more useful shape for the filter. Apparently, even an AI-assisted wardrobe can need a little tailoring.
+        type: text
+        width: full
+      - text: Come a little closer
+        type: subheader
+        width: full
+      - text: |-
+          A beautiful filter only gets you so far if people don't know they're supposed to interact with it. I added a distance estimator and a call to action that invites visitors to approach the mirror: <i>Come closer to become part of the Ancestry Gallery.</i>
+
+          It's a small but important part of making the experience work in an exhibition. From farther away, the mirror gives you a reason to come over; up close, the portrait gives you something to play with. I randomize between styles, bodies and accessories, so the transformation has a little surprise built into it rather than giving everyone the same outfit.
+        type: text
+        width: full
+  - text:  
+    type: spacer
+    width: 1/15
+  - title: Distance-aware call to action
+    src: /images/projects/droste-to-impress/far_cta.mp4
+    aspect_ratio: auto
+    width: 1/3
+    has_sound: false
+  - text:  
+    type: spacer
+    width: full
+  - text: A family resemblance
+    type: header
+    width: full
+  - text: |-
+      This was a fun project to bring together: using an established face-filter system, creating an AI-assisted art workflow, writing a little model-processing code and giving it all a home in a custom app. The constraints shaped how I worked, but the goal stayed fairly simple: make visitors curious enough to step closer, and give them a portrait worth spending a moment with.
+
+      A little technical art, a little interaction design and quite a few hats. All to help someone find their place in the ancestry gallery - at least until the next outfit comes along.
+    type: text
+    width: 3/4

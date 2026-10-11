@@ -21,7 +21,7 @@ block content
             if (!media.hidden)
                 //- TODO: Implement better handling of multimedia
                 if (media.multi)
-                    +pf_div({width:media.width})
+                    +pf_div({width:media.width, classes:"project-copy"})
                         each submedia in media.media 
                             if (submedia.text)
                                 +pf_text({text:submedia.text, type:submedia.type, ref:submedia.ref, width:submedia.width, text_classes:submedia.text_classes, padding:" "})

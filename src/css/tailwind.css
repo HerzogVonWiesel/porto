@@ -221,10 +221,14 @@
         @apply p-def-2 my-def-2 border-accent border-4;
     }
 
+    .project-copy > .pf-text + .pf-heading {
+        margin-block-start: 1.5rem;
+    }
+
     .blog-article {
         @apply mx-auto w-full text-base md:text-blog;
-        /* Keep about 70 characters of prose, plus the existing horizontal padding. */
-        max-width: calc(70ch + 3rem);
+        /* Keep about 78 characters of prose, plus the existing horizontal padding. */
+        max-width: calc(78ch + 3rem);
         line-height: 1.7;
         overflow-wrap: anywhere;
     }
@@ -250,8 +254,75 @@
         line-height: 1.3;
     }
 
+    .blog-prose {
+        --blog-flow-space: 1.5rem;
+        --blog-media-space: 2.25rem;
+        --blog-section-space: 3rem;
+        --blog-heading-space: 0.75rem;
+    }
+
+    .blog-article .blog-prose > * {
+        margin-block: 0;
+    }
+
+    .blog-article .blog-prose > * + *,
+    .blog-prose :where(.note, .flexcon > :not(.pf-media)) > * + *,
     .blog-prose p + p {
-        margin-top: 1em;
+        margin-block-start: var(--blog-flow-space);
+    }
+
+    .blog-prose .pf-media {
+        padding-block: 0;
+    }
+
+    .blog-prose > :is(.pf-media, .flexcon) {
+        margin-block: var(--blog-media-space);
+    }
+
+    .blog-prose > :is(.pf-media, .flexcon) + * {
+        margin-block-start: var(--blog-media-space);
+    }
+
+    .blog-prose .flexcon {
+        row-gap: var(--blog-flow-space);
+    }
+
+    .blog-prose .flexcon > * {
+        margin-block: 0;
+    }
+
+    .blog-prose .pf-caption {
+        margin-top: 0.25rem;
+        font-size: 0.85em;
+    }
+
+    /* Use margins for heading rhythm instead of legacy per-post padding. */
+    .blog-article .blog-prose :is(h1, h2, h3, h4, h5, h6) {
+        margin-block: var(--blog-section-space) 0;
+        padding-block: 0;
+    }
+
+    .blog-article .blog-prose :is(h1, h2, h3, h4, h5, h6) + * {
+        margin-block-start: var(--blog-heading-space);
+    }
+
+    .blog-prose li + li,
+    .blog-prose li > :is(ul, ol) {
+        margin-block-start: 0.5rem;
+    }
+
+    /* Older posts use standalone breaks and empty divs as spacers. */
+    .blog-prose > :is(br, p:empty, div:empty) {
+        display: none;
+    }
+
+    .blog-article .blog-prose > :first-child,
+    .blog-article .blog-prose :where(.note, .flexcon > :not(.pf-media)) > :first-child {
+        margin-block-start: 0;
+    }
+
+    .blog-prose > :last-child {
+        margin-block-end: 0;
     }
 
     .blog-prose pre {

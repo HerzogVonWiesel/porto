@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="18 22.1126 409 409">
+  <defs>
+    <linearGradient id="lensstudio-square" x1="95" y1="100" x2="360" y2="373" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#808080"/>
+      <stop offset=".53" stop-color="#808080"/>
+      <stop offset="1" stop-color="#666666"/>
+    </linearGradient>
+    <linearGradient id="lensstudio-vertical" x1="139" y1="215" x2="316" y2="218" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#484848"/>
+      <stop offset=".48" stop-color="#434343"/>
+      <stop offset="1" stop-color="#696969"/>
+    </linearGradient>
+    <linearGradient id="lensstudio-vertical-top" x1="227" y1="81" x2="309" y2="43" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#505050"/>
+      <stop offset="1" stop-color="#353535"/>
+    </linearGradient>
+    <linearGradient id="lensstudio-vertical-upper" x1="141" y1="130" x2="225" y2="209" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5e5e5e"/>
+      <stop offset=".55" stop-color="#5c5c5c"/>
+      <stop offset="1" stop-color="#585858"/>
+    </linearGradient>
+    <radialGradient id="lensstudio-upper-reflection" cx="225" cy="143" r="92" gradientUnits="userSpaceOnUse" gradientTransform="translate(225 143) rotate(-18) scale(.72 1) translate(-225 -143)">
+      <stop stop-color="#2d2d2d" stop-opacity=".27"/>
+      <stop offset=".45" stop-color="#414141" stop-opacity=".23"/>
+      <stop offset="1" stop-color="#7c7c7c" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="lensstudio-vertical-lower" x1="139" y1="333" x2="226" y2="328" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#313131"/>
+      <stop offset=".45" stop-color="#282828"/>
+      <stop offset="1" stop-color="#000000"/>
+    </linearGradient>
+    <linearGradient id="lensstudio-left-wing" x1="20" y1="255" x2="140" y2="250" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#626262"/>
+      <stop offset="1" stop-color="#313131"/>
+    </linearGradient>
+    <linearGradient id="lensstudio-right-wing" x1="361" y1="204" x2="426" y2="190" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3d3d3d"/>
+      <stop offset="1" stop-color="#2a2a2a"/>
+    </linearGradient>
+    <linearGradient id="lensstudio-horizontal" x1="165" y1="217" x2="280" y2="282" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4a4a4a"/>
+      <stop offset=".52" stop-color="#595959"/>
+      <stop offset="1" stop-color="#6e6e6e"/>
+    </linearGradient>
+    <linearGradient id="lensstudio-lower-right" x1="233" y1="278" x2="351" y2="374" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#303030"/>
+      <stop offset=".58" stop-color="#535353"/>
+      <stop offset="1" stop-color="#696969"/>
+    </linearGradient>
+    <clipPath id="lensstudio-front-clip">
+      <path d="M103 73 L347 87 Q368 88 368 109 L368 360 Q368 385 347 383 L102 365 Q84 364 84 345 L84 94 Q84 72 103 73 Z"/>
+    </clipPath>
+  </defs>
+  <g>
+    <path d="M225 80 L299 43 Q316 35 316 51 L316 86 Z" fill="url(#lensstudio-vertical-top)"/>
+    <path d="M366 182 L414 184 Q427 184 427 193 Q427 199 420 203 L366 237 Z" fill="url(#lensstudio-right-wing)"/>
+  </g>
+  <g>
+    <path d="M103 73 L347 87 Q368 88 368 109 L368 360 Q368 385 347 383 L102 365 Q84 364 84 345 L84 94 Q84 72 103 73 Z" fill="url(#lensstudio-square)"/>
+    <path d="M225 227 L368 235 L368 360 Q368 385 347 383 L225 374 Z" fill="url(#lensstudio-lower-right)"/>
+  </g>
+  <g>
+    <path d="M225 80 L157 116 Q139 126 139 145 L139 396 Q139 421 161 409 L225 374 Z" fill="url(#lensstudio-vertical)"/>
+    <path d="M225 80 L157 116 Q139 126 139 145 L139 275 L225 227 Z" fill="url(#lensstudio-vertical-upper)"/>
+    <g clip-path="url(#lensstudio-front-clip)">
+      <path d="M225 80 L368 87 L368 235 L225 227 Z" fill="#7c7c7c"/>
+      <path d="M225 80 L368 87 L368 235 L225 227 Z" fill="url(#lensstudio-upper-reflection)"/>
+    </g>
+    <path d="M139 275 L225 281 L225 374 L161 409 Q139 421 139 396 Z" fill="url(#lensstudio-vertical-lower)"/>
+  </g>
+  <g>
+    <path d="M84 218 L139 223 L139 275 L28 267 Q18 266 18 258 Q18 252 25 248 Z" fill="url(#lensstudio-left-wing)"/>
+    <path d="M84 218 L225 226 L368 234 L295 279 Q282 287 265 284 L139 276 L84 272 Z" fill="url(#lensstudio-horizontal)"/>
+    <path d="M84 218 L139 223 L139 276 L84 272 Z" fill="#373737" opacity=".37"/>
+    <path d="M139 276 L225 226 L225 281 Z" fill="#5d5d5d" opacity=".48"/>
+  </g>
+</svg>
